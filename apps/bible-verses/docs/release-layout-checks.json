@@ -1,0 +1,535 @@
+{
+  "checked_on": "2026-10-02T20:22:01.546719+00:00",
+  "source_hash": "e5cc7564b25f169270915b6980669860b5b6d95d62fabc5134b5b7b0f3dfa262",
+  "framework": "3.4.0",
+  "environments": [
+    {
+      "browser": "153.0.8010.12",
+      "platform": "darwin",
+      "arch": "arm64",
+      "deviceScaleFactor": 1,
+      "id": "09905812bfa67ac4"
+    }
+  ],
+  "suites": {
+    "responsive": {
+      "generated_at": null,
+      "coverage": {
+        "suite": "responsive",
+        "total": 144,
+        "selected": 144,
+        "captured": 144,
+        "remaining": 0,
+        "selection": {
+          "limit": null,
+          "shard": [
+            1,
+            1
+          ]
+        }
+      },
+      "layout_checks_passed": 144,
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "changed": 0,
+        "unreviewed": 144
+      },
+      "warnings": [],
+      "issues": [],
+      "visual_baselines_complete": false,
+      "report": "../dist/review/responsive/index.html",
+      "samples": [
+        {
+          "id": "en-sample-shortest-qr-true",
+          "language": "en",
+          "name": "Shortest passage",
+          "themes": "All themes",
+          "reference": "1 Corinthians 16:14",
+          "sample": {
+            "kind": "shortest",
+            "characters": 36,
+            "words": 9,
+            "rank": 1,
+            "poolSize": 324
+          },
+          "qr": true,
+          "captured": 24,
+          "total": 24,
+          "contactSheet": "contact-sheets/en-sample-shortest-qr-true.png"
+        },
+        {
+          "id": "es-sample-median-qr-true",
+          "language": "es",
+          "name": "Median passage",
+          "themes": "All themes",
+          "reference": "Salmos 145:18–19",
+          "sample": {
+            "kind": "median",
+            "characters": 172,
+            "words": 34,
+            "rank": 163,
+            "poolSize": 324
+          },
+          "qr": true,
+          "captured": 24,
+          "total": 24,
+          "contactSheet": "contact-sheets/es-sample-median-qr-true.png"
+        },
+        {
+          "id": "fr-sample-longest-qr-true",
+          "language": "fr",
+          "name": "Longest passage",
+          "themes": "All themes",
+          "reference": "Hébreux 4:14–16",
+          "sample": {
+            "kind": "longest",
+            "characters": 473,
+            "words": 77,
+            "rank": 324,
+            "poolSize": 324
+          },
+          "qr": true,
+          "captured": 24,
+          "total": 24,
+          "contactSheet": "contact-sheets/fr-sample-longest-qr-true.png"
+        },
+        {
+          "id": "en-sample-shortest-qr-false",
+          "language": "en",
+          "name": "Shortest passage",
+          "themes": "All themes",
+          "reference": "1 Corinthians 16:14",
+          "sample": {
+            "kind": "shortest",
+            "characters": 36,
+            "words": 9,
+            "rank": 1,
+            "poolSize": 324
+          },
+          "qr": false,
+          "captured": 24,
+          "total": 24,
+          "contactSheet": "contact-sheets/en-sample-shortest-qr-false.png"
+        },
+        {
+          "id": "es-sample-median-qr-false",
+          "language": "es",
+          "name": "Median passage",
+          "themes": "All themes",
+          "reference": "Salmos 145:18–19",
+          "sample": {
+            "kind": "median",
+            "characters": 172,
+            "words": 34,
+            "rank": 163,
+            "poolSize": 324
+          },
+          "qr": false,
+          "captured": 24,
+          "total": 24,
+          "contactSheet": "contact-sheets/es-sample-median-qr-false.png"
+        },
+        {
+          "id": "fr-sample-longest-qr-false",
+          "language": "fr",
+          "name": "Longest passage",
+          "themes": "All themes",
+          "reference": "Hébreux 4:14–16",
+          "sample": {
+            "kind": "longest",
+            "characters": 473,
+            "words": 77,
+            "rank": 324,
+            "poolSize": 324
+          },
+          "qr": false,
+          "captured": 24,
+          "total": 24,
+          "contactSheet": "contact-sheets/fr-sample-longest-qr-false.png"
+        }
+      ],
+      "typography": {
+        "legend": "fitted font px, % of layout height filled by Scripture, bar = reference moved to the title bar, ! = warning",
+        "columns": [
+          "en-sample-shortest-qr-true",
+          "es-sample-median-qr-true",
+          "fr-sample-longest-qr-true",
+          "en-sample-shortest-qr-false",
+          "es-sample-median-qr-false",
+          "fr-sample-longest-qr-false"
+        ],
+        "rows": [
+          {
+            "screen": "og-landscape-full",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 34%",
+              "es-sample-median-qr-true": "40px 58%",
+              "fr-sample-longest-qr-true": "24px 64% bar",
+              "en-sample-shortest-qr-false": "58px 34%",
+              "es-sample-median-qr-false": "50px 88%",
+              "fr-sample-longest-qr-false": "30px 88%"
+            }
+          },
+          {
+            "screen": "og-landscape-half_horizontal",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 81%",
+              "es-sample-median-qr-true": "28px 79%",
+              "fr-sample-longest-qr-true": "20px 97% bar",
+              "en-sample-shortest-qr-false": "58px 81%",
+              "es-sample-median-qr-false": "28px 79%",
+              "fr-sample-longest-qr-false": "20px 97% bar"
+            }
+          },
+          {
+            "screen": "og-landscape-half_vertical",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 51%",
+              "es-sample-median-qr-true": "30px 62%",
+              "fr-sample-longest-qr-true": "18px 70% bar",
+              "en-sample-shortest-qr-false": "58px 51%",
+              "es-sample-median-qr-false": "30px 62%",
+              "fr-sample-longest-qr-false": "18px 70% bar"
+            }
+          },
+          {
+            "screen": "og-landscape-quadrant",
+            "cells": {
+              "en-sample-shortest-qr-true": "38px 80%",
+              "es-sample-median-qr-true": "20px 83% bar",
+              "fr-sample-longest-qr-true": "12px 81% bar",
+              "en-sample-shortest-qr-false": "38px 53%",
+              "es-sample-median-qr-false": "22px 90% bar",
+              "fr-sample-longest-qr-false": "14px 98% bar"
+            }
+          },
+          {
+            "screen": "og-portrait-full",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 19%",
+              "es-sample-median-qr-true": "46px 75%",
+              "fr-sample-longest-qr-true": "28px 79% bar",
+              "en-sample-shortest-qr-false": "58px 19%",
+              "es-sample-median-qr-false": "50px 90%",
+              "fr-sample-longest-qr-false": "30px 89%"
+            }
+          },
+          {
+            "screen": "og-portrait-half_horizontal",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 63%",
+              "es-sample-median-qr-true": "30px 65%",
+              "fr-sample-longest-qr-true": "18px 66% bar",
+              "en-sample-shortest-qr-false": "58px 63%",
+              "es-sample-median-qr-false": "30px 65%",
+              "fr-sample-longest-qr-false": "18px 66% bar"
+            }
+          },
+          {
+            "screen": "og-portrait-half_vertical",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 48%",
+              "es-sample-median-qr-true": "32px 75%",
+              "fr-sample-longest-qr-true": "18px 69% bar",
+              "en-sample-shortest-qr-false": "58px 48%",
+              "es-sample-median-qr-false": "32px 75%",
+              "fr-sample-longest-qr-false": "18px 69% bar"
+            }
+          },
+          {
+            "screen": "og-portrait-quadrant",
+            "cells": {
+              "en-sample-shortest-qr-true": "40px 58%",
+              "es-sample-median-qr-true": "20px 72% bar",
+              "fr-sample-longest-qr-true": "12px 71% bar",
+              "en-sample-shortest-qr-false": "50px 90%",
+              "es-sample-median-qr-false": "22px 86% bar",
+              "fr-sample-longest-qr-false": "12px 71% bar"
+            }
+          },
+          {
+            "screen": "ogv2-landscape-full",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 34%",
+              "es-sample-median-qr-true": "40px 58%",
+              "fr-sample-longest-qr-true": "24px 64% bar",
+              "en-sample-shortest-qr-false": "58px 34%",
+              "es-sample-median-qr-false": "50px 88%",
+              "fr-sample-longest-qr-false": "30px 88%"
+            }
+          },
+          {
+            "screen": "ogv2-landscape-half_horizontal",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 81%",
+              "es-sample-median-qr-true": "28px 79%",
+              "fr-sample-longest-qr-true": "20px 97% bar",
+              "en-sample-shortest-qr-false": "58px 81%",
+              "es-sample-median-qr-false": "28px 79%",
+              "fr-sample-longest-qr-false": "20px 97% bar"
+            }
+          },
+          {
+            "screen": "ogv2-landscape-half_vertical",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 51%",
+              "es-sample-median-qr-true": "30px 62%",
+              "fr-sample-longest-qr-true": "18px 70% bar",
+              "en-sample-shortest-qr-false": "58px 51%",
+              "es-sample-median-qr-false": "30px 62%",
+              "fr-sample-longest-qr-false": "18px 70% bar"
+            }
+          },
+          {
+            "screen": "ogv2-landscape-quadrant",
+            "cells": {
+              "en-sample-shortest-qr-true": "38px 80%",
+              "es-sample-median-qr-true": "20px 83% bar",
+              "fr-sample-longest-qr-true": "12px 81% bar",
+              "en-sample-shortest-qr-false": "38px 53%",
+              "es-sample-median-qr-false": "22px 90% bar",
+              "fr-sample-longest-qr-false": "14px 98% bar"
+            }
+          },
+          {
+            "screen": "ogv2-portrait-full",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 19%",
+              "es-sample-median-qr-true": "46px 75%",
+              "fr-sample-longest-qr-true": "28px 79% bar",
+              "en-sample-shortest-qr-false": "58px 19%",
+              "es-sample-median-qr-false": "50px 90%",
+              "fr-sample-longest-qr-false": "30px 89%"
+            }
+          },
+          {
+            "screen": "ogv2-portrait-half_horizontal",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 63%",
+              "es-sample-median-qr-true": "30px 65%",
+              "fr-sample-longest-qr-true": "18px 66% bar",
+              "en-sample-shortest-qr-false": "58px 63%",
+              "es-sample-median-qr-false": "30px 65%",
+              "fr-sample-longest-qr-false": "18px 66% bar"
+            }
+          },
+          {
+            "screen": "ogv2-portrait-half_vertical",
+            "cells": {
+              "en-sample-shortest-qr-true": "58px 48%",
+              "es-sample-median-qr-true": "32px 75%",
+              "fr-sample-longest-qr-true": "18px 69% bar",
+              "en-sample-shortest-qr-false": "58px 48%",
+              "es-sample-median-qr-false": "32px 75%",
+              "fr-sample-longest-qr-false": "18px 69% bar"
+            }
+          },
+          {
+            "screen": "ogv2-portrait-quadrant",
+            "cells": {
+              "en-sample-shortest-qr-true": "40px 58%",
+              "es-sample-median-qr-true": "20px 72% bar",
+              "fr-sample-longest-qr-true": "12px 71% bar",
+              "en-sample-shortest-qr-false": "50px 90%",
+              "es-sample-median-qr-false": "22px 86% bar",
+              "fr-sample-longest-qr-false": "12px 71% bar"
+            }
+          },
+          {
+            "screen": "v2-landscape-full",
+            "cells": {
+              "en-sample-shortest-qr-true": "96px 30%",
+              "es-sample-median-qr-true": "64px 73%",
+              "fr-sample-longest-qr-true": "38px 70%",
+              "en-sample-shortest-qr-false": "96px 30%",
+              "es-sample-median-qr-false": "74px 84%",
+              "fr-sample-longest-qr-false": "46px 91%"
+            }
+          },
+          {
+            "screen": "v2-landscape-half_horizontal",
+            "cells": {
+              "en-sample-shortest-qr-true": "96px 67%",
+              "es-sample-median-qr-true": "46px 67%",
+              "fr-sample-longest-qr-true": "34px 99% bar",
+              "en-sample-shortest-qr-false": "96px 67%",
+              "es-sample-median-qr-false": "46px 67%",
+              "fr-sample-longest-qr-false": "34px 99% bar"
+            }
+          },
+          {
+            "screen": "v2-landscape-half_vertical",
+            "cells": {
+              "en-sample-shortest-qr-true": "96px 61%",
+              "es-sample-median-qr-true": "46px 61%",
+              "fr-sample-longest-qr-true": "30px 74% bar",
+              "en-sample-shortest-qr-false": "96px 61%",
+              "es-sample-median-qr-false": "46px 61%",
+              "fr-sample-longest-qr-false": "30px 74% bar"
+            }
+          },
+          {
+            "screen": "v2-landscape-quadrant",
+            "cells": {
+              "en-sample-shortest-qr-true": "80px 85%",
+              "es-sample-median-qr-true": "38px 98% bar",
+              "fr-sample-longest-qr-true": "22px 97% bar",
+              "en-sample-shortest-qr-false": "80px 85%",
+              "es-sample-median-qr-false": "38px 98% bar",
+              "fr-sample-longest-qr-false": "22px 97% bar"
+            }
+          },
+          {
+            "screen": "v2-portrait-full",
+            "cells": {
+              "en-sample-shortest-qr-true": "96px 33%",
+              "es-sample-median-qr-true": "68px 80%",
+              "fr-sample-longest-qr-true": "42px 76%",
+              "en-sample-shortest-qr-false": "96px 22%",
+              "es-sample-median-qr-false": "78px 92%",
+              "fr-sample-longest-qr-false": "44px 84%"
+            }
+          },
+          {
+            "screen": "v2-portrait-half_horizontal",
+            "cells": {
+              "en-sample-shortest-qr-true": "96px 48%",
+              "es-sample-median-qr-true": "46px 60%",
+              "fr-sample-longest-qr-true": "28px 66% bar",
+              "en-sample-shortest-qr-false": "96px 48%",
+              "es-sample-median-qr-false": "46px 60%",
+              "fr-sample-longest-qr-false": "28px 66% bar"
+            }
+          },
+          {
+            "screen": "v2-portrait-half_vertical",
+            "cells": {
+              "en-sample-shortest-qr-true": "96px 56%",
+              "es-sample-median-qr-true": "52px 81%",
+              "fr-sample-longest-qr-true": "30px 76% bar",
+              "en-sample-shortest-qr-false": "96px 56%",
+              "es-sample-median-qr-false": "52px 81%",
+              "fr-sample-longest-qr-false": "30px 76% bar"
+            }
+          },
+          {
+            "screen": "v2-portrait-quadrant",
+            "cells": {
+              "en-sample-shortest-qr-true": "72px 72%",
+              "es-sample-median-qr-true": "36px 83% bar",
+              "fr-sample-longest-qr-true": "20px 79% bar",
+              "en-sample-shortest-qr-false": "72px 72%",
+              "es-sample-median-qr-false": "38px 99% bar",
+              "fr-sample-longest-qr-false": "22px 98% bar"
+            }
+          }
+        ]
+      }
+    },
+    "curated": {
+      "generated_at": "2026-10-02T19:43:25.850Z",
+      "coverage": {
+        "suite": "curated",
+        "total": 1224,
+        "selected": 1224,
+        "captured": 1224,
+        "remaining": 0,
+        "selection": {
+          "limit": null,
+          "shard": [
+            1,
+            1
+          ]
+        }
+      },
+      "layout_checks_passed": 1224,
+      "counts": {
+        "passed": 0,
+        "failed": 0,
+        "changed": 0,
+        "unreviewed": 1224
+      },
+      "warnings": [],
+      "issues": [],
+      "visual_baselines_complete": false,
+      "report": "../dist/review/curated/index.html",
+      "source_hash": "2db5deb7cbc9169e49fadbbb0d8d0c8e48e407cc2fcd9cef3a2dc134643c230f",
+      "scope_note": "Earlier curation captures precede form-option and dithering-class corrections; Scripture and transform remain identical. Current responsive review verifies the revised markup."
+    }
+  },
+  "visual_inspection": {
+    "responsive_contact_sheets": [
+      "en-sample-shortest-qr-true",
+      "es-sample-median-qr-true",
+      "fr-sample-longest-qr-true",
+      "en-sample-shortest-qr-false",
+      "es-sample-median-qr-false",
+      "fr-sample-longest-qr-false"
+    ],
+    "curated_contact_sheets": [
+      "en-longest",
+      "es-longest",
+      "fr-longest-gratitude"
+    ],
+    "screens_per_contact_sheet": 24,
+    "native_screenshots": [
+      "listing-full.png",
+      "themes-full.png",
+      "themes-half_horizontal.png",
+      "themes-half_vertical.png",
+      "themes-quadrant.png",
+      "full-long-fr.png",
+      "full-long-fr-portrait.png"
+    ],
+    "additional_native_render": "responsive/fr-sample-longest-qr-true--og-landscape-quadrant.png",
+    "icon_files": [
+      "../assets/icon.png",
+      "../assets/icon-128.png"
+    ],
+    "findings": "Complete text and references remain visible; no clipping or cross/QR overlap observed. The longest French OG quadrant fits at 12px with QR on. Icons are crisp and consistent with the hero cross.",
+    "pixel_baselines_recorded": false,
+    "account_and_physical_device_checked": false,
+    "account_checked": true,
+    "physical_device_checked": false
+  },
+  "verification": {
+    "pnpm check": "passed",
+    "pnpm test": {
+      "passed": 36,
+      "failed": 0
+    },
+    "pnpm build": "passed",
+    "pnpm screenshots": {
+      "passed": 15,
+      "failed": 0
+    }
+  },
+  "artifacts": {
+    "zip": "../dist/daily-bread.zip",
+    "zip_sha256": "c1d650f030a3f58127eafbb7fcb53ed361436360b1e6cb9956d68d0ebec171c5",
+    "icon": "../assets/icon.png",
+    "preview": "screenshots/listing-full.png"
+  },
+  "account_verification": {
+    "all_four_live_previews": "complete text, reference, cross and QR visible",
+    "form_controls": "Live French and Spanish, Family + Work selection, hourly rotation and QR off verified; defaults restored to English/all themes/daily/QR on.",
+    "runtime": "default JavaScript (empty serverless_language)",
+    "icon": "512px PNG saved successfully"
+  },
+  "submission": {
+    "date": "2026-10-02",
+    "visibility": "public",
+    "status": "submitted for human review",
+    "confirmation": "Submitted! We’ll be in touch soon.",
+    "marketplace_images": "OG and TRMNL X generated",
+    "automated_review": "Advisory layout/style/dithering hints acknowledged; AI Chef flagged inline styles and dithering as critical; human review pending.",
+    "follow_up": "Added image-dither to all content images, refreshed documentation screenshots and reran 36 tests and 144 responsive checks; title-bar icons retain the documented exemption.",
+    "fresh_preflight": {
+      "checked_on": "2026-10-02T20:29:56.435694+00:00",
+      "static_hints": "All five hints persist on a fresh publication preflight.",
+      "account_readback": "Every content image has dithering; title-bar icons use the documented exemption; all four display views have layout/title bars; no inline style attributes.",
+      "checker_limit": "No file locations provided. Shared has no standalone layout/title bar, and data-plugin-style matches a naive style= search; these are explanations inferred from source, not confirmed checker internals."
+    }
+  }
+}

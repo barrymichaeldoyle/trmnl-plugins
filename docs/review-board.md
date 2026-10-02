@@ -32,8 +32,8 @@ errors, a native render, the screenshot, and any baseline/difference image.
 Length sampling sorts the 324 complete passages by Unicode character count, with
 a stable reference ID tie-break. The middle example is the upper middle passage
 (rank 163); it is reproducible across runs. Samples are recomputed from current
-content. The current examples are Psalm 119:105 (English, 56 characters),
-Ephesians 5:15–17 (English, 188), and Psaumes 13:2–6 (French, 610).
+content. The current examples are 1 Corinthians 16:14 (English, 36 characters),
+Salmos 145:18–19 (Spanish, 172), and Hébreux 4:14–16 (French, 473).
 
 Choose **Curated regression suite** for broader coverage: 51 cases and 1,224
 captures, including each language's median and longest, defaults, shortest

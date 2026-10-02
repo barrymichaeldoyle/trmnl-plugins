@@ -1,6 +1,6 @@
 # Daily Bread publication copy
 
-Prepared 2 October 2026. The name, short description, public `recipe_overview`, categories and credits are in `src/settings.yml` and will be included in the import ZIP. Confirm the imported public Overview during account/device review; the copy below is also ready to paste into the publication form if needed.
+Prepared 2 October 2026. The name, short description, public `recipe_overview`, categories and credits are in `src/settings.yml` and will be included in the import ZIP. The imported public Overview, icon and OG/X marketplace images were verified in the existing TRMNL account, and the recipe was submitted for public human review on 2 October 2026. Public availability awaits approval.
 
 ## Name and short description
 
@@ -93,6 +93,8 @@ Use “daily Bible verses,” “TRMNL Bible plugin,” “Scripture,” the lan
 
 ## Preview image and attribution
 
+**Listing icon:** [icon.png](../assets/icon.png) is a 512×512 PNG with the recipe's dimensional cross centered on white. A [128×128 PNG](../assets/icon-128.png) and [SVG source](../assets/icon.svg) are also included. Use the PNG when the TRMNL submission form asks for an icon. It matches the cross in the display and the embedded icon in all four title bars. The listing icon is a separate submission asset; the import ZIP contains the embedded display icon, not the standalone PNG files.
+
 Use the existing dimensional cross and a representative complete passage in the full-screen preview. The listing image is `docs/screenshots/listing-full.png`: Matthew 11:28–30 in English on a TRMNL OG full screen (800×480) with the chapter QR code. It shows the complete invitation and its context rather than a single clipped line.
 
 All documentation images are declared in `docs/screenshots.json`. After a layout change, run `pnpm screenshots` to re-render them through the review pipeline; an image is only written when its render passes the layout checks.
@@ -105,6 +107,16 @@ The About field credits all three translations and links to their publishers. `l
 
 ## Why the Overview is separate
 
-TRMNL's [recipe best practices](https://help.trmnl.com/en/articles/11395668-recipe-best-practices) distinguish the public Overview from the About/credits field and currently specify at least 100 words in the Overview for search-engine visibility. The Overview above exceeds that threshold. A short description or lengthy `author_bio` alone does not satisfy that guidance. The pinned official `trmnl_preview` 0.14.1 linter explicitly reads `settings['recipe_overview']` and checks that threshold; it also limits the short description to 35 characters. The English Overview is bundled in that supported field and still needs its import verified on TRMNL.
+TRMNL's [recipe best practices](https://help.trmnl.com/en/articles/11395668-recipe-best-practices) distinguish the public Overview from the About/credits field and currently specify at least 100 words in the Overview for search-engine visibility. The Overview above exceeds that threshold. A short description or lengthy `author_bio` alone does not satisfy that guidance. The pinned official `trmnl_preview` 0.14.1 linter explicitly reads `settings['recipe_overview']` and checks that threshold; it also limits the short description to 35 characters. The English Overview is bundled in that supported field and its import has been verified on TRMNL.
 
 The [custom form documentation](https://help.trmnl.com/en/articles/10513740-custom-plugin-form-builder) supports two categories, source/help links and localized custom-field descriptions. Google's [snippet guidance](https://developers.google.com/search/docs/appearance/snippet) recommends informative descriptions; titles and snippets can still be chosen differently by Google. This copy improves clarity and relevance without promising rankings or conversion rates.
+
+## Submission record
+
+On 2 October 2026, the account confirmed “Submitted! We’ll be in touch soon.” The uploaded plugin uses the default JavaScript transform runtime, English, all themes, daily rotation and QR on. Live checks also verified French and Spanish, Family + Work filtering, hourly rotation and QR off. Select options use actual YAML label/value mappings so the form submits the identifiers expected by the transform. The About field links to the source repository for contact.
+
+The automated checker produced advisory hints about image dithering, layout/title-bar detection, inline styles and the scoped style block. AI Chef then marked two items critical (inline styles and dithering), while explicitly allowing submission for human review. The cited inline-style examples do not occur in the source. All four views have framework layout and title-bar classes; the Shared view defines preparation logic. The only authored CSS is the approved two-rule Scripture/cross wrap, and cross/ornament/QR artwork is monochrome SVG. The hints were reviewed and acknowledged; the human reviewer will decide whether further changes are required.
+
+After the automated hints were raised again, the content cross, ornament and QR images received `image-dither`, in accordance with TRMNL’s image guidance. Title-bar icons retain the documented exemption. The change passed all 36 tests and 144 responsive browser checks; all six contact sheets were visually inspected, documentation screenshots were refreshed, and the existing account plugin was updated. Layout/title-bar and inline-style warnings do not match the exported views; the intentional two-rule wrap style remains for human review.
+
+A fresh publication preflight after the dithering update still showed all five static hints. Account file readback confirmed dithering on every content image, framework layout/title bars in every display view, and no inline style attributes. The title-bar icons retain the documented dithering exemption. Shared intentionally has no standalone layout/title bar. Its `data-plugin-style` marker matches a simple `style=` substring search, but is not an inline style attribute. These facts explain plausible checker matches; TRMNL does not expose per-warning file locations, so the exact checker implementation is unconfirmed. The wrap style warning remains intentional.

@@ -47,6 +47,6 @@ The interleaved collection alternates among selected themes, with no repeated pa
 
 Previous single-theme values remain supported: peace → Worry & rest; hope/strength → Hard times & loss; trust/prayer → Faith & prayer; wisdom → Decisions & direction; love → Relationships; gratitude → Joy & gratitude.
 
-The [browser review](theme-layout-checks.json) records complete text and passage/reference bounds across 168 cases, including the new longest passage with QR display enabled and disabled.
+The [release browser review](release-layout-checks.json) records complete text and passage/reference bounds across 144 responsive and 1,224 curated captures, including the longest passages with QR display enabled and disabled. Its visual inspection record distinguishes reviewed images from missing pixel-comparison baselines.
 
 The local preview uses a collapsed checkbox picker to make multiple selections easier. This is a simulation of the same filtering behavior; the TRMNL account form uses the platform's own multi-select UI.

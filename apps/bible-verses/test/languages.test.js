@@ -6,6 +6,22 @@ import { loadPlugin, renderView, views, escapeHtml } from '../../../packages/plu
 
 const plugin = await loadPlugin(fileURLToPath(new URL('..', import.meta.url)));
 
+test('TRMNL select controls submit the language, theme and rotation identifiers', () => {
+  const fields = plugin.settings.custom_fields;
+  for (const keyname of ['language', 'theme', 'rotation']) {
+    const field = fields.find(field => field.keyname === keyname);
+    const values = field.options.map(option => {
+      assert.equal(typeof option, 'object', `${keyname} options must be YAML label/value mappings`);
+      assert.equal(Object.keys(option).length, 1);
+      return Object.values(option)[0];
+    });
+    if (field.default) assert.ok(values.includes(field.default), `${keyname} default must be selectable`);
+    if (keyname === 'language') assert.deepEqual(values, ['en', 'fr', 'es']);
+    if (keyname === 'theme') assert.deepEqual(values, plugin.data.themes.map(theme => theme.id));
+    if (keyname === 'rotation') assert.deepEqual(values, ['daily', 'twelve_hours', 'six_hours', 'hourly']);
+  }
+});
+
 test('each language covers the same curated cycle with localized references and independent provenance', () => {
   assert.equal(plugin.defaults.language, 'en');
   assert.deepEqual(Object.keys(plugin.data.translations).sort(), ['es', 'fr']);
@@ -49,16 +65,13 @@ test('French Psalm numbering follows the source while preserving the equivalent 
   const comfort = french.find(v => v.id === 'psa-34-17-18');
   assert.equal(comfort.reference, 'Psaumes 34:18–19');
   assert.ok(comfort.text.startsWith('Quand les justes crient'));
-  const lament = french.find(v => v.id === 'psa-13-1-6');
-  assert.equal(lament.reference, 'Psaumes 13:2–6');
-  assert.ok(lament.source.endsWith('PSA013.htm#V2'));
-  assert.ok(lament.text.startsWith('Jusques à quand, Éternel!'));
-  assert.ok(lament.text.endsWith('Je chante à l’Éternel, car il m’a fait du bien.'));
-  assert.ok(!lament.text.includes('Au chef des chantres'));
-  const spanish = plugin.data.translations.es.verses.find(v => v.id === lament.id);
-  assert.equal(spanish.reference, 'Salmos 13:1–6');
-  assert.ok(spanish.text.startsWith('Al Músico principal: Salmo de David.'));
-  assert.ok(spanish.text.endsWith('Cantaré á Jehová, porque me ha hecho bien.'));
+  const burden = french.find(v => v.id === 'psa-55-22');
+  assert.equal(burden.reference, 'Psaumes 55:23');
+  assert.ok(burden.source.endsWith('PSA055.htm#V23'));
+  assert.ok(burden.text.startsWith('Remets ton sort à l’Éternel'));
+  const spanish = plugin.data.translations.es.verses.find(v => v.id === burden.id);
+  assert.equal(spanish.reference, 'Salmos 55:22');
+  assert.ok(spanish.text.startsWith('Echa sobre Jehová tu carga'));
 });
 
 test('language changes preserve theme and local rotation, and unknown languages use English', async () => {

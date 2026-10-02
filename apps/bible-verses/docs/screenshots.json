@@ -5,13 +5,13 @@
   { "file": "half_vertical.png", "passage": "mat-11-28-30", "language": "en", "screen": "og-landscape-half_vertical", "qr": true },
   { "file": "quadrant.png", "passage": "mat-11-28-30", "language": "en", "screen": "og-landscape-quadrant", "qr": true },
   { "file": "full-typical.png", "passage": "eph-5-15-17", "language": "en", "screen": "og-landscape-full", "qr": true },
-  { "file": "full-long-fr.png", "passage": "psa-13-1-6", "language": "fr", "screen": "og-landscape-full", "qr": true },
-  { "file": "full-long-fr-portrait.png", "passage": "psa-13-1-6", "language": "fr", "screen": "og-portrait-full", "qr": true },
+  { "file": "full-long-fr.png", "passage": "heb-4-14-16", "language": "fr", "screen": "og-landscape-full", "qr": true },
+  { "file": "full-long-fr-portrait.png", "passage": "heb-4-14-16", "language": "fr", "screen": "og-portrait-full", "qr": true },
   { "file": "full-x.png", "passage": "mat-11-28-30", "language": "en", "screen": "v2-landscape-full", "qr": true },
   { "file": "full-x-portrait.png", "passage": "mat-11-28-30", "language": "en", "screen": "v2-portrait-full", "qr": true },
   { "file": "half-horizontal-x-fr.png", "passage": "mat-11-28-30", "language": "fr", "screen": "v2-landscape-half_horizontal", "qr": true },
-  { "file": "themes-full.png", "passage": "1th-4-9-12", "language": "en", "screen": "og-landscape-full", "qr": true },
-  { "file": "themes-half_horizontal.png", "passage": "1th-4-9-12", "language": "en", "screen": "og-landscape-half_horizontal", "qr": true },
-  { "file": "themes-half_vertical.png", "passage": "1th-4-9-12", "language": "en", "screen": "og-landscape-half_vertical", "qr": true },
-  { "file": "themes-quadrant.png", "passage": "1th-4-9-12", "language": "en", "screen": "og-landscape-quadrant", "qr": true }
+  { "file": "themes-full.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-full", "qr": true },
+  { "file": "themes-half_horizontal.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-half_horizontal", "qr": true },
+  { "file": "themes-half_vertical.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-half_vertical", "qr": true },
+  { "file": "themes-quadrant.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-quadrant", "qr": true }
 ]
