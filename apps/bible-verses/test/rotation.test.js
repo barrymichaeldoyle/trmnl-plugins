@@ -34,6 +34,7 @@ test('the transform changes the image marker only at each local rotation boundar
       const transformed = timestamp => runTransform(plugin, contextFor(plugin, { timestamp, utcOffset, fields: { rotation } }));
       const before = transformed(boundary - 1);
       const after = transformed(boundary);
+      assert.equal(after.interval_seconds, seconds);
       assert.equal(after.rotation_slot, before.rotation_slot + 1);
       assert.equal(after.rotation_slot, transformed(boundary + seconds - 1).rotation_slot);
       assert.deepEqual(JSON.parse(JSON.stringify(after.reading_pool)), plugin.data.verses);

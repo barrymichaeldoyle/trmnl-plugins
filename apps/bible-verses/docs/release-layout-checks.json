@@ -1,6 +1,6 @@
 {
-  "checked_on": "2026-10-02T20:22:01.546719+00:00",
-  "source_hash": "e5cc7564b25f169270915b6980669860b5b6d95d62fabc5134b5b7b0f3dfa262",
+  "checked_on": "2026-10-02T20:50:30.004976+00:00",
+  "source_hash": "ff2439b67de6308d879956480f7c9d33bda3e87cba26ef7b680c0bc489eb9e57",
   "framework": "3.4.0",
   "environments": [
     {
@@ -13,7 +13,7 @@
   ],
   "suites": {
     "responsive": {
-      "generated_at": null,
+      "generated_at": "2026-10-02T20:45:42.100Z",
       "coverage": {
         "suite": "responsive",
         "total": 144,
@@ -425,10 +425,11 @@
             }
           }
         ]
-      }
+      },
+      "source_hash": "ff2439b67de6308d879956480f7c9d33bda3e87cba26ef7b680c0bc489eb9e57"
     },
     "curated": {
-      "generated_at": "2026-10-02T19:43:25.850Z",
+      "generated_at": "2026-10-02T20:49:27.637Z",
       "coverage": {
         "suite": "curated",
         "total": 1224,
@@ -454,8 +455,8 @@
       "issues": [],
       "visual_baselines_complete": false,
       "report": "../dist/review/curated/index.html",
-      "source_hash": "2db5deb7cbc9169e49fadbbb0d8d0c8e48e407cc2fcd9cef3a2dc134643c230f",
-      "scope_note": "Earlier curation captures precede form-option and dithering-class corrections; Scripture and transform remain identical. Current responsive review verifies the revised markup."
+      "source_hash": "ff2439b67de6308d879956480f7c9d33bda3e87cba26ef7b680c0bc489eb9e57",
+      "scope_note": "All curated captures use the current reviewed source, including localized recovery."
     }
   },
   "visual_inspection": {
@@ -468,9 +469,9 @@
       "fr-sample-longest-qr-false"
     ],
     "curated_contact_sheets": [
-      "en-longest",
-      "es-longest",
-      "fr-longest-gratitude"
+      "en-recovery",
+      "fr-recovery",
+      "es-recovery"
     ],
     "screens_per_contact_sheet": 24,
     "native_screenshots": [
@@ -487,7 +488,7 @@
       "../assets/icon.png",
       "../assets/icon-128.png"
     ],
-    "findings": "Complete text and references remain visible; no clipping or cross/QR overlap observed. The longest French OG quadrant fits at 12px with QR on. Icons are crisp and consistent with the hero cross.",
+    "findings": "All six responsive sheets and all three localized recovery sheets inspected. Complete Scripture, references, cross and QR remain unclipped; empty collections show recovery without stale Scripture or QR. Longest French OG quadrant remains 12px with QR on. Four live account previews are healthy.",
     "pixel_baselines_recorded": false,
     "account_and_physical_device_checked": false,
     "account_checked": true,
@@ -496,7 +497,7 @@
   "verification": {
     "pnpm check": "passed",
     "pnpm test": {
-      "passed": 36,
+      "passed": 38,
       "failed": 0
     },
     "pnpm build": "passed",
@@ -507,7 +508,7 @@
   },
   "artifacts": {
     "zip": "../dist/daily-bread.zip",
-    "zip_sha256": "c1d650f030a3f58127eafbb7fcb53ed361436360b1e6cb9956d68d0ebec171c5",
+    "zip_sha256": "5ea47553d43b05fc265b0f3c89b8470431f836e163188030e8f0265828d3a87b",
     "icon": "../assets/icon.png",
     "preview": "screenshots/listing-full.png"
   },
@@ -530,6 +531,13 @@
       "static_hints": "All five hints persist on a fresh publication preflight.",
       "account_readback": "Every content image has dithering; title-bar icons use the documented exemption; all four display views have layout/title bars; no inline style attributes.",
       "checker_limit": "No file locations provided. Shared has no standalone layout/title bar, and data-plugin-style matches a naive style= search; these are explanations inferred from source, not confirmed checker internals."
+    },
+    "chef_follow_up": {
+      "fixed": "Guard missing selected translations, attribution and malformed theme/verse entries; reset verse/theme/QR values before selecting; centralize interval_seconds in the transform.",
+      "title_bar": "Already a sibling after layout in all four views; no nesting change needed.",
+      "localized_descriptions": "Supported by https://help.trmnl.com/en/articles/10513740-custom-plugin-form-builder; retained.",
+      "custom_css": "Existing comment and allowed_style_blocks document the two-rule text wrap around the pinned cross.",
+      "verification": "38 tests, 144 responsive checks, 1224 curated checks and four live account previews passed."
     }
   }
 }

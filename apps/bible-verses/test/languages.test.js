@@ -115,6 +115,65 @@ test('a missing selected collection shows recovery text without silently display
   assert.ok(!html.includes('data-verse-id='));
 });
 
+test('missing and corrupted collections recover in every view without stale Scripture or QR values', async () => {
+  const corruptions = [
+    collection => { delete collection.verses; },
+    collection => { collection.verses = []; },
+    collection => { collection.verses = {}; },
+    collection => { collection.verses = [null, {}, { ...collection.verses[0], text: '' }]; },
+    collection => { delete collection.themes; },
+    collection => { collection.themes = []; },
+    collection => { collection.themes = [null, {}]; },
+    collection => { delete collection.translation; },
+    collection => { collection.translation = {}; },
+    collection => { collection.translation.language = 'wrong'; },
+  ];
+  for (const language of ['en', 'fr', 'es']) {
+    for (const corrupt of corruptions) {
+      const data = structuredClone(plugin.data);
+      const collection = language === 'en' ? data : data.translations[language];
+      corrupt(collection);
+      // Merge variables may contain values from an earlier render.
+      data.verse = plugin.data.verses[0];
+      data.context_qr = 'stale-context-qr';
+      for (const view of views) {
+        const html = await renderView(plugin, view, { data, fields: { language } });
+        assert.match(html, /[Rr]eimport|Réimportez|Vuelve a importar/);
+        assert.ok(!html.includes('data-verse-id='), `${language} ${view} must recover`);
+        assert.ok(!html.includes('data-context-url='));
+        assert.ok(!html.includes('stale-context-qr'));
+      }
+    }
+    if (language !== 'en') {
+      for (const value of [undefined, null, {}]) {
+        const data = structuredClone(plugin.data);
+        data.translations[language] = value;
+        for (const view of views) {
+          const html = await renderView(plugin, view, { data, fields: { language } });
+          assert.match(html, /[Rr]eimport|Réimportez|Vuelve a importar/);
+          assert.ok(!html.includes('data-verse-id='));
+        }
+      }
+    }
+  }
+});
+
+test('invalid array entries do not prevent complete, correctly attributed passages from rendering', async () => {
+  for (const language of ['en', 'fr', 'es']) {
+    const data = structuredClone(plugin.data);
+    const collection = language === 'en' ? data : data.translations[language];
+    const verse = collection.verses[0];
+    collection.verses = [null, {}, { ...verse, source: '' }, verse];
+    collection.themes = [null, {}, ...collection.themes];
+    for (const view of views) {
+      const html = await renderView(plugin, view, { data, fields: { language } });
+      assert.ok(html.includes(escapeHtml(verse.text)));
+      assert.ok(html.includes(collection.translation.abbreviation));
+      assert.ok(html.includes(`lang="${language}"`));
+    }
+  }
+});
+
 
 test('fresh and blank preferences use English, all themes, daily rotation and QR on in every layout', async () => {
   assert.deepEqual(plugin.defaults, { language: 'en', rotation: 'daily', show_context_qr: true });
