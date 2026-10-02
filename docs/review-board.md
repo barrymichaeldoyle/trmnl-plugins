@@ -178,3 +178,11 @@ The shared tooling's current review adapter expects the Daily Bread Scripture
 schema and `reading_pool` transform contract. Other plugins can reuse the server,
 capture pool, reporting, and device geometry after adding their own scenario and
 assertion adapter.
+
+## Documentation and listing images
+
+`apps/bible-verses/docs/screenshots.json` declares each README and listing image
+by file, passage, language, screen and QR state. Run `pnpm screenshots` after a
+layout change. It renders through the review pipeline at native size, selects
+each passage through normal rotation, and refuses to write an image whose render
+fails the layout checks.

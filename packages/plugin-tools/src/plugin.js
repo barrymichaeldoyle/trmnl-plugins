@@ -112,11 +112,32 @@ export async function checkPlugin(plugin) {
   return true;
 }
 
+// TRMNL rejects settings.yml and transform.js files over about 100 KB. With
+// bundle_data_in_transform, translations that do not fit in static data are
+// bundled in the transform as SCRIPTURE.translations, which it merges back.
+export const settingsLimit = 100 * 1000;
+const packingBudget = 90 * 1000;
+
 export function exportFiles(plugin) {
-  const settings = { ...plugin.settings, static_data: JSON.stringify(plugin.data) };
+  const { translations = {}, ...primary } = plugin.data;
+  const staticTranslations = {};
+  const bundled = {};
+  const settingsFor = data => YAML.stringify({ ...plugin.settings, static_data: JSON.stringify(data) });
+  for (const [language, collection] of Object.entries(translations)) {
+    const candidate = { ...primary, translations: { ...staticTranslations, [language]: collection } };
+    if (!plugin.config.bundle_data_in_transform || Buffer.byteLength(settingsFor(candidate)) <= packingBudget) staticTranslations[language] = collection;
+    else bundled[language] = collection;
+  }
+  const staticData = Object.keys(translations).length ? { ...primary, translations: staticTranslations } : primary;
+  const transform = plugin.transform && Object.keys(bundled).length ? `const SCRIPTURE = ${JSON.stringify({ translations: bundled })};\n${plugin.transform}` : plugin.transform;
   // Inline shared code into each view: compatible with TRMNL's flat ZIP format,
   // including importers that do not understand a separate shared.liquid file.
-  return { 'settings.yml': YAML.stringify(settings), ...Object.fromEntries(views.map(view => [`${view}.liquid`, plugin.templates[view]])), ...(plugin.transform ? { 'transform.js': plugin.transform } : {}) };
+  const files = { 'settings.yml': settingsFor(staticData), ...Object.fromEntries(views.map(view => [`${view}.liquid`, plugin.templates[view]])), ...(transform ? { 'transform.js': transform } : {}) };
+  for (const name of ['settings.yml', 'transform.js']) {
+    const size = files[name] ? Buffer.byteLength(files[name]) : 0;
+    if (size > settingsLimit) throw new Error(`${name} is ${Math.round(size / 1000)} KB; TRMNL rejects files over ${settingsLimit / 1000} KB.${name === 'settings.yml' ? ' Set bundle_data_in_transform in plugin.config.json.' : ''}`);
+  }
+  return files;
 }
 
 export async function buildPlugin(plugin) {

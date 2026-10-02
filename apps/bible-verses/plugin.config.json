@@ -2,6 +2,7 @@
   "data": "content/verses.json",
   "translations": { "fr": "content/verses.fr.json", "es": "content/verses.es.json" },
   "slug": "daily-bread",
+  "bundle_data_in_transform": true,
   "preview": {
     "utc_offset": 7200
   },

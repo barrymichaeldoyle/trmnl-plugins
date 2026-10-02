@@ -36,7 +36,7 @@ test('the transform changes the image marker only at each local rotation boundar
       const after = transformed(boundary);
       assert.equal(after.rotation_slot, before.rotation_slot + 1);
       assert.equal(after.rotation_slot, transformed(boundary + seconds - 1).rotation_slot);
-      assert.deepEqual(JSON.parse(JSON.stringify(after.verses)), plugin.data.verses);
+      assert.deepEqual(JSON.parse(JSON.stringify(after.reading_pool)), plugin.data.verses);
       assert.equal(after.trmnl, undefined);
     }
   }

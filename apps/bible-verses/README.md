@@ -27,9 +27,11 @@ Passage text dynamically fits the measured reading area using [TRMNL Fit Value](
 4. Choose **Language / Langue / Idioma**, **Themes**, **Change passage** and **Show chapter QR code** in the imported plugin's settings.
 5. Confirm your TRMNL account timezone, add the plugin to your preferred playlist or mashup, and refresh.
 
+To upload from the command line instead, run `pnpm upload` from the monorepo root after `bundle exec trmnlp login`. It creates a new private plugin. To update an existing one, set its ID: `TRMNL_PLUGIN_ID=<id> pnpm upload`. Keep that ID out of the repository.
+
 TRMNL's Developer edition or BYOD license enables private plugins. See [the official prerequisites](https://help.trmnl.com/en/articles/9510536-private-plugins) and [import instructions](https://help.trmnl.com/en/articles/10542599-importing-and-exporting-private-plugins).
 
-The build exports a flat ZIP with `settings.yml`, four `.liquid` files, and `transform.js`. It embeds the JSON collection in `static_data` and prepends `shared.liquid` to each view. Import the generated ZIP; the source `src/settings.yml` is a development input and does not contain the bundled data by itself. In the markup editor, confirm the imported JavaScript appears in the default **Transform** tab; if your importer omits it, copy `src/transform.js` there before relying on automatic rotation. It uses `transform(input)`, not the serverless `run(input)` interface.
+The build exports a flat ZIP with `settings.yml`, four `.liquid` files, and `transform.js`. TRMNL rejects a `settings.yml` or `transform.js` over about 100 KB, so the build keeps English and as many translations as fit in `static_data` (currently French) and bundles the rest in the transform as `SCRIPTURE` (currently Spanish); the transform merges them and returns only the selected language. The build fails before export if either file would exceed the limit. It prepends `shared.liquid` to each view. Import the generated ZIP; the source `src/settings.yml` is a development input and does not contain the bundled data by itself. In the markup editor, confirm the imported JavaScript appears in the default **Transform** tab; if your importer omits it, copy `src/transform.js` there before relying on automatic rotation. It uses `transform(input)`, not the serverless `run(input)` interface.
 
 ## Timing
 

@@ -93,13 +93,15 @@ Use “daily Bible verses,” “TRMNL Bible plugin,” “Scripture,” the lan
 
 ## Preview image and attribution
 
-Use the existing dimensional cross and a representative complete passage in the full-screen preview. A suitable English example is Matthew 11:28–30: it shows the complete invitation and its context rather than a single clipped line. Generate the final listing image from the imported recipe during the account/device polishing pass.
+Use the existing dimensional cross and a representative complete passage in the full-screen preview. The listing image is `docs/screenshots/listing-full.png`: Matthew 11:28–30 in English on a TRMNL OG full screen (800×480) with the chapter QR code. It shows the complete invitation and its context rather than a single clipped line.
+
+All documentation images are declared in `docs/screenshots.json`. After a layout change, run `pnpm screenshots` to re-render them through the review pipeline; an image is only written when its render passes the layout checks.
 
 **Suggested image alt text:** Daily Bread on a TRMNL display, showing Matthew 11:28–30 beside a dimensional cross, with a chapter QR code and passage reference.
 
-Use that text only if the final image shows those elements. Existing documentation screenshots are local previews and may show other passages. Keep typography and Scripture as rendered; add no promotional badges to the display image.
+The current listing image shows those elements. Other documentation screenshots are local previews and show other passages and screens. Keep typography and Scripture as rendered; add no promotional badges to the display image.
 
-The About field credits all three translations and links to their publishers. `learn_more_url` points to eBible.org. Add a source-repository or support link only when its actual public destination is available. The author identity is supplied by the publishing account; no private account identifiers or guessed public contact details belong in the ZIP.
+The About field credits all three translations and links to their publishers. `learn_more_url` points to eBible.org. The source repository is public at <https://github.com/barrymichaeldoyle/trmnl-plugins>; use it as the source link wherever a submission form asks for one. The author identity is supplied by the publishing account; no private account identifiers or guessed public contact details belong in the ZIP.
 
 ## Why the Overview is separate
 

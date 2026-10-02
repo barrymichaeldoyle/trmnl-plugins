@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PNG } from 'pngjs';
 import { loadPlugin, renderView, views } from '../src/plugin.js';
-import { reviewScreens, reviewScenarios, reviewManifest, reviewOptions, reviewCase, passageSamples } from '../src/review.js';
+import { reviewScreens, reviewScenarios, reviewManifest, reviewOptions, reviewCase, passageSamples, passageSchedule } from '../src/review.js';
 import { reviewSummary, contactSheetHtml, formatTypography } from '../src/review-report.js';
 import { reviewFlags, pruneReviewCache } from '../src/review-runner.js';
 import { ReviewCapture, minFontSize } from '../src/review-capture.js';
@@ -84,6 +84,18 @@ test('legibility floors default to 16px and accept per-view plugin overrides', (
   assert.equal(minFontSize(plugin, 'full'), 16);
   assert.equal(minFontSize({ config: { review: { min_font_size: { default: 14 } } } }, 'full'), 14);
   assert.equal(minFontSize({ config: {} }, 'quadrant'), 16);
+});
+
+test('documentation screenshots name real screens and reach each passage through normal rotation', async () => {
+  const entries = JSON.parse(await readFile(join(plugin.root, 'docs/screenshots.json'), 'utf8'));
+  const screens = new Set(reviewScreens().map(screen => screen.id));
+  assert.ok(entries.some(entry => entry.file === 'listing-full.png'));
+  assert.equal(new Set(entries.map(entry => entry.file)).size, entries.length);
+  for (const entry of entries) {
+    assert.ok(screens.has(entry.screen), entry.file);
+    const fields = { ...plugin.defaults, language: entry.language, theme: 'all', rotation: 'daily', show_context_qr: entry.qr };
+    assert.equal(passageSchedule(plugin, fields, entry.passage).expected.id, entry.passage, entry.file);
+  }
 });
 
 test('review cache pruning keeps the current fingerprint and the most recent others', async () => {

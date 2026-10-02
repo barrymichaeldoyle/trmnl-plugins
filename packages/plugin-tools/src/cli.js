@@ -18,12 +18,18 @@ try {
     const { runReview } = await import('./review-runner.js');
     const result = await runReview(await loadPlugin(root), flags);
     if (result.failed) process.exitCode = 1;
+  } else if (command === 'screenshots') {
+    const { writeScreenshots } = await import('./screenshots.js');
+    await writeScreenshots(await loadPlugin(root));
+  } else if (command === 'upload') {
+    const { uploadPlugin } = await import('./upload.js');
+    await uploadPlugin(await loadPlugin(root), process.env.TRMNL_PLUGIN_ID);
   } else if (command === 'build') {
     console.log(`Import into TRMNL: ${await buildPlugin(await loadPlugin(root))}`);
   } else if (command === 'check') {
     await checkPlugin(await loadPlugin(root));
     console.log('Settings and all four Liquid views are valid.');
   } else {
-    throw new Error('Usage: trmnl-tools <dev|review|review-check|build|check> <plugin-directory>');
+    throw new Error('Usage: trmnl-tools <dev|review|review-check|screenshots|upload|build|check> <plugin-directory>');
   }
 } catch (error) { console.error(error.message); process.exitCode = 1; }

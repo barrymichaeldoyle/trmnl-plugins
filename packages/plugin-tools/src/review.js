@@ -35,6 +35,23 @@ export function passageSamples(verses) {
   }));
 }
 
+// Normal rotation selects passages, so a fixed timestamp reaches the target
+// passage through the same transform and Liquid logic as a device render.
+export function passageSchedule(plugin, fields, targetId, data = plugin.data) {
+  const utcOffset = plugin.config.preview?.utc_offset ?? 0;
+  const pool = runTransform(plugin, contextFor(plugin, { fields, timestamp: reviewEpoch, utcOffset, data })).reading_pool;
+  if (!Array.isArray(pool)) throw new Error('The Scripture review adapter requires reading_pool from the transform.');
+  const seconds = intervals[fields.rotation] ?? 86400;
+  let slot = Math.floor((reviewEpoch + utcOffset) / seconds);
+  if (targetId) {
+    const index = pool.findIndex(verse => verse.id === targetId);
+    if (index < 0) throw new Error(`Passage ${targetId} is outside the selected themes.`);
+    slot += (index - slot % pool.length + pool.length) % pool.length;
+  }
+  const timestamp = targetId ? slot * seconds - utcOffset + Math.min(seconds / 2, 3600) : reviewEpoch;
+  return { options: { fields, utcOffset, timestamp }, expected: pool.length ? pool[slot % pool.length] : null };
+}
+
 export function reviewScenarios(plugin, mode = 'curated') {
   if (!['responsive', 'curated', 'passages', 'settings'].includes(mode)) throw new Error('Unknown review suite.');
   const collections = [plugin.data, ...Object.values(plugin.data.translations ?? {})];
@@ -43,20 +60,7 @@ export function reviewScenarios(plugin, mode = 'curated') {
   const seen = new Map();
   const add = (collection, name, key, fields = {}, target, recovery = false, sample) => {
     fields = { ...plugin.defaults, language: collection.translation.language, theme: 'all', rotation: 'daily', show_context_qr: true, ...fields };
-    const utcOffset = plugin.config.preview?.utc_offset ?? 0;
-    const data = recovery ? recoveryData(plugin) : plugin.data;
-    const pool = runTransform(plugin, contextFor(plugin, { fields, timestamp: reviewEpoch, utcOffset, data })).reading_pool;
-    if (!Array.isArray(pool)) throw new Error('The Scripture review adapter requires reading_pool from the transform.');
-    const seconds = intervals[fields.rotation] ?? 86400;
-    let slot = Math.floor((reviewEpoch + utcOffset) / seconds);
-    if (target) {
-      const index = pool.findIndex(verse => verse.id === target.id);
-      if (index < 0) throw new Error(`Review passage ${target.id} is outside the selected themes.`);
-      slot += (index - slot % pool.length + pool.length) % pool.length;
-    }
-    const timestamp = target ? slot * seconds - utcOffset + Math.min(seconds / 2, 3600) : reviewEpoch;
-    const expected = pool.length ? pool[slot % pool.length] : null;
-    const options = { fields, utcOffset, timestamp };
+    const { options, expected } = passageSchedule(plugin, fields, target?.id, recovery ? recoveryData(plugin) : plugin.data);
     const signature = JSON.stringify([options, recovery, sample?.kind]);
     if (seen.has(signature)) { seen.get(signature).coverage.push(name); return; }
     const scenario = {

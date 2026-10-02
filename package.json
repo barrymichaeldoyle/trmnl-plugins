@@ -13,6 +13,8 @@
     "review:responsive": "pnpm --filter @trmnl/bible-verses review:check --responsive",
     "review:exhaustive": "pnpm --filter @trmnl/bible-verses review:check --exhaustive",
     "review:install": "pnpm --filter @trmnl/plugin-tools exec playwright install chromium",
+    "screenshots": "pnpm --filter @trmnl/bible-verses screenshots",
+    "upload": "pnpm --filter @trmnl/bible-verses upload",
     "build": "pnpm --filter @trmnl/bible-verses build",
     "lint": "pnpm --filter @trmnl/bible-verses lint",
     "check": "pnpm lint && pnpm --filter @trmnl/bible-verses check",
