@@ -1,0 +1,470 @@
+{
+  "scope": "Proportional full-screen cross and supported QR sizes; longest passages, local framework previews",
+  "checks": [
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "344.75px",
+        "width": "156px"
+      },
+      "font": "26px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "half horizontal",
+      "complete": true,
+      "cross": null,
+      "font": "18px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "half vertical",
+      "complete": true,
+      "cross": null,
+      "font": "18px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "quadrant",
+      "complete": true,
+      "cross": null,
+      "font": "12px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "280.688px",
+        "width": "115px"
+      },
+      "font": "28px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "half horizontal",
+      "complete": true,
+      "cross": null,
+      "font": "18px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "half vertical",
+      "complete": true,
+      "cross": null,
+      "font": "14px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "quadrant",
+      "complete": true,
+      "cross": null,
+      "font": "8px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL X",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "499.438px",
+        "width": "255px"
+      },
+      "font": "42px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL X",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "half horizontal",
+      "complete": true,
+      "cross": null,
+      "font": "28px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL X",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "half vertical",
+      "complete": true,
+      "cross": null,
+      "font": "30px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL X",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "quadrant",
+      "complete": true,
+      "cross": null,
+      "font": "20px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL X",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "397.875px",
+        "width": "190px"
+      },
+      "font": "44px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL X",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "half horizontal",
+      "complete": true,
+      "cross": null,
+      "font": "30px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL X",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "half vertical",
+      "complete": true,
+      "cross": null,
+      "font": "26px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL X",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "quadrant",
+      "complete": true,
+      "cross": null,
+      "font": "18px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL OG · 2-bit",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "344.75px",
+        "width": "156px"
+      },
+      "font": "28px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL OG · 2-bit",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "280.688px",
+        "width": "115px"
+      },
+      "font": "30px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL X",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "499.438px",
+        "width": "255px"
+      },
+      "font": "44px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL X",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "397.875px",
+        "width": "190px"
+      },
+      "font": "48px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-01T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "243.75px",
+        "width": "156px"
+      },
+      "font": "34px",
+      "noOverlap": true,
+      "reference": "Proverbs 24:3–4",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "243.75px",
+        "width": "156px"
+      },
+      "font": "24px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "fr",
+      "device": "TRMNL OG",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "179.688px",
+        "width": "115px"
+      },
+      "font": "24px",
+      "noOverlap": true,
+      "reference": "Hébreux 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL X",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "398.438px",
+        "width": "255px"
+      },
+      "font": "44px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL X",
+      "orientation": "Portrait",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "296.875px",
+        "width": "190px"
+      },
+      "font": "44px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "243.75px",
+        "width": "156px"
+      },
+      "font": "26px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "half horizontal",
+      "complete": true,
+      "cross": null,
+      "font": "20px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "half vertical",
+      "complete": true,
+      "cross": null,
+      "font": "20px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-18T00:00",
+      "layout": "quadrant",
+      "complete": true,
+      "cross": null,
+      "font": "12px",
+      "noOverlap": true,
+      "reference": "Hebrews 4:14–16",
+      "referenceFits": true,
+      "within": true
+    },
+    {
+      "language": "en",
+      "device": "TRMNL OG",
+      "orientation": "Landscape",
+      "date": "2026-10-01T00:00",
+      "layout": "full",
+      "complete": true,
+      "cross": {
+        "height": "243.75px",
+        "width": "156px"
+      },
+      "font": "44px",
+      "noOverlap": true,
+      "reference": "Proverbs 24:3–4",
+      "referenceFits": true,
+      "within": true
+    }
+  ]
+}

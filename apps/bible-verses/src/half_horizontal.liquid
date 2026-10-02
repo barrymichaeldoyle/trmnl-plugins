@@ -1,0 +1,23 @@
+<div class="layout layout--col layout--top relative" lang="{{ selected_translation.language | escape }}" translate="no" data-theme="{{ theme_label }}">
+  {% if verse %}
+    <div class="flex flex--col flex--between flex--left gap--small w--full h--full">
+      <div class="flex hidden portrait:flex flex--row flex--center-x w--full h--20 lg:h--24 no-shrink">
+        <img class="image image--contain w--auto h--full" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true">
+      </div>
+      <div class="flex flex--col flex--center-y flex--left grow w--full h--0" data-reading-area="true">
+        <p class="value no-shrink value--large lg:value--xxlarge daily-bread-scripture w--min-full" lang="{{ selected_translation.language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ banner_text_height }}" data-verse-id="{{ verse.id | escape }}"><span class="daily-bread-cross {% if context_qr %}w--16{% else %}w--[6cqw] lg:w--[9cqw]{% endif %} portrait:hidden ml--2 h--0" data-cross-wrap="true" aria-hidden="true"></span>{{ verse.text | escape }}</p>
+      </div>
+    </div>
+    <div class="absolute top--0 right--0 flex flex--col flex--center-x gap--small" data-pinned-cross="true">
+      <div class="w--[6cqw] lg:w--[9cqw] portrait:hidden"><img class="image image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
+      {% if context_qr %}{{ context_qr | replace: 'absolute bottom--0 right--0 ', '' | replace: 'w--24 h--24 p--3', 'w--16 h--16 p--1 portrait:w--24 portrait:h--24 portrait:p--3' }}{% endif %}
+    </div>
+  {% else %}
+    <p class="description">{{ missing_text | escape }}</p>
+  {% endif %}
+</div>
+<div class="title_bar" translate="no">
+  <div class="flex flex--left grow w--0">
+    <span class="title" data-value-fit="true" data-footer-reference="true" title="{{ selected_translation.name | escape }} ({{ selected_translation.abbreviation | escape }})">{% if verse %}{{ verse.reference | escape }}{% else %}{{ trmnl.plugin_settings.instance_name | default: 'Daily Bread' | escape }}{% endif %}</span>
+  </div>
+</div>

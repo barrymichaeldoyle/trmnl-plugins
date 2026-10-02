@@ -1,0 +1,26 @@
+<div class="layout layout--col layout--top relative" lang="{{ selected_translation.language | escape }}" translate="no" data-theme="{{ theme_label }}">
+  {% if verse %}
+    <div class="flex flex--col flex--between flex--left w--full h--full gap--small">
+      <div class="flex flex--col flex--center-y flex--left grow w--full h--0" data-reading-area="true">
+        <p class="value no-shrink value--large lg:value--xxlarge daily-bread-scripture w--min-full" lang="{{ selected_translation.language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ full_text_height }}" data-verse-id="{{ verse.id | escape }}"><span class="daily-bread-cross w--[16cqw] portrait:w--[28cqw] lg:w--[23cqw] lg:portrait:w--[28cqw] ml--4 h--0" data-cross-wrap="true" aria-hidden="true"></span>{{ verse.text | escape }}</p>
+      </div>
+      <div class="flex flex--center-x flex--bottom w--full {% if context_qr %}h--2 portrait:h--32{% else %}h--2{% endif %} no-shrink" aria-hidden="true">
+        <img class="image w--24 h--2" src="{{ reading_ornament_uri }}" alt="">
+      </div>
+    </div>
+    <div class="absolute top--0 right--0 flex flex--col flex--center-x gap--small" data-pinned-cross="true">
+      <div class="w--[16cqw] portrait:w--[28cqw] lg:w--[23cqw] lg:portrait:w--[28cqw]"><img class="image image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
+      {% if context_qr %}{{ context_qr | replace: 'absolute bottom--0 right--0 block', 'block portrait:hidden' | replace: 'w--24 h--24', 'w--32 h--32' }}{% endif %}
+    </div>
+    {%- comment -%}Portrait keeps the QR beside the ornament instead of narrowing the opening lines further.{%- endcomment -%}
+    {% if context_qr %}{{ context_qr | replace: 'absolute bottom--0 right--0 block', 'hidden portrait:block absolute bottom--0 right--0' | replace: 'w--24 h--24', 'w--32 h--32' }}{% endif %}
+  {% else %}
+    <span class="title">{{ missing_title | escape }}</span>
+    <p class="description">{{ missing_text | escape }}</p>
+  {% endif %}
+</div>
+<div class="title_bar" translate="no">
+  <div class="flex flex--left grow w--0">
+    <span class="title" data-value-fit="true" data-footer-reference="true" title="{{ selected_translation.name | escape }} ({{ selected_translation.abbreviation | escape }})">{% if verse %}{{ verse.reference | escape }}{% else %}{{ trmnl.plugin_settings.instance_name | default: 'Daily Bread' | escape }}{% endif %}</span>
+  </div>
+</div>

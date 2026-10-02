@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Bread · Review board</title>
+  <link rel="stylesheet" href="/review/styles.css">
+  <script defer src="/review/ui.js"></script>
+</head>
+<body class="readable">
+  <header class="page-header">
+    <div><h1>Review board</h1><p id="plugin-name">Daily Bread · All screens, together</p></div>
+    <nav aria-label="Preview navigation"><a href="/preview">Single preview</a><a id="summary-link" href="/review/summary">Agent summary</a><a id="results-link" href="/review/results">Full JSON</a></nav>
+  </header>
+  <main>
+    <section class="toolbar" aria-label="Review controls">
+      <div class="control"><label for="suite">Coverage</label><select id="suite"><option value="responsive">Shortest / median / longest</option><option value="curated">Curated regression suite</option><option value="passages">Every passage · Exhaustive</option></select></div>
+      <div class="control"><label for="scale">Preview size</label><select id="scale"><option value="readable">Readable</option><option value="large">Large</option><option value="overview">Overview · 24 together</option></select></div>
+      <div class="control search-control"><label for="search">Find a case</label><input id="search" type="search" placeholder="Language, theme, or reference"></div>
+      <button id="reload" type="button">Reload source</button>
+      <button id="run-all" type="button">Check entire suite</button>
+    </section>
+    <div class="review-summary"><p id="scope">Loading cases…</p><p id="progress" role="status" aria-live="polite">No captures yet</p></div>
+    <p class="review-note" id="note">The shortest, a middle-length and the longest passage across the library, in their source languages. Every device, orientation and layout is shown. QR on and off are separate cases. Previews load as you scroll; use Overview for a compact matrix.</p>
+    <nav id="case-index" aria-label="Passage cases"></nav>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div id="empty" hidden>No cases match. Clear the search to show the suite.</div>
+    <section id="board" aria-label="Screen comparison matrices"></section>
+  </main>
+  <footer>Local framework previews · Physical-device review remains separate.</footer>
+</body>
+</html>

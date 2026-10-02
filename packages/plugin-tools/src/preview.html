@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Bread — Bible Verses · Plugin preview</title>
+  <style>
+    :root{font-family:Georgia,serif;color:#22271f;background:#f0f3ef;--accent:#344c35}
+    *{box-sizing:border-box}body{margin:0}::selection{background:#d3dfc7}a{color:var(--accent);text-underline-offset:4px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 36px;border-bottom:1px solid #cdcfc4}
+    h1{font-size:32px;font-weight:normal;letter-spacing:-.02em;margin:0}header p{font:14px/1.5 system-ui,sans-serif;margin:5px 0 0;color:#51584d}
+    header a{font:14px system-ui,sans-serif}main{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:calc(100vh - 106px)}
+    aside{padding:28px 24px;border-right:1px solid #cdcfc4;font:14px/1.5 system-ui,sans-serif}label{display:block;margin:0 0 6px;font-weight:600}
+    select,input,button{font:inherit;width:100%;color:inherit;border:1px solid #aeb6a6;border-radius:4px;background:#fff;padding:9px 10px;min-height:40px;accent-color:var(--accent);caret-color:var(--accent)}
+    select,input{margin-bottom:20px}button{background:var(--accent);color:white;cursor:pointer}button:hover{background:#253b26}button:disabled{background:#747d70;cursor:wait}
+    :focus-visible{outline:3px solid #769068;outline-offset:3px}aside p{color:#51584d;font-size:13px;margin-top:24px}aside h2{font-size:15px;margin-top:32px}
+    .stage{padding:30px 32px;min-width:0}.stage-head{display:flex;justify-content:space-between;gap:20px;margin:0 0 22px;font:13px/1.5 system-ui,sans-serif;color:#51584d}
+    .preview-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px;font:13px system-ui,sans-serif;color:#51584d}.preview-toolbar button{width:auto;min-height:36px;padding:7px 12px;background:white;color:var(--accent)}
+    .canvas{overflow:auto;scrollbar-color:#aeb6a6 #f0f3ef;padding:1px 1px 16px}.screen-frame{position:relative;overflow:hidden}iframe{position:absolute;inset:0;display:block;width:800px;height:480px;border:1px solid #c3c7ba;background:white;box-sizing:content-box;transform-origin:top left}
+    .passage{max-width:800px;border-top:1px solid #cdcfc4;margin-top:26px;padding-top:20px}.passage h2{font:18px Georgia,serif;margin:0 0 9px}.passage p{font:14px/1.7 system-ui,sans-serif;color:#51584d;margin:0}
+    .error{font:14px/1.5 system-ui,sans-serif;color:#922f23}details{font:13px/1.7 system-ui,sans-serif;max-width:800px;margin-top:22px}summary{cursor:pointer}details a{display:inline-block;margin-right:14px}
+    .theme-picker{margin:0 0 20px;font:inherit}.theme-picker summary{padding:9px 10px;border:1px solid #aeb6a6;border-radius:4px;background:white;min-height:40px}
+    .theme-picker fieldset{border:0;margin:12px 0 0;padding:0}.theme-picker legend{font-size:13px;color:#51584d;margin-bottom:6px}
+    .theme-picker label{display:flex;align-items:center;gap:8px;font-weight:normal;margin:0;min-height:36px}.theme-picker input{width:18px;min-height:18px;height:18px;padding:0;margin:0;flex-shrink:0}
+    @media(max-width:760px){header{padding:20px;align-items:flex-start}header a{max-width:100px}main{display:block}aside{border-right:0;border-bottom:1px solid #cdcfc4;display:grid;grid-template-columns:1fr 1fr;gap:0 16px;padding:20px}aside p,aside h2{grid-column:1/-1;margin:12px 0}button{grid-column:1/-1}.stage{padding:22px 20px}.stage-head{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+  <header><div><h1>Daily Bread</h1><p>Daily Bible verses. One passage to carry into your day.</p></div><a href="/review">Review all screens</a><a href="/download">Download TRMNL recipe</a></header>
+  <main>
+    <aside aria-label="Preview settings">
+      <div><label for="language">Language / Langue / Idioma</label><select id="language"></select></div>
+      <div><label id="theme-label">Themes</label><details class="theme-picker"><summary id="theme-summary" aria-labelledby="theme-label theme-summary">All themes</summary><fieldset id="theme"><legend>Choose one or more</legend></fieldset></details></div>
+      <div><label for="rotation">Change passage</label><select id="rotation"></select></div>
+      <div><label for="context-qr">Show chapter QR code</label><select id="context-qr"><option value="true">Show</option><option value="false">Hide</option></select></div>
+      <div><label for="model">Device</label><select id="model"></select></div>
+      <div><label for="orientation">Orientation</label><select id="orientation"><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></div>
+      <div><label for="view">Screen layout</label><select id="view"><option value="full">Full</option><option value="half_horizontal">Half horizontal</option><option value="half_vertical">Half vertical</option><option value="quadrant">Quadrant</option></select></div>
+      <div><label for="time">Preview local time</label><input id="time" type="datetime-local" required></div>
+      <div><label for="offset">UTC offset (hours)</label><input id="offset" type="number" min="-12" max="14" step="0.25" value="2" required></div>
+      <button id="next" type="button">Next interval</button>
+      <p id="summary">Loading the Scripture collection…</p>
+      <p>These controls simulate the recipe locally. Set your preferences in TRMNL after importing it.</p>
+    </aside>
+    <section class="stage" aria-label="Rendered plugin">
+      <div class="stage-head"><span id="current">Loading preview…</span><span id="translation">World English Bible · English</span></div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <div class="preview-toolbar"><span id="preview-scale">Fit to view</span><button id="zoom" type="button">Actual pixels</button></div>
+      <div class="canvas" id="canvas"><div class="screen-frame" id="screen-frame"><iframe id="screen" title="TRMNL Bible verse preview"></iframe></div></div>
+      <div class="passage"><h2 id="reference">A passage for everyday life</h2><p id="text"></p></div>
+      <details><summary>Inspect all four layouts</summary><div id="links"></div></details>
+    </section>
+  </main>
+  <script type="module">
+    const byId = id => document.getElementById(id);
+    const fractions = { full:[1,1], half_horizontal:[1,0.5], half_vertical:[0.5,1], quadrant:[0.5,0.5] };
+    const intervals = { daily:86400, twelve_hours:43200, six_hours:21600, hourly:3600 };
+    let plugin;
+    let actualPixels = false;
+    let screenSize = [800,480];
+    const selectedThemes = () => Array.from(byId('theme').querySelectorAll('input:checked'), input => input.value);
+    function fitPreview() {
+      const [width,height] = screenSize;
+      const availableWidth = Math.max(1,byId('canvas').clientWidth - 2);
+      // Cap height as well so a portrait/high-DPI screen is visible as a whole.
+      const previewTop = Math.max(0,byId('canvas').getBoundingClientRect().top);
+      const availableHeight = Math.max(240, Math.min(640, window.innerHeight - previewTop - 24));
+      const scale = actualPixels ? 1 : Math.min(1, availableWidth / (width + 2), availableHeight / (height + 2));
+      byId('screen').style.transform = `scale(${scale})`;
+      byId('screen-frame').style.width = (width + 2) * scale + 'px';
+      byId('screen-frame').style.height = (height + 2) * scale + 'px';
+      byId('preview-scale').textContent = `${width} × ${height} · ${Math.round(scale * 100)}%${actualPixels ? '' : ' · Fit to view'}`;
+      byId('zoom').textContent = actualPixels ? 'Fit to view' : 'Actual pixels';
+    }
+    function params() {
+      const wall = Date.parse(byId('time').value + ':00Z');
+      const offset = Number(byId('offset').value) * 3600;
+      if (!Number.isFinite(wall) || !byId('offset').checkValidity() || byId('offset').value === '') throw new Error('Enter a valid preview time and UTC offset.');
+      const query = new URLSearchParams({ timestamp: String(wall / 1000 - offset), offset: String(offset), model: byId('model').value, portrait: String(byId('orientation').value === 'portrait'), 'field.language': byId('language').value, 'field.rotation': byId('rotation').value, 'field.show_context_qr': byId('context-qr').value });
+      for (const theme of selectedThemes()) query.append('field.theme', theme);
+      return query;
+    }
+    function update() {
+      try {
+        const query = params();
+        const view = byId('view').value;
+        const device = plugin.devices[byId('model').value];
+        const portrait = byId('orientation').value === 'portrait';
+        const dimensions = portrait ? [device.height,device.width] : [device.width,device.height];
+        const [width,height] = dimensions.map((length,index) => Math.ceil(length * device.ratio * fractions[view][index]));
+        screenSize = [width,height];
+        byId('screen').width = width; byId('screen').height = height;
+        byId('screen').style.width = width+'px'; byId('screen').style.height = height+'px';
+        fitPreview();
+        byId('screen').src = '/render?' + query + '&view=' + view;
+        const chosen = selectedThemes().filter(theme => theme !== 'all');
+        const collection = plugin.data.translations?.[byId('language').value] ?? plugin.data;
+        const pool = chosen.length ? collection.verses.filter(v => chosen.includes(v.theme)) : collection.verses;
+        const slot = Math.floor((Number(query.get('timestamp')) + Number(query.get('offset'))) / intervals[byId('rotation').value]);
+        const verse = pool[((slot % pool.length) + pool.length) % pool.length];
+        byId('reference').replaceChildren();
+        const source = document.createElement('a'); source.href = verse.source; source.target = '_blank'; source.rel = 'noreferrer'; source.textContent = verse.reference;
+        byId('reference').append(source);
+        byId('text').textContent = verse.text;
+        byId('current').textContent = collection.themes.find(t => t.id === verse.theme).name + ' · ' + byId('time').value.replace('T',' ');
+        byId('translation').textContent = collection.translation.name + ' · ' + ({en:'English',fr:'Français',es:'Español'}[collection.translation.language] ?? collection.translation.language);
+        const language = byId('language').value;
+        const allLabel = {en:'All themes',fr:'Tous les thèmes',es:'Todos los temas'}[language] ?? 'All themes';
+        for (const input of byId('theme').querySelectorAll('input')) input.nextElementSibling.textContent = input.value === 'all' ? allLabel : collection.themes.find(t => t.id === input.value)?.name;
+        byId('theme-summary').textContent = chosen.length === 0 || chosen.length === collection.themes.length ? allLabel : chosen.length === 1 ? collection.themes.find(t => t.id === chosen[0]).name : `${chosen.length} ${{en:'themes',fr:'thèmes',es:'temas'}[language] ?? 'themes'}`;
+        byId('theme-label').textContent = {en:'Themes',fr:'Thèmes',es:'Temas'}[language] ?? 'Themes';
+        byId('theme').querySelector('legend').textContent = {en:'Choose one or more',fr:'Choisissez un ou plusieurs thèmes',es:'Elige uno o varios temas'}[language] ?? 'Choose one or more';
+        for (const option of byId('rotation').options) if (collection.labels?.[option.value]) option.textContent = collection.labels[option.value]; else option.textContent = plugin.fields.find(f => f.keyname === 'rotation').options.find(entry => entry.endsWith(': '+option.value)).split(': ')[0];
+        byId('summary').textContent = pool.length + ' curated passages in this rotation. Every passage appears once before the cycle repeats.';
+        byId('links').replaceChildren(...Object.keys(fractions).map(v => { const a = document.createElement('a'); a.href='/render?'+query+'&view='+v; a.textContent=v.replaceAll('_',' '); a.target='_blank'; return a; }));
+        byId('error').hidden = true;
+      } catch (error) { byId('error').textContent = error.message; byId('error').hidden = false; }
+    }
+    try {
+      const response = await fetch('/plugin');
+      if (!response.ok) throw new Error('The plugin could not load. Check your files and reload.');
+      plugin = await response.json();
+      for (const [model,device] of Object.entries(plugin.devices)) byId('model').add(new Option(device.name,model));
+      for (const name of ['language','rotation']) {
+        const field = plugin.fields.find(f => f.keyname === name);
+        for (const entry of field.options) { const [label,value] = entry.split(': '); byId(name).add(new Option(label,value)); }
+        byId(name).value = plugin.defaults[name];
+      }
+      const themeField = plugin.fields.find(field => field.keyname === 'theme');
+      for (const entry of themeField.options) {
+        const [text, value] = entry.split(': ');
+        const label = document.createElement('label');
+        const input = document.createElement('input'); input.type = 'checkbox'; input.value = value; input.checked = value === 'all';
+        const span = document.createElement('span'); span.textContent = text;
+        label.append(input, span); byId('theme').append(label);
+      }
+      byId('theme').addEventListener('change', event => {
+        const inputs = Array.from(byId('theme').querySelectorAll('input'));
+        if (event.target.checked) {
+          if (event.target.value === 'all') inputs.forEach(input => { if (input.value !== 'all') input.checked = false; });
+          else inputs.find(input => input.value === 'all').checked = false;
+        }
+        if (!inputs.some(input => input.checked)) inputs.find(input => input.value === 'all').checked = true;
+        update();
+      });
+      byId('offset').value = plugin.offset / 3600;
+      byId('time').value = new Date(Date.now() + plugin.offset * 1000).toISOString().slice(0,16);
+      for (const name of ['language','rotation','context-qr','model','orientation','view','time','offset']) byId(name).addEventListener('change',update);
+      byId('zoom').addEventListener('click',() => { actualPixels = !actualPixels; fitPreview(); });
+      new ResizeObserver(fitPreview).observe(byId('canvas'));
+      window.addEventListener('resize',fitPreview);
+      byId('next').addEventListener('click', () => { try { const query = params(); const local = Number(query.get('timestamp')) + Number(query.get('offset')); const interval=intervals[byId('rotation').value]; byId('time').value=new Date((Math.floor(local/interval)+1)*interval*1000).toISOString().slice(0,16); update(); } catch(error) { byId('error').textContent=error.message; byId('error').hidden=false; } });
+      update();
+    } catch(error) { byId('current').textContent='Preview unavailable'; byId('error').textContent=error.message; byId('error').hidden=false; }
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "@trmnl/bible-verses",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch ../../packages/plugin-tools/src/cli.js dev .",
+    "review": "node --watch ../../packages/plugin-tools/src/cli.js review .",
+    "review:check": "node ../../packages/plugin-tools/src/cli.js review-check .",
+    "build": "node ../../packages/plugin-tools/src/cli.js build .",
+    "check": "node ../../packages/plugin-tools/src/cli.js check .",
+    "lint": "bundle exec trmnlp lint --dir ."
+  },
+  "devDependencies": { "@trmnl/plugin-tools": "workspace:*" }
+}

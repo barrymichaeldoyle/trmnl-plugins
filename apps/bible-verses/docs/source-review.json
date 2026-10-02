@@ -1,0 +1,42 @@
+{
+  "checked_on": "2026-10-02",
+  "method": "Explicit publisher-archive import after six editorial substitutions and two range extensions; compare all 324 records against numbered source verses, references and chapter URLs. Compare unchanged records with the previous collection.",
+  "languages": {
+    "en": {
+      "translation": "World English Bible",
+      "archive_url": "https://ebible.org/engwebp/engwebp_html.zip",
+      "archive_sha256": "6111813850dd11f6e847ce560541accb27743b694c35f0db154ea1fc60470975",
+      "stored_archive_sha256": "6111813850dd11f6e847ce560541accb27743b694c35f0db154ea1fc60470975",
+      "archive_hash_matches": true,
+      "passages_compared": 108,
+      "all_passage_records_match": true,
+      "differences": [],
+      "revised_passages": 8,
+      "unchanged_passages": 100
+    },
+    "fr": {
+      "translation": "Louis Segond 1910",
+      "archive_url": "https://ebible.org/fraLSG/fraLSG_html.zip",
+      "archive_sha256": "4984d70c9065e672ec4e3a71bcd45a23b3a8606c4a2224abcca200942ce7425c",
+      "stored_archive_sha256": "4984d70c9065e672ec4e3a71bcd45a23b3a8606c4a2224abcca200942ce7425c",
+      "archive_hash_matches": true,
+      "passages_compared": 108,
+      "all_passage_records_match": true,
+      "differences": [],
+      "revised_passages": 8,
+      "unchanged_passages": 100
+    },
+    "es": {
+      "translation": "Reina Valera 1909",
+      "archive_url": "https://ebible.org/spaRV1909/spaRV1909_html.zip",
+      "archive_sha256": "517aef6652cc9b34ddd8b77c49cd1e56ea6af101622bdce182da9f03e3820283",
+      "stored_archive_sha256": "517aef6652cc9b34ddd8b77c49cd1e56ea6af101622bdce182da9f03e3820283",
+      "archive_hash_matches": true,
+      "passages_compared": 108,
+      "all_passage_records_match": true,
+      "differences": [],
+      "revised_passages": 8,
+      "unchanged_passages": 100
+    }
+  }
+}

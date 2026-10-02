@@ -1,0 +1,7 @@
+# Project marker required by the official linter. Use pnpm dev for previews.
+custom_fields:
+  language: en
+  theme: all
+  rotation: daily
+  show_context_qr: true
+transform_runtime: disabled

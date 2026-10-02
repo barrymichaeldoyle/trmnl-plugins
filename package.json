@@ -1,0 +1,22 @@
+{
+  "name": "trmnl-plugins",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.17.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "prepare": "node packages/plugin-tools/scripts/install-hooks.js",
+    "hooks:install": "node packages/plugin-tools/scripts/install-hooks.js",
+    "dev": "pnpm --filter @trmnl/bible-verses dev",
+    "review": "pnpm --filter @trmnl/bible-verses review",
+    "review:check": "pnpm --filter @trmnl/bible-verses review:check",
+    "review:responsive": "pnpm --filter @trmnl/bible-verses review:check --responsive",
+    "review:exhaustive": "pnpm --filter @trmnl/bible-verses review:check --exhaustive",
+    "review:install": "pnpm --filter @trmnl/plugin-tools exec playwright install chromium",
+    "build": "pnpm --filter @trmnl/bible-verses build",
+    "lint": "pnpm --filter @trmnl/bible-verses lint",
+    "check": "pnpm lint && pnpm --filter @trmnl/bible-verses check",
+    "test": "node --test packages/plugin-tools/test/*.test.js apps/bible-verses/test/*.test.js",
+    "verify": "pnpm check && pnpm test && pnpm build"
+  }
+}

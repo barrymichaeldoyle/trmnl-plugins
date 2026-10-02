@@ -1,0 +1,15 @@
+node_modules/
+.bundle/
+vendor/bundle/
+.pnpm-store/
+.cache/
+dist/
+_build/
+.DS_Store
+.env
+.env.*
+!.env.example
+.trmnlp.local.yml
+.impeccable/mocks/
+.impeccable/tmp/
+__pycache__/

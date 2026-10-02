@@ -1,0 +1,37 @@
+name: Check plugins
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm --filter @trmnl/plugin-tools exec playwright install --with-deps chromium
+      - run: pnpm review:responsive
+      - run: pnpm review:check
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: daily-bread-review
+          path: apps/bible-verses/dist/review/
+          if-no-files-found: ignore
+          retention-days: 14

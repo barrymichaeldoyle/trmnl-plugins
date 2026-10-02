@@ -1,0 +1,143 @@
+{
+  "en": {
+    "translation": {
+      "name": "World English Bible",
+      "abbreviation": "WEB",
+      "language": "en",
+      "edition": "Updated, LORD (engwebp)",
+      "license": "Public domain",
+      "source": "https://ebible.org/engwebp/"
+    },
+    "themes": {
+      "family": "Family & home",
+      "relationships": "Relationships",
+      "work": "Work & purpose",
+      "money": "Money & generosity",
+      "decisions": "Decisions & direction",
+      "rest": "Worry & rest",
+      "hardship": "Hard times & loss",
+      "gratitude": "Joy & gratitude",
+      "faith": "Faith & prayer"
+    }
+  },
+  "fr": {
+    "translation": {
+      "name": "Louis Segond 1910",
+      "abbreviation": "LSG1910",
+      "language": "fr",
+      "edition": "1910 (fraLSG)",
+      "license": "Public domain",
+      "source": "https://ebible.org/fraLSG/"
+    },
+    "books": {
+      "JHN": "Jean",
+      "PHP": "Philippiens",
+      "ISA": "Ésaïe",
+      "MAT": "Matthieu",
+      "PSA": "Psaumes",
+      "1PE": "1 Pierre",
+      "COL": "Colossiens",
+      "2TH": "2 Thessaloniciens",
+      "PRO": "Proverbes",
+      "ROM": "Romains",
+      "LAM": "Lamentations",
+      "HEB": "Hébreux",
+      "2CO": "2 Corinthiens",
+      "REV": "Apocalypse",
+      "EPH": "Éphésiens",
+      "2TI": "2 Timothée",
+      "GAL": "Galates",
+      "1CO": "1 Corinthiens",
+      "JAS": "Jacques",
+      "MIC": "Michée",
+      "1JN": "1 Jean",
+      "LUK": "Luc",
+      "1TH": "1 Thessaloniciens",
+      "1CH": "1 Chroniques",
+      "JER": "Jérémie",
+      "RUT": "Ruth",
+      "1TI": "1 Timothée",
+      "ECC": "Ecclésiaste",
+      "DEU": "Deutéronome"
+    },
+    "themes": {
+      "family": "Famille et foyer",
+      "relationships": "Relations",
+      "work": "Travail et vocation",
+      "money": "Argent et générosité",
+      "decisions": "Choix et direction",
+      "rest": "Inquiétude et repos",
+      "hardship": "Épreuves et deuil",
+      "gratitude": "Joie et gratitude",
+      "faith": "Foi et prière"
+    },
+    "labels": {
+      "daily": "Chaque jour",
+      "hourly": "Chaque heure",
+      "six_hours": "Toutes les 6 heures",
+      "twelve_hours": "Toutes les 12 heures",
+      "missing_title": "La collection biblique est manquante",
+      "missing_text": "Réimportez le ZIP Daily Bread pour restaurer les passages bibliques."
+    }
+  },
+  "es": {
+    "translation": {
+      "name": "Reina Valera 1909",
+      "abbreviation": "RV1909",
+      "language": "es",
+      "edition": "1909 (spaRV1909)",
+      "license": "Public domain",
+      "source": "https://ebible.org/spaRV1909/"
+    },
+    "books": {
+      "JHN": "Juan",
+      "PHP": "Filipenses",
+      "ISA": "Isaías",
+      "MAT": "Mateo",
+      "PSA": "Salmos",
+      "1PE": "1 Pedro",
+      "COL": "Colosenses",
+      "2TH": "2 Tesalonicenses",
+      "PRO": "Proverbios",
+      "ROM": "Romanos",
+      "LAM": "Lamentaciones",
+      "HEB": "Hebreos",
+      "2CO": "2 Corintios",
+      "REV": "Apocalipsis",
+      "EPH": "Efesios",
+      "2TI": "2 Timoteo",
+      "GAL": "Gálatas",
+      "1CO": "1 Corintios",
+      "JAS": "Santiago",
+      "MIC": "Miqueas",
+      "1JN": "1 Juan",
+      "LUK": "Lucas",
+      "1TH": "1 Tesalonicenses",
+      "1CH": "1 Crónicas",
+      "JER": "Jeremías",
+      "RUT": "Rut",
+      "1TI": "1 Timoteo",
+      "ECC": "Eclesiastés",
+      "DEU": "Deuteronomio"
+    },
+    "themes": {
+      "family": "Familia y hogar",
+      "relationships": "Relaciones",
+      "work": "Trabajo y propósito",
+      "money": "Dinero y generosidad",
+      "decisions": "Decisiones y dirección",
+      "rest": "Preocupación y descanso",
+      "hardship": "Dificultades y duelo",
+      "gratitude": "Alegría y gratitud",
+      "faith": "Fe y oración"
+    },
+    "labels": {
+      "daily": "Cada día",
+      "hourly": "Cada hora",
+      "six_hours": "Cada 6 horas",
+      "twelve_hours": "Cada 12 horas",
+      "missing_title": "Falta la colección de las Escrituras",
+      "missing_text": "Vuelve a importar el ZIP de Daily Bread para restaurar los pasajes bíblicos."
+    }
+  }
+}

@@ -1,0 +1,818 @@
+{
+  "translation": {
+    "name": "Louis Segond 1910",
+    "abbreviation": "LSG1910",
+    "language": "fr",
+    "edition": "1910 (fraLSG)",
+    "license": "Public domain",
+    "source": "https://ebible.org/fraLSG/"
+  },
+  "provenance": {
+    "imported_on": "2026-10-02",
+    "archive_sha256": "4984d70c9065e672ec4e3a71bcd45a23b3a8606c4a2224abcca200942ce7425c"
+  },
+  "themes": [
+    {
+      "id": "family",
+      "name": "Famille et foyer"
+    },
+    {
+      "id": "relationships",
+      "name": "Relations"
+    },
+    {
+      "id": "work",
+      "name": "Travail et vocation"
+    },
+    {
+      "id": "money",
+      "name": "Argent et générosité"
+    },
+    {
+      "id": "decisions",
+      "name": "Choix et direction"
+    },
+    {
+      "id": "rest",
+      "name": "Inquiétude et repos"
+    },
+    {
+      "id": "hardship",
+      "name": "Épreuves et deuil"
+    },
+    {
+      "id": "gratitude",
+      "name": "Joie et gratitude"
+    },
+    {
+      "id": "faith",
+      "name": "Foi et prière"
+    }
+  ],
+  "verses": [
+    {
+      "id": "pro-1-8-9",
+      "theme": "family",
+      "reference": "Proverbes 1:8–9",
+      "text": "Écoute, mon fils, l’instruction de ton père, Et ne rejette pas l’enseignement de ta mère; Car c’est une couronne de grâce pour ta tête, Et une parure pour ton cou.",
+      "source": "https://ebible.org/fraLSG/PRO01.htm#V8"
+    },
+    {
+      "id": "jhn-13-34-35",
+      "theme": "relationships",
+      "reference": "Jean 13:34–35",
+      "text": "Je vous donne un commandement nouveau: Aimez-vous les uns les autres; comme je vous ai aimés, vous aussi, aimez-vous les uns les autres. A ceci tous connaîtront que vous êtes mes disciples, si vous avez de l’amour les uns pour les autres.",
+      "source": "https://ebible.org/fraLSG/JHN13.htm#V34"
+    },
+    {
+      "id": "pro-16-3",
+      "theme": "work",
+      "reference": "Proverbes 16:3",
+      "text": "Recommande à l’Éternel tes œuvres, Et tes projets réussiront.",
+      "source": "https://ebible.org/fraLSG/PRO16.htm#V3"
+    },
+    {
+      "id": "heb-13-5-6",
+      "theme": "money",
+      "reference": "Hébreux 13:5–6",
+      "text": "Ne vous livrez pas à l’amour de l’argent; contentez-vous de ce que vous avez; car Dieu lui-même a dit: Je ne te délaisserai point, et je ne t’abandonnerai point. C’est donc avec assurance que nous pouvons dire: Le Seigneur est mon aide, je ne craindrai rien; Que peut me faire un homme?",
+      "source": "https://ebible.org/fraLSG/HEB13.htm#V5"
+    },
+    {
+      "id": "jas-1-5-8",
+      "theme": "decisions",
+      "reference": "Jacques 1:5–8",
+      "text": "Si quelqu’un d’entre vous manque de sagesse, qu’il la demande à Dieu, qui donne à tous simplement et sans reproche, et elle lui sera donnée. Mais qu’il la demande avec foi, sans douter; car celui qui doute est semblable au flot de la mer, agité par le vent et poussé de côté et d’autre. Qu’un tel homme ne s’imagine pas qu’il recevra quelque chose du Seigneur: c’est un homme irrésolu, inconstant dans toutes ses voies.",
+      "source": "https://ebible.org/fraLSG/JAS01.htm#V5"
+    },
+    {
+      "id": "jhn-14-27",
+      "theme": "rest",
+      "reference": "Jean 14:27",
+      "text": "Je vous laisse la paix, je vous donne ma paix. Je ne vous donne pas comme le monde donne. Que votre cœur ne se trouble point, et ne s’alarme point.",
+      "source": "https://ebible.org/fraLSG/JHN14.htm#V27"
+    },
+    {
+      "id": "psa-34-17-18",
+      "theme": "hardship",
+      "reference": "Psaumes 34:18–19",
+      "text": "Quand les justes crient, l’Éternel entend, Et il les délivre de toutes leurs détresses; L’Éternel est près de ceux qui ont le cœur brisé, Et il sauve ceux qui ont l’esprit dans l’abattement.",
+      "source": "https://ebible.org/fraLSG/PSA034.htm#V18"
+    },
+    {
+      "id": "1th-5-16-18",
+      "theme": "gratitude",
+      "reference": "1 Thessaloniciens 5:16–18",
+      "text": "Soyez toujours joyeux. Priez sans cesse. Rendez grâces en toutes choses, car c’est à votre égard la volonté de Dieu en Jésus-Christ.",
+      "source": "https://ebible.org/fraLSG/1TH05.htm#V16"
+    },
+    {
+      "id": "heb-4-14-16",
+      "theme": "faith",
+      "reference": "Hébreux 4:14–16",
+      "text": "Ainsi, puisque nous avons un grand souverain sacrificateur qui a traversé les cieux, Jésus, le Fils de Dieu, demeurons fermes dans la foi que nous professons. Car nous n’avons pas un souverain sacrificateur qui ne puisse compatir à nos faiblesses; au contraire, il a été tenté comme nous en toutes choses, sans commettre de péché. Approchons-nous donc avec assurance du trône de la grâce, afin d’obtenir miséricorde et de trouver grâce, pour être secourus dans nos besoins.",
+      "source": "https://ebible.org/fraLSG/HEB04.htm#V14"
+    },
+    {
+      "id": "eph-6-1-3",
+      "theme": "family",
+      "reference": "Éphésiens 6:1–3",
+      "text": "Enfants, obéissez à vos parents, selon le Seigneur, car cela est juste. Honore ton père et ta mère (c’est le premier commandement avec une promesse), afin que tu sois heureux et que tu vives longtemps sur la terre.",
+      "source": "https://ebible.org/fraLSG/EPH06.htm#V1"
+    },
+    {
+      "id": "1co-13-4-7",
+      "theme": "relationships",
+      "reference": "1 Corinthiens 13:4–7",
+      "text": "La charité est patiente, elle est pleine de bonté; la charité n’est point envieuse; la charité ne se vante point, elle ne s’enfle point d’orgueil, elle ne fait rien de malhonnête, elle ne cherche point son intérêt, elle ne s’irrite point, elle ne soupçonne point le mal, elle ne se réjouit point de l’injustice, mais elle se réjouit de la vérité; elle excuse tout, elle croit tout, elle espère tout, elle supporte tout.",
+      "source": "https://ebible.org/fraLSG/1CO13.htm#V4"
+    },
+    {
+      "id": "pro-14-23",
+      "theme": "work",
+      "reference": "Proverbes 14:23",
+      "text": "Tout travail procure l’abondance, Mais les paroles en l’air ne mènent qu’à la disette.",
+      "source": "https://ebible.org/fraLSG/PRO14.htm#V23"
+    },
+    {
+      "id": "1ti-6-6-8",
+      "theme": "money",
+      "reference": "1 Timothée 6:6–8",
+      "text": "C’est, en effet, une grande source de gain que la piété avec le contentement; car nous n’avons rien apporté dans le monde, et il est évident que nous n’en pouvons rien emporter; si donc nous avons la nourriture et le vêtement, cela nous suffira.",
+      "source": "https://ebible.org/fraLSG/1TI06.htm#V6"
+    },
+    {
+      "id": "psa-119-105",
+      "theme": "decisions",
+      "reference": "Psaumes 119:105",
+      "text": "Ta parole est une lampe à mes pieds, Et une lumière sur mon sentier.",
+      "source": "https://ebible.org/fraLSG/PSA119.htm#V105"
+    },
+    {
+      "id": "php-4-6-7",
+      "theme": "rest",
+      "reference": "Philippiens 4:6–7",
+      "text": "Ne vous inquiétez de rien; mais en toute chose faites connaître vos besoins à Dieu par des prières et des supplications, avec des actions de grâces. Et la paix de Dieu, qui surpasse toute intelligence, gardera vos cœurs et vos pensées en Jésus-Christ.",
+      "source": "https://ebible.org/fraLSG/PHP04.htm#V6"
+    },
+    {
+      "id": "lam-3-22-24",
+      "theme": "hardship",
+      "reference": "Lamentations 3:22–24",
+      "text": "Les bontés de l’Éternel ne sont pas épuisées, Ses compassions ne sont pas à leur terme; Elles se renouvellent chaque matin. Oh! Que ta fidélité est grande! L’Éternel est mon partage, dit mon âme; C’est pourquoi je veux espérer en lui.",
+      "source": "https://ebible.org/fraLSG/LAM03.htm#V22"
+    },
+    {
+      "id": "psa-107-1",
+      "theme": "gratitude",
+      "reference": "Psaumes 107:1",
+      "text": "Louez l’Éternel, car il est bon, Car sa miséricorde dure à toujours!",
+      "source": "https://ebible.org/fraLSG/PSA107.htm#V1"
+    },
+    {
+      "id": "psa-145-18-19",
+      "theme": "faith",
+      "reference": "Psaumes 145:18–19",
+      "text": "L’Éternel est près de tous ceux qui l’invoquent, De tous ceux qui l’invoquent avec sincérité; Il accomplit les désirs de ceux qui le craignent, Il entend leur cri et il les sauve.",
+      "source": "https://ebible.org/fraLSG/PSA145.htm#V18"
+    },
+    {
+      "id": "eph-6-4",
+      "theme": "family",
+      "reference": "Éphésiens 6:4",
+      "text": "Et vous, pères, n’irritez pas vos enfants, mais élevez-les en les corrigeant et en les instruisant selon le Seigneur.",
+      "source": "https://ebible.org/fraLSG/EPH06.htm#V4"
+    },
+    {
+      "id": "eph-4-32",
+      "theme": "relationships",
+      "reference": "Éphésiens 4:32",
+      "text": "Soyez bons les uns envers les autres, compatissants, vous pardonnant réciproquement, comme Dieu vous a pardonné en Christ.",
+      "source": "https://ebible.org/fraLSG/EPH04.htm#V32"
+    },
+    {
+      "id": "pro-22-29",
+      "theme": "work",
+      "reference": "Proverbes 22:29",
+      "text": "Si tu vois un homme habile dans son ouvrage, Il se tient auprès des rois; Il ne se tient pas auprès des gens obscurs.",
+      "source": "https://ebible.org/fraLSG/PRO22.htm#V29"
+    },
+    {
+      "id": "1ti-6-9-10",
+      "theme": "money",
+      "reference": "1 Timothée 6:9–10",
+      "text": "Mais ceux qui veulent s’enrichir tombent dans la tentation, dans le piège, et dans beaucoup de désirs insensés et pernicieux qui plongent les hommes dans la ruine et la perdition. Car l’amour de l’argent est une racine de tous les maux; et quelques-uns, en étant possédés, se sont égarés loin de la foi, et se sont jetés eux-mêmes dans bien des tourments.",
+      "source": "https://ebible.org/fraLSG/1TI06.htm#V9"
+    },
+    {
+      "id": "pro-3-5-6",
+      "theme": "decisions",
+      "reference": "Proverbes 3:5–6",
+      "text": "Confie-toi en l’Éternel de tout ton cœur, Et ne t’appuie pas sur ta sagesse; Reconnais-le dans toutes tes voies, Et il aplanira tes sentiers.",
+      "source": "https://ebible.org/fraLSG/PRO03.htm#V5"
+    },
+    {
+      "id": "isa-26-3-4",
+      "theme": "rest",
+      "reference": "Ésaïe 26:3–4",
+      "text": "A celui qui est ferme dans ses sentiments Tu assures la paix, la paix, Parce qu’il se confie en toi. Confiez-vous en l’Éternel à perpétuité, Car l’Éternel, l’Éternel est le rocher des siècles.",
+      "source": "https://ebible.org/fraLSG/ISA26.htm#V3"
+    },
+    {
+      "id": "psa-42-11",
+      "theme": "hardship",
+      "reference": "Psaumes 42:12",
+      "text": "Pourquoi t’abats-tu, mon âme, et gémis-tu au-dedans de moi? Espère en Dieu, car je le louerai encore; Il est mon salut et mon Dieu.",
+      "source": "https://ebible.org/fraLSG/PSA042.htm#V12"
+    },
+    {
+      "id": "col-3-17",
+      "theme": "gratitude",
+      "reference": "Colossiens 3:17",
+      "text": "Et quoi que vous fassiez, en parole ou en œuvre, faites tout au nom du Seigneur Jésus, en rendant par lui des actions de grâces à Dieu le Père.",
+      "source": "https://ebible.org/fraLSG/COL03.htm#V17"
+    },
+    {
+      "id": "eph-2-8-10",
+      "theme": "faith",
+      "reference": "Éphésiens 2:8–10",
+      "text": "Car c’est par la grâce que vous êtes sauvés, par le moyen de la foi. Et cela ne vient pas de vous, c’est le don de Dieu. Ce n’est point par les œuvres, afin que personne ne se glorifie. Car nous sommes son ouvrage, ayant été créés en Jésus-Christ pour de bonnes œuvres, que Dieu a préparées d’avance, afin que nous les pratiquions.",
+      "source": "https://ebible.org/fraLSG/EPH02.htm#V8"
+    },
+    {
+      "id": "col-3-18-19",
+      "theme": "family",
+      "reference": "Colossiens 3:18–19",
+      "text": "Femmes, soyez soumises à vos maris, comme il convient dans le Seigneur. Maris, aimez vos femmes, et ne vous aigrissez pas contre elles.",
+      "source": "https://ebible.org/fraLSG/COL03.htm#V18"
+    },
+    {
+      "id": "col-3-12-14",
+      "theme": "relationships",
+      "reference": "Colossiens 3:12–14",
+      "text": "Ainsi donc, comme des élus de Dieu, saints et bien-aimés, revêtez-vous d’entrailles de miséricorde, de bonté, d’humilité, de douceur, de patience. Supportez-vous les uns les autres, et, si l’un a sujet de se plaindre de l’autre, pardonnez-vous réciproquement. De même que Christ vous a pardonné, pardonnez-vous aussi. Mais par-dessus toutes ces choses revêtez-vous de la charité, qui est le lien de la perfection.",
+      "source": "https://ebible.org/fraLSG/COL03.htm#V12"
+    },
+    {
+      "id": "pro-12-11",
+      "theme": "work",
+      "reference": "Proverbes 12:11",
+      "text": "Celui qui cultive son champ est rassasié de pain, Mais celui qui poursuit des choses vaines est dépourvu de sens.",
+      "source": "https://ebible.org/fraLSG/PRO12.htm#V11"
+    },
+    {
+      "id": "1ti-6-17-19",
+      "theme": "money",
+      "reference": "1 Timothée 6:17–19",
+      "text": "Recommande aux riches du présent siècle de ne pas être orgueilleux, et de ne pas mettre leur espérance dans des richesses incertaines, mais de la mettre en Dieu, qui nous donne avec abondance toutes choses pour que nous en jouissions. Recommande-leur de faire du bien, d’être riches en bonnes œuvres, d’avoir de la libéralité, de la générosité, et de s’amasser ainsi pour l’avenir un trésor placé sur un fondement solide, afin de saisir la vie véritable.",
+      "source": "https://ebible.org/fraLSG/1TI06.htm#V17"
+    },
+    {
+      "id": "pro-4-23",
+      "theme": "decisions",
+      "reference": "Proverbes 4:23",
+      "text": "Garde ton cœur plus que toute autre chose, Car de lui viennent les sources de la vie.",
+      "source": "https://ebible.org/fraLSG/PRO04.htm#V23"
+    },
+    {
+      "id": "mat-11-28-30",
+      "theme": "rest",
+      "reference": "Matthieu 11:28–30",
+      "text": "Venez à moi, vous tous qui êtes fatigués et chargés, et je vous donnerai du repos. Prenez mon joug sur vous et recevez mes instructions, car je suis doux et humble de cœur; et vous trouverez du repos pour vos âmes. Car mon joug est doux, et mon fardeau léger.",
+      "source": "https://ebible.org/fraLSG/MAT11.htm#V28"
+    },
+    {
+      "id": "rom-5-3-5",
+      "theme": "hardship",
+      "reference": "Romains 5:3–5",
+      "text": "Bien plus, nous nous glorifions même des afflictions, sachant que l’affliction produit la persévérance, la persévérance la victoire dans l’épreuve, et cette victoire l’espérance. Or, l’espérance ne trompe point, parce que l’amour de Dieu est répandu dans nos cœurs par le Saint-Esprit qui nous a été donné.",
+      "source": "https://ebible.org/fraLSG/ROM05.htm#V3"
+    },
+    {
+      "id": "psa-118-24",
+      "theme": "gratitude",
+      "reference": "Psaumes 118:24",
+      "text": "C’est ici la journée que l’Éternel a faite: Qu’elle soit pour nous un sujet d’allégresse et de joie!",
+      "source": "https://ebible.org/fraLSG/PSA118.htm#V24"
+    },
+    {
+      "id": "mat-6-5-6",
+      "theme": "faith",
+      "reference": "Matthieu 6:5–6",
+      "text": "Lorsque vous priez, ne soyez pas comme les hypocrites, qui aiment à prier debout dans les synagogues et aux coins des rues, pour être vus des hommes. Je vous le dis en vérité, ils reçoivent leur récompense. Mais quand tu pries, entre dans ta chambre, ferme ta porte, et prie ton Père qui est là dans le lieu secret; et ton Père, qui voit dans le secret, te le rendra.",
+      "source": "https://ebible.org/fraLSG/MAT06.htm#V5"
+    },
+    {
+      "id": "deu-6-4-7",
+      "theme": "family",
+      "reference": "Deutéronome 6:4–7",
+      "text": "Écoute, Israël! L’Éternel, notre Dieu, est le seul Éternel. Tu aimeras l’Éternel, ton Dieu, de tout ton cœur, de toute ton âme et de toute ta force. Et ces commandements, que je te donne aujourd’hui, seront dans ton cœur. Tu les inculqueras à tes enfants, et tu en parleras quand tu seras dans ta maison, quand tu iras en voyage, quand tu te coucheras et quand tu te lèveras.",
+      "source": "https://ebible.org/fraLSG/DEU06.htm#V4"
+    },
+    {
+      "id": "rom-12-9-13",
+      "theme": "relationships",
+      "reference": "Romains 12:9–13",
+      "text": "Que la charité soit sans hypocrisie. Ayez le mal en horreur; attachez-vous fortement au bien. Par amour fraternel, soyez pleins d’affection les uns pour les autres; par honneur, usez de prévenances réciproques. Ayez du zèle, et non de la paresse. Soyez fervents d’esprit. Servez le Seigneur. Réjouissez-vous en espérance. Soyez patients dans l’affliction. Persévérez dans la prière. Pourvoyez aux besoins des saints. Exercez l’hospitalité.",
+      "source": "https://ebible.org/fraLSG/ROM12.htm#V9"
+    },
+    {
+      "id": "psa-90-16-17",
+      "theme": "work",
+      "reference": "Psaumes 90:16–17",
+      "text": "Que ton œuvre se manifeste à tes serviteurs, Et ta gloire sur leurs enfants! Que la grâce de l’Éternel, notre Dieu, soit sur nous! Affermis l’ouvrage de nos mains, Oui, affermis l’ouvrage de nos mains!",
+      "source": "https://ebible.org/fraLSG/PSA090.htm#V16"
+    },
+    {
+      "id": "pro-11-24-25",
+      "theme": "money",
+      "reference": "Proverbes 11:24–25",
+      "text": "Tel, qui donne libéralement, devient plus riche; Et tel, qui épargne à l’excès, ne fait que s’appauvrir. L’âme bienfaisante sera rassasiée, Et celui qui arrose sera lui-même arrosé.",
+      "source": "https://ebible.org/fraLSG/PRO11.htm#V24"
+    },
+    {
+      "id": "mic-6-8",
+      "theme": "decisions",
+      "reference": "Michée 6:8",
+      "text": "On t’a fait connaître, ô homme, ce qui est bien; Et ce que l’Éternel demande de toi, C’est que tu pratiques la justice, Que tu aimes la miséricorde, Et que tu marches humblement avec ton Dieu.",
+      "source": "https://ebible.org/fraLSG/MIC06.htm#V8"
+    },
+    {
+      "id": "psa-4-8",
+      "theme": "rest",
+      "reference": "Psaumes 4:9",
+      "text": "Je me couche et je m’endors en paix, Car toi seul, ô Éternel! tu me donnes la sécurité dans ma demeure.",
+      "source": "https://ebible.org/fraLSG/PSA004.htm#V9"
+    },
+    {
+      "id": "2co-4-16-18",
+      "theme": "hardship",
+      "reference": "2 Corinthiens 4:16–18",
+      "text": "C’est pourquoi nous ne perdons pas courage. Et lors même que notre homme extérieur se détruit, notre homme intérieur se renouvelle de jour en jour. Car nos légères afflictions du moment présent produisent pour nous, au-delà de toute mesure, un poids éternel de gloire, parce que nous regardons, non point aux choses visibles, mais à celles qui sont invisibles; car les choses visibles sont passagères, et les invisibles sont éternelles.",
+      "source": "https://ebible.org/fraLSG/2CO04.htm#V16"
+    },
+    {
+      "id": "heb-13-15-16",
+      "theme": "gratitude",
+      "reference": "Hébreux 13:15–16",
+      "text": "Par lui, offrons sans cesse à Dieu un sacrifice de louange, c’est-à-dire le fruit de lèvres qui confessent son nom. Et n’oubliez pas la bienfaisance et la libéralité, car c’est à de tels sacrifices que Dieu prend plaisir.",
+      "source": "https://ebible.org/fraLSG/HEB13.htm#V15"
+    },
+    {
+      "id": "jas-5-13",
+      "theme": "faith",
+      "reference": "Jacques 5:13",
+      "text": "Quelqu’un parmi vous est-il dans la souffrance? Qu’il prie. Quelqu’un est-il dans la joie? Qu’il chante des cantiques.",
+      "source": "https://ebible.org/fraLSG/JAS05.htm#V13"
+    },
+    {
+      "id": "1ti-5-3-4",
+      "theme": "family",
+      "reference": "1 Timothée 5:3–4",
+      "text": "Honore les veuves qui sont véritablement veuves. Si une veuve a des enfants ou des petits-enfants, qu’ils apprennent avant tout à exercer la piété envers leur propre famille, et à rendre à leurs parents ce qu’ils ont reçu d’eux; car cela est agréable à Dieu.",
+      "source": "https://ebible.org/fraLSG/1TI05.htm#V3"
+    },
+    {
+      "id": "luk-6-31",
+      "theme": "relationships",
+      "reference": "Luc 6:31",
+      "text": "Ce que vous voulez que les hommes fassent pour vous, faites-le de même pour eux.",
+      "source": "https://ebible.org/fraLSG/LUK06.htm#V31"
+    },
+    {
+      "id": "ecc-3-12-13",
+      "theme": "work",
+      "reference": "Ecclésiaste 3:12–13",
+      "text": "J’ai reconnu qu’il n’y a de bonheur pour eux qu’à se réjouir et à se donner du bien-être pendant leur vie; mais que, si un homme mange et boit et jouit du bien-être au milieu de tout son travail, c’est là un don de Dieu.",
+      "source": "https://ebible.org/fraLSG/ECC03.htm#V12"
+    },
+    {
+      "id": "pro-15-16-17",
+      "theme": "money",
+      "reference": "Proverbes 15:16–17",
+      "text": "Mieux vaut peu, avec la crainte de l’Éternel, Qu’un grand trésor, avec le trouble. Mieux vaut de l’herbe pour nourriture, là où règne l’amour, Qu’un bœuf engraissé, si la haine est là.",
+      "source": "https://ebible.org/fraLSG/PRO15.htm#V16"
+    },
+    {
+      "id": "rom-12-1-2",
+      "theme": "decisions",
+      "reference": "Romains 12:1–2",
+      "text": "Je vous exhorte donc, frères, par les compassions de Dieu, à offrir vos corps comme un sacrifice vivant, saint, agréable à Dieu, ce qui sera de votre part un culte raisonnable. Ne vous conformez pas au siècle présent, mais soyez transformés par le renouvellement de l’intelligence, afin que vous discerniez quelle est la volonté de Dieu, ce qui est bon, agréable et parfait.",
+      "source": "https://ebible.org/fraLSG/ROM12.htm#V1"
+    },
+    {
+      "id": "1pe-5-6-7",
+      "theme": "rest",
+      "reference": "1 Pierre 5:6–7",
+      "text": "Humiliez-vous donc sous la puissante main de Dieu, afin qu’il vous élève au temps convenable; et déchargez-vous sur lui de tous vos soucis, car lui-même prend soin de vous.",
+      "source": "https://ebible.org/fraLSG/1PE05.htm#V6"
+    },
+    {
+      "id": "rom-12-14-15",
+      "theme": "hardship",
+      "reference": "Romains 12:14–15",
+      "text": "Bénissez ceux qui vous persécutent, bénissez et ne maudissez pas. Réjouissez-vous avec ceux qui se réjouissent; pleurez avec ceux qui pleurent.",
+      "source": "https://ebible.org/fraLSG/ROM12.htm#V14"
+    },
+    {
+      "id": "jas-1-16-17",
+      "theme": "gratitude",
+      "reference": "Jacques 1:16–17",
+      "text": "Ne vous y trompez pas, mes frères bien-aimés: toute grâce excellente et tout don parfait descendent d’en haut, du Père des lumières, chez lequel il n’y a ni changement ni ombre de variation.",
+      "source": "https://ebible.org/fraLSG/JAS01.htm#V16"
+    },
+    {
+      "id": "col-4-2-4",
+      "theme": "faith",
+      "reference": "Colossiens 4:2–4",
+      "text": "Persévérez dans la prière, veillez-y avec actions de grâces. Priez en même temps pour nous, afin que Dieu nous ouvre une porte pour la parole, en sorte que je puisse annoncer le mystère de Christ, pour lequel je suis dans les chaînes, et le faire connaître comme je dois en parler.",
+      "source": "https://ebible.org/fraLSG/COL04.htm#V2"
+    },
+    {
+      "id": "1ti-5-8",
+      "theme": "family",
+      "reference": "1 Timothée 5:8",
+      "text": "Si quelqu’un n’a pas soin des siens, et principalement de ceux de sa famille, il a renié la foi, et il est pire qu’un infidèle.",
+      "source": "https://ebible.org/fraLSG/1TI05.htm#V8"
+    },
+    {
+      "id": "1jn-3-16-18",
+      "theme": "relationships",
+      "reference": "1 Jean 3:16–18",
+      "text": "Nous avons connu l’amour, en ce qu’il a donné sa vie pour nous; nous aussi, nous devons donner notre vie pour les frères. Si quelqu’un possède les biens du monde, et que, voyant son frère dans le besoin, il lui ferme ses entrailles, comment l’amour de Dieu demeure-t-il en lui? Petits enfants, n’aimons pas en paroles et avec la langue, mais en actions et avec vérité.",
+      "source": "https://ebible.org/fraLSG/1JN03.htm#V16"
+    },
+    {
+      "id": "ecc-9-10",
+      "theme": "work",
+      "reference": "Ecclésiaste 9:10",
+      "text": "Tout ce que ta main trouve à faire avec ta force, fais-le; car il n’y a ni œuvre, ni pensée, ni science, ni sagesse, dans le séjour des morts, où tu vas.",
+      "source": "https://ebible.org/fraLSG/ECC09.htm#V10"
+    },
+    {
+      "id": "pro-22-1-2",
+      "theme": "money",
+      "reference": "Proverbes 22:1–2",
+      "text": "La réputation est préférable à de grandes richesses, Et la grâce vaut mieux que l’argent et que l’or. Le riche et le pauvre se rencontrent; C’est l’Éternel qui les a faits l’un et l’autre.",
+      "source": "https://ebible.org/fraLSG/PRO22.htm#V1"
+    },
+    {
+      "id": "eph-5-15-17",
+      "theme": "decisions",
+      "reference": "Éphésiens 5:15–17",
+      "text": "Prenez donc garde de vous conduire avec circonspection, non comme des insensés, mais comme des sages; rachetez le temps, car les jours sont mauvais. C’est pourquoi ne soyez pas inconsidérés, mais comprenez quelle est la volonté du Seigneur.",
+      "source": "https://ebible.org/fraLSG/EPH05.htm#V15"
+    },
+    {
+      "id": "2th-3-16",
+      "theme": "rest",
+      "reference": "2 Thessaloniciens 3:16",
+      "text": "Que le Seigneur de la paix vous donne lui-même la paix en tout temps, de toute manière! Que le Seigneur soit avec vous tous!",
+      "source": "https://ebible.org/fraLSG/2TH03.htm#V16"
+    },
+    {
+      "id": "psa-13-1-6",
+      "theme": "hardship",
+      "reference": "Psaumes 13:2–6",
+      "text": "Jusques à quand, Éternel! M’oublieras-tu sans cesse? Jusques à quand me cacheras-tu ta face? Jusques à quand aurai-je des soucis dans mon âme, Et chaque jour des chagrins dans mon cœur? Jusques à quand mon ennemi s’élèvera-t-il contre moi? Regarde, réponds-moi, Éternel, mon Dieu! Donne à mes yeux la clarté, Afin que je ne m’endorme pas du sommeil de la mort, Afin que mon ennemi ne dise pas: Je l’ai vaincu! Et que mes adversaires ne se réjouissent pas, si je chancelle. Moi, j’ai confiance en ta bonté, J’ai de l’allégresse dans le cœur, à cause de ton salut; Je chante à l’Éternel, car il m’a fait du bien.",
+      "source": "https://ebible.org/fraLSG/PSA013.htm#V2"
+    },
+    {
+      "id": "psa-103-1-5",
+      "theme": "gratitude",
+      "reference": "Psaumes 103:1–5",
+      "text": "De David. Mon âme, bénis l’Éternel! Que tout ce qui est en moi bénisse son saint nom! Mon âme, bénis l’Éternel, Et n’oublie aucun de ses bienfaits! C’est lui qui pardonne toutes tes iniquités, Qui guérit toutes tes maladies; C’est lui qui délivre ta vie de la fosse, Qui te couronne de bonté et de miséricorde; C’est lui qui rassasie de biens ta vieillesse, Qui te fait rajeunir comme l’aigle.",
+      "source": "https://ebible.org/fraLSG/PSA103.htm#V1"
+    },
+    {
+      "id": "1jn-5-14-15",
+      "theme": "faith",
+      "reference": "1 Jean 5:14–15",
+      "text": "Nous avons auprès de lui cette assurance, que si nous demandons quelque chose selon sa volonté, il nous écoute. Et si nous savons qu’il nous écoute, quelque chose que nous demandions, nous savons que nous possédons la chose que nous lui avons demandée.",
+      "source": "https://ebible.org/fraLSG/1JN05.htm#V14"
+    },
+    {
+      "id": "rut-1-16-17",
+      "theme": "family",
+      "reference": "Ruth 1:16–17",
+      "text": "Ruth répondit: Ne me presse pas de te laisser, de retourner loin de toi! Où tu iras j’irai, où tu demeureras je demeurerai; ton peuple sera mon peuple, et ton Dieu sera mon Dieu; où tu mourras je mourrai, et j’y serai enterrée. Que l’Éternel me traite dans toute sa rigueur, si autre chose que la mort vient à me séparer de toi!",
+      "source": "https://ebible.org/fraLSG/RUT01.htm#V16"
+    },
+    {
+      "id": "mat-5-44-45",
+      "theme": "relationships",
+      "reference": "Matthieu 5:44–45",
+      "text": "Mais moi, je vous dis: Aimez vos ennemis, bénissez ceux qui vous maudissent, faites du bien à ceux qui vous haïssent, et priez pour ceux qui vous maltraitent et qui vous persécutent, afin que vous soyez fils de votre Père qui est dans les cieux; car il fait lever son soleil sur les méchants et sur les bons, et il fait pleuvoir sur les justes et sur les injustes.",
+      "source": "https://ebible.org/fraLSG/MAT05.htm#V44"
+    },
+    {
+      "id": "1th-4-9-12",
+      "theme": "work",
+      "reference": "1 Thessaloniciens 4:9–12",
+      "text": "Pour ce qui est de l’amour fraternel, vous n’avez pas besoin qu’on vous en écrive; car vous avez vous-mêmes appris de Dieu à vous aimer les uns les autres, et c’est aussi ce que vous faites envers tous les frères dans la Macédoine entière. Mais nous vous exhortons, frères, à abonder toujours plus dans cet amour, et à mettre votre honneur à vivre tranquilles, à vous occuper de vos propres affaires, et à travailler de vos mains, comme nous vous l’avons recommandé, en sorte que vous vous conduisiez honnêtement envers ceux du dehors, et que vous n’ayez besoin de personne.",
+      "source": "https://ebible.org/fraLSG/1TH04.htm#V9"
+    },
+    {
+      "id": "pro-22-9",
+      "theme": "money",
+      "reference": "Proverbes 22:9",
+      "text": "L’homme dont le regard est bienveillant sera béni, Parce qu’il donne de son pain au pauvre.",
+      "source": "https://ebible.org/fraLSG/PRO22.htm#V9"
+    },
+    {
+      "id": "pro-16-9",
+      "theme": "decisions",
+      "reference": "Proverbes 16:9",
+      "text": "Le cœur de l’homme médite sa voie, Mais c’est l’Éternel qui dirige ses pas.",
+      "source": "https://ebible.org/fraLSG/PRO16.htm#V9"
+    },
+    {
+      "id": "psa-23-1-3",
+      "theme": "rest",
+      "reference": "Psaumes 23:1–3",
+      "text": "Cantique de David. L’Éternel est mon berger: je ne manquerai de rien. Il me fait reposer dans de verts pâturages, Il me dirige près des eaux paisibles. Il restaure mon âme, Il me conduit dans les sentiers de la justice, A cause de son nom.",
+      "source": "https://ebible.org/fraLSG/PSA023.htm#V1"
+    },
+    {
+      "id": "psa-46-1",
+      "theme": "hardship",
+      "reference": "Psaumes 46:2",
+      "text": "Dieu est pour nous un refuge et un appui, Un secours qui ne manque jamais dans la détresse.",
+      "source": "https://ebible.org/fraLSG/PSA046.htm#V2"
+    },
+    {
+      "id": "eph-5-18-21",
+      "theme": "gratitude",
+      "reference": "Éphésiens 5:18–21",
+      "text": "Ne vous enivrez pas de vin: c’est de la débauche. Soyez, au contraire, remplis de l’Esprit; entretenez-vous par des psaumes, par des hymnes, et par des cantiques spirituels, chantant et célébrant de tout votre cœur les louanges du Seigneur; rendez continuellement grâces pour toutes choses à Dieu le Père, au nom de notre Seigneur Jésus-Christ, vous soumettant les uns aux autres dans la crainte de Christ.",
+      "source": "https://ebible.org/fraLSG/EPH05.htm#V18"
+    },
+    {
+      "id": "psa-5-3",
+      "theme": "faith",
+      "reference": "Psaumes 5:4",
+      "text": "Éternel! Le matin tu entends ma voix; Le matin je me tourne vers toi, et je regarde.",
+      "source": "https://ebible.org/fraLSG/PSA005.htm#V4"
+    },
+    {
+      "id": "psa-127-3-5",
+      "theme": "family",
+      "reference": "Psaumes 127:3–5",
+      "text": "Voici, des fils sont un héritage de l’Éternel, Le fruit des entrailles est une récompense. Comme les flèches dans la main d’un guerrier, Ainsi sont les fils de la jeunesse. Heureux l’homme qui en a rempli son carquois! Ils ne seront pas confus, Quand ils parleront avec des ennemis à la porte.",
+      "source": "https://ebible.org/fraLSG/PSA127.htm#V3"
+    },
+    {
+      "id": "eph-4-1-3",
+      "theme": "relationships",
+      "reference": "Éphésiens 4:1–3",
+      "text": "Je vous exhorte donc, moi, le prisonnier dans le Seigneur, à marcher d’une manière digne de la vocation qui vous a été adressée, en toute humilité et douceur, avec patience, vous supportant les uns les autres avec charité, vous efforçant de conserver l’unité de l’esprit par le lien de la paix.",
+      "source": "https://ebible.org/fraLSG/EPH04.htm#V1"
+    },
+    {
+      "id": "2th-3-11-12",
+      "theme": "work",
+      "reference": "2 Thessaloniciens 3:11–12",
+      "text": "Nous apprenons, cependant, qu’il y en a parmi vous quelques-uns qui vivent dans le désordre, qui ne travaillent pas, mais qui s’occupent de futilités. Nous invitons ces gens-là, et nous les exhortons par le Seigneur Jésus-Christ, à manger leur propre pain, en travaillant paisiblement.",
+      "source": "https://ebible.org/fraLSG/2TH03.htm#V11"
+    },
+    {
+      "id": "pro-19-17",
+      "theme": "money",
+      "reference": "Proverbes 19:17",
+      "text": "Celui qui a pitié du pauvre prête à l’Éternel, Qui lui rendra selon son œuvre.",
+      "source": "https://ebible.org/fraLSG/PRO19.htm#V17"
+    },
+    {
+      "id": "jas-3-17-18",
+      "theme": "decisions",
+      "reference": "Jacques 3:17–18",
+      "text": "La sagesse d’en haut est premièrement pure, ensuite pacifique, modérée, conciliante, pleine de miséricorde et de bons fruits, exempte de duplicité, d’hypocrisie. Le fruit de la justice est semé dans la paix par ceux qui recherchent la paix.",
+      "source": "https://ebible.org/fraLSG/JAS03.htm#V17"
+    },
+    {
+      "id": "pro-12-25",
+      "theme": "rest",
+      "reference": "Proverbes 12:25",
+      "text": "L’inquiétude dans le cœur de l’homme l’abat, Mais une bonne parole le réjouit.",
+      "source": "https://ebible.org/fraLSG/PRO12.htm#V25"
+    },
+    {
+      "id": "psa-73-25-26",
+      "theme": "hardship",
+      "reference": "Psaumes 73:25–26",
+      "text": "Quel autre ai-je au ciel que toi! Et sur la terre je ne prends plaisir qu’en toi. Ma chair et mon cœur peuvent se consumer: Dieu sera toujours le rocher de mon cœur et mon partage.",
+      "source": "https://ebible.org/fraLSG/PSA073.htm#V25"
+    },
+    {
+      "id": "col-2-6-7",
+      "theme": "gratitude",
+      "reference": "Colossiens 2:6–7",
+      "text": "Ainsi donc, comme vous avez reçu le Seigneur Jésus-Christ, marchez en lui, étant enracinés et fondés en lui, et affermis par la foi, d’après les instructions qui vous ont été données, et abondez en actions de grâces.",
+      "source": "https://ebible.org/fraLSG/COL02.htm#V6"
+    },
+    {
+      "id": "rom-8-26-27",
+      "theme": "faith",
+      "reference": "Romains 8:26–27",
+      "text": "De même aussi l’Esprit nous aide dans notre faiblesse, car nous ne savons pas ce qu’il nous convient de demander dans nos prières. Mais l’Esprit lui-même intercède par des soupirs inexprimables; et celui qui sonde les cœurs connaît quelle est la pensée de l’Esprit, parce que c’est selon Dieu qu’il intercède en faveur des saints.",
+      "source": "https://ebible.org/fraLSG/ROM08.htm#V26"
+    },
+    {
+      "id": "pro-17-6",
+      "theme": "family",
+      "reference": "Proverbes 17:6",
+      "text": "Les enfants des enfants sont la couronne des vieillards, Et les pères sont la gloire de leurs enfants.",
+      "source": "https://ebible.org/fraLSG/PRO17.htm#V6"
+    },
+    {
+      "id": "jas-1-19-20",
+      "theme": "relationships",
+      "reference": "Jacques 1:19–20",
+      "text": "Sachez-le, mes frères bien-aimés. Ainsi, que tout homme soit prompt à écouter, lent à parler, lent à se mettre en colère; car la colère de l’homme n’accomplit pas la justice de Dieu.",
+      "source": "https://ebible.org/fraLSG/JAS01.htm#V19"
+    },
+    {
+      "id": "gal-6-9-10",
+      "theme": "work",
+      "reference": "Galates 6:9–10",
+      "text": "Ne nous lassons pas de faire le bien; car nous moissonnerons au temps convenable, si nous ne nous relâchons pas. Ainsi donc, pendant que nous en avons l’occasion, pratiquons le bien envers tous, et surtout envers les frères en la foi.",
+      "source": "https://ebible.org/fraLSG/GAL06.htm#V9"
+    },
+    {
+      "id": "2co-9-6-7",
+      "theme": "money",
+      "reference": "2 Corinthiens 9:6–7",
+      "text": "Sachez-le, celui qui sème peu moissonnera peu, et celui qui sème abondamment moissonnera abondamment. Que chacun donne comme il l’a résolu en son cœur, sans tristesse ni contrainte; car Dieu aime celui qui donne avec joie.",
+      "source": "https://ebible.org/fraLSG/2CO09.htm#V6"
+    },
+    {
+      "id": "col-4-5-6",
+      "theme": "decisions",
+      "reference": "Colossiens 4:5–6",
+      "text": "Conduisez-vous avec sagesse envers ceux du dehors, et rachetez le temps. Que votre parole soit toujours accompagnée de grâce, assaisonnée de sel, afin que vous sachiez comment il faut répondre à chacun.",
+      "source": "https://ebible.org/fraLSG/COL04.htm#V5"
+    },
+    {
+      "id": "mat-6-33-34",
+      "theme": "rest",
+      "reference": "Matthieu 6:33–34",
+      "text": "Cherchez premièrement le royaume et la justice de Dieu; et toutes ces choses vous seront données par-dessus. Ne vous inquiétez donc pas du lendemain; car le lendemain aura soin de lui-même. A chaque jour suffit sa peine.",
+      "source": "https://ebible.org/fraLSG/MAT06.htm#V33"
+    },
+    {
+      "id": "jas-1-2-4",
+      "theme": "hardship",
+      "reference": "Jacques 1:2–4",
+      "text": "Mes frères, regardez comme un sujet de joie complète les diverses épreuves auxquelles vous pouvez être exposés, sachant que l’épreuve de votre foi produit la patience. Mais il faut que la patience accomplisse parfaitement son œuvre, afin que vous soyez parfaits et accomplis, sans faillir en rien.",
+      "source": "https://ebible.org/fraLSG/JAS01.htm#V2"
+    },
+    {
+      "id": "psa-100-4-5",
+      "theme": "gratitude",
+      "reference": "Psaumes 100:4–5",
+      "text": "Entrez dans ses portes avec des louanges, Dans ses parvis avec des cantiques! Célébrez-le, bénissez son nom! Car l’Éternel est bon; sa bonté dure toujours, Et sa fidélité de génération en génération.",
+      "source": "https://ebible.org/fraLSG/PSA100.htm#V4"
+    },
+    {
+      "id": "psa-139-23-24",
+      "theme": "faith",
+      "reference": "Psaumes 139:23–24",
+      "text": "Sonde-moi, ô Dieu, et connais mon cœur! Éprouve-moi, et connais mes pensées! Regarde si je suis sur une mauvaise voie, Et conduis-moi sur la voie de l’éternité!",
+      "source": "https://ebible.org/fraLSG/PSA139.htm#V23"
+    },
+    {
+      "id": "pro-23-22",
+      "theme": "family",
+      "reference": "Proverbes 23:22",
+      "text": "Écoute ton père, lui qui t’a engendré, Et ne méprise pas ta mère, quand elle est devenue vieille.",
+      "source": "https://ebible.org/fraLSG/PRO23.htm#V22"
+    },
+    {
+      "id": "pro-15-1",
+      "theme": "relationships",
+      "reference": "Proverbes 15:1",
+      "text": "Une réponse douce calme la fureur, Mais une parole dure excite la colère.",
+      "source": "https://ebible.org/fraLSG/PRO15.htm#V1"
+    },
+    {
+      "id": "eph-4-28",
+      "theme": "work",
+      "reference": "Éphésiens 4:28",
+      "text": "Que celui qui dérobait ne dérobe plus; mais plutôt qu’il travaille, en faisant de ses mains ce qui est bien, pour avoir de quoi donner à celui qui est dans le besoin.",
+      "source": "https://ebible.org/fraLSG/EPH04.htm#V28"
+    },
+    {
+      "id": "mat-6-19-21",
+      "theme": "money",
+      "reference": "Matthieu 6:19–21",
+      "text": "Ne vous amassez pas des trésors sur la terre, où la teigne et la rouille détruisent, et où les voleurs percent et dérobent; mais amassez-vous des trésors dans le ciel, où la teigne et la rouille ne détruisent point, et où les voleurs ne percent ni ne dérobent. Car là où est ton trésor, là aussi sera ton cœur.",
+      "source": "https://ebible.org/fraLSG/MAT06.htm#V19"
+    },
+    {
+      "id": "psa-90-12",
+      "theme": "decisions",
+      "reference": "Psaumes 90:12",
+      "text": "Enseigne-nous à bien compter nos jours, Afin que nous appliquions notre cœur à la sagesse.",
+      "source": "https://ebible.org/fraLSG/PSA090.htm#V12"
+    },
+    {
+      "id": "psa-56-3-4",
+      "theme": "rest",
+      "reference": "Psaumes 56:4–5",
+      "text": "Quand je suis dans la crainte, En toi je me confie. Je me glorifierai en Dieu, en sa parole; Je me confie en Dieu, je ne crains rien: Que peuvent me faire des hommes?",
+      "source": "https://ebible.org/fraLSG/PSA056.htm#V4"
+    },
+    {
+      "id": "rom-8-38-39",
+      "theme": "hardship",
+      "reference": "Romains 8:38–39",
+      "text": "Car j’ai l’assurance que ni la mort ni la vie, ni les anges ni les dominations, ni les choses présentes ni les choses à venir, ni les puissances, ni la hauteur, ni la profondeur, ni aucune autre créature ne pourra nous séparer de l’amour de Dieu manifesté en Jésus-Christ notre Seigneur.",
+      "source": "https://ebible.org/fraLSG/ROM08.htm#V38"
+    },
+    {
+      "id": "psa-95-1-2",
+      "theme": "gratitude",
+      "reference": "Psaumes 95:1–2",
+      "text": "Venez, chantons avec allégresse à l’Éternel! Poussons des cris de joie vers le rocher de notre salut. Allons au-devant de lui avec des louanges, Faisons retentir des cantiques en son honneur!",
+      "source": "https://ebible.org/fraLSG/PSA095.htm#V1"
+    },
+    {
+      "id": "jhn-15-4-5",
+      "theme": "faith",
+      "reference": "Jean 15:4–5",
+      "text": "Demeurez en moi, et je demeurerai en vous. Comme le sarment ne peut de lui-même porter du fruit, s’il ne demeure attaché au cep, ainsi vous ne le pouvez non plus, si vous ne demeurez en moi. Je suis le cep, vous êtes les sarments. Celui qui demeure en moi et en qui je demeure porte beaucoup de fruit, car sans moi vous ne pouvez rien faire.",
+      "source": "https://ebible.org/fraLSG/JHN15.htm#V4"
+    },
+    {
+      "id": "pro-24-3-4",
+      "theme": "family",
+      "reference": "Proverbes 24:3–4",
+      "text": "C’est par la sagesse qu’une maison s’élève, Et par l’intelligence qu’elle s’affermit; C’est par la science que les chambres se remplissent De tous les biens précieux et agréables.",
+      "source": "https://ebible.org/fraLSG/PRO24.htm#V3"
+    },
+    {
+      "id": "pro-17-17",
+      "theme": "relationships",
+      "reference": "Proverbes 17:17",
+      "text": "L’ami aime en tout temps, Et dans le malheur il se montre un frère.",
+      "source": "https://ebible.org/fraLSG/PRO17.htm#V17"
+    },
+    {
+      "id": "1pe-4-10-11",
+      "theme": "work",
+      "reference": "1 Pierre 4:10–11",
+      "text": "Comme de bons dispensateurs des diverses grâces de Dieu, que chacun de vous mette au service des autres le don qu’il a reçu, Si quelqu’un parle, que ce soit comme annonçant les oracles de Dieu; si quelqu’un remplit un ministère, qu’il le remplisse selon la force que Dieu communique, afin qu’en toutes choses Dieu soit glorifié par Jésus-Christ, à qui appartiennent la gloire et la puissance, aux siècles des siècles. Amen!",
+      "source": "https://ebible.org/fraLSG/1PE04.htm#V10"
+    },
+    {
+      "id": "luk-12-15",
+      "theme": "money",
+      "reference": "Luc 12:15",
+      "text": "Puis il leur dit: Gardez-vous avec soin de toute avarice; car la vie d’un homme ne dépend pas de ses biens, fût-il dans l’abondance.",
+      "source": "https://ebible.org/fraLSG/LUK12.htm#V15"
+    },
+    {
+      "id": "pro-15-22",
+      "theme": "decisions",
+      "reference": "Proverbes 15:22",
+      "text": "Les projets échouent, faute d’une assemblée qui délibère; Mais ils réussissent quand il y a de nombreux conseillers.",
+      "source": "https://ebible.org/fraLSG/PRO15.htm#V22"
+    },
+    {
+      "id": "psa-62-5-6",
+      "theme": "rest",
+      "reference": "Psaumes 62:6–7",
+      "text": "Oui, mon âme, confie-toi en Dieu! Car de lui vient mon espérance. Oui, c’est lui qui est mon rocher et mon salut; Ma haute retraite: je ne chancellerai pas.",
+      "source": "https://ebible.org/fraLSG/PSA062.htm#V6"
+    },
+    {
+      "id": "rev-21-3-4",
+      "theme": "hardship",
+      "reference": "Apocalypse 21:3–4",
+      "text": "Et j’entendis du trône une forte voix qui disait: Voici le tabernacle de Dieu avec les hommes! Il habitera avec eux, et ils seront son peuple, et Dieu lui-même sera avec eux. Il essuiera toute larme de leurs yeux, et la mort ne sera plus, et il n’y aura plus ni deuil, ni cri, ni douleur, car les premières choses ont disparu.",
+      "source": "https://ebible.org/fraLSG/REV21.htm#V3"
+    },
+    {
+      "id": "php-4-4-5",
+      "theme": "gratitude",
+      "reference": "Philippiens 4:4–5",
+      "text": "Réjouissez-vous toujours dans le Seigneur; je le répète, réjouissez-vous. Que votre douceur soit connue de tous les hommes. Le Seigneur est proche.",
+      "source": "https://ebible.org/fraLSG/PHP04.htm#V4"
+    },
+    {
+      "id": "2co-5-6-8",
+      "theme": "faith",
+      "reference": "2 Corinthiens 5:6–8",
+      "text": "Nous sommes donc toujours pleins de confiance, et nous savons qu’en demeurant dans ce corps nous demeurons loin du Seigneur, car nous marchons par la foi et non par la vue, nous sommes pleins de confiance, et nous aimons mieux quitter ce corps et demeurer auprès du Seigneur.",
+      "source": "https://ebible.org/fraLSG/2CO05.htm#V6"
+    }
+  ],
+  "labels": {
+    "daily": "Chaque jour",
+    "hourly": "Chaque heure",
+    "six_hours": "Toutes les 6 heures",
+    "twelve_hours": "Toutes les 12 heures",
+    "missing_title": "La collection biblique est manquante",
+    "missing_text": "Réimportez le ZIP Daily Bread pour restaurer les passages bibliques."
+  }
+}

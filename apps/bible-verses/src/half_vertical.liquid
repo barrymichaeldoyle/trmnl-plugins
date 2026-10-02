@@ -1,0 +1,20 @@
+<div class="layout layout--col layout--top relative" lang="{{ selected_translation.language | escape }}" translate="no" data-theme="{{ theme_label }}">
+  {% if verse %}
+    <div class="flex flex--col flex--top gap--small w--full h--full">
+      <div class="flex flex--center-x flex--center-y w--full h--24 lg:h--[22cqh] lg:portrait:h--28 no-shrink">
+        <img class="image image--contain w--auto h--[18cqh] portrait:w--14 portrait:h--auto lg:h--[22cqh] lg:portrait:w--16 lg:portrait:h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true">
+      </div>
+      <div class="flex flex--col flex--center-y flex--left grow w--full h--0" data-reading-area="true">
+        <p class="value no-shrink value--large lg:value--xxlarge w--min-full" lang="{{ selected_translation.language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ tall_text_height }}" data-verse-id="{{ verse.id | escape }}">{{ verse.text | escape }}</p>
+      </div>
+    </div>
+    {% if context_qr %}{{ context_qr | replace: 'bottom--0', 'top--0' | replace: 'w--24 h--24', 'w--24 h--24 portrait:w--20 portrait:h--20' }}{% endif %}
+  {% else %}
+    <p class="description">{{ missing_text | escape }}</p>
+  {% endif %}
+</div>
+<div class="title_bar" translate="no">
+  <div class="flex flex--left grow w--0">
+    <span class="title" data-value-fit="true" data-footer-reference="true" title="{{ selected_translation.name | escape }} ({{ selected_translation.abbreviation | escape }})">{% if verse %}{{ verse.reference | escape }}{% else %}{{ trmnl.plugin_settings.instance_name | default: 'Daily Bread' | escape }}{% endif %}</span>
+  </div>
+</div>

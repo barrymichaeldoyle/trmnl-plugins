@@ -1,0 +1,19 @@
+# E-ink Scripture
+
+Scripture is the visual focus: use a generous framework font size with a restrained weight, then use TRMNL Fit Value to find the largest size that fits the complete passage. The passage reference occupies the bottom bar, left-aligned, with automatic single-line fitting for narrow views. Never clamp, truncate, paraphrase, or hide Scripture to fit.
+
+Full screen: anchor Scripture and the dimensional cross at the top right. Float the cross so the first lines wrap beside it and subsequent lines use the full width. A tight SVG viewBox removes decorative padding and the old baseline. Explicit framework widths keep the float boundary equal to the image boundary: 16cqw on OG landscape, 28cqw on OG portrait, 23cqw on TRMNL X landscape and 28cqw on X portrait. The OG artwork stays modest; X has more room for a larger cross. A lower reservation protects the QR above the reference bar, with the reading ornament centered at the bottom.
+
+Wide half views: let text wrap beside the top-right cross, then continue beneath it. The image and its floated container share an explicit width (6cqw on OG, 9cqw on X) so the image cannot escape a narrower column when QR is disabled. In portrait, place the cross above the verse, centered in a header, with the QR in the top-right corner. That header is 80px on OG and 96px on X, scaled by the framework.
+
+Left/right halves: center the cross above Scripture in both orientations, with the QR at the top right. Landscape cross height is 18cqh on OG and 22cqh on X. Portrait uses a framework width of 56px on OG and 64px on X with natural image height. The portrait QR is 80px wide to keep its quiet zone separate from the centered cross on narrow OG halves; landscape uses 96px. The header reserves at least 96px on OG, follows the 22cqh cross height on X landscape, and reserves 112px on X portrait. Scripture uses the full width beneath the header.
+
+Quadrants: always show the dimensional cross at the top right and allow text to continue underneath it. Cross widths are 48px on OG and 56px on X, scaled by the framework. With QR enabled, reserve its lower area; disabling QR returns that height to the verse.
+
+Every reference bar spans the complete view width. Bottom QR codes sit inside the reading area above the bar, anchored to its bottom-right corner; they never offset or cover the bar. QR footprints are 128px in full view and 80px in wide halves/quadrants. Centered-cross layouts use the top-right placement described above. All sizes use the framework’s device scaling and a white quiet zone for scanning. Defaults are English, all themes, daily rotation and QR on; blank preferences restore those defaults.
+
+The two narrowly scoped flow-root/float rules now live in shared.liquid for the user's explicitly requested full, wide-half and quadrant Scripture wrapping. They remain the only custom CSS exception, declared in allowed_style_blocks; all sizes, spacing and positioning use framework utilities.
+
+All views measure their actual rendered space after fonts/images load and supply the native fitting engine with a physical height budget. This accounts for padding, gaps, view size, orientation and high-DPI scaling. The passage cannot flex-shrink: its natural height must remain measurable. Crosses retain their explicit black/white faces in every layout; adaptive image masks would flatten this shading. All cross artwork is embedded.
+
+The local workbench previews TRMNL OG (1-bit), OG (2-bit), and TRMNL X (4-bit, high-density), in landscape and portrait, for all four view sizes. These are pinned framework profiles, not physical-device certification. The workbench fits previews to the available width and height by default, including the high-density TRMNL X; Actual pixels enables detailed inspection. Scaling the preview preserves native rendering inside the iframe. Keep source text and installation controls out of the e-ink reading area.

@@ -1,0 +1,2 @@
+# Upstream TRMNL skill references are kept verbatim.
+.agents/skills/trmnl/references/** -whitespace

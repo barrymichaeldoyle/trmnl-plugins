@@ -1,0 +1,93 @@
+name: Daily Bread — Bible Verses
+description: Daily Bible verses in 3 languages
+recipe_overview: |-
+  Daily Bread brings daily Bible verses to your TRMNL, with one complete passage to carry into your day. Keep Scripture in view at home or at your desk, with a distinctive cross and space to read and reflect.
+
+  Explore 108 curated passages in each of three languages: English, French and Spanish. Choose one or several of nine everyday themes, including family, relationships, work, generosity, decisions, worry, loss, gratitude and prayer. Leave all themes selected for a varied daily reading.
+
+  Daily Bread changes passages each day by default, following your TRMNL timezone. You can also choose hourly, six-hour or twelve-hour rotation. An optional QR code opens the full chapter in your chosen translation, helping you read each passage in context.
+
+  English uses the World English Bible, French uses Louis Segond 1910, and Spanish uses Reina Valera 1909. All three are public-domain translations, preserving the publisher's Scripture wording. The collection is included with the recipe, so you need no Bible API key or separate Bible subscription. Full-screen and all three mashup layouts are included.
+
+  Install Daily Bread, choose your language, and start with a passage a day.
+strategy: static
+refresh_interval: 60
+framework_version: "3.4.0"
+no_screen_padding: 'no'
+dark_mode: 'no'
+# The build bundles English, French and Spanish collections into static_data.
+custom_fields:
+  - keyname: language
+    field_type: select
+    name: Language / Langue / Idioma
+    description: Read in English (WEB), French (Louis Segond 1910) or Spanish (Reina Valera 1909).
+    description-fr: Lisez en anglais (WEB), en français (Louis Segond 1910) ou en espagnol (Reina Valera 1909).
+    description-es-ES: Lee en inglés (WEB), francés (Louis Segond 1910) o español (Reina Valera 1909).
+    options:
+      - "English — World English Bible: en"
+      - "Français — Louis Segond 1910: fr"
+      - "Español — Reina Valera 1909: es"
+    default: en
+  - keyname: theme
+    field_type: select
+    multiple: true
+    optional: true
+    name: Themes
+    description: Enjoy a mix of all nine themes, or choose the ones that matter to you today.
+    description-fr: Découvrez les neuf thèmes en alternance ou choisissez ceux qui comptent pour vous aujourd’hui.
+    description-es-ES: Disfruta de los nueve temas por turnos o elige los que más te importan hoy.
+    help_text: Hold Ctrl (Windows) or Command (Mac) to select several. Specific themes take priority over All themes. Clearing the selection restores all themes.
+    options:
+      - "All themes: all"
+      - "Family & home: family"
+      - "Relationships: relationships"
+      - "Work & purpose: work"
+      - "Money & generosity: money"
+      - "Decisions & direction: decisions"
+      - "Worry & rest: rest"
+      - "Hard times & loss: hardship"
+      - "Joy & gratitude: gratitude"
+      - "Faith & prayer: faith"
+    default: all
+  - keyname: rotation
+    field_type: select
+    name: Change passage
+    description: Daily by default, following your TRMNL timezone. The passage changes on the first plugin refresh after each interval begins.
+    description-fr: Chaque jour par défaut, selon votre fuseau horaire TRMNL. Le passage change lors de la première actualisation du plugin après le début de chaque intervalle.
+    description-es-ES: Cada día por defecto, según tu zona horaria de TRMNL. El pasaje cambia en la primera actualización del plugin después del inicio de cada intervalo.
+    options:
+      - "Every day: daily"
+      - "Every 12 hours: twelve_hours"
+      - "Every 6 hours: six_hours"
+      - "Every hour: hourly"
+    default: daily
+  - keyname: about
+    field_type: author_bio
+    name: About Daily Bread
+    description: >-
+      An independent TRMNL Bible recipe. Scripture comes from the
+      <a href="https://worldenglish.bible/" class="underline">World English Bible (WEB)</a>,
+      <a href="https://ebible.org/bible/details.php?id=fraLSG" class="underline">Louis Segond 1910</a>
+      and <a href="https://ebible.org/bible/details.php?id=spaRV1909" class="underline">Reina Valera 1909</a>.
+      All three translations are public domain. Their original wording and spelling are preserved;
+      whitespace is normalized and publisher footnote markers are omitted for display.
+      Each chapter QR code opens the selected translation on eBible.org.
+    description-fr: >-
+      Une recette biblique indépendante pour TRMNL. Les textes proviennent de la World English Bible (WEB),
+      de Louis Segond 1910 et de Reina Valera 1909, trois traductions du domaine public.
+      Le texte et l’orthographe d’origine sont conservés ; les espaces sont normalisés et les appels de note
+      de l’éditeur sont omis pour l’affichage. Le code QR ouvre le chapitre dans la traduction choisie sur eBible.org.
+    description-es-ES: >-
+      Una receta bíblica independiente para TRMNL. Los textos proceden de la World English Bible (WEB),
+      Louis Segond 1910 y Reina Valera 1909, tres traducciones de dominio público.
+      Se conservan el texto y la ortografía originales; se normalizan los espacios y se omiten
+      las llamadas a notas del editor para su visualización. El código QR abre el capítulo en la traducción elegida en eBible.org.
+    category: life,personal
+    learn_more_url: https://ebible.org/
+  - keyname: show_context_qr
+    field_type: boolean
+    name: Show chapter QR code
+    description: Scan to open the full chapter in the selected language and translation.
+    description-fr: Scannez le code pour lire le chapitre complet dans la langue et la traduction choisies.
+    description-es-ES: Escanea el código para leer el capítulo completo en el idioma y la traducción elegidos.
+    default: true

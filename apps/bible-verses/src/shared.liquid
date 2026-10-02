@@ -1,0 +1,184 @@
+{%- comment -%}User-requested full/half/quadrant text wrap; the framework has no float utility.{%- endcomment -%}
+<style data-plugin-style="scripture-cross-wrap">
+.daily-bread-scripture { display: flow-root; }
+.daily-bread-scripture > .daily-bread-cross { float: right; }
+</style>
+
+{%- comment -%}
+  Shared runs before each view. The transform changes rotation_slot to trigger
+  new images. All four sizes select the same passage at render time.
+{%- endcomment -%}
+{%- assign options = trmnl.plugin_settings.custom_fields_values -%}
+{%- assign collection = translations[options.language] -%}
+{%- assign selected_translation = collection.translation | default: translation -%}
+{%- assign selected_themes = collection.themes | default: themes -%}
+{%- assign labels = collection.labels -%}
+{%- if collection -%}
+  {%- assign pool = collection.verses -%}
+{%- else -%}
+  {%- assign pool = verses -%}
+{%- endif -%}
+{%- assign missing_title = labels.missing_title | default: 'Your Scripture collection is missing' -%}
+{%- assign missing_text = labels.missing_text | default: 'Reimport Daily Bread to restore the Scripture collection.' -%}
+{%- comment -%}The transform filters the interleaved collection once for all views.{%- endcomment -%}
+{%- if reading_pool != nil -%}{%- assign pool = reading_pool -%}{%- endif -%}
+{%- assign interval_seconds = 86400 -%}
+{%- assign rotation_label = labels.daily | default: 'Daily' -%}
+{%- case options.rotation -%}
+  {%- when 'hourly' -%}
+    {%- assign interval_seconds = 3600 -%}
+    {%- assign rotation_label = labels.hourly | default: 'Hourly' -%}
+  {%- when 'six_hours' -%}
+    {%- assign interval_seconds = 21600 -%}
+    {%- assign rotation_label = labels.six_hours | default: 'Every 6 hours' -%}
+  {%- when 'twelve_hours' -%}
+    {%- assign interval_seconds = 43200 -%}
+    {%- assign rotation_label = labels.twelve_hours | default: 'Every 12 hours' -%}
+{%- endcase -%}
+{%- assign render_time = trmnl.system.timestamp_utc | default: 'now' | date: '%s' | plus: 0 -%}
+{%- assign local_time = render_time | plus: trmnl.user.utc_offset -%}
+{%- assign slot = local_time | divided_by: interval_seconds | floor -%}
+{%- if pool.size > 0 -%}
+  {%- assign verse_index = slot | modulo: pool.size -%}
+  {%- assign verse = pool[verse_index] -%}
+  {%- assign selected_theme = selected_themes | where: 'id', verse.theme | first -%}
+  {%- assign theme_label = selected_theme.name | default: verse.theme | escape -%}
+{%- endif -%}
+{%- comment -%}
+  Start large; TRMNL fits the complete passage to this height without truncation.
+  Fallback budgets reserve space for the title bar and view padding.
+{%- endcomment -%}
+{%- assign show_context_qr = true -%}
+{%- if options.show_context_qr == false or options.show_context_qr == 'false' -%}
+  {%- assign show_context_qr = false -%}
+{%- endif -%}
+{%- assign context_label = 'Read in context' -%}
+{%- case selected_translation.language -%}
+  {%- when 'fr' -%}{%- assign context_label = 'Lire le chapitre' -%}
+  {%- when 'es' -%}{%- assign context_label = 'Leer el capítulo' -%}
+{%- endcase -%}
+{%- if verse and show_context_qr -%}
+  {%- assign context_qr_svg = verse.source | qr_code: 1, 'm' -%}
+  {%- assign context_qr_uri = context_qr_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
+  {%- capture context_qr -%}
+    <a class="absolute bottom--0 right--0 block w--24 h--24 p--3 bg--white no-shrink" href="{{ verse.source | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ context_label | escape }}" title="{{ context_label | escape }}" data-context-url="{{ verse.source | escape }}">
+      <img class="w--full h--full" src="{{ context_qr_uri }}" alt="{{ context_label | escape }}">
+    </a>
+  {%- endcapture -%}
+{%- endif -%}
+{%- assign device_height = trmnl.device.height | default: 480 -%}
+{%- assign full_text_height = device_height | times: 0.69 | floor -%}
+{%- assign banner_text_height = device_height | times: 0.30 | floor -%}
+{%- assign tall_text_height = device_height | times: 0.76 | floor -%}
+{%- assign small_text_height = device_height | times: 0.30 | floor -%}
+{%- capture cross_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200"><path fill="black" d="M45 0h30v55h45v30H75v115H45V85H0V55h45z"/></svg>{%- endcapture -%}
+{%- assign cross_uri = cross_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
+
+{%- comment -%}Dimensional hero, with monochrome faces that stay crisp on 1-bit panels.{%- endcomment -%}
+{%- capture hero_cross_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 132 206"><path d="M73 10h28v52h41v28h-41v108H73V90H33V62h40z" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/><path d="M55 24 73 10h28L83 24zM83 76l18-14h41l-18 14zM15 76l18-14h40L55 76z" fill="white" stroke="black" stroke-width="3" stroke-linejoin="round"/><path d="M83 24l18-14v52L83 76zM124 76l18-14v28l-18 14zM83 104l18-14v108l-18 14z" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/><path d="M55 24h28v52h41v28H83v108H55V104H15V76h40z" fill="white" stroke="black" stroke-width="3" stroke-linejoin="round"/><path d="M62 33h14M23 83h25M62 112v91" fill="none" stroke="black" stroke-width="1.5"/></svg>{%- endcapture -%}
+{%- assign hero_cross_uri = hero_cross_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
+{%- capture reading_ornament_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 20"><path d="M0 10h96m48 0h96" fill="none" stroke="black" stroke-width="2"/><path d="m120 2 8 8-8 8-8-8z" fill="white" stroke="black" stroke-width="2"/><path d="m102 10 4-4 4 4-4 4zm28 0 4-4 4 4-4 4z" fill="black"/></svg>{%- endcapture -%}
+{%- assign reading_ornament_uri = reading_ornament_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
+
+<script>
+(function () {
+  // Physical content box of an element, excluding its padding. The scale covers
+  // TRMNL X and other views that the framework scales after layout.
+  function contentBox(element) {
+    var bounds = element.getBoundingClientRect();
+    var metrics = getComputedStyle(element);
+    var scale = bounds.height / element.offsetHeight || 1;
+    var inset = function (side) { return parseFloat(metrics['padding' + side]) * scale; };
+    return {
+      top: bounds.top + inset('Top'), scale: scale,
+      height: bounds.height - inset('Top') - inset('Bottom'),
+      width: bounds.width - inset('Left') - inset('Right')
+    };
+  }
+  // Fit Value compares physical bounds. Measure the actual view after fonts and
+  // images load, so this works with portrait, mashups, UI scaling and high DPI.
+  function reserveReadingSpace() {
+    document.querySelectorAll('[data-scripture-fit="true"]').forEach(function (passage) {
+      var layout = contentBox(passage.closest('.layout'));
+      var parent = passage.parentElement;
+      var available = Math.min(layout.height, contentBox(parent).height);
+      var siblings = Array.from(parent.children).filter(function (child) {
+        return child !== passage && getComputedStyle(child).display !== 'none';
+      });
+      var gap = parseFloat(getComputedStyle(parent).rowGap) || 0;
+      siblings.forEach(function (child) { available -= child.getBoundingClientRect().height; });
+      available -= gap * siblings.length * layout.scale;
+      passage.dataset.valueFitMaxHeight = Math.max(16, Math.floor(available - 4 * layout.scale));
+    });
+  }
+  // Keep the artwork pinned while the paragraph is centered. Only reserve the
+  // part of the cross that actually overlaps the paragraph, allowing subsequent
+  // lines to use the full width. Heights remain native framework utilities.
+  // Fitting can alternate between two reservations: a smaller one lets the text
+  // grow upward into the artwork. A larger reservation only lowers the text, so
+  // a repeated height settles on the largest height tried.
+  function reserveCrossOverlap(settling) {
+    var changed = false;
+    document.querySelectorAll('[data-cross-wrap="true"]').forEach(function (wrap) {
+      var passage = wrap.parentElement;
+      var layout = passage.closest('.layout');
+      var cross = layout.querySelector('[data-pinned-cross="true"]');
+      var content = contentBox(layout);
+      // An unfitted passage can start above the view; never reserve beyond the artwork.
+      var overlap = Math.max(0, cross.getBoundingClientRect().bottom - Math.max(content.top, passage.getBoundingClientRect().top));
+      var height = Math.min(100, Math.ceil(100 * overlap / content.height));
+      var tried = settling && wrap.dataset.wrapTried ? wrap.dataset.wrapTried.split(',').map(Number) : [];
+      if (tried.indexOf(height) !== -1) height = Math.max.apply(null, tried);
+      else tried.push(height);
+      wrap.dataset.wrapTried = tried.join(',');
+      var heightClass = height ? 'h--[' + height + 'cqh]' : 'h--0';
+      if (wrap.dataset.wrapHeightClass !== heightClass) {
+        wrap.classList.remove(wrap.dataset.wrapHeightClass || 'h--0');
+        wrap.classList.add(heightClass);
+        wrap.dataset.wrapHeightClass = heightClass;
+        changed = true;
+      }
+      // The pinned group may also hold the QR code. Reserve its measured width,
+      // replacing the markup's responsive estimate once the group has rendered.
+      var pinnedWidth = cross.getBoundingClientRect().width;
+      if (pinnedWidth > 0 && content.width > 0) {
+        var widthClass = 'w--[' + Math.min(100, Math.ceil(100 * pinnedWidth / content.width)) + 'cqw]';
+        if (wrap.dataset.wrapWidthClass !== widthClass) {
+          Array.from(wrap.classList).forEach(function (name) {
+            if (/^([a-z0-9]+:)*w--/.test(name)) wrap.classList.remove(name);
+          });
+          wrap.classList.add(widthClass);
+          wrap.dataset.wrapWidthClass = widthClass;
+          changed = true;
+        }
+      }
+    });
+    return changed;
+  }
+  var settlePasses = 0;
+  window.addEventListener('trmnl:terminalize:stats', function () {
+    var changed = settlePasses < 12 && reserveCrossOverlap(true);
+    document.querySelectorAll('[data-scripture-fit="true"]').forEach(function (passage) {
+      passage.dataset.readingReady = changed ? 'false' : 'true';
+    });
+    if (changed) {
+      settlePasses += 1;
+      window.executeTerminalize();
+    }
+  });
+  function prepareReadingSpace() {
+    document.querySelectorAll('[data-scripture-fit="true"]').forEach(function (passage) {
+      passage.dataset.readingReady = 'false';
+    });
+    reserveReadingSpace();
+    reserveCrossOverlap();
+  }
+  window.addEventListener('resize', function () {
+    settlePasses = 0;
+    prepareReadingSpace();
+    if (window.executeTerminalize) window.executeTerminalize();
+  });
+  if (document.readyState === 'complete') prepareReadingSpace();
+  else window.addEventListener('load', prepareReadingSpace, { once: true });
+})();
+</script>
