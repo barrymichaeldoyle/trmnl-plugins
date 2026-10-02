@@ -10,7 +10,11 @@
 {%- endcomment -%}
 {%- assign options = trmnl.plugin_settings.custom_fields_values -%}
 {%- assign collection = translations[options.language] -%}
-{%- assign selected_translation = collection.translation | default: translation -%}
+{%- if collection -%}
+  {%- assign selected_translation = collection.translation -%}
+{%- else -%}
+  {%- assign selected_translation = translation -%}
+{%- endif -%}
 {%- assign selected_themes = collection.themes | default: themes -%}
 {%- assign labels = collection.labels -%}
 {%- if collection -%}
@@ -22,17 +26,18 @@
 {%- assign missing_text = labels.missing_text | default: 'Reimport Daily Bread to restore the Scripture collection.' -%}
 {%- comment -%}The transform filters the interleaved collection once for all views.{%- endcomment -%}
 {%- if reading_pool != nil -%}{%- assign pool = reading_pool -%}{%- endif -%}
-{%- assign interval_seconds = 86400 -%}
+{%- assign verse = nil -%}
+{%- assign selected_theme = nil -%}
+{%- assign theme_label = nil -%}
+{%- assign context_qr = nil -%}
+{%- assign interval_seconds = interval_seconds | default: 86400 -%}
 {%- assign rotation_label = labels.daily | default: 'Daily' -%}
 {%- case options.rotation -%}
   {%- when 'hourly' -%}
-    {%- assign interval_seconds = 3600 -%}
     {%- assign rotation_label = labels.hourly | default: 'Hourly' -%}
   {%- when 'six_hours' -%}
-    {%- assign interval_seconds = 21600 -%}
     {%- assign rotation_label = labels.six_hours | default: 'Every 6 hours' -%}
   {%- when 'twelve_hours' -%}
-    {%- assign interval_seconds = 43200 -%}
     {%- assign rotation_label = labels.twelve_hours | default: 'Every 12 hours' -%}
 {%- endcase -%}
 {%- assign render_time = trmnl.system.timestamp_utc | default: 'now' | date: '%s' | plus: 0 -%}
