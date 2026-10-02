@@ -4,7 +4,7 @@ Prepared 2 October 2026. The name, short description, public `recipe_overview`, 
 
 ## Name and short description
 
-**Recipe name:** Daily Bread — Bible Verses
+**Recipe name:** Daily Bread: Bible Verses
 
 **Brand name:** Daily Bread
 
@@ -32,7 +32,7 @@ Install Daily Bread, choose your language, and start with a passage a day.
 
 ## French publication copy
 
-**Title:** Daily Bread — Versets bibliques
+**Title:** Daily Bread : Versets bibliques
 
 **TRMNL short description:** Versets bibliques en 3 langues
 
@@ -52,7 +52,7 @@ Installez Daily Bread, choisissez votre langue et commencez par un passage par j
 
 ## Spanish publication copy
 
-**Title:** Daily Bread — Versículos bíblicos
+**Title:** Daily Bread: Versículos bíblicos
 
 **TRMNL short description:** Versículos bíblicos en 3 idiomas
 

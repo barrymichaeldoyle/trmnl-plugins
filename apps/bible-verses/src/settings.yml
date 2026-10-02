@@ -1,4 +1,4 @@
-name: Daily Bread — Bible Verses
+name: "Daily Bread: Bible Verses"
 description: Daily Bible verses in 3 languages
 recipe_overview: |-
   Daily Bread brings daily Bible verses to your TRMNL, with one complete passage to carry into your day. Keep Scripture in view at home or at your desk, with a distinctive cross and space to read and reflect.
@@ -24,9 +24,9 @@ custom_fields:
     description-fr: Lisez en anglais (WEB), en français (Louis Segond 1910) ou en espagnol (Reina Valera 1909).
     description-es-ES: Lee en inglés (WEB), francés (Louis Segond 1910) o español (Reina Valera 1909).
     options:
-      - "English — World English Bible: en"
-      - "Français — Louis Segond 1910: fr"
-      - "Español — Reina Valera 1909: es"
+      - "English (World English Bible): en"
+      - "Français (Louis Segond 1910): fr"
+      - "Español (Reina Valera 1909): es"
     default: en
   - keyname: theme
     field_type: select

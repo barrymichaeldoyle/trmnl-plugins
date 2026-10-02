@@ -1,4 +1,4 @@
-# Daily Bread — Bible Verses
+# Daily Bread: Bible Verses
 
 Daily Bible verses for your TRMNL. One complete passage to carry into your day, with a distinctive cross and a collection chosen for everyday Christian life.
 

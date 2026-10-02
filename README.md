@@ -4,7 +4,7 @@ A pnpm monorepo for independent [TRMNL](https://trmnl.com) plugins and the tools
 
 | Plugin | Purpose | Status |
 | --- | --- | --- |
-| [Daily Bread — Bible Verses](apps/bible-verses/README.md) | Daily Scripture in English, French and Spanish, with nine practical themes | Importable recipe MVP |
+| [Daily Bread: Bible Verses](apps/bible-verses/README.md) | Daily Scripture in English, French and Spanish, with nine practical themes | Importable recipe MVP |
 
 The Formula 1 News plugin remains in the Grand Prix Picks monorepo. Add a link here when its public repository or recipe URL is ready. Future apps, such as an AdMob dashboard, can share the tooling without moving existing projects.
 
