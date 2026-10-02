@@ -4,8 +4,9 @@
       <div class="flex hidden portrait:flex flex--row flex--center-x w--full h--20 lg:h--24 no-shrink">
         <img class="image image--contain w--auto h--full" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true">
       </div>
-      <div class="flex flex--col flex--center-y flex--left grow w--full h--0" data-reading-area="true">
+      <div class="flex flex--col flex--center-y flex--left grow w--full h--0 gap--small" data-reading-area="true">
         <p class="value no-shrink value--large lg:value--xxlarge daily-bread-scripture w--min-full" lang="{{ selected_translation.language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ banner_text_height }}" data-verse-id="{{ verse.id | escape }}"><span class="daily-bread-cross {% if context_qr %}w--16{% else %}w--[6cqw] lg:w--[9cqw]{% endif %} portrait:hidden ml--2 h--0" data-cross-wrap="true" aria-hidden="true"></span>{{ verse.text | escape }}</p>
+        <p class="title title--base lg:title--large no-shrink w--full" data-content-reference="true">{{ verse.reference | escape }}</p>
       </div>
     </div>
     <div class="absolute top--0 right--0 flex flex--col flex--center-x gap--small" data-pinned-cross="true">
@@ -18,6 +19,6 @@
 </div>
 <div class="title_bar" translate="no">
   <div class="flex flex--left grow w--0">
-    <span class="title" data-value-fit="true" data-footer-reference="true" title="{{ selected_translation.name | escape }} ({{ selected_translation.abbreviation | escape }})">{% if verse %}{{ verse.reference | escape }}{% else %}{{ trmnl.plugin_settings.instance_name | default: 'Daily Bread' | escape }}{% endif %}</span>
+    {% if verse %}<span class="title hidden" data-value-fit="true" data-footer-reference="true" title="{{ selected_translation.name | escape }} ({{ selected_translation.abbreviation | escape }})">{{ verse.reference | escape }}</span>{% endif %}<span class="title" data-value-fit="true" data-footer-name="true">{{ trmnl.plugin_settings.instance_name | default: 'Daily Bread' | escape }}</span>
   </div>
 </div>

@@ -155,9 +155,43 @@
     });
     return changed;
   }
+  // The reference reads larger under the passage. If it would leave the passage
+  // smaller than 1.25 times its own size, it moves into the title bar instead,
+  // where the plugin name otherwise sits. The move happens once per layout.
+  function placeReference(inContent) {
+    document.querySelectorAll('[data-content-reference="true"]').forEach(function (reference) {
+      reference.classList.toggle('hidden', !inContent);
+    });
+    document.querySelectorAll('[data-footer-reference="true"]').forEach(function (reference) {
+      reference.classList.toggle('hidden', inContent);
+    });
+    document.querySelectorAll('[data-footer-name="true"]').forEach(function (name) {
+      name.classList.toggle('hidden', !inContent && Boolean(document.querySelector('[data-footer-reference="true"]')));
+    });
+  }
+  function referenceCrowdsPassage() {
+    return Array.from(document.querySelectorAll('[data-scripture-fit="true"]')).some(function (passage) {
+      var reference = passage.parentElement.querySelector('[data-content-reference="true"]');
+      if (!reference || reference.classList.contains('hidden')) return false;
+      return parseFloat(getComputedStyle(passage).fontSize) < 1.25 * parseFloat(getComputedStyle(reference).fontSize);
+    });
+  }
   var settlePasses = 0;
+  var referencePlaced = false;
   window.addEventListener('trmnl:terminalize:stats', function () {
     var changed = settlePasses < 12 && reserveCrossOverlap(true);
+    if (!changed && !referencePlaced) {
+      referencePlaced = true;
+      if (referenceCrowdsPassage()) {
+        placeReference(false);
+        // The reading area changed, so measure again and restart the cross settling.
+        document.querySelectorAll('[data-cross-wrap="true"]').forEach(function (wrap) { delete wrap.dataset.wrapTried; });
+        settlePasses = 0;
+        reserveReadingSpace();
+        reserveCrossOverlap();
+        changed = true;
+      }
+    }
     document.querySelectorAll('[data-scripture-fit="true"]').forEach(function (passage) {
       passage.dataset.readingReady = changed ? 'false' : 'true';
     });
@@ -170,11 +204,13 @@
     document.querySelectorAll('[data-scripture-fit="true"]').forEach(function (passage) {
       passage.dataset.readingReady = 'false';
     });
+    placeReference(true);
     reserveReadingSpace();
     reserveCrossOverlap();
   }
   window.addEventListener('resize', function () {
     settlePasses = 0;
+    referencePlaced = false;
     prepareReadingSpace();
     if (window.executeTerminalize) window.executeTerminalize();
   });

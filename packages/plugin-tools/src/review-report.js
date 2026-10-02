@@ -26,7 +26,7 @@ export function reviewSummary(manifest, captured, { selected = manifest.total, s
 // agents compare sizing across devices without reading every screenshot.
 export function typographyCell(result) {
   const t = result?.metrics?.typography;
-  return t ? `${t.fontSize}px ${t.fill}%${result.metrics.warnings?.length ? ' !' : ''}` : null;
+  return t ? `${t.fontSize}px ${t.fill}%${t.reference === 'bar' ? ' bar' : ''}${result.metrics.warnings?.length ? ' !' : ''}` : null;
 }
 
 export function typographyMatrix(manifest, captured) {
@@ -34,7 +34,7 @@ export function typographyMatrix(manifest, captured) {
   const columns = manifest.scenarios.map(s => s.id);
   const rows = manifest.screens.map(screen => ({ screen: screen.id, cells: Object.fromEntries(columns.map(id => [id, typographyCell(results.get(`${id}--${screen.id}`))])) }))
     .filter(row => Object.values(row.cells).some(Boolean));
-  return { legend: 'fitted font px, % of layout height filled by Scripture, ! = warning', columns, rows };
+  return { legend: 'fitted font px, % of layout height filled by Scripture, bar = reference moved to the title bar, ! = warning', columns, rows };
 }
 
 export function formatTypography({ columns, rows }) {
