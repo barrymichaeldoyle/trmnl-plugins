@@ -8,7 +8,7 @@
       {% if context_qr %}<div class="hidden portrait:block w--full h--16 no-shrink" aria-hidden="true"></div>{% endif %}
     </div>
     <div class="absolute top--0 right--0 flex flex--col flex--center-x gap--small" data-pinned-cross="true">
-      <div class="w--12 lg:w--14"><img class="image image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
+      <div class="w--12 lg:w--14"><img class="image image-dither image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
       {% if context_qr %}{{ context_qr | replace: 'absolute bottom--0 right--0 block', 'block portrait:hidden' | replace: 'w--24 h--24 p--3', 'w--16 h--16 p--1' }}{% endif %}
     </div>
     {%- comment -%}Narrow portrait columns keep the QR below the passage instead of beside it.{%- endcomment -%}

@@ -62,7 +62,7 @@
   {%- assign context_qr_uri = context_qr_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
   {%- capture context_qr -%}
     <a class="absolute bottom--0 right--0 block w--24 h--24 p--3 bg--white no-shrink" href="{{ verse.source | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ context_label | escape }}" title="{{ context_label | escape }}" data-context-url="{{ verse.source | escape }}">
-      <img class="w--full h--full" src="{{ context_qr_uri }}" alt="{{ context_label | escape }}">
+      <img class="image image-dither w--full h--full" src="{{ context_qr_uri }}" alt="{{ context_label | escape }}">
     </a>
   {%- endcapture -%}
 {%- endif -%}

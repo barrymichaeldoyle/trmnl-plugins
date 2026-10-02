@@ -6,10 +6,10 @@
         <p class="title title--base lg:title--large no-shrink w--full" data-content-reference="true">{{ verse.reference | escape }}</p>
       </div>
       <div class="flex flex--center-x flex--bottom w--full {% if context_qr %}h--32{% else %}h--2{% endif %} no-shrink" aria-hidden="true">
-        <img class="image w--24 h--2" src="{{ reading_ornament_uri }}" alt="">
+        <img class="image image-dither w--24 h--2" src="{{ reading_ornament_uri }}" alt="">
       </div>
     </div>
-    <div class="absolute top--0 right--0 w--[16cqw] portrait:w--[28cqw] lg:w--[23cqw] lg:portrait:w--[28cqw]" data-pinned-cross="true"><img class="image image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
+    <div class="absolute top--0 right--0 w--[16cqw] portrait:w--[28cqw] lg:w--[23cqw] lg:portrait:w--[28cqw]" data-pinned-cross="true"><img class="image image-dither image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
     {%- comment -%}The QR sits in the bottom-right corner, beside the ornament and above the title bar.{%- endcomment -%}
     {% if context_qr %}{{ context_qr | replace: 'w--24 h--24', 'w--32 h--32' }}{% endif %}
   {% else %}
