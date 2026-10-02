@@ -104,7 +104,7 @@ test('a missing selected collection shows recovery text without silently display
 
 
 test('fresh and blank preferences use English, all themes, daily rotation and QR on in every layout', async () => {
-  assert.deepEqual(plugin.defaults, { language: 'en', theme: 'all', rotation: 'daily', show_context_qr: true });
+  assert.deepEqual(plugin.defaults, { language: 'en', rotation: 'daily', show_context_qr: true });
   const options = { timestamp: 1790848800, utcOffset: 0 };
   for (const view of views) {
     const initial = await renderView(plugin, view, options);

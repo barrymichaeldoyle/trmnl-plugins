@@ -29,10 +29,10 @@
   <header><div><h1>Daily Bread</h1><p>Daily Bible verses. One passage to carry into your day.</p></div><a href="/review">Review all screens</a><a href="/download">Download TRMNL recipe</a></header>
   <main>
     <aside aria-label="Preview settings">
-      <div><label for="language">Language / Langue / Idioma</label><select id="language"></select></div>
-      <div><label id="theme-label">Themes</label><details class="theme-picker"><summary id="theme-summary" aria-labelledby="theme-label theme-summary">All themes</summary><fieldset id="theme"><legend>Choose one or more</legend></fieldset></details></div>
-      <div><label for="rotation">Change passage</label><select id="rotation"></select></div>
-      <div><label for="context-qr">Show chapter QR code</label><select id="context-qr"><option value="true">Show</option><option value="false">Hide</option></select></div>
+      <div><label for="language">Language</label><select id="language"></select></div>
+      <div><label id="theme-label">Themes</label><details class="theme-picker"><summary id="theme-summary" aria-labelledby="theme-label theme-summary">All themes</summary><fieldset id="theme"><legend>Leave empty for every theme</legend></fieldset></details></div>
+      <div><label for="rotation">New passage</label><select id="rotation"></select></div>
+      <div><label for="context-qr">Chapter QR code</label><select id="context-qr"><option value="true">Show</option><option value="false">Hide</option></select></div>
       <div><label for="model">Device</label><select id="model"></select></div>
       <div><label for="orientation">Orientation</label><select id="orientation"><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></div>
       <div><label for="view">Screen layout</label><select id="view"><option value="full">Full</option><option value="half_horizontal">Half horizontal</option><option value="half_vertical">Half vertical</option><option value="quadrant">Quadrant</option></select></div>
@@ -93,7 +93,7 @@
         byId('screen').style.width = width+'px'; byId('screen').style.height = height+'px';
         fitPreview();
         byId('screen').src = '/render?' + query + '&view=' + view;
-        const chosen = selectedThemes().filter(theme => theme !== 'all');
+        const chosen = selectedThemes();
         const collection = plugin.data.translations?.[byId('language').value] ?? plugin.data;
         const pool = chosen.length ? collection.verses.filter(v => chosen.includes(v.theme)) : collection.verses;
         const slot = Math.floor((Number(query.get('timestamp')) + Number(query.get('offset'))) / intervals[byId('rotation').value]);
@@ -106,10 +106,9 @@
         byId('translation').textContent = collection.translation.name + ' · ' + ({en:'English',fr:'Français',es:'Español'}[collection.translation.language] ?? collection.translation.language);
         const language = byId('language').value;
         const allLabel = {en:'All themes',fr:'Tous les thèmes',es:'Todos los temas'}[language] ?? 'All themes';
-        for (const input of byId('theme').querySelectorAll('input')) input.nextElementSibling.textContent = input.value === 'all' ? allLabel : collection.themes.find(t => t.id === input.value)?.name;
         byId('theme-summary').textContent = chosen.length === 0 || chosen.length === collection.themes.length ? allLabel : chosen.length === 1 ? collection.themes.find(t => t.id === chosen[0]).name : `${chosen.length} ${{en:'themes',fr:'thèmes',es:'temas'}[language] ?? 'themes'}`;
         byId('theme-label').textContent = {en:'Themes',fr:'Thèmes',es:'Temas'}[language] ?? 'Themes';
-        byId('theme').querySelector('legend').textContent = {en:'Choose one or more',fr:'Choisissez un ou plusieurs thèmes',es:'Elige uno o varios temas'}[language] ?? 'Choose one or more';
+        byId('theme').querySelector('legend').textContent = {en:'Leave empty for every theme',fr:'Laissez vide pour tous les thèmes',es:'Déjalo vacío para todos los temas'}[language] ?? 'Leave empty for every theme';
         for (const option of byId('rotation').options) if (collection.labels?.[option.value]) option.textContent = collection.labels[option.value]; else option.textContent = plugin.fields.find(f => f.keyname === 'rotation').options.find(entry => entry.endsWith(': '+option.value)).split(': ')[0];
         byId('summary').textContent = pool.length + ' curated passages in this rotation. Every passage appears once before the cycle repeats.';
         byId('links').replaceChildren(...Object.keys(fractions).map(v => { const a = document.createElement('a'); a.href='/render?'+query+'&view='+v; a.textContent=v.replaceAll('_',' '); a.target='_blank'; return a; }));
@@ -130,19 +129,11 @@
       for (const entry of themeField.options) {
         const [text, value] = entry.split(': ');
         const label = document.createElement('label');
-        const input = document.createElement('input'); input.type = 'checkbox'; input.value = value; input.checked = value === 'all';
+        const input = document.createElement('input'); input.type = 'checkbox'; input.value = value; input.checked = false;
         const span = document.createElement('span'); span.textContent = text;
         label.append(input, span); byId('theme').append(label);
       }
-      byId('theme').addEventListener('change', event => {
-        const inputs = Array.from(byId('theme').querySelectorAll('input'));
-        if (event.target.checked) {
-          if (event.target.value === 'all') inputs.forEach(input => { if (input.value !== 'all') input.checked = false; });
-          else inputs.find(input => input.value === 'all').checked = false;
-        }
-        if (!inputs.some(input => input.checked)) inputs.find(input => input.value === 'all').checked = true;
-        update();
-      });
+      byId('theme').addEventListener('change', update);
       byId('offset').value = plugin.offset / 3600;
       byId('time').value = new Date(Date.now() + plugin.offset * 1000).toISOString().slice(0,16);
       for (const name of ['language','rotation','context-qr','model','orientation','view','time','offset']) byId(name).addEventListener('change',update);
