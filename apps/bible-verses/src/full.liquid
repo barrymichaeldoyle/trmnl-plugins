@@ -1,4 +1,4 @@
-<div class="layout layout--col layout--top relative" lang="{{ selected_translation.language | escape }}" translate="no" data-theme="{{ theme_label }}">
+<div class="layout layout--col layout--top relative{{ appearance_class }}" data-appearance="{{ appearance }}" lang="{{ selected_translation.language | escape }}" translate="no" data-theme="{{ theme_label }}">
   {% if verse %}
     <div class="flex flex--col flex--between flex--left w--full h--full gap--small">
       <div class="flex flex--col flex--center-y flex--left grow w--full h--0 gap--small" data-reading-area="true">
@@ -17,7 +17,7 @@
     <p class="description">{{ missing_text | escape }}</p>
   {% endif %}
 </div>
-<div class="title_bar" translate="no">
+<div class="title_bar{{ appearance_class }}" data-appearance="{{ appearance }}" translate="no">
   <img class="image" src="{{ hero_cross_uri }}" alt="" data-plugin-icon="true">
   <div class="flex flex--left grow w--0">
     {% if verse %}<span class="title hidden" data-value-fit="true" data-footer-reference="true" title="{{ selected_translation.name | escape }} ({{ selected_translation.abbreviation | escape }})">{{ verse.reference | escape }}</span>{% endif %}<span class="title" data-value-fit="true" data-footer-name="true">{{ trmnl.plugin_settings.instance_name | default: 'Daily Bread' | escape }}</span>

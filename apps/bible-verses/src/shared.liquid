@@ -79,14 +79,41 @@
 {%- capture cross_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200"><path fill="black" d="M45 0h30v55h45v30H75v115H45V85H0V55h45z"/></svg>{%- endcapture -%}
 {%- assign cross_uri = cross_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
 
+{%- comment -%}
+  Dark uses the framework's inverse tokens on this plugin's own content, so a
+  mashup neighbour keeps its appearance. A full view owns the screen, so the
+  script below switches the whole screen to dark mode instead. Artwork swaps ink
+  and paper to match; the QR code keeps its white tile so scanners read it.
+{%- endcomment -%}
+{%- assign ink = 'black' -%}
+{%- assign paper = 'white' -%}
+{%- assign appearance = 'light' -%}
+{%- assign appearance_class = '' -%}
+{%- if options.appearance == 'dark' -%}
+  {%- assign appearance = 'dark' -%}
+  {%- assign ink = 'white' -%}
+  {%- assign paper = 'black' -%}
+  {%- assign appearance_class = ' inverse bg--canvas' -%}
+{%- endif -%}
 {%- comment -%}Dimensional hero, with monochrome faces that stay crisp on 1-bit panels.{%- endcomment -%}
-{%- capture hero_cross_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 132 206"><path d="M73 10h28v52h41v28h-41v108H73V90H33V62h40z" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/><path d="M55 24 73 10h28L83 24zM83 76l18-14h41l-18 14zM15 76l18-14h40L55 76z" fill="white" stroke="black" stroke-width="3" stroke-linejoin="round"/><path d="M83 24l18-14v52L83 76zM124 76l18-14v28l-18 14zM83 104l18-14v108l-18 14z" fill="black" stroke="black" stroke-width="3" stroke-linejoin="round"/><path d="M55 24h28v52h41v28H83v108H55V104H15V76h40z" fill="white" stroke="black" stroke-width="3" stroke-linejoin="round"/><path d="M62 33h14M23 83h25M62 112v91" fill="none" stroke="black" stroke-width="1.5"/></svg>{%- endcapture -%}
+{%- capture hero_cross_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 132 206"><path d="M73 10h28v52h41v28h-41v108H73V90H33V62h40z" fill="{{ ink }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M55 24 73 10h28L83 24zM83 76l18-14h41l-18 14zM15 76l18-14h40L55 76z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M83 24l18-14v52L83 76zM124 76l18-14v28l-18 14zM83 104l18-14v108l-18 14z" fill="{{ ink }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M55 24h28v52h41v28H83v108H55V104H15V76h40z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M62 33h14M23 83h25M62 112v91" fill="none" stroke="{{ ink }}" stroke-width="1.5"/></svg>{%- endcapture -%}
 {%- assign hero_cross_uri = hero_cross_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
-{%- capture reading_ornament_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 20"><path d="M0 10h96m48 0h96" fill="none" stroke="black" stroke-width="2"/><path d="m120 2 8 8-8 8-8-8z" fill="white" stroke="black" stroke-width="2"/><path d="m102 10 4-4 4 4-4 4zm28 0 4-4 4 4-4 4z" fill="black"/></svg>{%- endcapture -%}
+{%- capture reading_ornament_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 20"><path d="M0 10h96m48 0h96" fill="none" stroke="{{ ink }}" stroke-width="2"/><path d="m120 2 8 8-8 8-8-8z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="2"/><path d="m102 10 4-4 4 4-4 4zm28 0 4-4 4 4-4 4z" fill="{{ ink }}"/></svg>{%- endcapture -%}
 {%- assign reading_ornament_uri = reading_ornament_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
 
 <script>
 (function () {
+  // A full view owns the screen: use the framework's dark mode so the padding
+  // around the view is dark too. Under screen dark mode, inverse would flip back
+  // to light, so the scoped classes are removed.
+  function applyAppearance() {
+    var dark = document.querySelectorAll('[data-appearance="dark"]');
+    if (!dark.length || dark[0].closest('.mashup')) return;
+    var screen = dark[0].closest('.screen');
+    if (!screen) return;
+    screen.classList.add('screen--dark-mode');
+    dark.forEach(function (element) { element.classList.remove('inverse', 'bg--canvas'); });
+  }
   // Physical content box of an element, excluding its padding. The scale covers
   // TRMNL X and other views that the framework scales after layout.
   function contentBox(element) {
@@ -219,6 +246,12 @@
     prepareReadingSpace();
     if (window.executeTerminalize) window.executeTerminalize();
   });
+  // Apply before the framework's first fit: a later mode change refits mid-settle.
+  if (document.readyState === 'loading') {
+    document.addEventListener('readystatechange', function () {
+      if (document.readyState === 'interactive') applyAppearance();
+    }, { once: true });
+  } else applyAppearance();
   if (document.readyState === 'complete') prepareReadingSpace();
   else window.addEventListener('load', prepareReadingSpace, { once: true });
 })();

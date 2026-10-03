@@ -175,17 +175,33 @@ test('invalid array entries do not prevent complete, correctly attributed passag
 });
 
 
-test('fresh and blank preferences use English, all themes, daily rotation and QR on in every layout', async () => {
-  assert.deepEqual(plugin.defaults, { language: 'en', rotation: 'daily', show_context_qr: true });
+test('fresh and blank preferences use English, all themes, daily rotation, QR on and light appearance in every layout', async () => {
+  assert.deepEqual(plugin.defaults, { language: 'en', rotation: 'daily', show_context_qr: true, appearance: 'light' });
   const options = { timestamp: 1790848800, utcOffset: 0 };
   for (const view of views) {
     const initial = await renderView(plugin, view, options);
-    const blank = await renderView(plugin, view, { ...options, fields: { language: '', theme: [], rotation: null, show_context_qr: null } });
+    const blank = await renderView(plugin, view, { ...options, fields: { language: '', theme: [], rotation: null, show_context_qr: null, appearance: null } });
     assert.equal(blank, initial);
+    assert.ok(initial.includes('data-appearance="light"'));
+    assert.ok(!initial.includes('inverse bg--canvas"'));
     assert.ok(initial.includes('data-context-url='));
     assert.ok(initial.includes('data-reading-cross="true"'));
     const withoutQr = await renderView(plugin, view, { ...options, fields: { show_context_qr: false } });
     assert.ok(!withoutQr.includes('data-context-url='));
     assert.ok(withoutQr.includes('data-reading-cross="true"'));
+  }
+});
+
+test('dark appearance inverts this plugin\'s content and artwork but keeps the QR tile white', async () => {
+  const options = { timestamp: 1790848800, utcOffset: 0 };
+  for (const view of views) {
+    const light = await renderView(plugin, view, options);
+    const dark = await renderView(plugin, view, { ...options, fields: { appearance: 'dark' } });
+    assert.ok(dark.includes('class="layout layout--col layout--top relative inverse bg--canvas" data-appearance="dark"'));
+    assert.ok(dark.includes('class="title_bar inverse bg--canvas" data-appearance="dark"'));
+    assert.ok(dark.includes('bg--white'));
+    const crossOf = html => html.match(/src="(data:image\/svg\+xml;base64,[^"]+)"[^>]*data-reading-cross/)[1];
+    assert.notEqual(crossOf(dark), crossOf(light));
+    assert.ok(Buffer.from(crossOf(dark).split(',')[1], 'base64').toString().includes('fill="white" stroke="white"'));
   }
 });
