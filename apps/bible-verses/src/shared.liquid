@@ -1,7 +1,12 @@
-{%- comment -%}User-requested full/half/quadrant text wrap; the framework has no float utility.{%- endcomment -%}
+{%- comment -%}
+  User-requested text wrap around the top-right cross and, in wide halves and
+  quadrants, the bottom-right QR; the framework has no float or clear utility.
+  A zero-width push float holds the cleared QR reservation down to the QR.
+{%- endcomment -%}
 <style data-plugin-style="scripture-cross-wrap">
 .daily-bread-scripture { display: flow-root; }
-.daily-bread-scripture > .daily-bread-cross { float: right; }
+.daily-bread-scripture > .daily-bread-cross, .daily-bread-scripture > .daily-bread-qr-push { float: right; }
+.daily-bread-scripture > .daily-bread-qr-wrap { float: right; clear: right; }
 </style>
 
 {%- comment -%}
@@ -95,8 +100,8 @@
   {%- assign paper = 'black' -%}
   {%- assign appearance_class = ' inverse bg--canvas' -%}
 {%- endif -%}
-{%- comment -%}Dimensional hero: a solid ink front with outlined paper sides, crisp on 1-bit panels.{%- endcomment -%}
-{%- capture hero_cross_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 132 206"><path d="M73 10h28v52h41v28h-41v108H73V90H33V62h40z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M55 24 73 10h28L83 24zM83 76l18-14h41l-18 14zM15 76l18-14h40L55 76z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M83 24l18-14v52L83 76zM124 76l18-14v28l-18 14zM83 104l18-14v108l-18 14z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M55 24h28v52h41v28H83v108H55V104H15V76h40z" fill="{{ ink }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M62 33h14M23 83h25M62 112v91" fill="none" stroke="{{ paper }}" stroke-width="1.5"/></svg>{%- endcapture -%}
+{%- comment -%}Dimensional hero: a white front with black sides in both appearances; outlines and top faces follow ink and paper.{%- endcomment -%}
+{%- capture hero_cross_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 132 206"><path d="M73 10h28v52h41v28h-41v108H73V90H33V62h40z" fill="black" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M55 24 73 10h28L83 24zM83 76l18-14h41l-18 14zM15 76l18-14h40L55 76z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M83 24l18-14v52L83 76zM124 76l18-14v28l-18 14zM83 104l18-14v108l-18 14z" fill="black" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M55 24h28v52h41v28H83v108H55V104H15V76h40z" fill="white" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M62 33h14M23 83h25M62 112v91" fill="none" stroke="black" stroke-width="1.5"/></svg>{%- endcapture -%}
 {%- assign hero_cross_uri = hero_cross_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
 {%- capture reading_ornament_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 20"><path d="M0 10h96m48 0h96" fill="none" stroke="{{ ink }}" stroke-width="2"/><path d="m120 2 8 8-8 8-8-8z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="2"/><path d="m102 10 4-4 4 4-4 4zm28 0 4-4 4 4-4 4z" fill="{{ ink }}"/></svg>{%- endcapture -%}
 {%- assign reading_ornament_uri = reading_ornament_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
@@ -185,6 +190,57 @@
         }
       }
     });
+    document.querySelectorAll('[data-qr-wrap="true"]').forEach(function (wrap) {
+      if (reserveQrOverlap(wrap, settling)) changed = true;
+    });
+    return changed;
+  }
+  function setSizeClass(element, key, prefix, percent) {
+    var name = percent ? prefix + '--[' + percent + (prefix === 'w' ? 'cqw]' : 'cqh]') : prefix + '--0';
+    if (element.dataset[key] === name) return false;
+    Array.from(element.classList).forEach(function (cls) {
+      if (cls.indexOf(prefix + '--') === 0) element.classList.remove(cls);
+    });
+    element.classList.add(name);
+    element.dataset[key] = name;
+    return true;
+  }
+  // The QR is pinned to the bottom-right corner. Push a cleared float down to
+  // the QR's top and reserve only the part of the passage beside it, so lines
+  // above use the full width and the paragraph never grows past its text.
+  // Settling keeps the largest reservation tried, as for the cross.
+  function reserveQrOverlap(wrap, settling) {
+    var passage = wrap.parentElement;
+    var push = passage.querySelector('[data-qr-push="true"]');
+    var layout = passage.closest('.layout');
+    var qr = layout.querySelector('[data-context-url]');
+    if (!push || !qr) return false;
+    var content = contentBox(layout);
+    var gap = 8 * content.scale;
+    var qrBox = qr.getBoundingClientRect();
+    var top = passage.getBoundingClientRect().top;
+    var start = Math.max(0, qrBox.top - gap - top);
+    // Floats extend the paragraph, so never reserve past its fit budget: an
+    // unfitted passage runs long, and a taller paragraph would only shrink it.
+    var budget = parseFloat(passage.dataset.valueFitMaxHeight) || content.height;
+    var limit = Math.floor(100 * budget / content.height);
+    var bottom = Math.min(passage.getBoundingClientRect().bottom, top + budget);
+    var overlap = Math.max(0, bottom - top - start);
+    var pushHeight = overlap ? Math.floor(100 * start / content.height) : 0;
+    var wrapHeight = overlap ? Math.max(0, Math.min(Math.ceil(100 * overlap / content.height), limit - pushHeight)) : 0;
+    if (!wrapHeight) pushHeight = 0;
+    var key = pushHeight + ':' + wrapHeight;
+    var tried = settling && wrap.dataset.wrapTried ? wrap.dataset.wrapTried.split(',') : [];
+    if (tried.indexOf(key) !== -1) {
+      key = tried.reduce(function (best, next) { return +next.split(':')[1] > +best.split(':')[1] ? next : best; });
+      pushHeight = +key.split(':')[0];
+      wrapHeight = +key.split(':')[1];
+    } else tried.push(key);
+    wrap.dataset.wrapTried = tried.join(',');
+    var width = Math.min(100, Math.ceil(100 * (qrBox.width + gap) / content.width));
+    var changed = setSizeClass(push, 'wrapHeightClass', 'h', pushHeight);
+    if (setSizeClass(wrap, 'wrapHeightClass', 'h', wrapHeight)) changed = true;
+    if (setSizeClass(wrap, 'wrapWidthClass', 'w', wrapHeight ? width : 0)) changed = true;
     return changed;
   }
   // The reference reads larger under the passage. If it would leave the passage
@@ -201,11 +257,22 @@
       name.classList.toggle('hidden', !inContent && Boolean(document.querySelector('[data-footer-reference="true"]')));
     });
   }
+  // The bottom-right QR also takes the reference's line when their text meets.
+  function referenceMeetsQr(reference) {
+    var qr = reference.closest('.layout').querySelector('[data-context-url]');
+    if (!qr) return false;
+    var range = document.createRange();
+    range.selectNodeContents(reference);
+    var text = range.getBoundingClientRect();
+    var box = qr.getBoundingClientRect();
+    var gap = 8 * contentBox(reference.closest('.layout')).scale;
+    return text.bottom > box.top - gap && text.top < box.bottom && text.right > box.left - gap;
+  }
   function referenceCrowdsPassage() {
     return Array.from(document.querySelectorAll('[data-scripture-fit="true"]')).some(function (passage) {
       var reference = passage.parentElement.querySelector('[data-content-reference="true"]');
       if (!reference || reference.classList.contains('hidden')) return false;
-      return parseFloat(getComputedStyle(passage).fontSize) < 1.25 * parseFloat(getComputedStyle(reference).fontSize);
+      return parseFloat(getComputedStyle(passage).fontSize) < 1.25 * parseFloat(getComputedStyle(reference).fontSize) || referenceMeetsQr(reference);
     });
   }
   var settlePasses = 0;
@@ -217,7 +284,7 @@
       if (referenceCrowdsPassage()) {
         placeReference(false);
         // The reading area changed, so measure again and restart the cross settling.
-        document.querySelectorAll('[data-cross-wrap="true"]').forEach(function (wrap) { delete wrap.dataset.wrapTried; });
+        document.querySelectorAll('[data-cross-wrap="true"], [data-qr-wrap="true"]').forEach(function (wrap) { delete wrap.dataset.wrapTried; });
         settlePasses = 0;
         reserveReadingSpace();
         reserveCrossOverlap();

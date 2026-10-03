@@ -6,7 +6,8 @@ import { passageSchedule, reviewManifest, reviewScreens } from './review.js';
 // Documentation and listing images are declared in docs/screenshots.json, so
 // a layout change is followed by one regeneration rather than manual captures:
 // [{ "file": "full.png", "passage": "mat-11-28-30", "language": "en",
-//    "screen": "og-landscape-full", "qr": true }]
+//    "screen": "og-landscape-full", "qr": true, "fields": { "appearance": "dark" } }]
+// Optional fields set any other plugin setting for that capture.
 export async function writeScreenshots(plugin) {
   const entries = JSON.parse(await readFile(join(plugin.root, 'docs/screenshots.json'), 'utf8'));
   const screens = new Map(reviewScreens().map(screen => [screen.id, screen]));
@@ -19,7 +20,7 @@ export async function writeScreenshots(plugin) {
     await Promise.all(entries.map(async entry => {
       const screen = screens.get(entry.screen);
       if (!screen) throw new Error(`${entry.file}: unknown screen ${entry.screen}.`);
-      const fields = { ...plugin.defaults, language: entry.language, theme: 'all', rotation: 'daily', show_context_qr: entry.qr ?? true };
+      const fields = { ...plugin.defaults, language: entry.language, theme: 'all', rotation: 'daily', show_context_qr: entry.qr ?? true, ...entry.fields };
       const { options, expected } = passageSchedule(plugin, fields, entry.passage, plugin.data);
       if (expected?.id !== entry.passage) throw new Error(`${entry.file}: passage ${entry.passage} is not in the ${entry.language} collection.`);
       const scenario = { id: `screenshot-${entry.file.replace(/\W+/g, '-')}`, options, expected, recovery: false };

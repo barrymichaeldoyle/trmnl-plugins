@@ -13,5 +13,9 @@
   { "file": "themes-full.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-full", "qr": true },
   { "file": "themes-half_horizontal.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-half_horizontal", "qr": true },
   { "file": "themes-half_vertical.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-half_vertical", "qr": true },
-  { "file": "themes-quadrant.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-quadrant", "qr": true }
+  { "file": "themes-quadrant.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-quadrant", "qr": true },
+  { "file": "themes-full-dark.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-full", "qr": true, "fields": { "appearance": "dark" } },
+  { "file": "themes-half_horizontal-dark.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-half_horizontal", "qr": true, "fields": { "appearance": "dark" } },
+  { "file": "themes-half_vertical-dark.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-half_vertical", "qr": true, "fields": { "appearance": "dark" } },
+  { "file": "themes-quadrant-dark.png", "passage": "col-3-23-24", "language": "en", "screen": "og-landscape-quadrant", "qr": true, "fields": { "appearance": "dark" } }
 ]

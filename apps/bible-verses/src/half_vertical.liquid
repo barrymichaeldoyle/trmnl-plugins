@@ -1,6 +1,6 @@
 <div class="layout layout--col layout--top relative{{ appearance_class }}" data-appearance="{{ appearance }}" lang="{{ selected_translation.language | escape }}" translate="no" data-theme="{{ theme_label }}">
   {% if verse %}
-    <div class="flex flex--col flex--top gap--small w--full h--full">
+    <div class="relative flex flex--col flex--top gap--small w--full h--full">
       <div class="flex flex--center-x flex--center-y w--full h--24 lg:h--[22cqh] lg:portrait:h--28 no-shrink">
         <img class="image image-dither image--contain w--auto h--[18cqh] portrait:w--14 portrait:h--auto lg:h--[22cqh] lg:portrait:w--16 lg:portrait:h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true">
       </div>
@@ -8,8 +8,8 @@
         <p class="value no-shrink value--large lg:value--xxlarge w--min-full" lang="{{ selected_translation.language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ tall_text_height }}" data-verse-id="{{ verse.id | escape }}">{{ verse.text | escape }}</p>
         <p class="title title--base lg:title--large no-shrink w--full" data-content-reference="true">{{ verse.reference | escape }}</p>
       </div>
+      {% if context_qr %}{{ context_qr | replace: 'bottom--0', 'top--0' | replace: 'w--24 h--24', 'w--24 h--24 portrait:w--20 portrait:h--20' }}{% endif %}
     </div>
-    {% if context_qr %}{{ context_qr | replace: 'bottom--0', 'top--0' | replace: 'w--24 h--24', 'w--24 h--24 portrait:w--20 portrait:h--20' }}{% endif %}
   {% else %}
     <p class="description">{{ missing_text | escape }}</p>
   {% endif %}

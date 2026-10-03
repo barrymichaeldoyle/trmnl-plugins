@@ -14,11 +14,11 @@ The [listing icon](assets/icon.png) and its [SVG source](assets/icon.svg), publi
 - **Every theme** by default, interleaved so successive intervals move between themes. Users can choose one or several themes with [TRMNL’s native multi-select](https://help.trmnl.com/en/articles/10513740-custom-plugin-form-builder); leaving it empty keeps the mix.
 - **One translation per language**: English (default) uses the updated, LORD edition of the [World English Bible](https://worldenglish.bible/) (`engwebp`); French uses [Louis Segond 1910](https://ebible.org/bible/details.php?id=fraLSG); Spanish uses [Reina Valera 1909](https://ebible.org/bible/details.php?id=spaRV1909). All three sources are public domain. Each language includes the same 108 curated selections, with localized references, themes and attribution.
 - **Daily** by default; every 12 hours, every 6 hours, or hourly are also available.
-- Full, half horizontal, half vertical, and quadrant layouts. Complete passage text and reference in every layout. The full view wraps Scripture around a larger dimensional cross at the top right. Wide half and quadrant views keep the cross at the top right; left/right halves center it above the verse, as do top/bottom halves in portrait. The cross remains visible with QR enabled or disabled. Text continues beneath the cross in wide halves and quadrants. In full views and portrait quadrants, the chapter QR code sits at the bottom right above the reference bar. Landscape wide halves and quadrants stack it under the cross so the text wraps around both; centered-cross halves put it at the top right. Full views use a 128px QR footprint, centered halves 80–96px, and wide halves and quadrants 64px with a smaller quiet zone, all scaled by the framework. OG cross sizes are restrained, while TRMNL X uses larger artwork.
+- Full, half horizontal, half vertical, and quadrant layouts. Complete passage text and reference in every layout. The full view wraps Scripture around a larger dimensional cross at the top right. Wide half and quadrant views keep the cross at the top right; left/right halves center it above the verse, as do top/bottom halves in portrait. The cross remains visible with QR enabled or disabled. Text continues beneath the cross in wide halves and quadrants. In full, half horizontal and quadrant views, the chapter QR code sits at the bottom right above the reference bar; in wide halves and quadrants, Scripture wraps around it as it does around the cross, and a reference that would meet it moves into the bar. Left/right halves put it at the top right beside the centered cross. Full views use a 128px QR footprint, centered halves 80–96px, and wide halves and quadrants 64px with a smaller quiet zone, all scaled by the framework. OG cross sizes are restrained, while TRMNL X uses larger artwork.
 - Light (default) or Dark appearance. Dark full screens use the framework's screen dark mode; dark mashup layouts use framework `inverse` tokens on Daily Bread's own content, so neighbouring plugins keep their appearance. The cross and ornament artwork swap ink and paper to stay dimensional on black; the chapter QR code keeps a white tile for reliable scanning. Leave the plugin's own dark mode setting off, since it would invert a Dark selection back to light.
 - No hosted backend, Bible API subscription, authentication, or API key.
 
-Passage text dynamically fits the measured reading area using [TRMNL Fit Value](https://trmnl.com/framework/docs/3.4/fit_value). The reference sits under the passage in larger type, with the plugin name in the bottom bar. When the reference would leave the passage smaller than 1.25 times its own size, it moves into the bar instead. Scripture is never truncated. Two small, scoped CSS rules in shared.liquid enable the requested full, wide-half and quadrant cross wrap; other styling uses the framework.
+Passage text dynamically fits the measured reading area using [TRMNL Fit Value](https://trmnl.com/framework/docs/3.4/fit_value). The reference sits under the passage in larger type, with the plugin name in the bottom bar. When the reference would leave the passage smaller than 1.25 times its own size, it moves into the bar instead. Scripture is never truncated. Three small, scoped CSS rules in shared.liquid enable the requested full, wide-half and quadrant wrap around the cross and bottom-right QR; other styling uses the framework.
 
 ## Install on TRMNL
 
@@ -87,6 +87,14 @@ From the root: `pnpm dev`. The preview uses a collapsed checkbox picker for them
 | Half horizontal | Half vertical | Quadrant |
 | --- | --- | --- |
 | ![Half horizontal](docs/screenshots/themes-half_horizontal.png) | ![Half vertical](docs/screenshots/themes-half_vertical.png) | ![Quadrant](docs/screenshots/themes-quadrant.png) |
+
+With **Appearance** set to Dark:
+
+![Full-screen Daily Bread preview in Dark appearance](docs/screenshots/themes-full-dark.png)
+
+| Half horizontal | Half vertical | Quadrant |
+| --- | --- | --- |
+| ![Half horizontal, Dark](docs/screenshots/themes-half_horizontal-dark.png) | ![Half vertical, Dark](docs/screenshots/themes-half_vertical-dark.png) | ![Quadrant, Dark](docs/screenshots/themes-quadrant-dark.png) |
 
 ## Sharing
 
