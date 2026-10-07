@@ -38,9 +38,10 @@ test('checks reject custom markup styles and invalid views', async () => {
   await assert.rejects(renderView(plugin, 'unknown'), /Unknown view/);
 });
 
-test('the wraparound style exception must be explicitly declared', async () => {
+test('the plugin passes checks without any style allowance', async () => {
   await checkPlugin(plugin);
-  await assert.rejects(checkPlugin({ ...plugin, config: { ...plugin.config, allowed_style_blocks: [] } }), /framework/);
+  await checkPlugin({ ...plugin, config: { ...plugin.config, allowed_style_blocks: [] } });
+  for (const template of Object.values(plugin.templates)) assert.ok(!/<style\b|\sstyle\s*=/.test(template));
 });
 
 test('device previews use the framework profile, density, bit depth and orientation', () => {

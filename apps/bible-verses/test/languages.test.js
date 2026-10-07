@@ -197,7 +197,7 @@ test('dark appearance inverts this plugin\'s content and artwork but keeps the Q
   for (const view of views) {
     const light = await renderView(plugin, view, options);
     const dark = await renderView(plugin, view, { ...options, fields: { appearance: 'dark' } });
-    assert.ok(dark.includes('class="layout layout--col layout--top relative inverse bg--canvas" data-appearance="dark"'));
+    assert.ok(dark.includes('class="layout layout--col layout--top inverse bg--canvas" data-appearance="dark"'));
     assert.ok(dark.includes('class="title_bar inverse bg--canvas" data-appearance="dark"'));
     assert.ok(dark.includes('bg--white'));
     const crossOf = html => html.match(/src="(data:image\/svg\+xml;base64,[^"]+)"[^>]*data-reading-cross/)[1];
