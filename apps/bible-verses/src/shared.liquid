@@ -1,4 +1,15 @@
 {%- comment -%}
+  User-requested text wrap around the top-right cross and, in wide halves and
+  quadrants, the bottom-right QR; the framework has no float or clear utility.
+  A zero-width push float holds the cleared QR reservation down to the QR.
+{%- endcomment -%}
+<style data-plugin-style="scripture-cross-wrap">
+.daily-bread-scripture { display: flow-root; }
+.daily-bread-scripture > .daily-bread-cross, .daily-bread-scripture > .daily-bread-qr-push { float: right; }
+.daily-bread-scripture > .daily-bread-qr-wrap { float: right; clear: right; }
+</style>
+
+{%- comment -%}
   Shared runs before each view. The transform changes rotation_slot to trigger
   new images. All four sizes select the same passage at render time.
 {%- endcomment -%}
@@ -60,8 +71,8 @@
   {%- assign context_qr_svg = verse.source | qr_code: 1, 'm' -%}
   {%- assign context_qr_uri = context_qr_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
   {%- capture context_qr -%}
-    <a class="block w--24 h--24 p--3 bg--white no-shrink" href="{{ verse.source | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ context_label | escape }}" title="{{ context_label | escape }}" data-context-url="{{ verse.source | escape }}">
-      <img class="image w--full h--full" src="{{ context_qr_uri }}" alt="{{ context_label | escape }}">
+    <a class="absolute bottom--0 right--0 block w--24 h--24 p--3 bg--white no-shrink" href="{{ verse.source | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ context_label | escape }}" title="{{ context_label | escape }}" data-context-url="{{ verse.source | escape }}">
+      <img class="image image-dither w--full h--full" src="{{ context_qr_uri }}" alt="{{ context_label | escape }}">
     </a>
   {%- endcapture -%}
 {%- endif -%}
@@ -115,10 +126,14 @@
     var metrics = getComputedStyle(element);
     var scale = bounds.height / element.offsetHeight || 1;
     var inset = function (side) { return parseFloat(metrics['padding' + side]) * scale; };
-    return { scale: scale, height: bounds.height - inset('Top') - inset('Bottom') };
+    return {
+      top: bounds.top + inset('Top'), scale: scale,
+      height: bounds.height - inset('Top') - inset('Bottom'),
+      width: bounds.width - inset('Left') - inset('Right')
+    };
   }
-  // Fit Value compares physical bounds. Measure the actual reading column after
-  // fonts and images load, so the budget follows portrait, mashups and high DPI.
+  // Fit Value compares physical bounds. Measure the actual view after fonts and
+  // images load, so this works with portrait, mashups, UI scaling and high DPI.
   function reserveReadingSpace() {
     document.querySelectorAll('[data-scripture-fit="true"]').forEach(function (passage) {
       var layout = contentBox(passage.closest('.layout'));
@@ -130,9 +145,103 @@
       var gap = parseFloat(getComputedStyle(parent).rowGap) || 0;
       siblings.forEach(function (child) { available -= child.getBoundingClientRect().height; });
       available -= gap * siblings.length * layout.scale;
-      // Leave room for glyphs that extend beyond the framework's tight leading.
-      passage.dataset.valueFitMaxHeight = Math.max(16, Math.floor(available - 8 * layout.scale));
+      passage.dataset.valueFitMaxHeight = Math.max(16, Math.floor(available - 4 * layout.scale));
     });
+  }
+  // Keep the artwork pinned while the paragraph is centered. Only reserve the
+  // part of the cross that actually overlaps the paragraph, allowing subsequent
+  // lines to use the full width. Heights remain native framework utilities.
+  // Fitting can alternate between two reservations: a smaller one lets the text
+  // grow upward into the artwork. A larger reservation only lowers the text, so
+  // a repeated height settles on the largest height tried.
+  function reserveCrossOverlap(settling) {
+    var changed = false;
+    document.querySelectorAll('[data-cross-wrap="true"]').forEach(function (wrap) {
+      var passage = wrap.parentElement;
+      var layout = passage.closest('.layout');
+      var cross = layout.querySelector('[data-pinned-cross="true"]');
+      var content = contentBox(layout);
+      // An unfitted passage can start above the view; never reserve beyond the artwork.
+      var overlap = Math.max(0, cross.getBoundingClientRect().bottom - Math.max(content.top, passage.getBoundingClientRect().top));
+      var height = Math.min(100, Math.ceil(100 * overlap / content.height));
+      var tried = settling && wrap.dataset.wrapTried ? wrap.dataset.wrapTried.split(',').map(Number) : [];
+      if (tried.indexOf(height) !== -1) height = Math.max.apply(null, tried);
+      else tried.push(height);
+      wrap.dataset.wrapTried = tried.join(',');
+      var heightClass = height ? 'h--[' + height + 'cqh]' : 'h--0';
+      if (wrap.dataset.wrapHeightClass !== heightClass) {
+        wrap.classList.remove(wrap.dataset.wrapHeightClass || 'h--0');
+        wrap.classList.add(heightClass);
+        wrap.dataset.wrapHeightClass = heightClass;
+        changed = true;
+      }
+      // The pinned group may also hold the QR code. Reserve its measured width,
+      // replacing the markup's responsive estimate once the group has rendered.
+      var pinnedWidth = cross.getBoundingClientRect().width;
+      if (pinnedWidth > 0 && content.width > 0) {
+        var widthClass = 'w--[' + Math.min(100, Math.ceil(100 * pinnedWidth / content.width)) + 'cqw]';
+        if (wrap.dataset.wrapWidthClass !== widthClass) {
+          Array.from(wrap.classList).forEach(function (name) {
+            if (/^([a-z0-9]+:)*w--/.test(name)) wrap.classList.remove(name);
+          });
+          wrap.classList.add(widthClass);
+          wrap.dataset.wrapWidthClass = widthClass;
+          changed = true;
+        }
+      }
+    });
+    document.querySelectorAll('[data-qr-wrap="true"]').forEach(function (wrap) {
+      if (reserveQrOverlap(wrap, settling)) changed = true;
+    });
+    return changed;
+  }
+  function setSizeClass(element, key, prefix, percent) {
+    var name = percent ? prefix + '--[' + percent + (prefix === 'w' ? 'cqw]' : 'cqh]') : prefix + '--0';
+    if (element.dataset[key] === name) return false;
+    Array.from(element.classList).forEach(function (cls) {
+      if (cls.indexOf(prefix + '--') === 0) element.classList.remove(cls);
+    });
+    element.classList.add(name);
+    element.dataset[key] = name;
+    return true;
+  }
+  // The QR is pinned to the bottom-right corner. Push a cleared float down to
+  // the QR's top and reserve only the part of the passage beside it, so lines
+  // above use the full width and the paragraph never grows past its text.
+  // Settling keeps the largest reservation tried, as for the cross.
+  function reserveQrOverlap(wrap, settling) {
+    var passage = wrap.parentElement;
+    var push = passage.querySelector('[data-qr-push="true"]');
+    var layout = passage.closest('.layout');
+    var qr = layout.querySelector('[data-context-url]');
+    if (!push || !qr) return false;
+    var content = contentBox(layout);
+    var gap = 8 * content.scale;
+    var qrBox = qr.getBoundingClientRect();
+    var top = passage.getBoundingClientRect().top;
+    var start = Math.max(0, qrBox.top - gap - top);
+    // Floats extend the paragraph, so never reserve past its fit budget: an
+    // unfitted passage runs long, and a taller paragraph would only shrink it.
+    var budget = parseFloat(passage.dataset.valueFitMaxHeight) || content.height;
+    var limit = Math.floor(100 * budget / content.height);
+    var bottom = Math.min(passage.getBoundingClientRect().bottom, top + budget);
+    var overlap = Math.max(0, bottom - top - start);
+    var pushHeight = overlap ? Math.floor(100 * start / content.height) : 0;
+    var wrapHeight = overlap ? Math.max(0, Math.min(Math.ceil(100 * overlap / content.height), limit - pushHeight)) : 0;
+    if (!wrapHeight) pushHeight = 0;
+    var key = pushHeight + ':' + wrapHeight;
+    var tried = settling && wrap.dataset.wrapTried ? wrap.dataset.wrapTried.split(',') : [];
+    if (tried.indexOf(key) !== -1) {
+      key = tried.reduce(function (best, next) { return +next.split(':')[1] > +best.split(':')[1] ? next : best; });
+      pushHeight = +key.split(':')[0];
+      wrapHeight = +key.split(':')[1];
+    } else tried.push(key);
+    wrap.dataset.wrapTried = tried.join(',');
+    var width = Math.min(100, Math.ceil(100 * (qrBox.width + gap) / content.width));
+    var changed = setSizeClass(push, 'wrapHeightClass', 'h', pushHeight);
+    if (setSizeClass(wrap, 'wrapHeightClass', 'h', wrapHeight)) changed = true;
+    if (setSizeClass(wrap, 'wrapWidthClass', 'w', wrapHeight ? width : 0)) changed = true;
+    return changed;
   }
   // The reference reads larger under the passage. If it would leave the passage
   // smaller than 1.25 times its own size, it moves into the title bar instead,
@@ -148,28 +257,47 @@
       name.classList.toggle('hidden', !inContent && Boolean(document.querySelector('[data-footer-reference="true"]')));
     });
   }
+  // The bottom-right QR also takes the reference's line when their text meets.
+  function referenceMeetsQr(reference) {
+    var qr = reference.closest('.layout').querySelector('[data-context-url]');
+    if (!qr) return false;
+    var range = document.createRange();
+    range.selectNodeContents(reference);
+    var text = range.getBoundingClientRect();
+    var box = qr.getBoundingClientRect();
+    var gap = 8 * contentBox(reference.closest('.layout')).scale;
+    return text.bottom > box.top - gap && text.top < box.bottom && text.right > box.left - gap;
+  }
   function referenceCrowdsPassage() {
     return Array.from(document.querySelectorAll('[data-scripture-fit="true"]')).some(function (passage) {
       var reference = passage.parentElement.querySelector('[data-content-reference="true"]');
       if (!reference || reference.classList.contains('hidden')) return false;
-      return parseFloat(getComputedStyle(passage).fontSize) < 1.25 * parseFloat(getComputedStyle(reference).fontSize);
+      return parseFloat(getComputedStyle(passage).fontSize) < 1.25 * parseFloat(getComputedStyle(reference).fontSize) || referenceMeetsQr(reference);
     });
   }
+  var settlePasses = 0;
   var referencePlaced = false;
   window.addEventListener('trmnl:terminalize:stats', function () {
-    var changed = false;
-    if (!referencePlaced) {
+    var changed = settlePasses < 12 && reserveCrossOverlap(true);
+    if (!changed && !referencePlaced) {
       referencePlaced = true;
       if (referenceCrowdsPassage()) {
         placeReference(false);
+        // The reading area changed, so measure again and restart the cross settling.
+        document.querySelectorAll('[data-cross-wrap="true"], [data-qr-wrap="true"]').forEach(function (wrap) { delete wrap.dataset.wrapTried; });
+        settlePasses = 0;
         reserveReadingSpace();
+        reserveCrossOverlap();
         changed = true;
       }
     }
     document.querySelectorAll('[data-scripture-fit="true"]').forEach(function (passage) {
       passage.dataset.readingReady = changed ? 'false' : 'true';
     });
-    if (changed) window.executeTerminalize();
+    if (changed) {
+      settlePasses += 1;
+      window.executeTerminalize();
+    }
   });
   function prepareReadingSpace() {
     document.querySelectorAll('[data-scripture-fit="true"]').forEach(function (passage) {
@@ -177,8 +305,10 @@
     });
     placeReference(true);
     reserveReadingSpace();
+    reserveCrossOverlap();
   }
   window.addEventListener('resize', function () {
+    settlePasses = 0;
     referencePlaced = false;
     prepareReadingSpace();
     if (window.executeTerminalize) window.executeTerminalize();
