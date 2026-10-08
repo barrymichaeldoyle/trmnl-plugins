@@ -12,7 +12,7 @@ polling_headers: authorization=Bearer {{ oauth_access_token }}&content-type=appl
 polling_body: "{%- assign start = \"now\" | date: \"%s\" | minus: 8035200 -%}\r\n{%- assign end = \"now\" | date: \"%s\" | plus: 86400 -%}\r\n{\"reportSpec\":{\"dateRange\":{\"startDate\":{\"year\":{{ start | date: \"%Y\" }},\"month\":{{ start | date: \"%-m\" }},\"day\":{{ start | date: \"%-d\" }}},\"endDate\":{\"year\":{{ end | date: \"%Y\" }},\"month\":{{ end | date: \"%-m\" }},\"day\":{{ end | date: \"%-d\" }}}},\"dimensions\":[\"DATE\"],\"metrics\":[\"ESTIMATED_EARNINGS\",\"AD_REQUESTS\",\"IMPRESSIONS\",\"CLICKS\"],\"sortConditions\":[{\"dimension\":\"DATE\",\"order\":\"ASCENDING\"}],\"maxReportRows\":100}}"
 id: 499993
 oauth_enabled: 'true'
-oauth_pkce_enabled: ''
+oauth_pkce_enabled: 'no'
 oauth_authorize_url: https://accounts.google.com/o/oauth2/v2/auth
 oauth_token_url: https://oauth2.googleapis.com/token
 oauth_scopes: https://www.googleapis.com/auth/admob.report
