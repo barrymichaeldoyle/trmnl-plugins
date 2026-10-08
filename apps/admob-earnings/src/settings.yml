@@ -1,26 +1,25 @@
 ---
 strategy: polling
-no_screen_padding: 'no'
-dark_mode: 'no'
+no_screen_padding: false
+dark_mode: false
+static_data: ''
 polling_verb: post
 framework_version: 3.4.0
 serverless_language: node
 refresh_interval_floor: '15'
-# One URL, so TRMNL hands the transform the report array as data. The publisher
-# ID comes from the account picker below, filled by AdMob's accounts list.
 polling_url: https://admob.googleapis.com/v1/accounts/{{ publisher_id }}/networkReport:generate
-polling_headers: ''
-# polling_body and polling_headers live in ../polling.yml. TRMNL stores them
-# encrypted and GitHub Sync writes them here as blanks; the tooling merges them.
-polling_body: ''
-# Google OAuth provider definition. The client ID and secret are entered in
-# TRMNL's plugin settings and never committed.
+polling_headers: authorization=Bearer {{ oauth_access_token }}&content-type=application/json
+polling_body: |-
+  {%- assign start = "now" | date: "%s" | minus: 8035200 -%}
+  {%- assign end = "now" | date: "%s" | plus: 86400 -%}
+  {"reportSpec":{"dateRange":{"startDate":{"year":{{ start | date: "%Y" }},"month":{{ start | date: "%-m" }},"day":{{ start | date: "%-d" }}},"endDate":{"year":{{ end | date: "%Y" }},"month":{{ end | date: "%-m" }},"day":{{ end | date: "%-d" }}}},"dimensions":["DATE"],"metrics":["ESTIMATED_EARNINGS"],"sortConditions":[{"dimension":"DATE","order":"ASCENDING"}],"maxReportRows":100}}
+id: 499993
 oauth_enabled: 'true'
-oauth_pkce_enabled: 'yes'
+oauth_pkce_enabled: true
 oauth_authorize_url: https://accounts.google.com/o/oauth2/v2/auth
 oauth_token_url: https://oauth2.googleapis.com/token
 oauth_scopes: https://www.googleapis.com/auth/admob.report
-oauth_scope_separator: ' '
+oauth_scope_separator: " "
 oauth_refresh_url: ''
 oauth_auth_params: '{"access_type":"offline","prompt":"consent"}'
 oauth_token_headers: ''
@@ -39,8 +38,6 @@ custom_fields:
 - keyname: publisher_id
   field_type: xhrSelect
   name: AdMob account
-  # Optional: the list only loads once Google is connected, and TRMNL will not
-  # save the plugin (including its OAuth client) while a required field is empty.
   optional: true
   description: Connect Google above, then choose the account to show.
   placeholder: pub-0000000000000000
@@ -50,7 +47,7 @@ custom_fields:
     headers:
       Authorization: Bearer {{ oauth_access_token }}
     response_path: account
-    label_field: '{{ publisherId }} · {{ currencyCode }}'
+    label_field: "{{ publisherId }} · {{ currencyCode }}"
     value_field: publisherId
 - keyname: comparison_style
   field_type: select
@@ -72,7 +69,7 @@ custom_fields:
 - keyname: about
   field_type: author_bio
   name: About AdMob Earnings
-  description: 'An independent TRMNL recipe for Google AdMob publishers. It reads estimated earnings with read-only access through your Google sign-in, which TRMNL stores and refreshes. Nothing is sent anywhere else. Not affiliated with or endorsed by Google.'
+  description: An independent TRMNL recipe for Google AdMob publishers. It reads estimated earnings with read-only access through your Google sign-in, which TRMNL stores and refreshes. Nothing is sent anywhere else. Not affiliated with or endorsed by Google.
   category: analytics,personal
   github_url: https://github.com/barrymichaeldoyle/trmnl-plugins
   learn_more_url: https://github.com/barrymichaeldoyle/trmnl-plugins/tree/main/apps/admob-earnings
