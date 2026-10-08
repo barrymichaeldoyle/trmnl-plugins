@@ -8,6 +8,15 @@ importers:
 
   .: {}
 
+  apps/admob-earnings:
+    devDependencies:
+      '@trmnl/plugin-tools':
+        specifier: workspace:*
+        version: link:../../packages/plugin-tools
+      yaml:
+        specifier: ^2.8.1
+        version: 2.9.1
+
   apps/bible-verses:
     devDependencies:
       '@trmnl/plugin-tools':

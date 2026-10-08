@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
-import { devices, views, previewDevice, contextFor, runTransform } from './plugin.js';
+import { devices, views, previewDevice, contextFor, runTransform, previewTiming } from './plugin.js';
 
 export const reviewEpoch = Date.parse('2026-10-01T12:00:00Z') / 1000;
 export const viewLabels = { full: 'Full', half_horizontal: 'Half horizontal', half_vertical: 'Half vertical', quadrant: 'Quadrant' };
@@ -24,7 +24,28 @@ export function recoveryData(plugin) {
 }
 
 export function reviewOptions(plugin, scenario, screen) {
-  return { ...scenario.options, model: screen.model, portrait: screen.portrait, ...(scenario.recovery ? { data: recoveryData(plugin) } : {}) };
+  const data = scenario.fixture ? { data: plugin.fixtures[scenario.fixture] } : scenario.recovery ? { data: recoveryData(plugin) } : {};
+  return { ...scenario.options, model: screen.model, portrait: screen.portrait, ...data };
+}
+
+// Apps without a Scripture collection declare their review cases instead:
+// "review": { "cases": [{ "id": "usd", "name": "Typical account", "fixture": "usd",
+//   "fields": { "comparison_style": "both" }, "expect": ["$44.11"], "suites": ["responsive"] }] }
+// expect lists text that must be visible in every view; a case without suites
+// runs in every suite.
+export function caseScenarios(plugin, mode) {
+  const cases = plugin.config.review.cases.filter(entry => !entry.suites || entry.suites.includes(mode) || mode === 'passages');
+  return cases.map(entry => {
+    if (entry.fixture && !plugin.fixtures?.[entry.fixture]) throw new Error(`Review case ${entry.id} names an unknown fixture.`);
+    const fields = { ...plugin.defaults, ...plugin.config.preview?.fields, ...entry.fields };
+    const timing = previewTiming(plugin, entry.fixture ?? 'default');
+    return {
+      id: entry.id, name: entry.name, coverage: [entry.name], fixture: entry.fixture, recovery: false, expected: null,
+      options: { fields, utcOffset: entry.utc_offset ?? plugin.config.preview?.utc_offset ?? 0, timestamp: entry.time ? Date.parse(entry.time) / 1000 : timing.timestamp ?? reviewEpoch },
+      language: entry.language ?? 'en', translation: entry.fixture ?? '', themes: entry.description ?? entry.fixture ?? '',
+      expectText: entry.expect ?? [], expectTextByView: entry.expect_by_view ?? {},
+    };
+  });
 }
 
 export function passageSamples(verses) {
@@ -54,6 +75,7 @@ export function passageSchedule(plugin, fields, targetId, data = plugin.data) {
 
 export function reviewScenarios(plugin, mode = 'curated') {
   if (!['responsive', 'curated', 'passages', 'settings'].includes(mode)) throw new Error('Unknown review suite.');
+  if (plugin.config.review?.cases) return caseScenarios(plugin, mode);
   const collections = [plugin.data, ...Object.values(plugin.data.translations ?? {})];
   if (collections.some(collection => !collection.translation || !collection.verses?.length || !collection.themes?.length)) throw new Error('Review suites require Scripture collections with translation, verses, and themes.');
   const cases = [];
@@ -108,7 +130,7 @@ export function reviewScenarios(plugin, mode = 'curated') {
 
 export async function reviewManifest(plugin, mode = 'curated') {
   const tooling = await Promise.all(['plugin.js', 'review.js', 'review-metrics.js', 'review-capture.js'].map(name => readFile(new URL(name, import.meta.url), 'utf8')));
-  const sourceHash = createHash('sha256').update(JSON.stringify({ config: plugin.config, settings: plugin.settings, templates: plugin.templates, data: plugin.data, transform: plugin.transform, tooling })).digest('hex');
+  const sourceHash = createHash('sha256').update(JSON.stringify({ config: plugin.config, settings: plugin.settings, templates: plugin.templates, data: plugin.data, fixtures: plugin.fixtures, transform: plugin.transform, tooling })).digest('hex');
   const scenarios = reviewScenarios(plugin, mode);
   const screens = reviewScreens();
   return { name: plugin.settings.name, framework: plugin.settings.framework_version, mode, sourceHash, scenarios, screens, total: scenarios.length * screens.length };

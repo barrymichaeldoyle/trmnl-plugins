@@ -1,0 +1,1358 @@
+[
+  {
+    "header": {
+      "dateRange": {
+        "startDate": {
+          "year": 2026,
+          "month": 7,
+          "day": 7
+        },
+        "endDate": {
+          "year": 2026,
+          "month": 10,
+          "day": 9
+        }
+      },
+      "localizationSettings": {
+        "currencyCode": "JPY",
+        "languageCode": "en-US"
+      },
+      "reportingTimeZone": "Asia/Tokyo"
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260707"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1258352344456"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260708"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1129837610722"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260709"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1344050671864"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260710"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1100329219151"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260711"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1337144257994"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260712"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1500982192633"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260713"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1332534694386"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260714"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1282649392796"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260715"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "986299371052"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260716"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1239962835431"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260717"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1333246525574"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260718"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1312510056824"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260719"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1575078053192"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260720"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "992909442139"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260721"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1303672546792"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260722"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1250584018993"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260723"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "955764544582"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260724"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1398726807091"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260725"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1366319799631"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260726"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1628432147127"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260727"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1320679512691"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260728"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1222241521740"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260729"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1084847187710"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260730"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1225152864361"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260731"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1243972986507"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260801"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1423452082232"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260802"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1414552915415"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260803"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1088679437542"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260804"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1045582744503"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260805"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1306426615834"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260806"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1165240679359"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260807"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1028097213936"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260808"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1129309464159"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260809"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1209311691161"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260810"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1359263356042"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260811"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1350911328793"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260812"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1073013383007"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260813"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "986105847073"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260814"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "957056905293"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260815"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1520621370983"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260816"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1402049798246"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260817"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1079482920170"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260818"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1082128464222"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260819"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "974966398716"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260820"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1153027249265"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260821"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1096833063126"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260822"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1158242083153"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260823"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1211275678022"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260824"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1236320278120"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260825"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1101707808876"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260826"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1377456518745"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260827"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1277004566383"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260828"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1355456993294"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260829"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1625487846615"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260830"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1407522189251"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260831"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "961957029152"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260901"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1084052009937"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260902"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "994558185005"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260903"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1004758077836"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260904"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "971365817785"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260905"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1336152531016"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260906"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1184986363020"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260907"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1374399001050"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260908"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1131443656158"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260909"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1188587407684"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260910"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1245886792755"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260911"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1107040859222"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260912"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1124579321030"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260913"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1137905530299"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260914"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1188149016774"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260915"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1015942188835"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260916"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1266252971864"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260917"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "967803183842"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260918"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1376862218595"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260919"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1297542511879"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260920"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1295125197182"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260921"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1241188152695"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260922"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1385594366074"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260923"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1096340374374"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260924"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1348749029160"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260925"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1416511150742"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260926"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1530962860756"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260927"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1656637599770"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260928"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1089861675644"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260929"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1261514617538"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20260930"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1021629034042"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261001"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1421969197106"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261002"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1238482436371"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261003"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1525477723862"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261004"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1285763174393"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261005"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1261374140167"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261006"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1314514852142"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261007"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1176389176178"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261008"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "1250992839813"
+        }
+      }
+    }
+  },
+  {
+    "row": {
+      "dimensionValues": {
+        "DATE": {
+          "value": "20261009"
+        }
+      },
+      "metricValues": {
+        "ESTIMATED_EARNINGS": {
+          "microsValue": "533126010818"
+        }
+      }
+    }
+  },
+  {
+    "footer": {
+      "matchingRowCount": "95"
+    }
+  }
+]

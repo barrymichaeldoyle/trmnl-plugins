@@ -32,7 +32,15 @@ export async function loadPlugin(directory) {
   const root = resolve(directory);
   const config = JSON.parse(await readFile(join(root, 'plugin.config.json'), 'utf8'));
   const settings = YAML.parse(await readFile(join(root, 'src/settings.yml'), 'utf8'));
-  const data = JSON.parse(await readFile(join(root, config.data), 'utf8'));
+  // Polling plugins have no static data. Recorded API responses in fixtures
+  // stand in for the poll, shaped the way TRMNL hands them to the transform:
+  // "fixtures": { "name": { "files": ["fixtures/report.json"], "time": "2026-10-08T15:00:00Z" } }
+  // One file per polling URL; time is when the response was recorded.
+  const fixtures = Object.fromEntries(await Promise.all(Object.entries(config.fixtures ?? {}).map(async ([name, entry]) =>
+    [name, polledData(await Promise.all([entry.files ?? entry.file ?? entry].flat().map(async path => JSON.parse(await readFile(join(root, path), 'utf8')))))])));
+  const defaultFixture = config.preview?.fixture ?? Object.keys(fixtures)[0];
+  if (defaultFixture !== undefined && !fixtures[defaultFixture]) throw new Error(`Unknown preview fixture: ${defaultFixture}`);
+  const data = config.data ? JSON.parse(await readFile(join(root, config.data), 'utf8')) : structuredClone(fixtures[defaultFixture] ?? {});
   if (config.translations) {
     data.translations = Object.fromEntries(await Promise.all(Object.entries(config.translations).map(async ([language, path]) => {
       const collection = JSON.parse(await readFile(join(root, path), 'utf8'));
@@ -46,7 +54,47 @@ export async function loadPlugin(directory) {
   const shared = await readFile(join(root, 'src/shared.liquid'), 'utf8');
   const templates = Object.fromEntries(await Promise.all(views.map(async view => [view, shared + '\n' + await readFile(join(root, `src/${view}.liquid`), 'utf8')])));
   const defaults = Object.fromEntries((settings.custom_fields ?? []).filter(field => field.default !== undefined).map(field => [field.keyname, field.default]));
-  return { root, config, settings, data, transform, templates, defaults };
+  return { root, config, settings, data, fixtures, transform, templates, defaults };
+}
+
+// TRMNL exposes one response at the root, wrapping a JSON array as data, and
+// several responses (one URL per line) as IDX_0, IDX_1 and so on.
+export function polledData(responses) {
+  const wrap = response => Array.isArray(response) ? { data: response } : response ?? {};
+  return responses.length === 1 ? wrap(responses[0]) : Object.fromEntries(responses.map((response, index) => [`IDX_${index}`, wrap(response)]));
+}
+
+// Renders the polling URL, headers and body the way TRMNL does before a fetch:
+// Liquid with the custom field values and the OAuth token. Local tools never
+// call the API; this only proves the request is well formed.
+export async function renderPolling(plugin, { fields = {}, accessToken = 'preview-access-token' } = {}) {
+  const { settings } = plugin;
+  const sample = Object.fromEntries((settings.custom_fields ?? []).filter(field => field.default === undefined && field.placeholder !== undefined).map(field => [field.keyname, field.placeholder]));
+  const variables = { ...sample, ...plugin.defaults, ...fields, oauth_access_token: accessToken, oauth_token_type: 'Bearer' };
+  const render = async value => value ? (await engine.parseAndRender(String(value), variables)).trim() : '';
+  const urls = (await render(settings.polling_url)).split(/\r?\n/).map(url => url.trim()).filter(Boolean);
+  const renderedHeaders = await render(settings.polling_headers);
+  const headers = renderedHeaders.startsWith('{') ? JSON.parse(renderedHeaders) : Object.fromEntries(renderedHeaders.split(/[\n&]/).map(pair => pair.trim()).filter(Boolean).map(pair => {
+    const separator = pair.indexOf('=');
+    if (separator < 1) throw new Error(`Polling header "${pair}" must be name=value.`);
+    return [pair.slice(0, separator).trim(), decodeURIComponent(pair.slice(separator + 1).trim())];
+  }));
+  return { verb: String(settings.polling_verb ?? 'get').toUpperCase(), urls, headers, body: await render(settings.polling_body) };
+}
+
+export async function checkPolling(plugin) {
+  const request = await renderPolling(plugin);
+  if (!['GET', 'POST'].includes(request.verb)) throw new Error('polling_verb must be get or post.');
+  if (!request.urls.length) throw new Error('Polling plugins need a polling_url.');
+  for (const url of request.urls) if (new URL(url).protocol !== 'https:') throw new Error(`Polling URL must use HTTPS: ${url}`);
+  if (request.verb === 'POST' && request.body && /json/i.test(Object.entries(request.headers).find(([name]) => name.toLowerCase() === 'content-type')?.[1] ?? 'json')) {
+    try { JSON.parse(request.body); } catch (error) { throw new Error(`The rendered polling body is not valid JSON: ${error.message}`); }
+  }
+  if (plugin.settings.oauth_enabled === 'true' || plugin.settings.oauth_enabled === true) {
+    for (const key of ['oauth_authorize_url', 'oauth_token_url', 'oauth_scopes']) if (!plugin.settings[key]) throw new Error(`OAuth plugins need ${key}.`);
+    if (/oauth_client_(id|secret)/.test(Object.keys(plugin.settings).join(' '))) throw new Error('Keep OAuth client credentials out of settings.yml; enter them in TRMNL.');
+  }
+  return request;
 }
 
 export function contextFor(plugin, { fields = {}, timestamp = Date.now() / 1000, utcOffset = plugin.config.preview?.utc_offset ?? 0, instanceName = plugin.settings.name, data = plugin.data, model = 'og', portrait = false } = {}) {
@@ -55,9 +103,9 @@ export function contextFor(plugin, { fields = {}, timestamp = Date.now() / 1000,
     ...data,
     trmnl: {
       system: { timestamp_utc: Math.floor(Number(timestamp)) },
-      user: { utc_offset: Number(utcOffset), locale: 'en' },
+      user: { utc_offset: Number(utcOffset), locale: 'en', ...(plugin.config.preview?.time_zone ? { time_zone_iana: plugin.config.preview.time_zone } : {}) },
       device: { ...previewDevice(model, portrait), bit_depth: model === 'v2' ? 4 : model === 'ogv2' ? 2 : 1 },
-      plugin_settings: { instance_name: instanceName, custom_fields_values: { ...plugin.defaults, ...fields } },
+      plugin_settings: { instance_name: instanceName, custom_fields_values: { ...plugin.defaults, ...plugin.config.preview?.fields, ...fields } },
     },
   };
 }
@@ -97,8 +145,16 @@ export function screenHtml(markup, view, version = '3.4.0', localAssets = false,
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRMNL ${escapeHtml(view)} preview</title><link rel="stylesheet" href="${css}"><script src="${js}" defer></script><style>html,body{margin:0;padding:0;background:white}</style></head><body class="trmnl"><div class="screen ${device.classes}${device.portrait ? ' screen--portrait' : ''}">${inner}</div></body></html>`;
 }
 
+// Fixtures are recorded at a moment in time; previews render them at that moment.
+export function previewTiming(plugin, fixture) {
+  const name = fixture === 'default' ? plugin.config.preview?.fixture ?? Object.keys(plugin.config.fixtures ?? {})[0] : fixture;
+  const time = plugin.config.fixtures?.[name]?.time ?? plugin.config.preview?.time;
+  return time ? { timestamp: Date.parse(time) / 1000 } : {};
+}
+
 export async function checkPlugin(plugin) {
-  if (!plugin.settings.name || plugin.settings.strategy !== 'static') throw new Error('This tool currently supports named static recipes.');
+  if (!plugin.settings.name || !['static', 'polling'].includes(plugin.settings.strategy)) throw new Error('This tool supports named static and polling recipes.');
+  if (plugin.settings.strategy === 'polling') await checkPolling(plugin);
   if (!Array.isArray(plugin.settings.custom_fields)) throw new Error('custom_fields must be an array.');
   for (const [view, template] of Object.entries(plugin.templates)) {
     const frameworkMarkup = template.replace(/<style data-plugin-style="([\w-]+)">[\s\S]*?<\/style>/g, (block, name) =>
@@ -106,8 +162,11 @@ export async function checkPlugin(plugin) {
     if (/<style\b|\sstyle\s*=/.test(frameworkMarkup)) throw new Error(`${view}: use TRMNL framework classes instead of custom styles.`);
     if (/class=["'][^"']*\b(screen|view)\b/.test(template)) throw new Error(`${view}: TRMNL supplies screen/view wrappers.`);
     if (Buffer.byteLength(template) > 1024 * 1024) throw new Error(`${view}: template exceeds TRMNL's 1 MB limit.`);
-    const rendered = await renderView(plugin, view);
-    if (!rendered.includes('class="layout') || !rendered.includes('class="title_bar"')) throw new Error(`${view}: missing layout/title_bar.`);
+    // Every recorded response, including API errors, must render a complete screen.
+    for (const [fixture, data] of [['default', plugin.data], ...Object.entries(plugin.fixtures ?? {})]) {
+      const rendered = await renderView(plugin, view, { data, ...previewTiming(plugin, fixture) });
+      if (!rendered.includes('class="layout') || !rendered.includes('class="title_bar')) throw new Error(`${view}${fixture === 'default' ? '' : ` (${fixture})`}: missing layout/title_bar.`);
+    }
   }
   return true;
 }
@@ -122,6 +181,11 @@ export function exportFiles(plugin) {
   const { translations = {}, ...primary } = plugin.data;
   const staticTranslations = {};
   const bundled = {};
+  if (plugin.settings.strategy !== 'static') {
+    const files = { 'settings.yml': YAML.stringify(plugin.settings), ...Object.fromEntries(views.map(view => [`${view}.liquid`, plugin.templates[view]])), ...(plugin.transform ? { 'transform.js': plugin.transform } : {}) };
+    for (const name of ['settings.yml', 'transform.js']) if (files[name] && Buffer.byteLength(files[name]) > settingsLimit) throw new Error(`${name} exceeds TRMNL's ${settingsLimit / 1000} KB limit.`);
+    return files;
+  }
   const settingsFor = data => YAML.stringify({ ...plugin.settings, static_data: JSON.stringify(data) });
   for (const [language, collection] of Object.entries(translations)) {
     const candidate = { ...primary, translations: { ...staticTranslations, [language]: collection } };
@@ -149,6 +213,6 @@ export async function buildPlugin(plugin) {
   const zip = zipSync(Object.fromEntries(Object.entries(files).map(([name, contents]) => [name, strToU8(contents)])));
   const zipPath = join(output, `${plugin.config.slug}.zip`);
   await writeFile(zipPath, zip);
-  for (const view of views) await writeFile(join(output, 'preview', `${view}.html`), screenHtml(await renderView(plugin, view), view, plugin.settings.framework_version));
+  for (const view of views) await writeFile(join(output, 'preview', `${view}.html`), screenHtml(await renderView(plugin, view, previewTiming(plugin, plugin.config.preview?.fixture)), view, plugin.settings.framework_version));
   return zipPath;
 }

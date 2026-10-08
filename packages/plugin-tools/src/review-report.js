@@ -34,7 +34,7 @@ export function typographyMatrix(manifest, captured) {
   const columns = manifest.scenarios.map(s => s.id);
   const rows = manifest.screens.map(screen => ({ screen: screen.id, cells: Object.fromEntries(columns.map(id => [id, typographyCell(results.get(`${id}--${screen.id}`))])) }))
     .filter(row => Object.values(row.cells).some(Boolean));
-  return { legend: 'fitted font px, % of layout height filled by Scripture, bar = reference moved to the title bar, ! = warning', columns, rows };
+  return { legend: 'fitted font px (smallest amount for declared cases), % of layout height filled by Scripture or tiles, bar = reference moved to the title bar, ! = warning', columns, rows };
 }
 
 export function formatTypography({ columns, rows }) {
@@ -47,7 +47,8 @@ export function formatTypography({ columns, rows }) {
 
 export function contactSheetHtml(manifest, scenario, captured) {
   const results = new Map(captured.map(r => [r.screenId, r]));
-  const title = `${scenario.language.toUpperCase()} · ${scenario.name} · QR ${scenario.options.fields.show_context_qr ? 'on' : 'off'}`;
+  const qr = scenario.options.fields.show_context_qr === undefined ? '' : ` · QR ${scenario.options.fields.show_context_qr ? 'on' : 'off'}`;
+  const title = `${scenario.language.toUpperCase()} · ${scenario.name}${qr}`;
   const sample = scenario.sample ? ` · ${scenario.sample.characters} characters · rank ${scenario.sample.rank}/${scenario.sample.poolSize}` : '';
   const cells = manifest.screens.map((screen, index) => {
     const result = results.get(screen.id);
@@ -62,7 +63,7 @@ export function contactSheetHtml(manifest, scenario, captured) {
     .heading,.row{background:#e7ece3;padding:14px;font-weight:600}.row{display:flex;flex-direction:column;justify-content:center;gap:10px}.row span{font-weight:400}
     figure{margin:0;padding:14px;background:#fff}.image{height:280px;display:flex;justify-content:center;align-items:center}.image img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
     figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:12px;font-size:14px}.failed{background:#fbefec}.changed{background:#fcf3dd}.warning{box-shadow:inset 0 0 0 4px #d8a31a}
-  </style></head><body><h1>${escapeHtml(title)}</h1><p>${escapeHtml(scenario.expected?.reference ?? 'Recovery')} · ${escapeHtml(scenario.themes)}${sample}</p>
+  </style></head><body><h1>${escapeHtml(title)}</h1><p>${escapeHtml(scenario.expected?.reference ?? (scenario.fixture ? `Fixture ${scenario.fixture}` : 'Recovery'))}${scenario.fixture ? '' : ` · ${escapeHtml(scenario.themes)}`}${sample}</p>
   <div class="matrix"><div class="heading">Device / orientation</div>${['Full', 'Half horizontal', 'Half vertical', 'Quadrant'].map(label => `<div class="heading">${label}</div>`).join('')}${cells}</div>
   <footer>Native renders scaled to fit each cell, so compare sizes using the px · % fill captions; ! = legibility or wasted-space warning · ${escapeHtml(manifest.framework)} · Source ${manifest.sourceHash.slice(0, 12)} · unreviewed = no visual baseline</footer></body></html>`;
 }

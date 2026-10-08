@@ -1,7 +1,7 @@
 import { resolve, join } from 'node:path';
 import { readFile } from 'node:fs/promises';
 import { createServer } from 'node:http';
-import { loadPlugin, checkPlugin, renderView, screenHtml, exportFiles, escapeHtml, devices } from './plugin.js';
+import { loadPlugin, checkPlugin, renderView, screenHtml, exportFiles, escapeHtml, devices, previewTiming } from './plugin.js';
 import { frameworkAsset } from './framework.js';
 import { reviewManifest, reviewCase, reviewOptions } from './review.js';
 import { ReviewCapture } from './review-capture.js';
@@ -16,7 +16,16 @@ function optionsFrom(url) {
   const result = { fields, model: url.searchParams.get('model') ?? 'og', portrait: url.searchParams.get('portrait') === 'true' };
   if (url.searchParams.has('timestamp')) result.timestamp = Number(url.searchParams.get('timestamp'));
   if (url.searchParams.has('offset')) result.utcOffset = Number(url.searchParams.get('offset'));
+  if (url.searchParams.has('fixture')) result.fixture = url.searchParams.get('fixture');
   return result;
+}
+
+// Polling plugins preview a recorded response at the moment it was recorded,
+// unless the preview asks for another time.
+function fixtureOptions(plugin, { fixture, ...options }) {
+  if (fixture === undefined) return plugin.fixtures && Object.keys(plugin.fixtures).length ? { ...previewTiming(plugin, 'default'), ...options } : options;
+  if (!plugin.fixtures?.[fixture]) throw new Error(`Unknown fixture: ${fixture}`);
+  return { ...previewTiming(plugin, fixture), ...options, data: plugin.fixtures[fixture] };
 }
 
 export function createPreviewServer(directory, { reviewByDefault = false, workers = 4 } = {}) {
@@ -32,7 +41,8 @@ export function createPreviewServer(directory, { reviewByDefault = false, worker
         const asset = await frameworkAsset(url.pathname.slice('/framework'.length));
         res.writeHead(200, { 'Content-Type': asset.type, 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=86400' }); res.end(asset.bytes); return;
       }
-      const shell = { '/': reviewByDefault ? 'review.html' : 'preview.html', '/review': 'review.html', '/preview': 'preview.html', '/review/ui.js': 'review-ui.js', '/review/styles.css': 'review.css' }[url.pathname];
+      let shell = { '/': reviewByDefault ? 'review.html' : 'preview.html', '/review': 'review.html', '/preview': 'preview.html', '/review/ui.js': 'review-ui.js', '/review/styles.css': 'review.css' }[url.pathname];
+      if (shell === 'preview.html' && JSON.parse(await readFile(join(root, 'plugin.config.json'), 'utf8')).preview?.shell === 'fixtures') shell = 'preview-fixtures.html';
       if (shell) {
         res.setHeader('Content-Type', shell.endsWith('.js') ? 'text/javascript' : shell.endsWith('.css') ? 'text/css' : 'text/html; charset=utf-8');
         res.setHeader('Cache-Control', 'no-store'); res.end(await readFile(new URL(shell, import.meta.url), 'utf8')); return;
@@ -45,7 +55,8 @@ export function createPreviewServer(directory, { reviewByDefault = false, worker
       }
       const plugin = await loadPlugin(root);
       if (url.pathname === '/plugin') {
-        json({ name: plugin.settings.name, fields: plugin.settings.custom_fields, defaults: plugin.defaults, data: plugin.data, devices, offset: plugin.config.preview?.utc_offset ?? 0 });
+        json({ name: plugin.settings.name, fields: plugin.settings.custom_fields, defaults: { ...plugin.defaults, ...plugin.config.preview?.fields }, data: plugin.config.data ? plugin.data : undefined, devices, offset: plugin.config.preview?.utc_offset ?? 0,
+          fixtures: Object.fromEntries(Object.keys(plugin.fixtures ?? {}).map(name => [name, plugin.config.fixtures[name].time ?? null])), fixture: plugin.config.preview?.fixture });
       } else if (['/review/manifest', '/review/render', '/review/capture', '/review/results', '/review/summary'].includes(url.pathname)) {
         const mode = url.searchParams.get('mode') ?? 'curated';
         const manifest = await reviewManifest(plugin, mode);
@@ -67,7 +78,7 @@ export function createPreviewServer(directory, { reviewByDefault = false, worker
         }
       } else if (url.pathname === '/render') {
         const view = url.searchParams.get('view') ?? 'full';
-        const options = optionsFrom(url);
+        const options = fixtureOptions(plugin, optionsFrom(url));
         res.setHeader('Content-Type', 'text/html; charset=utf-8'); res.setHeader('Cache-Control', 'no-store');
         res.end(screenHtml(await renderView(plugin, view, options), view, plugin.settings.framework_version, true, options));
       } else if (url.pathname === '/download') {

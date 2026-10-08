@@ -1,0 +1,32 @@
+<div class="layout layout--col layout--stretch-x layout--center-y gap--xlarge{{ appearance_class }}" data-appearance="{{ appearance }}">
+  {% if status == 'ok' %}
+    {% assign rows = 'today,yesterday|month,last_month' | split: '|' %}
+    {% for row in rows %}
+      {% assign keys = row | split: ',' %}
+      <div class="grid grid--cols-2 portrait:grid--cols-1 gap">
+        {% for key in keys %}
+          {% assign tile = tiles | where: 'key', key | first %}
+          <div class="item" data-tile="{{ tile.key }}">
+            <div class="meta"></div>
+            <div class="content gap--xsmall">
+              <span class="label">{{ tile.label | escape }} · {{ tile.period | escape }}</span>
+              <span class="value {{ amount_classes.full }} value--tnums" data-amount="true">{{ tile.amount | escape }}</span>
+              <span class="label" data-direction="{{ tile.direction }}">{{ tile.comparison | escape }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% unless forloop.last %}<div class="divider"></div>{% endunless %}
+    {% endfor %}
+  {% else %}
+    <div class="flex flex--col flex--center gap h--full">
+      <span class="title title--large lg:title--xlarge text--center">{{ message_title }}</span>
+      <p class="description description--large lg:description--xlarge text--center">{{ message_text }}</p>
+    </div>
+  {% endif %}
+</div>
+<div class="title_bar{{ appearance_class }}" data-appearance="{{ appearance }}">
+  <img class="image" src="{{ icon_uri }}" alt="">
+  <span class="title" data-footer-name="true">{{ plugin_name }}</span>
+  {% if bar_detail %}<span class="instance">{{ bar_detail }}</span>{% endif %}
+</div>

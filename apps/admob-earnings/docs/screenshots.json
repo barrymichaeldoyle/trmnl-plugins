@@ -1,0 +1,10 @@
+[
+  { "file": "full.png", "case": "usd-percent", "screen": "og-landscape-full" },
+  { "file": "full-both-x.png", "case": "jpy-both", "screen": "v2-landscape-full" },
+  { "file": "full-dark.png", "case": "zar-dark", "screen": "og-landscape-full" },
+  { "file": "full-portrait.png", "case": "usd-percent", "screen": "og-portrait-full" },
+  { "file": "half_horizontal.png", "case": "usd-percent", "screen": "og-landscape-half_horizontal" },
+  { "file": "half_vertical.png", "case": "usd-percent", "screen": "og-landscape-half_vertical" },
+  { "file": "quadrant.png", "case": "usd-percent", "screen": "og-landscape-quadrant" },
+  { "file": "reconnect.png", "case": "auth", "screen": "og-landscape-full" }
+]

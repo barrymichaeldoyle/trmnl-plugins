@@ -1,5 +1,5 @@
 // Self-contained so Playwright can evaluate it in the rendered document.
-export function measureReview({ expected, missingTitle, missingText, qr, recovery, minFontSize = 16, minFill = 45 }) {
+export function measureReview({ expected, missingTitle, missingText, qr, recovery, minFontSize = 16, minFill = 45, expectText }) {
   const errors = [];
   // Warnings flag legibility and wasted space; they never fail a run.
   const warnings = [];
@@ -105,6 +105,41 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
     if (!text(layout).includes(missingText)) errors.push('Recovery message is missing.');
     const message = layout?.querySelector('.description');
     if (message && (!visible(message) || view && !inside(rect(message), rect(view)))) errors.push('Recovery instruction is clipped or hidden.');
+  }
+  // Declared cases (apps without Scripture): required text must be visible, and
+  // no text may leave the view, be clipped, or spill out of its tile.
+  if (expectText && view) {
+    const shown = normalize(view.innerText);
+    for (const value of expectText) if (!shown.includes(normalize(value))) errors.push(`Expected text is not visible: ${value}`);
+    const walker = document.createTreeWalker(view, NodeFilter.SHOW_TEXT);
+    for (let node; (node = walker.nextNode());) {
+      if (!node.textContent.trim() || !visible(node.parentElement) || node.parentElement.closest('script')) continue;
+      const range = document.createRange(); range.selectNodeContents(node);
+      const bounds = Array.from(range.getClientRects()).filter(b => b.width > 0);
+      if (bounds.some(b => !inside(b, rect(view)))) { errors.push(`Text extends outside the view: ${normalize(node.textContent).slice(0, 40)}`); continue; }
+      for (let ancestor = node.parentElement; ancestor && ancestor !== view; ancestor = ancestor.parentElement) {
+        const style = getComputedStyle(ancestor);
+        if (/(hidden|clip|scroll|auto)/.test(`${style.overflowX} ${style.overflowY}`) && bounds.some(b => !inside(b, rect(ancestor)))) { errors.push(`Text is clipped: ${normalize(node.textContent).slice(0, 40)}`); break; }
+      }
+      const tile = node.parentElement.closest('[data-tile]');
+      if (tile && bounds.some(b => !inside(b, rect(tile)))) errors.push(`Text spills out of its tile: ${normalize(node.textContent).slice(0, 40)}`);
+    }
+    const tiles = Array.from(view.querySelectorAll('[data-tile]')).filter(visible);
+    tiles.forEach((a, index) => tiles.slice(index + 1).forEach(b => {
+      const x = Math.min(rect(a).right, rect(b).right) - Math.max(rect(a).left, rect(b).left);
+      const y = Math.min(rect(a).bottom, rect(b).bottom) - Math.max(rect(a).top, rect(b).top);
+      if (x > 1 && y > 1) errors.push('Tiles overlap.');
+    }));
+    const amounts = Array.from(view.querySelectorAll('[data-amount]')).filter(visible);
+    if (amounts.length && layout) {
+      const sizes = amounts.map(element => parseFloat(getComputedStyle(element).fontSize));
+      const top = Math.min(...tiles.map(t => rect(t).top)), bottom = Math.max(...tiles.map(t => rect(t).bottom));
+      const metrics = getComputedStyle(layout);
+      const content = rect(layout).height - (parseFloat(metrics.paddingTop) + parseFloat(metrics.paddingBottom)) * scale;
+      typography = { fontSize: Math.min(...sizes), startSize: Math.max(...sizes), fill: content > 0 ? Math.round(100 * (bottom - top) / content) : null, lines: amounts.length, wordBound: false, reference: 'content' };
+      if (typography.fontSize < minFontSize) warnings.push(`An amount fits at ${typography.fontSize}px, below the ${minFontSize}px legibility floor.`);
+      for (const element of amounts) if (element.scrollWidth > element.clientWidth + 1) errors.push(`Amount overflows its box: ${text(element)}`);
+    }
   }
   const viewport = { left: 0, top: 0, right: innerWidth, bottom: innerHeight };
   const label = reference ?? footerName;

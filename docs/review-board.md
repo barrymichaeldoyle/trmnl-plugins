@@ -186,3 +186,31 @@ by file, passage, language, screen and QR state. Run `pnpm screenshots` after a
 layout change. It renders through the review pipeline at native size, selects
 each passage through normal rotation, and refuses to write an image whose render
 fails the layout checks.
+
+## Apps with declared review cases
+
+Apps without a Scripture collection, such as AdMob Earnings, list their cases in
+`plugin.config.json` instead of having them sampled from passages:
+
+```json
+"review": {
+  "min_font_size": { "quadrant": 12, "default": 16 },
+  "cases": [
+    { "id": "jpy-both", "name": "Seven-digit yen · both", "fixture": "jpy",
+      "fields": { "comparison_style": "both" }, "utc_offset": 32400,
+      "suites": ["responsive", "curated"],
+      "expect": [], "expect_by_view": { "full": ["¥36,342,382"] } }
+  ]
+}
+```
+
+Each case renders a recorded fixture at the time it was recorded, with the given
+fields. `suites` chooses where it runs (`pnpm review:admob` is the responsive
+suite, `pnpm review:admob:check` the curated one); `--exhaustive` runs every
+case. Beyond the shared view, image and title-bar checks, a declared case fails
+when any `expect` text (plus the view's `expect_by_view` text) is not visible,
+when text leaves the view, is clipped or spills out of its `[data-tile]`, when
+tiles overlap, or when an amount (`[data-amount]`) overflows its box. The
+typography matrix reports the smallest amount size and the share of the layout
+the tiles fill. Documentation images name a case instead of a passage in
+`docs/screenshots.json`.

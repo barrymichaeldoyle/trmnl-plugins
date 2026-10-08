@@ -1,0 +1,26 @@
+<div class="layout layout--col layout--stretch-x layout--center-y{{ appearance_class }}" data-appearance="{{ appearance }}">
+  {% if status == 'ok' %}
+    <div class="grid grid--cols-4 portrait:grid--cols-2 gap">
+      {% for tile in tiles %}
+        <div class="item" data-tile="{{ tile.key }}">
+          <div class="meta"></div>
+          <div class="content gap--xsmall">
+            <span class="label label--small">{{ tile.label | escape }}</span>
+            <span class="value {{ amount_classes.half_horizontal }} value--tnums" data-amount="true">{{ tile.amount_compact | escape }}</span>
+            <span class="label label--small" data-direction="{{ tile.direction }}">{{ tile.comparison_short | escape }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="flex flex--col flex--center gap--small h--full">
+      <span class="title title--small">{{ message_title }}</span>
+      <p class="description description--small text--center">{{ message_text }}</p>
+    </div>
+  {% endif %}
+</div>
+<div class="title_bar{{ appearance_class }}" data-appearance="{{ appearance }}">
+  <img class="image" src="{{ icon_uri }}" alt="">
+  <span class="title" data-footer-name="true">{{ plugin_name }}</span>
+  {% if bar_detail %}<span class="instance">{{ bar_detail }}</span>{% endif %}
+</div>

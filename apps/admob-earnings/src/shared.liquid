@@ -1,0 +1,70 @@
+{%- comment -%}
+  Shared runs before each view. The transform supplies status, account, as_of
+  and four tiles (today, yesterday, month, last_month) with formatted amounts
+  and comparison text, so the views only arrange them.
+{%- endcomment -%}
+{%- assign options = trmnl.plugin_settings.custom_fields_values -%}
+{%- assign plugin_name = trmnl.plugin_settings.instance_name | default: 'AdMob Earnings' | escape -%}
+{%- assign today_tile = tiles | where: 'key', 'today' | first -%}
+{%- assign yesterday_tile = tiles | where: 'key', 'yesterday' | first -%}
+{%- assign month_tile = tiles | where: 'key', 'month' | first -%}
+{%- assign last_month_tile = tiles | where: 'key', 'last_month' | first -%}
+{%- assign publisher = account.publisher_id | default: 'this account' | escape -%}
+{%- case status -%}
+  {%- when 'ok' -%}
+  {%- when 'setup' -%}
+    {%- assign message_title = 'Choose an AdMob account' -%}
+    {%- assign message_text = 'Open this plugin’s settings, connect Google, then pick the AdMob account to show.' -%}
+  {%- when 'auth' -%}
+    {%- assign message_title = 'Reconnect Google' -%}
+    {%- assign message_text = 'Google sign-in expired or was revoked. Connect Google again in this plugin’s settings.' -%}
+  {%- when 'access' -%}
+    {%- assign message_title = 'AdMob account unavailable' -%}
+    {%- capture message_text -%}Google refused access to {{ publisher }}. Check the account chosen in settings and that you can view its reports.{%- endcapture -%}
+  {%- when 'no_data' -%}
+    {%- assign message_title = 'No earnings yet' -%}
+    {%- capture message_text -%}AdMob reported no earnings for {{ publisher }} in the last three months.{%- endcapture -%}
+  {%- else -%}
+    {%- assign message_title = 'AdMob report unavailable' -%}
+    {%- assign message_text = 'The latest AdMob report could not be read. The next refresh will try again.' -%}
+{%- endcase -%}
+{%- if status == 'ok' -%}
+  {%- capture bar_detail -%}{{ account.currency | escape }} · {{ as_of | escape }}{%- endcapture -%}
+{%- endif -%}
+
+{%- comment -%}
+  Dark uses the framework's inverse tokens on this plugin's own content, so a
+  mashup neighbour keeps its appearance. A full view owns the screen, so the
+  script below switches the whole screen to dark mode instead.
+{%- endcomment -%}
+{%- assign appearance = 'light' -%}
+{%- assign appearance_class = '' -%}
+{%- assign ink = 'black' -%}
+{%- if options.appearance == 'dark' -%}
+  {%- assign appearance = 'dark' -%}
+  {%- assign appearance_class = ' inverse bg--canvas' -%}
+  {%- assign ink = 'white' -%}
+{%- endif -%}
+{%- capture icon_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="{{ ink }}" d="M6 40h36v4H6zM9 27h7v10H9zM20.5 18h7v19h-7zM32 8h7v29h-7z"/></svg>{%- endcapture -%}
+{%- assign icon_uri = icon_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
+
+<script>
+(function () {
+  // A full view owns the screen: use the framework's dark mode so the padding
+  // around the view is dark too. Under screen dark mode, inverse would flip back
+  // to light, so the scoped classes are removed.
+  function applyAppearance() {
+    var dark = document.querySelectorAll('[data-appearance="dark"]');
+    if (!dark.length || dark[0].closest('.mashup')) return;
+    var screen = dark[0].closest('.screen');
+    if (!screen) return;
+    screen.classList.add('screen--dark-mode');
+    dark.forEach(function (element) { element.classList.remove('inverse', 'bg--canvas'); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('readystatechange', function () {
+      if (document.readyState === 'interactive') applyAppearance();
+    }, { once: true });
+  } else applyAppearance();
+})();
+</script>

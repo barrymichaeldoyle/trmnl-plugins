@@ -10,7 +10,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
       - uses: ruby/setup-ruby@v1
@@ -28,10 +28,19 @@ jobs:
       - run: pnpm --filter @trmnl/plugin-tools exec playwright install --with-deps chromium
       - run: pnpm review:responsive
       - run: pnpm review:check
+      - run: pnpm review:admob
+      - run: pnpm review:admob:check
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: daily-bread-review
           path: apps/bible-verses/dist/review/
+          if-no-files-found: ignore
+          retention-days: 14
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: admob-earnings-review
+          path: apps/admob-earnings/dist/review/
           if-no-files-found: ignore
           retention-days: 14

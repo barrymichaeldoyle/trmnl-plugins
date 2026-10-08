@@ -3,22 +3,29 @@
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.17.0",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "prepare": "node packages/plugin-tools/scripts/install-hooks.js",
     "hooks:install": "node packages/plugin-tools/scripts/install-hooks.js",
     "dev": "pnpm --filter @trmnl/bible-verses dev",
+    "dev:admob": "pnpm --filter @trmnl/admob-earnings dev",
     "review": "pnpm --filter @trmnl/bible-verses review",
     "review:check": "pnpm --filter @trmnl/bible-verses review:check",
     "review:responsive": "pnpm --filter @trmnl/bible-verses review:check --responsive",
     "review:exhaustive": "pnpm --filter @trmnl/bible-verses review:check --exhaustive",
+    "review:admob": "pnpm --filter @trmnl/admob-earnings review:check --responsive",
+    "review:admob:check": "pnpm --filter @trmnl/admob-earnings review:check",
     "review:install": "pnpm --filter @trmnl/plugin-tools exec playwright install chromium",
     "screenshots": "pnpm --filter @trmnl/bible-verses screenshots",
+    "screenshots:admob": "pnpm --filter @trmnl/admob-earnings screenshots",
     "upload": "pnpm --filter @trmnl/bible-verses upload",
-    "build": "pnpm --filter @trmnl/bible-verses build",
-    "lint": "pnpm --filter @trmnl/bible-verses lint",
-    "check": "pnpm lint && pnpm --filter @trmnl/bible-verses check",
-    "test": "node --test packages/plugin-tools/test/*.test.js apps/bible-verses/test/*.test.js",
+    "build": "pnpm --filter './apps/*' build",
+    "build:admob": "pnpm --filter @trmnl/admob-earnings build",
+    "lint": "pnpm --filter './apps/*' lint",
+    "check": "pnpm lint && pnpm --filter './apps/*' check",
+    "test": "node --test packages/plugin-tools/test/*.test.js apps/*/test/*.test.js",
     "verify": "pnpm check && pnpm test && pnpm build"
   }
 }

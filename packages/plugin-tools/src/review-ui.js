@@ -95,7 +95,7 @@ async function load() {
     byId('summary-link').href = report ? 'summary.json' : '/review/summary?' + new URLSearchParams({ mode: manifest.mode, source: manifest.sourceHash });
     byId('case-index').replaceChildren();
     if (sizeModes.has(manifest.mode) && scenarios.length <= 18) for (const scenario of scenarios) {
-      const link = node('a', `${scenario.language.toUpperCase()} ${scenario.sample.kind} · QR ${scenario.options.fields.show_context_qr ? 'on' : 'off'}`); link.href = `#${scenario.id}`; byId('case-index').append(link);
+      const link = node('a', scenario.sample ? `${scenario.language.toUpperCase()} ${scenario.sample.kind} · ${scenario.options.fields.show_context_qr === undefined ? scenario.fixture ?? '' : `QR ${scenario.options.fields.show_context_qr ? 'on' : 'off'}`}` : scenario.name); link.href = `#${scenario.id}`; byId('case-index').append(link);
     }
     byId('case-index').hidden = !byId('case-index').children.length;
     observer = new IntersectionObserver(entries => { for (const entry of entries) if (entry.isIntersecting) enqueue(entry.target); }, { rootMargin: '250px' });
@@ -106,7 +106,7 @@ async function load() {
       const title = node('div'); title.append(node('h2', `${scenario.language.toUpperCase()} · ${scenario.name}`));
       const date = new Date((scenario.options.timestamp + scenario.options.utcOffset) * 1000).toISOString().replace('T', ' ').slice(0, 16);
       const offset = scenario.options.utcOffset / 3600;
-      title.append(node('p', `${scenario.expected?.reference ?? 'Recovery message'} · ${scenario.themes} · QR ${scenario.options.fields.show_context_qr ? 'on' : 'off'} · ${date} UTC${offset >= 0 ? '+' : ''}${offset}`, 'case-meta'));
+      title.append(node('p', `${scenario.expected?.reference ?? (scenario.fixture ? scenario.name : 'Recovery message')} · ${scenario.themes} · ${scenario.options.fields.show_context_qr === undefined ? scenario.fixture ?? '' : `QR ${scenario.options.fields.show_context_qr ? 'on' : 'off'}`} · ${date} UTC${offset >= 0 ? '+' : ''}${offset}`, 'case-meta'));
       if (scenario.sample) title.append(node('p', `${scenario.sample.characters} characters · ${scenario.sample.words} words · Length rank ${scenario.sample.rank} of ${scenario.sample.poolSize}${scenario.sample.kind === 'median' ? ' · Middle passage by character count' : ''}`, 'sample-meta'));
       const sheet = report?.contactSheets?.find(sheet => sheet.scenarioId === scenario.id);
       if (sheet) { const link = node('a', 'Contact sheet · 24 screens'); link.href = sheet.imageUrl; link.target = '_blank'; link.rel = 'noopener'; title.append(link); }

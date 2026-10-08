@@ -1,0 +1,5 @@
+# Project marker required by the official linter. Use pnpm dev:admob for previews.
+custom_fields:
+  publisher_id: pub-0000000000000000
+  comparison_style: percent
+  appearance: light
