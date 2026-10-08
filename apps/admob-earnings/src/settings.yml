@@ -9,14 +9,10 @@ refresh_interval_floor: '15'
 # One URL, so TRMNL hands the transform the report array as data. The publisher
 # ID comes from the account picker below, filled by AdMob's accounts list.
 polling_url: https://admob.googleapis.com/v1/accounts/{{ publisher_id }}/networkReport:generate
-polling_headers: authorization=Bearer {{ oauth_access_token }}&content-type=application/json
-# 93 days always covers this month and the two full months before it. TRMNL
-# renders Liquid in UTC, so the end date runs one day ahead for time zones east
-# of UTC; AdMob has no row for a date that has not started.
-polling_body: |-
-  {%- assign start = "now" | date: "%s" | minus: 8035200 -%}
-  {%- assign end = "now" | date: "%s" | plus: 86400 -%}
-  {"reportSpec":{"dateRange":{"startDate":{"year":{{ start | date: "%Y" }},"month":{{ start | date: "%-m" }},"day":{{ start | date: "%-d" }}},"endDate":{"year":{{ end | date: "%Y" }},"month":{{ end | date: "%-m" }},"day":{{ end | date: "%-d" }}}},"dimensions":["DATE"],"metrics":["ESTIMATED_EARNINGS"],"sortConditions":[{"dimension":"DATE","order":"ASCENDING"}],"maxReportRows":100}}
+polling_headers: ''
+# polling_body and polling_headers live in ../polling.yml. TRMNL stores them
+# encrypted and GitHub Sync writes them here as blanks; the tooling merges them.
+polling_body: ''
 # Google OAuth provider definition. The client ID and secret are entered in
 # TRMNL's plugin settings and never committed.
 oauth_enabled: 'true'

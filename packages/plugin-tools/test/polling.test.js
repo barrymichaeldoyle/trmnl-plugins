@@ -1,7 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
-import { loadPlugin, polledData, renderPolling, checkPlugin, checkPolling, previewTiming } from '../src/plugin.js';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import YAML from 'yaml';
+import { loadPlugin, polledData, renderPolling, checkPlugin, checkPolling, previewTiming, exportFiles } from '../src/plugin.js';
 import { reviewScenarios, reviewOptions } from '../src/review.js';
 
 const plugin = await loadPlugin(fileURLToPath(new URL('../../../apps/admob-earnings', import.meta.url)));
@@ -48,4 +51,14 @@ test('declared review cases select suites, fixtures, fields and expected text', 
   assert.ok(yen.expectTextByView.full.includes('¥36,342,382'));
   assert.equal(reviewOptions(plugin, yen, { model: 'og', portrait: false }).data, plugin.fixtures.jpy);
   assert.throws(() => reviewScenarios({ ...plugin, config: { ...plugin.config, review: { cases: [{ id: 'x', fixture: 'missing' }] } } }, 'curated'), /unknown fixture/);
+});
+
+test('encrypted settings kept outside src/ survive the blanks GitHub Sync writes', async () => {
+  // GitHub Sync writes the encrypted polling settings as empty values.
+  assert.equal(YAML.parse(await readFile(join(plugin.root, 'src/settings.yml'), 'utf8')).polling_body, '');
+  assert.match(plugin.settings.polling_body, /reportSpec/);
+  assert.match(plugin.settings.polling_headers, /oauth_access_token/);
+  const exported = YAML.parse(exportFiles(plugin)['settings.yml']);
+  assert.match(exported.polling_body, /reportSpec/);
+  assert.match(exported.polling_headers, /oauth_access_token/);
 });

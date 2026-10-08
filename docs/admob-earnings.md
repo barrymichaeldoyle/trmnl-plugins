@@ -169,6 +169,8 @@ Tests use the Node test runner already wired at the root. The transform tests ar
 
 **TRMNL import findings:** the ZIP kept the authorization URL, token URL, scope and auth params. It did not set **Enable PKCE?**, so set it to Yes by hand. Importing also adds the plugin to the device playlist.
 
+**GitHub Sync (8 October 2026):** plugin 499993 syncs to `apps/admob-earnings`. TRMNL's archive leaves out the client ID, secret and custom field values, but it also writes the encrypted `polling_body` and `polling_headers` as blanks. A push with blanks wipes them on TRMNL; this was tested and restored. So they live in `apps/admob-earnings/polling.yml`, and the tooling merges them, and deploys go through `pnpm upload`, never "Import latest".
+
 **The account picker must be optional.** TRMNL refuses to save a plugin while a required custom field is empty, and that includes saving the OAuth client ID and secret. The `xhrSelect` list only loads after Google is connected, so a required `publisher_id` deadlocks setup. Editing the form fields in the same save does not help, because the server validates against the stored fields. Plugin 499984 was imported with the field required and cannot save; plugin **499993** was imported with `optional: true` and saves normally. Without an account chosen, the recipe shows "Choose an AdMob account".
 
 ## Build order

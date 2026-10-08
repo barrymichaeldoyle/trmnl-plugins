@@ -31,7 +31,12 @@ export const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ 
 export async function loadPlugin(directory) {
   const root = resolve(directory);
   const config = JSON.parse(await readFile(join(root, 'plugin.config.json'), 'utf8'));
-  const settings = YAML.parse(await readFile(join(root, 'src/settings.yml'), 'utf8'));
+  // TRMNL's archive, and so GitHub Sync, writes encrypted settings such as
+  // polling_body and polling_headers as blanks. Apps keep them outside src/
+  // in "encrypted_settings": "polling.yml"; they override settings.yml here, so
+  // previews, checks, the ZIP and uploads all carry the real values.
+  const settings = { ...YAML.parse(await readFile(join(root, 'src/settings.yml'), 'utf8')),
+    ...(config.encrypted_settings ? YAML.parse(await readFile(join(root, config.encrypted_settings), 'utf8')) : {}) };
   // Polling plugins have no static data. Recorded API responses in fixtures
   // stand in for the poll, shaped the way TRMNL hands them to the transform:
   // "fixtures": { "name": { "files": ["fixtures/report.json"], "time": "2026-10-08T15:00:00Z" } }

@@ -34,6 +34,14 @@ pnpm build:admob          # dist/admob-earnings.zip for TRMNL's importer
 - **Transform** (`src/transform.js`): parses the header, row and footer elements; finds "today" in the account's reporting time zone (falling back to the TRMNL user's offset); sums the periods; formats money with currency symbols and whole-unit currencies such as JPY; writes the comparison text for the chosen style; and picks one value size per view from the widest amount, so tiles match and never overflow. Errors become a `status` of `setup`, `auth`, `access`, `no_data` or `error`, and every view explains what to do.
 - **Views** (`src/*.liquid`): framework classes only. Full is a 2×2 grid (one column in portrait), half horizontal is one row of four, half vertical is 2×2, and the quadrant shows today and yesterday with the month in the title bar. Dark appearance follows Daily Bread's convention.
 
+## TRMNL and GitHub Sync
+
+The live plugin is TRMNL private plugin 499993, synced by TRMNL's GitHub Sync app to `apps/admob-earnings/src/`. Every Save in TRMNL commits as `trmnl-sync[bot]`, so pull before editing locally.
+
+- **Deploy from the repo with `TRMNL_PLUGIN_ID=499993 pnpm --filter @trmnl/admob-earnings upload`.** Never use TRMNL's "Import latest" from GitHub. TRMNL stores `polling_body` and `polling_headers` encrypted, and its archive writes them blank, so an import would wipe the live AdMob request.
+- Those two settings live in [`polling.yml`](polling.yml), outside `src/`, and stay blank in `src/settings.yml`. The tooling merges them back in for previews, checks, the ZIP and uploads, so a bot commit cannot remove them.
+- The OAuth client ID and secret, and your chosen publisher ID, are never in the archive or the repo.
+
 ## Fixtures
 
 `fixtures/` holds responses in the documented AdMob shape. The report fixtures are synthetic and deterministic (`pnpm --filter @trmnl/admob-earnings fixtures` rewrites them); the error fixtures copy Google's error bodies. Each fixture's entry in `plugin.config.json` records when it was polled, and previews render at that moment. A test checks that every report fixture's date range matches what the recipe would request at that time.
