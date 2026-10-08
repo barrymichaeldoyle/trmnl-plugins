@@ -71,11 +71,13 @@ function transform(input) {
   const style = ['amount', 'both'].includes(options.comparison_style) ? options.comparison_style : 'percent';
   const tile = (key, label, totals, compare) => {
     const result = { key, label, amount: formatMoney(totals.micros, currency), amount_compact: compactMoney(totals.micros, currency), amount_short: compactMoney(totals.micros, currency, 1000), micros: totals.micros, ...metrics(totals) };
-    if (!compare) return { ...result, compare_label: '', compare_amount: '', delta_percent: '', delta_amount: '', direction: 'none', comparison: '', comparison_short: '' };
-    if (!covered(compare.from)) return { ...result, compare_label: compare.label, compare_amount: '', delta_percent: '', delta_amount: '', direction: 'none', comparison: `No data for ${compare.label}`, comparison_short: '' };
+    if (!compare) return { ...result, compare_label: '', compare_amount: '', delta_percent: '', delta_amount: '', direction: 'none', change: '', compare_phrase: '', comparison: '', comparison_short: '' };
+    if (!covered(compare.from)) return { ...result, compare_label: compare.label, compare_amount: '', delta_percent: '', delta_amount: '', direction: 'none', change: '', compare_phrase: `No data for ${compare.label}`, comparison: `No data for ${compare.label}`, comparison_short: '' };
     const change = delta(totals.micros, compare.micros, currency);
     const text = style === 'amount' ? change.delta_amount : style === 'both' ? `${change.delta_percent} (${change.delta_amount})` : change.delta_percent;
     return { ...result, compare_label: compare.label, compare_amount: formatMoney(compare.micros, currency), ...change,
+      // Wide tiles show the change on its own line and the period beneath it.
+      change: text, compare_phrase: `vs ${compare.label}`,
       comparison: `${text} vs ${compare.label}`, comparison_short: style === 'amount' ? change.delta_amount : change.delta_percent };
   };
   const tiles = [
@@ -105,6 +107,8 @@ function metrics(totals) {
   return {
     requests: exact(totals.requests), impressions: exact(totals.impressions), clicks: exact(totals.clicks),
     metrics_line: `${exact(totals.requests)} ${plural(totals.requests, 'request')} · ${exact(totals.impressions)} ${plural(totals.impressions, 'impression')} · ${exact(totals.clicks)} ${plural(totals.clicks, 'click')}`,
+    // One line per count for tiles that stack them.
+    metric_lines: [`${exact(totals.requests)} ${plural(totals.requests, 'request')}`, `${exact(totals.impressions)} ${plural(totals.impressions, 'impression')}`, `${exact(totals.clicks)} ${plural(totals.clicks, 'click')}`],
     metrics_line_compact: `${compact(totals.requests)} ${plural(totals.requests, 'request')} · ${compact(totals.impressions)} ${plural(totals.impressions, 'impression')} · ${compact(totals.clicks)} ${plural(totals.clicks, 'click')}`,
   };
 }
@@ -127,13 +131,13 @@ const VALUE_SIZES = [['xsmall', 20], ['small', 26], ['base', 38], ['large', 58],
 const PREFIXES = ['', 'portrait:', 'lg:', 'lg:portrait:'];
 const ROOM = {
   primary: {
-    full: { width: [770, 455, 1010, 755], cap: [170, 170, 220, 220] },
+    full: { width: [770, 455, 1010, 755], cap: [128, 128, 220, 170] },
     half_horizontal: { width: [290, 435, 390, 735], cap: [128, 128, 170, 170] },
     half_vertical: { width: [380, 220, 500, 370], cap: [96, 128, 170, 170] },
     quadrant: { width: [380, 220, 500, 370], cap: [74, 96, 128, 128] },
   },
   secondary: {
-    full: { width: [228, 442, 305, 742], cap: [58, 74, 74, 96] },
+    full: { width: [228, 290, 305, 560], cap: [58, 58, 74, 74] },
     half_horizontal: { width: [126, 122, 174, 222], cap: [38, 38, 58, 58] },
     half_vertical: { width: [347, 187, 467, 337], cap: [38, 58, 58, 74] },
     quadrant: { width: [115, 85, 155, 190], cap: [26, 26, 38, 38] },

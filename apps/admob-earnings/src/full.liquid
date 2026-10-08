@@ -1,8 +1,8 @@
 {%- comment -%}One large primary figure across the top, with three equal secondary tiles in a row beneath it (stacked in portrait).{%- endcomment -%}
-<div class="layout layout--col layout--stretch-x layout--center-y gap--xlarge{{ appearance_class }}" data-appearance="{{ appearance }}">
+<div class="layout layout--col layout--stretch-x layout--center-y gap lg:gap--xlarge{{ appearance_class }}" data-appearance="{{ appearance }}">
   {% if status == 'ok' %}
-      <div class="flex flex--col flex--left gap--small w--full" data-tile="{{ primary.key }}">
-        <span class="title title--large lg:title--xlarge">{{ primary.label | escape }}</span>
+      <div class="flex flex--col flex--left gap--xsmall lg:gap--small w--full" data-tile="{{ primary.key }}">
+        <span class="title lg:title--xlarge">{{ primary.label | escape }}</span>
         <span class="value {{ amount_classes.primary.full }} value--tnums" data-amount="true">{{ primary.amount | escape }}</span>
         <span class="label lg:label--large">{{ primary.metrics_line | escape }}</span>
       </div>
@@ -10,11 +10,18 @@
         {% for tile in secondary %}
           <div class="item" data-tile="{{ tile.key }}">
             <div class="meta"></div>
-            <div class="content">
-              <span class="label">{{ tile.label | escape }}</span>
-              <span class="value {{ amount_classes.secondary.full }} value--tnums" data-amount="true">{{ tile.amount | escape }}</span>
-              <span class="label label--small" data-direction="{{ tile.direction }}">{{ tile.comparison | escape }}</span>
-              <span class="label label--small">{{ tile.metrics_line_compact | escape }}</span>
+            <div class="content w--full">
+              <div class="flex flex--col portrait:flex--row portrait:flex--between portrait:flex--top gap--small w--full">
+                <div class="flex flex--col flex--left w--full portrait:w--auto">
+                  <span class="label portrait:label--large lg:label--xlarge">{{ tile.label | escape }}</span>
+                  <span class="value {{ amount_classes.secondary.full }} value--tnums" data-amount="true">{{ tile.amount | escape }}</span>
+                  {% if tile.change != blank %}<span class="flex flex--row flex--left flex--center-y gap--small" data-direction="{{ tile.direction }}">{% if tile.direction == 'up' %}<img class="image w--4 h--4 portrait:w--5 portrait:h--5 lg:w--6 lg:h--6 no-shrink" src="{{ arrow_up_uri }}" alt="Up">{% elsif tile.direction == 'down' %}<img class="image w--4 h--4 portrait:w--5 portrait:h--5 lg:w--6 lg:h--6 no-shrink" src="{{ arrow_down_uri }}" alt="Down">{% endif %}<span class="label portrait:label--large lg:label--xlarge">{{ tile.change | escape }}</span></span>{% endif %}
+                  <span class="label label--small portrait:label lg:label--large">{{ tile.compare_phrase | escape }}</span>
+                </div>
+                <div class="flex flex--col flex--left portrait:flex--right w--full portrait:w--auto">
+                  {% for line in tile.metric_lines %}<span class="label label--small portrait:label lg:label--large">{{ line | escape }}</span>{% endfor %}
+                </div>
+              </div>
             </div>
           </div>
         {% endfor %}

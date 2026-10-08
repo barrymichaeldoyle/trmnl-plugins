@@ -9,7 +9,7 @@ A TRMNL recipe that shows Google AdMob estimated earnings at a glance, in the ac
 | This month so far | Month to date, including today | "{change} vs the same day last month" |
 | Last month | The previous full month | "{change} vs the month before last" |
 
-Every tile also shows its ad requests, impressions and clicks in small type; AdMob has no page-view metric. The change is a percentage, an amount or both, set in the plugin. The title bar shows when the figures were fetched ("Updated 08:00") instead of dates.
+Every tile also shows its ad requests, impressions and clicks; in the full view each count has its own line. AdMob has no page-view metric. Changes carry a ▲ or ▼ marker drawn as an inline SVG (never an emoji), and in the full view the change sits on its own line above the "vs …" period. The change is a percentage, an amount or both, set in the plugin. The title bar shows when the figures were fetched ("Updated 08:00") instead of dates.
 
 Installers sign in with Google and pick their AdMob account from a list. There is no API key to paste and no hosted service: TRMNL polls the AdMob API with the installer's OAuth token and a transform turns the report into the four tiles.
 

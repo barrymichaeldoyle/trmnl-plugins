@@ -13,7 +13,7 @@
             <div class="content">
               <span class="label label--small">{{ tile.label | escape }}</span>
               <span class="value {{ amount_classes.secondary.half_vertical }} value--tnums" data-amount="true">{{ tile.amount_compact | escape }}</span>
-              <span class="label label--small" data-direction="{{ tile.direction }}">{{ tile.comparison_short | escape }}</span>
+              <span class="flex flex--row flex--left flex--center-y gap--xsmall" data-direction="{{ tile.direction }}">{% if tile.direction == 'up' %}<img class="image w--3 h--3 lg:w--4 lg:h--4 no-shrink" src="{{ arrow_up_uri }}" alt="Up">{% elsif tile.direction == 'down' %}<img class="image w--3 h--3 lg:w--4 lg:h--4 no-shrink" src="{{ arrow_down_uri }}" alt="Down">{% endif %}<span class="label label--small lg:label">{{ tile.comparison_short | escape }}</span></span>
             </div>
           </div>
       {% endfor %}

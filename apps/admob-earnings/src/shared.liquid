@@ -44,6 +44,11 @@
 {%- endif -%}
 {%- capture icon_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="{{ ink }}" d="M6 40h36v4H6zM9 27h7v10H9zM20.5 18h7v19h-7zM32 8h7v29h-7z"/></svg>{%- endcapture -%}
 {%- assign icon_uri = icon_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
+{%- comment -%}Direction markers for change lines: solid triangles in the screen's ink, never emojis.{%- endcomment -%}
+{%- capture arrow_up_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="{{ ink }}" d="M5 1l4.5 8H.5z"/></svg>{%- endcapture -%}
+{%- capture arrow_down_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="{{ ink }}" d="M.5 1h9L5 9z"/></svg>{%- endcapture -%}
+{%- assign arrow_up_uri = arrow_up_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
+{%- assign arrow_down_uri = arrow_down_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
 
 <script>
 (function () {

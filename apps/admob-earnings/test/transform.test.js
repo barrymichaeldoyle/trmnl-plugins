@@ -125,6 +125,7 @@ test('sums requests, impressions and clicks for every tile', () => {
   // 30 days of September.
   assert.equal(tile(result, 'last_month').metrics_line_compact, '36K requests · 30K impressions · 30 clicks');
   assert.equal(tile(result, 'last_month').impressions, '30,000');
+  assert.equal(tile(result, 'month').metric_lines.join(' | '), '9,600 requests | 8,000 impressions | 8 clicks');
 });
 
 test('reports when the figures were fetched, in the TRMNL user\'s time', () => {
@@ -183,6 +184,9 @@ test('writes comparisons in the chosen style', () => {
   assert.equal(line('amount').comparison, '+$10.00 vs the same day last week');
   assert.equal(line('both').comparison, '+25.0% (+$10.00) vs the same day last week');
   assert.equal(line('amount').comparison_short, '+$10.00');
+  // Wide tiles split the change from its period.
+  assert.equal(line('both').change, '+25.0% (+$10.00)');
+  assert.equal(line('both').compare_phrase, 'vs the same day last week');
   assert.equal(line(undefined).comparison_short, '+25.0%');
   const down = tile(run(report({ '2026-09-30': 50, '2026-10-07': 40 }, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z' }), 'yesterday');
   assert.equal(down.delta_percent, '-20.0%');
@@ -221,7 +225,7 @@ test('sizes the primary and secondary amounts from their widest values', () => {
     assert.match(small[group][view], /^value--\w+ portrait:value--\w+ lg:value--\w+ lg:portrait:value--\w+$/);
   }
   // A short today figure is fat; a seven-digit last month shrinks only the secondary tiles.
-  assert.equal(small.primary.full.split(' ')[0], 'value--mega');
+  assert.equal(small.primary.full.split(' ')[0], 'value--xxxlarge');
   assert.equal(small.primary.full.split(' ')[2], 'lg:value--giga');
   assert.equal(large.primary.full, run(report({ '2026-10-08': 3 }, { currency: 'JPY', start: '2026-07-07' }), at).amount_classes.primary.full);
   assert.notEqual(small.secondary.full, large.secondary.full);
