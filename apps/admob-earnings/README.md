@@ -34,7 +34,7 @@ pnpm build:admob          # dist/admob-earnings.zip for TRMNL's importer
 - **Request** (`src/settings.yml`): one `POST` to `accounts/{publisher_id}/networkReport:generate` with `Authorization: Bearer {{ oauth_access_token }}`. The Liquid body asks for daily `ESTIMATED_EARNINGS` over the last 93 days, ending one day after the UTC date, which always covers this month and the two full months before it in any time zone.
 - **Account picker**: `publisher_id` is an `xhrSelect` field whose `remote:` block calls `GET /v1/accounts` with the installer's token on TRMNL's servers, so the installer chooses from their own accounts.
 - **Transform** (`src/transform.js`): parses the header, row and footer elements; finds "today" in the account's reporting time zone (falling back to the TRMNL user's offset); sums the periods; formats money with currency symbols and whole-unit currencies such as JPY; writes the comparison text for the chosen style; and picks one value size per view from the widest amount, so tiles match and never overflow. Errors become a `status` of `setup`, `auth`, `access`, `no_data` or `error`, and every view explains what to do.
-- **Views** (`src/*.liquid`): framework classes only. One large primary figure (today so far) and three equal secondary tiles. Full puts the primary in two of three columns with the tiles stacked beside it (stacked below in portrait); half horizontal places the tiles in a row beside or below the primary; half vertical and the quadrant stack or row them beneath, the quadrant showing amounts only. Amounts in each group share one size, chosen by the transform from measured tile widths. Dark appearance follows Daily Bread's convention.
+- **Views** (`src/*.liquid`): framework classes only. One large primary figure (today so far) and three equal secondary tiles. Full puts the primary across the top with the three tiles in a row beneath it (stacked in portrait); half horizontal places the tiles in a row beside or below the primary; half vertical and the quadrant stack or row them beneath, the quadrant showing amounts only. Amounts in each group share one size, chosen by the transform from measured tile widths. Dark appearance follows Daily Bread's convention.
 
 ## TRMNL and GitHub Sync
 
@@ -48,7 +48,7 @@ Notes that used to live as comments in `settings.yml`:
 
 - One polling URL, so TRMNL hands the transform the report array as `data`. The publisher ID comes from the account picker, filled by AdMob's accounts list.
 - The body asks for 93 days, which always covers this month and the two full months before it. TRMNL renders Liquid in UTC, so the end date runs one day ahead for time zones east of UTC; AdMob accepts it and has no row for a date that has not started.
-- The account picker is optional because its list only loads after Google is connected, and TRMNL will not save the plugin, including its OAuth client, while a required field is empty.
+- AdMob has no wildcard for "the signed-in account" (`accounts/-` returns 400), so the picker is needed. It is optional because its list only loads after Google is connected, and TRMNL will not save the plugin, including its OAuth client, while a required field is empty.
 - The Google OAuth client ID and secret are entered in TRMNL and never committed.
 
 ## Fixtures

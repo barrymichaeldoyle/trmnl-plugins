@@ -197,6 +197,8 @@ test('maps API errors and missing input to recovery states', () => {
   assert.equal(run({ error: { code: 500, status: 'INTERNAL' } }, at).status, 'error');
   assert.equal(run({ error: { code: 400, status: 'INVALID_ARGUMENT', message: "Invalid account information in request url: 'accounts/pub-1'" } }, at).status, 'access');
   assert.equal(run({ error: { code: 400, status: 'INVALID_ARGUMENT', message: 'Requested metrics and dimensions are incompatible.' } }, at).status, 'error');
+  // Recorded from the live API: there is no "-" wildcard for the caller's account.
+  assert.equal(run({ data: [{ error: { code: 400, message: 'Invalid parent name specified in request: accounts/-', status: 'INVALID_ARGUMENT' } }] }, at).status, 'access');
   // Streaming methods can report an error as an element of the array.
   assert.equal(run({ data: [{ error: { code: 401, status: 'UNAUTHENTICATED' } }] }, at).status, 'auth');
   assert.equal(run({}, at).status, 'error');
@@ -219,7 +221,7 @@ test('sizes the primary and secondary amounts from their widest values', () => {
     assert.match(small[group][view], /^value--\w+ portrait:value--\w+ lg:value--\w+ lg:portrait:value--\w+$/);
   }
   // A short today figure is fat; a seven-digit last month shrinks only the secondary tiles.
-  assert.equal(small.primary.full.split(' ')[0], 'value--xxxlarge');
+  assert.equal(small.primary.full.split(' ')[0], 'value--mega');
   assert.equal(small.primary.full.split(' ')[2], 'lg:value--giga');
   assert.equal(large.primary.full, run(report({ '2026-10-08': 3 }, { currency: 'JPY', start: '2026-07-07' }), at).amount_classes.primary.full);
   assert.notEqual(small.secondary.full, large.secondary.full);

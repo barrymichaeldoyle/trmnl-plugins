@@ -1,13 +1,12 @@
-{%- comment -%}One large primary figure and three equal secondary tiles: side by side in landscape, stacked in portrait.{%- endcomment -%}
-<div class="layout layout--col layout--stretch-x layout--center-y{{ appearance_class }}" data-appearance="{{ appearance }}">
+{%- comment -%}One large primary figure across the top, with three equal secondary tiles in a row beneath it (stacked in portrait).{%- endcomment -%}
+<div class="layout layout--col layout--stretch-x layout--center-y gap--xlarge{{ appearance_class }}" data-appearance="{{ appearance }}">
   {% if status == 'ok' %}
-    <div class="grid grid--cols-3 portrait:grid--cols-1 gap--xlarge w--full">
-      <div class="col--span-2 portrait:col--span-1 flex flex--col flex--center-y flex--left gap--small" data-tile="{{ primary.key }}">
+      <div class="flex flex--col flex--left gap--small w--full" data-tile="{{ primary.key }}">
         <span class="title title--large lg:title--xlarge">{{ primary.label | escape }}</span>
         <span class="value {{ amount_classes.primary.full }} value--tnums" data-amount="true">{{ primary.amount | escape }}</span>
         <span class="label lg:label--large">{{ primary.metrics_line | escape }}</span>
       </div>
-      <div class="col--span-1 flex flex--col gap">
+      <div class="grid grid--cols-3 portrait:grid--cols-1 gap w--full">
         {% for tile in secondary %}
           <div class="item" data-tile="{{ tile.key }}">
             <div class="meta"></div>
@@ -20,7 +19,6 @@
           </div>
         {% endfor %}
       </div>
-    </div>
   {% else %}
     <div class="flex flex--col flex--center gap--small h--full">
       <span class="title title--large lg:title--xlarge text--center">{{ message_title }}</span>

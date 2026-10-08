@@ -127,13 +127,13 @@ const VALUE_SIZES = [['xsmall', 20], ['small', 26], ['base', 38], ['large', 58],
 const PREFIXES = ['', 'portrait:', 'lg:', 'lg:portrait:'];
 const ROOM = {
   primary: {
-    full: { width: [500, 455, 660, 755], cap: [170, 170, 220, 220] },
+    full: { width: [770, 455, 1010, 755], cap: [170, 170, 220, 220] },
     half_horizontal: { width: [290, 435, 390, 735], cap: [128, 128, 170, 170] },
     half_vertical: { width: [380, 220, 500, 370], cap: [96, 128, 170, 170] },
     quadrant: { width: [380, 220, 500, 370], cap: [74, 96, 128, 128] },
   },
   secondary: {
-    full: { width: [210, 442, 285, 742], cap: [58, 74, 74, 96] },
+    full: { width: [228, 442, 305, 742], cap: [58, 74, 74, 96] },
     half_horizontal: { width: [126, 122, 174, 222], cap: [38, 38, 58, 58] },
     half_vertical: { width: [347, 187, 467, 337], cap: [38, 58, 58, 74] },
     quadrant: { width: [115, 85, 155, 190], cap: [26, 26, 38, 38] },
