@@ -7,7 +7,7 @@
 | Step | State |
 | --- | --- |
 | 1. Workspace, tooling, fixtures, transform, views, tests | Done |
-| 2. Private plugin on TRMNL, OAuth connected, first refresh | Needs the Google OAuth client; the open questions are researched below |
+| 2. Private plugin on TRMNL, OAuth connected, first refresh | In progress: Google project, consent screen (in production) and web client created 8 October 2026; TRMNL private plugin 499984 imported. Waiting for the client ID and secret to be entered in TRMNL and the first Connect |
 | 3. Real-response fixture, transform and layout adjustments | Needs a token; `pnpm --filter @trmnl/admob-earnings fetch` is ready |
 | 4. Device check across a month boundary, compare with AdMob console | Not started |
 | 5. Publish the recipe | Not started; listing draft in `apps/admob-earnings/docs/listing.md`. Google verification is optional (see Google setup) |
@@ -157,16 +157,17 @@ All seven were implemented on 8 October 2026. Differences: fixtures are configur
 
 Tests use the Node test runner already wired at the root. The transform tests are the most important: month rollover on the 1st, a 31-day month compared with a 30-day one, February, the first week of data for a new account, and an account with no earnings.
 
-## Google setup (one-time, by the account owner)
+## Google setup (done 8 October 2026)
 
-1. Create a Google Cloud project and enable the **AdMob API**.
-2. Configure the OAuth consent screen as external, with the app name, support email, homepage and privacy policy URLs. The repository can host a short privacy page via GitHub Pages; `apps/admob-earnings/docs/listing.md` has the statement.
-3. Create a web application OAuth client. Add TRMNL's redirect URL and, for local testing with `trmnlp serve`, `http://localhost:4567/oauth/callback`.
-4. Add the `admob.report` scope. The Data Access page shows whether Google classes it as sensitive.
-5. **Set the publishing status to In production.** This step is required. In Testing mode, consent and refresh tokens expire seven days after sign-in, so every installer's screen would fall back to "Reconnect Google" each week.
-6. Paste the client ID and secret into the TRMNL plugin's OAuth settings, connect the owner's Google account and force a refresh.
+- **Project** `trmnl-admob-earnings` ("TRMNL AdMob Earnings") with the AdMob API enabled.
+- **Branding:** app name "AdMob Earnings for TRMNL", support email barrydoyle18@gmail.com (Google only offers addresses on the signed-in account), developer contact barry@barrymichaeldoyle.com. Home page is the app README on GitHub; the privacy policy is [`apps/admob-earnings/PRIVACY.md`](../apps/admob-earnings/PRIVACY.md). Authorized domains: `github.com`, `trmnl.com`. No logo, because a logo triggers verification.
+- **Audience:** External, **In production**. Testing mode would expire every sign-in after seven days.
+- **Data access:** `https://www.googleapis.com/auth/admob.report`, which Google classes as **non-sensitive**.
+- **Client:** web application "TRMNL AdMob Earnings" with redirect URIs `https://trmnl.com/plugin_settings/private_plugin/oauth/redirect` (the same for every TRMNL private plugin) and `http://localhost:4567/oauth/callback` (for `trmnlp serve`). The ID and secret live only in TRMNL and the Google console.
 
-**Verification is optional.** An unverified app in production works without expiry. If the scope is sensitive, installers see Google's "unverified app" warning and click through it, and the project is capped at 100 users over its lifetime; the cap cannot be reset. If the scope is not sensitive, neither applies. Submit for verification only if the recipe approaches that cap or the warning screen puts people off.
+**Verification is not needed.** With only a non-sensitive scope, Google's publish dialog asks for verification only if the app adds a logo or more than ten domains. The audience page states the 100-user lifetime cap applies only to unapproved sensitive or restricted scopes, so there is no cap and no "unverified app" warning for this recipe. Full verification would anyway be impossible: TRMNL's settings note that it requires owning trmnl.com, which hosts the redirect URI. Without brand verification, Google may show less branding on the consent screen. A third-party plugin with its own server and domain would only be worth it for full branding or sensitive scopes.
+
+**TRMNL import findings:** the ZIP kept the authorization URL, token URL, scope and auth params. It did not set **Enable PKCE?**, so set it to Yes by hand. Importing also adds the plugin to the device playlist.
 
 ## Build order
 

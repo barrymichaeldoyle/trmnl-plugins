@@ -13,7 +13,7 @@ Installers sign in with Google and pick their AdMob account from a list. There i
 
 ![Full view](docs/screenshots/full.png)
 
-**Status:** built and tested offline against synthetic AdMob responses. It has not yet run against the real API, because that needs a Google Cloud OAuth client. See [Going live](#going-live) and the project plan in [docs/admob-earnings.md](../../docs/admob-earnings.md).
+**Status:** built and tested offline. The Google Cloud project, consent screen (in production, non-sensitive scope, no verification needed) and OAuth client exist, and the recipe is imported on TRMNL as a private plugin. Next: connect Google in TRMNL and confirm the first refresh. See the plan in [docs/admob-earnings.md](../../docs/admob-earnings.md).
 
 ## Develop
 
