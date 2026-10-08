@@ -169,6 +169,11 @@ test('formats currencies with symbols, grouping and whole units', () => {
   assert.equal(amount('USD', 100000).amount_compact, '$100K');
   assert.equal(amount('JPY', 38400000).amount_compact, '¥38.4M');
   assert.equal(amount('INR', 2e9).amount_compact, '₹2B');
+  // The narrowest tiles keep cents under 100, drop them under 1,000, then abbreviate.
+  assert.equal(amount('USD', 47.77).amount_short, '$47.77');
+  assert.equal(amount('USD', 337.2).amount_short, '$337');
+  assert.equal(amount('USD', 1365.65).amount_short, '$1.37K');
+  assert.equal(amount('JPY', 988579).amount_short, '¥989K');
 });
 
 test('shows plain amounts when the report header has no currency', () => {

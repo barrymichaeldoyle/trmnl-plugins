@@ -7,14 +7,17 @@
       </div>
     <div class="grid grid--cols-3 portrait:grid--cols-1 gap--small w--full">
       {% for tile in secondary %}
-        <div class="flex flex--col portrait:flex--row portrait:flex--between portrait:flex--center-y" data-tile="{{ tile.key }}">
+        <div class="flex flex--col flex--left" data-tile="{{ tile.key }}">
           <span class="label label--small">{{ tile.label | escape }}</span>
-          <span class="value {{ amount_classes.secondary.quadrant }} value--tnums" data-amount="true">{{ tile.amount_short | escape }}</span>
+          <div class="flex flex--col flex--left gap--xsmall">
+            <span class="value {{ amount_classes.secondary.quadrant }} value--tnums" data-amount="true">{{ tile.amount_short | escape }}</span>
+            {% if tile.comparison_short != blank %}<span class="hidden portrait:flex lg:flex flex--row flex--center-y gap--xsmall" data-direction="{{ tile.direction }}">{% if tile.direction == 'up' %}<img class="image w--3 h--3 no-shrink" src="{{ arrow_up_uri }}" alt="Up">{% elsif tile.direction == 'down' %}<img class="image w--3 h--3 no-shrink" src="{{ arrow_down_uri }}" alt="Down">{% endif %}<span class="label label--small">{{ tile.comparison_short | escape }}</span></span>{% endif %}
+          </div>
         </div>
       {% endfor %}
     </div>
   {% else %}
-    <p class="description description--small text--center">{{ message_text }}</p>
+    <p class="value value--xsmall lg:value--small text--center">{{ message_text }}</p>
   {% endif %}
 </div>
 <div class="title_bar{{ appearance_class }}" data-appearance="{{ appearance }}">

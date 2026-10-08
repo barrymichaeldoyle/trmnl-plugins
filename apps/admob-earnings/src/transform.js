@@ -70,7 +70,7 @@ function transform(input) {
 
   const style = ['amount', 'both'].includes(options.comparison_style) ? options.comparison_style : 'percent';
   const tile = (key, label, totals, compare) => {
-    const result = { key, label, amount: formatMoney(totals.micros, currency), amount_compact: compactMoney(totals.micros, currency), amount_short: compactMoney(totals.micros, currency, 1000), micros: totals.micros, ...metrics(totals) };
+    const result = { key, label, amount: formatMoney(totals.micros, currency), amount_compact: compactMoney(totals.micros, currency), amount_short: shortMoney(totals.micros, currency), micros: totals.micros, ...metrics(totals) };
     if (!compare) return { ...result, compare_label: '', compare_amount: '', delta_percent: '', delta_amount: '', direction: 'none', change: '', compare_phrase: '', comparison: '', comparison_short: '' };
     if (!covered(compare.from)) return { ...result, compare_label: compare.label, compare_amount: '', delta_percent: '', delta_amount: '', direction: 'none', change: '', compare_phrase: `No data for ${compare.label}`, comparison: `No data for ${compare.label}`, comparison_short: '' };
     const change = delta(totals.micros, compare.micros, currency);
@@ -109,6 +109,7 @@ function metrics(totals) {
     metrics_line: `${exact(totals.requests)} ${plural(totals.requests, 'request')} · ${exact(totals.impressions)} ${plural(totals.impressions, 'impression')} · ${exact(totals.clicks)} ${plural(totals.clicks, 'click')}`,
     // One line per count for tiles that stack them.
     metric_lines: [`${exact(totals.requests)} ${plural(totals.requests, 'request')}`, `${exact(totals.impressions)} ${plural(totals.impressions, 'impression')}`, `${exact(totals.clicks)} ${plural(totals.clicks, 'click')}`],
+    metric_lines_compact: [`${compact(totals.requests)} ${plural(totals.requests, 'request')}`, `${compact(totals.impressions)} ${plural(totals.impressions, 'impression')}`, `${compact(totals.clicks)} ${plural(totals.clicks, 'click')}`],
     metrics_line_compact: `${compact(totals.requests)} ${plural(totals.requests, 'request')} · ${compact(totals.impressions)} ${plural(totals.impressions, 'impression')} · ${compact(totals.clicks)} ${plural(totals.clicks, 'click')}`,
   };
 }
@@ -132,26 +133,28 @@ const PREFIXES = ['', 'portrait:', 'lg:', 'lg:portrait:'];
 const ROOM = {
   primary: {
     full: { width: [770, 455, 1010, 755], cap: [128, 128, 220, 170] },
-    half_horizontal: { width: [290, 435, 390, 735], cap: [128, 128, 170, 170] },
+    half_horizontal: { width: [250, 435, 325, 735], cap: [128, 128, 170, 128] },
     half_vertical: { width: [380, 220, 500, 370], cap: [96, 128, 170, 170] },
     quadrant: { width: [380, 220, 500, 370], cap: [74, 96, 128, 128] },
   },
   secondary: {
     full: { width: [228, 290, 305, 560], cap: [58, 58, 74, 74] },
-    half_horizontal: { width: [126, 122, 174, 222], cap: [38, 38, 58, 58] },
+    half_horizontal: { width: [155, 135, 210, 235], cap: [38, 38, 58, 58] },
     half_vertical: { width: [347, 187, 467, 337], cap: [38, 58, 58, 74] },
-    quadrant: { width: [115, 85, 155, 190], cap: [26, 26, 38, 38] },
+    quadrant: { width: [115, 187, 155, 337], cap: [26, 26, 38, 38] },
   },
 };
 // Width in ems: Inter's tabular digits are 0.645em, separators 0.27em.
 function textEms(text) { return Array.from(text).reduce((total, char) => total + (/\d/.test(char) ? 0.645 : /[.,]/.test(char) ? 0.27 : 0.7), 0); }
 function amountClasses(primaryEms, secondaryEms, secondaryCompactEms, secondaryShortEms) {
   const pick = (width, ems, cap) => (VALUE_SIZES.filter(([, size]) => size <= cap && ems * size * 1.03 <= width).pop() || VALUE_SIZES[0])[0];
-  const classes = (room, ems) => room.width.map((width, index) => `${PREFIXES[index]}value--${pick(width, ems, room.cap[index])}`).join(' ');
+  // ems may differ by orientation: [landscape, portrait].
+  const classes = (room, ems) => room.width.map((width, index) => `${PREFIXES[index]}value--${pick(width, [].concat(ems)[index % 2] ?? ems, room.cap[index])}`).join(' ');
   return {
     primary: Object.fromEntries(Object.entries(ROOM.primary).map(([view, room]) => [view, classes(room, primaryEms)])),
-    // The full view shows exact secondary amounts; mashups abbreviate them, the quadrant most.
-    secondary: Object.fromEntries(Object.entries(ROOM.secondary).map(([view, room]) => [view, classes(room, view === 'full' ? secondaryEms : view === 'quadrant' ? secondaryShortEms : secondaryCompactEms)])),
+    // Half horizontal and the quadrant always use short amounts; half vertical only in portrait.
+    secondary: Object.fromEntries(Object.entries(ROOM.secondary).map(([view, room]) => [view, classes(room,
+      view === 'full' ? secondaryEms : view === 'half_vertical' ? [secondaryCompactEms, secondaryShortEms] : secondaryShortEms)])),
   };
 }
 
@@ -212,6 +215,14 @@ function compactNumber(value) {
   const scaled = value / divisor;
   const text = scaled >= 100 ? scaled.toFixed(0) : scaled >= 10 ? scaled.toFixed(1) : scaled.toFixed(2);
   return `${text.includes('.') ? text.replace(/0+$/, '').replace(/\.$/, '') : text}${suffix}`;
+}
+
+// The narrowest tiles: cents below 100, whole units below 1,000, then K and M.
+function shortMoney(micros, currency) {
+  const value = Math.abs(micros) / 1e6;
+  if (value < 100 || decimalsFor(currency) === 0) return compactMoney(micros, currency, 1000);
+  if (value < 1000) return formatMoney(Math.round(micros / 1e6) * 1e6, currency).replace(/\.0+$/, '');
+  return compactMoney(micros, currency, 1000);
 }
 
 function compactMoney(micros, currency, from = 10000) {

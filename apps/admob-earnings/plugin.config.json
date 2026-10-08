@@ -56,29 +56,28 @@
         "expect": [
           "Today so far",
           "$18.20",
-          "$47.77",
-          "$337.20"
+          "$47.77"
         ],
         "expect_by_view": {
           "full": [
-            "This month so far",
+            "$1,365.65",
+            "$337.20",
             "+6.1% vs the same day last week",
-            "-5.5% vs the same day last month",
             "-0.7% vs the month before last",
-            "Updated 08:00",
-            "$1,365.65"
+            "-5.5% vs the same day last month",
+            "This month so far",
+            "Updated 08:00"
           ],
           "half_horizontal": [
             "+6.1%",
             "-5.5%",
             "-0.7%",
-            "Updated 08:00",
-            "$1,365.65"
+            "$1.37K",
+            "Updated 08:00"
           ],
           "half_vertical": [
             "+6.1%",
-            "-0.7%",
-            "$1,365.65"
+            "-0.7%"
           ],
           "quadrant": [
             "$1.37K"
@@ -143,14 +142,14 @@
         "expect": [
           "Today so far",
           "€3.29",
-          "€7.40",
-          "€248.98"
+          "€7.40"
         ],
         "expect_by_view": {
           "full": [
             "-€0.11 vs the same day last week",
+            "-€17.34 vs the month before last",
             "-€6.35 vs the same day last month",
-            "-€17.34 vs the month before last"
+            "€248.98"
           ],
           "half_horizontal": [
             "-€0.11",
@@ -159,6 +158,9 @@
           "half_vertical": [
             "-€0.11",
             "-€17.34"
+          ],
+          "quadrant": [
+            "€249"
           ]
         }
       },
@@ -172,7 +174,8 @@
         ],
         "expect": [
           "Connect Google again in this plugin’s settings."
-        ]
+        ],
+        "expect_by_view": {}
       },
       {
         "id": "zar-dark",
@@ -187,25 +190,26 @@
         ],
         "expect": [
           "Today so far",
-          "R0.00",
-          "R566.22"
+          "R0.00"
         ],
         "expect_by_view": {
           "full": [
-            "R19,137.82",
             "+2.3% vs the same day last week",
-            "Updated 00:30",
-            "R4,950.75"
+            "R19,137.82",
+            "R4,950.75",
+            "R566.22",
+            "Updated 00:30"
           ],
           "half_horizontal": [
-            "R19.1K",
-            "R4,950.75"
+            "R566",
+            "R4.95K",
+            "R19.1K"
           ],
           "half_vertical": [
-            "R19.1K",
-            "R4,950.75"
+            "R19.1K"
           ],
           "quadrant": [
+            "R566",
             "R4.95K",
             "R19.1K"
           ]
@@ -220,7 +224,8 @@
         ],
         "expect": [
           "AdMob reported no earnings for pub-0000000000000000 in the last three months."
-        ]
+        ],
+        "expect_by_view": {}
       },
       {
         "id": "access",
@@ -231,7 +236,8 @@
         ],
         "expect": [
           "Google refused access to pub-0000000000000000."
-        ]
+        ],
+        "expect_by_view": {}
       },
       {
         "id": "setup",
@@ -245,7 +251,8 @@
         ],
         "expect": [
           "pick the AdMob account to show."
-        ]
+        ],
+        "expect_by_view": {}
       }
     ]
   }
