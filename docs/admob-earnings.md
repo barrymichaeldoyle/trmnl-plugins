@@ -7,7 +7,7 @@
 | Step | State |
 | --- | --- |
 | 1. Workspace, tooling, fixtures, transform, views, tests | Done |
-| 2. Private plugin on TRMNL, OAuth connected, first refresh | In progress: Google project, consent screen (in production) and web client created 8 October 2026; TRMNL private plugin 499984 imported. Waiting for the client ID and secret to be entered in TRMNL and the first Connect |
+| 2. Private plugin on TRMNL, OAuth connected, first refresh | In progress: Google project, consent screen (in production) and web client created 8 October 2026; TRMNL private plugin 499993 imported (499984 is an unusable earlier import). Waiting for the client ID and secret to be entered in TRMNL and the first Connect |
 | 3. Real-response fixture, transform and layout adjustments | Needs a token; `pnpm --filter @trmnl/admob-earnings fetch` is ready |
 | 4. Device check across a month boundary, compare with AdMob console | Not started |
 | 5. Publish the recipe | Not started; listing draft in `apps/admob-earnings/docs/listing.md`. Google verification is optional (see Google setup) |
@@ -168,6 +168,8 @@ Tests use the Node test runner already wired at the root. The transform tests ar
 **Verification is not needed.** With only a non-sensitive scope, Google's publish dialog asks for verification only if the app adds a logo or more than ten domains. The audience page states the 100-user lifetime cap applies only to unapproved sensitive or restricted scopes, so there is no cap and no "unverified app" warning for this recipe. Full verification would anyway be impossible: TRMNL's settings note that it requires owning trmnl.com, which hosts the redirect URI. Without brand verification, Google may show less branding on the consent screen. A third-party plugin with its own server and domain would only be worth it for full branding or sensitive scopes.
 
 **TRMNL import findings:** the ZIP kept the authorization URL, token URL, scope and auth params. It did not set **Enable PKCE?**, so set it to Yes by hand. Importing also adds the plugin to the device playlist.
+
+**The account picker must be optional.** TRMNL refuses to save a plugin while a required custom field is empty, and that includes saving the OAuth client ID and secret. The `xhrSelect` list only loads after Google is connected, so a required `publisher_id` deadlocks setup. Editing the form fields in the same save does not help, because the server validates against the stored fields. Plugin 499984 was imported with the field required and cannot save; plugin **499993** was imported with `optional: true` and saves normally. Without an account chosen, the recipe shows "Choose an AdMob account".
 
 ## Build order
 

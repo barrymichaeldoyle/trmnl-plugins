@@ -57,6 +57,8 @@ test('settings use Google OAuth with the read-only scope and keep credentials ou
   assert.ok(!/client_(id|secret)|GOCSPX|apps\.googleusercontent/.test(YAML.stringify(settings)));
   const picker = settings.custom_fields.find(field => field.keyname === 'publisher_id');
   assert.equal(picker.field_type, 'xhrSelect');
+  // Required would block saving the OAuth client before Google is connected.
+  assert.equal(picker.optional, true);
   assert.equal(picker.remote.url, 'https://admob.googleapis.com/v1/accounts');
   assert.equal(picker.remote.headers.Authorization, 'Bearer {{ oauth_access_token }}');
 });

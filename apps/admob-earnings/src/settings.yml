@@ -43,6 +43,9 @@ custom_fields:
 - keyname: publisher_id
   field_type: xhrSelect
   name: AdMob account
+  # Optional: the list only loads once Google is connected, and TRMNL will not
+  # save the plugin (including its OAuth client) while a required field is empty.
+  optional: true
   description: Connect Google above, then choose the account to show.
   placeholder: pub-0000000000000000
   remote:
