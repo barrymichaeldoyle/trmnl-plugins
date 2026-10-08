@@ -7,7 +7,7 @@
 | Step | State |
 | --- | --- |
 | 1. Workspace, tooling, fixtures, transform, views, tests | Done |
-| 2. Private plugin on TRMNL, OAuth connected, first refresh | In progress: Google project, consent screen (in production) and web client created 8 October 2026; TRMNL private plugin 499993 imported (499984 is an unusable earlier import). Waiting for the client ID and secret to be entered in TRMNL and the first Connect |
+| 2. Private plugin on TRMNL, OAuth connected, first refresh | Done 9 October 2026: plugin 499993, real figures, GitHub Sync on. |
 | 3. Real-response fixture, transform and layout adjustments | Needs a token; `pnpm --filter @trmnl/admob-earnings fetch` is ready |
 | 4. Device check across a month boundary, compare with AdMob console | Not started |
 | 5. Publish the recipe | Not started; listing draft in `apps/admob-earnings/docs/listing.md`. Google verification is optional (see Google setup) |
@@ -169,7 +169,9 @@ Tests use the Node test runner already wired at the root. The transform tests ar
 
 **TRMNL import findings:** the ZIP kept the authorization URL, token URL, scope and auth params. It did not set **Enable PKCE?**, so set it to Yes by hand. Importing also adds the plugin to the device playlist.
 
-**GitHub Sync (8 October 2026):** plugin 499993 syncs to `apps/admob-earnings`. TRMNL's archive leaves out the client ID, secret and custom field values, but it also writes the encrypted `polling_body` and `polling_headers` as blanks. A push with blanks wipes them on TRMNL; this was tested and restored. So they live in `apps/admob-earnings/polling.yml`, and the tooling merges them, and deploys go through `pnpm upload`, never "Import latest".
+**GitHub Sync (9 October 2026):** plugin 499993 syncs to `apps/admob-earnings`. Sync commits include the polling URL, headers and body but not the client ID, secret or custom field values. The `trmnlp pull` API archive, by contrast, writes the encrypted body and headers as blanks, and pushing such a copy wipes them on TRMNL (tested and restored).
+
+**First live refresh (9 October 2026):** real AdMob figures in ZAR rendered correctly. This confirms that Liquid renders in the polling body, that AdMob accepts the end date one day ahead, that the report header carries the currency, and that the `xhrSelect` account picker loads accounts with the OAuth token.
 
 **The account picker must be optional.** TRMNL refuses to save a plugin while a required custom field is empty, and that includes saving the OAuth client ID and secret. The `xhrSelect` list only loads after Google is connected, so a required `publisher_id` deadlocks setup. Editing the form fields in the same save does not help, because the server validates against the stored fields. Plugin 499984 was imported with the field required and cannot save; plugin **499993** was imported with `optional: true` and saves normally. Without an account chosen, the recipe shows "Choose an AdMob account".
 
@@ -182,6 +184,8 @@ Tests use the Node test runner already wired at the root. The transform tests ar
 5. Publish as a recipe once the Google app is in production; set the fastest refresh rate and listing copy from `docs/listing.md`. Verification is optional.
 
 ## Open questions, researched 8 October 2026
+
+All confirmed by the first live refresh on 9 October 2026 (see Google setup), except the `Intl` question, which no longer matters.
 
 Nothing here needs the account owner. Each answer says how sure it is; the first refresh on TRMNL confirms them all at once.
 

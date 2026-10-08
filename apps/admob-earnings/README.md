@@ -36,11 +36,18 @@ pnpm build:admob          # dist/admob-earnings.zip for TRMNL's importer
 
 ## TRMNL and GitHub Sync
 
-The live plugin is TRMNL private plugin 499993, synced by TRMNL's GitHub Sync app to `apps/admob-earnings/src/`. Every Save in TRMNL commits as `trmnl-sync[bot]`, so pull before editing locally.
+The live plugin is TRMNL private plugin 499993. TRMNL's GitHub Sync commits every Save made in TRMNL to `apps/admob-earnings/src/` as `trmnl-sync[bot]`, so pull before editing locally.
 
-- **Deploy from the repo with `TRMNL_PLUGIN_ID=499993 pnpm --filter @trmnl/admob-earnings upload`.** Never use TRMNL's "Import latest" from GitHub. TRMNL stores `polling_body` and `polling_headers` encrypted, and its archive writes them blank, so an import would wipe the live AdMob request.
-- Those two settings live in [`polling.yml`](polling.yml), outside `src/`, and stay blank in `src/settings.yml`. The tooling merges them back in for previews, checks, the ZIP and uploads, so a bot commit cannot remove them.
-- The OAuth client ID and secret, and your chosen publisher ID, are never in the archive or the repo.
+- **TRMNL → GitHub** is automatic. The sync writes `settings.yml` in TRMNL's own format, including `id`, the polling URL, headers and body, and drops YAML comments, so keep explanations here rather than in `settings.yml`. The OAuth client ID and secret and your chosen publisher ID are never written.
+- **GitHub → TRMNL**: use TRMNL's "Import latest", or `TRMNL_PLUGIN_ID=499993 pnpm --filter @trmnl/admob-earnings upload`.
+- **Never push a copy fetched with `trmnlp pull`.** That API archive writes the encrypted `polling_body` and `polling_headers` as blanks, and pushing blanks wipes the live AdMob request (tested 9 October 2026).
+
+Notes that used to live as comments in `settings.yml`:
+
+- One polling URL, so TRMNL hands the transform the report array as `data`. The publisher ID comes from the account picker, filled by AdMob's accounts list.
+- The body asks for 93 days, which always covers this month and the two full months before it. TRMNL renders Liquid in UTC, so the end date runs one day ahead for time zones east of UTC; AdMob accepts it and has no row for a date that has not started.
+- The account picker is optional because its list only loads after Google is connected, and TRMNL will not save the plugin, including its OAuth client, while a required field is empty.
+- The Google OAuth client ID and secret are entered in TRMNL and never committed.
 
 ## Fixtures
 

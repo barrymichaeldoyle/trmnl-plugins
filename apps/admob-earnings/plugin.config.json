@@ -1,6 +1,5 @@
 {
   "slug": "admob-earnings",
-  "encrypted_settings": "polling.yml",
   "fixtures": {
     "usd": {
       "file": "fixtures/report-usd.json",

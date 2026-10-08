@@ -88,7 +88,7 @@ test('the import ZIP carries polling settings, not static data', () => {
   const files = exportFiles(plugin);
   assert.deepEqual(Object.keys(files).sort(), ['settings.yml', 'transform.js', ...views.map(view => `${view}.liquid`)].sort());
   const settings = YAML.parse(files['settings.yml']);
-  assert.equal(settings.static_data, undefined);
+  assert.ok(!settings.static_data, 'polling recipes carry no static data');
   assert.equal(settings.polling_url, plugin.settings.polling_url);
   assert.equal(settings.polling_body, plugin.settings.polling_body);
   assert.equal(files['transform.js'], plugin.transform);
