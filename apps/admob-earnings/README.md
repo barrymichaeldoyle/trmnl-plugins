@@ -2,12 +2,14 @@
 
 A TRMNL recipe that shows Google AdMob estimated earnings at a glance, in the account's reporting currency:
 
-| Tile | Figure | Compared with |
+| Tile | Figure | Comparison line |
 | --- | --- | --- |
-| Today | Earnings so far (partial, estimated) | Nothing |
-| Yesterday | Yesterday's earnings | Same weekday last week |
-| This month | Month to date, including today | The same days of last month |
-| Last month | The previous full month | The month before it |
+| **Today so far** (primary, large) | Earnings so far today (partial, estimated) | None |
+| Yesterday | Yesterday's earnings | "{change} vs the same day last week" |
+| This month so far | Month to date, including today | "{change} vs the same day last month" |
+| Last month | The previous full month | "{change} vs the month before last" |
+
+Every tile also shows its ad requests, impressions and clicks in small type; AdMob has no page-view metric. The change is a percentage, an amount or both, set in the plugin. The title bar shows when the figures were fetched ("Updated 08:00") instead of dates.
 
 Installers sign in with Google and pick their AdMob account from a list. There is no API key to paste and no hosted service: TRMNL polls the AdMob API with the installer's OAuth token and a transform turns the report into the four tiles.
 
@@ -32,7 +34,7 @@ pnpm build:admob          # dist/admob-earnings.zip for TRMNL's importer
 - **Request** (`src/settings.yml`): one `POST` to `accounts/{publisher_id}/networkReport:generate` with `Authorization: Bearer {{ oauth_access_token }}`. The Liquid body asks for daily `ESTIMATED_EARNINGS` over the last 93 days, ending one day after the UTC date, which always covers this month and the two full months before it in any time zone.
 - **Account picker**: `publisher_id` is an `xhrSelect` field whose `remote:` block calls `GET /v1/accounts` with the installer's token on TRMNL's servers, so the installer chooses from their own accounts.
 - **Transform** (`src/transform.js`): parses the header, row and footer elements; finds "today" in the account's reporting time zone (falling back to the TRMNL user's offset); sums the periods; formats money with currency symbols and whole-unit currencies such as JPY; writes the comparison text for the chosen style; and picks one value size per view from the widest amount, so tiles match and never overflow. Errors become a `status` of `setup`, `auth`, `access`, `no_data` or `error`, and every view explains what to do.
-- **Views** (`src/*.liquid`): framework classes only. Full is a 2×2 grid (one column in portrait), half horizontal is one row of four, half vertical is 2×2, and the quadrant shows today and yesterday with the month in the title bar. Dark appearance follows Daily Bread's convention.
+- **Views** (`src/*.liquid`): framework classes only. One large primary figure (today so far) and three equal secondary tiles. Full puts the primary in two of three columns with the tiles stacked beside it (stacked below in portrait); half horizontal places the tiles in a row beside or below the primary; half vertical and the quadrant stack or row them beneath, the quadrant showing amounts only. Amounts in each group share one size, chosen by the transform from measured tile widths. Dark appearance follows Daily Bread's convention.
 
 ## TRMNL and GitHub Sync
 

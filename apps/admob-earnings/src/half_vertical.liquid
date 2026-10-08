@@ -1,26 +1,26 @@
-<div class="layout layout--col layout--stretch-x layout--center-y gap--xlarge{{ appearance_class }}" data-appearance="{{ appearance }}">
+{%- comment -%}The primary figure above three stacked secondary tiles.{%- endcomment -%}
+<div class="layout layout--col layout--stretch-x layout--center-y gap--large{{ appearance_class }}" data-appearance="{{ appearance }}">
   {% if status == 'ok' %}
-    {% assign rows = 'today,yesterday|month,last_month' | split: '|' %}
-    {% for row in rows %}
-      {% assign keys = row | split: ',' %}
-      <div class="grid grid--cols-2 portrait:grid--cols-1 gap">
-        {% for key in keys %}
-          {% assign tile = tiles | where: 'key', key | first %}
+      <div class="flex flex--col flex--center-y flex--left gap--small" data-tile="{{ primary.key }}">
+        <span class="title">{{ primary.label | escape }}</span>
+        <span class="value {{ amount_classes.primary.half_vertical }} value--tnums" data-amount="true">{{ primary.amount | escape }}</span>
+        <span class="label label--small">{{ primary.metrics_line_compact | escape }}</span>
+      </div>
+    <div class="flex flex--col gap--small w--full">
+      {% for tile in secondary %}
           <div class="item" data-tile="{{ tile.key }}">
             <div class="meta"></div>
-            <div class="content gap--xsmall">
+            <div class="content">
               <span class="label label--small">{{ tile.label | escape }}</span>
-              <span class="value {{ amount_classes.half_vertical }} value--tnums" data-amount="true">{{ tile.amount_compact | escape }}</span>
+              <span class="value {{ amount_classes.secondary.half_vertical }} value--tnums" data-amount="true">{{ tile.amount_compact | escape }}</span>
               <span class="label label--small" data-direction="{{ tile.direction }}">{{ tile.comparison_short | escape }}</span>
             </div>
           </div>
-        {% endfor %}
-      </div>
-      {% unless forloop.last %}<div class="divider"></div>{% endunless %}
-    {% endfor %}
+      {% endfor %}
+    </div>
   {% else %}
     <div class="flex flex--col flex--center gap--small h--full">
-      <span class="title text--center">{{ message_title }}</span>
+      <span class="title text--center text--center">{{ message_title }}</span>
       <p class="description text--center">{{ message_text }}</p>
     </div>
   {% endif %}

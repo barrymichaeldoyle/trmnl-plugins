@@ -1,20 +1,32 @@
+{%- comment -%}The primary figure beside three narrow secondary tiles; portrait puts the tiles in a row beneath it.{%- endcomment -%}
 <div class="layout layout--col layout--stretch-x layout--center-y{{ appearance_class }}" data-appearance="{{ appearance }}">
   {% if status == 'ok' %}
-    <div class="grid grid--cols-4 portrait:grid--cols-2 gap">
-      {% for tile in tiles %}
-        <div class="item" data-tile="{{ tile.key }}">
-          <div class="meta"></div>
-          <div class="content gap--xsmall">
-            <span class="label label--small">{{ tile.label | escape }}</span>
-            <span class="value {{ amount_classes.half_horizontal }} value--tnums" data-amount="true">{{ tile.amount_compact | escape }}</span>
-            <span class="label label--small" data-direction="{{ tile.direction }}">{{ tile.comparison_short | escape }}</span>
+    <div class="grid grid--cols-5 portrait:grid--cols-1 gap w--full">
+      <div class="col--span-2 portrait:col--span-1">
+      <div class="flex flex--col flex--center-y flex--left gap--small" data-tile="{{ primary.key }}">
+        <span class="title">{{ primary.label | escape }}</span>
+        <span class="value {{ amount_classes.primary.half_horizontal }} value--tnums" data-amount="true">{{ primary.amount | escape }}</span>
+        <span class="label label--small">{{ primary.metrics_line_compact | escape }}</span>
+      </div>
+      </div>
+      <div class="col--span-3 portrait:col--span-1">
+        <div class="grid grid--cols-3 gap">
+          {% for tile in secondary %}
+          <div class="item" data-tile="{{ tile.key }}">
+            <div class="meta"></div>
+            <div class="content">
+              <span class="label label--small">{{ tile.label | escape }}</span>
+              <span class="value {{ amount_classes.secondary.half_horizontal }} value--tnums" data-amount="true">{{ tile.amount_compact | escape }}</span>
+              <span class="label label--small" data-direction="{{ tile.direction }}">{{ tile.comparison_short | escape }}</span>
+            </div>
           </div>
+          {% endfor %}
         </div>
-      {% endfor %}
+      </div>
     </div>
   {% else %}
     <div class="flex flex--col flex--center gap--small h--full">
-      <span class="title title--small">{{ message_title }}</span>
+      <span class="title title--small text--center">{{ message_title }}</span>
       <p class="description description--small text--center">{{ message_text }}</p>
     </div>
   {% endif %}

@@ -11,7 +11,7 @@ const iso = time => new Date(time).toISOString().slice(0, 10);
 const parts = date => { const [year, month, dayOfMonth] = date.split('-').map(Number); return { year, month, day: dayOfMonth }; };
 
 // The polling body asks for 93 days, ending one day after the UTC date of the poll.
-function report({ polledAt, currency, timeZone, base, through, seed, gaps = [], partial = through }) {
+function report({ polledAt, currency, timeZone, base, through, seed, gaps = [], partial = through, rpm = 1.8 }) {
   const end = Date.parse(polledAt.slice(0, 10)) + day;
   const start = Date.parse(polledAt.slice(0, 10)) - 93 * day;
   let state = seed;
@@ -25,7 +25,16 @@ function report({ polledAt, currency, timeZone, base, through, seed, gaps = [], 
     // The current day is partial while it is still under way.
     const share = date === partial ? 0.42 : 1;
     const micros = Math.round(base * weekend * share * (0.8 + random() * 0.4) * 1e6);
-    rows.push({ row: { dimensionValues: { DATE: { value: date.replaceAll('-', '') } }, metricValues: { ESTIMATED_EARNINGS: { microsValue: String(micros) } } } });
+    // Counts follow earnings at a plausible eCPM, fill rate and click-through rate.
+    const impressions = Math.round(micros / 1e6 / (rpm * (0.85 + random() * 0.3)) * 1000);
+    const requests = Math.round(impressions / (0.82 + random() * 0.1));
+    const clicks = Math.round(impressions * (0.006 + random() * 0.01));
+    rows.push({ row: { dimensionValues: { DATE: { value: date.replaceAll('-', '') } }, metricValues: {
+      ESTIMATED_EARNINGS: { microsValue: String(micros) },
+      AD_REQUESTS: { integerValue: String(requests) },
+      IMPRESSIONS: { integerValue: String(impressions) },
+      CLICKS: { integerValue: String(clicks) },
+    } } });
   }
   return [
     { header: { dateRange: { startDate: parts(iso(start)), endDate: parts(iso(end)) }, localizationSettings: { currencyCode: currency, languageCode: 'en-US' }, reportingTimeZone: timeZone } },
@@ -38,11 +47,11 @@ const fixtures = {
   // A typical account mid-month, polled in the afternoon UTC (morning in California).
   'report-usd.json': report({ polledAt: '2026-10-08T15:00:00Z', currency: 'USD', timeZone: 'America/Los_Angeles', base: 42.5, through: '2026-10-08', seed: 7 }),
   // Seven-digit yen totals stress the widest values.
-  'report-jpy.json': report({ polledAt: '2026-10-08T15:00:00Z', currency: 'JPY', timeZone: 'Asia/Tokyo', base: 1186000, through: '2026-10-09', seed: 11 }),
+  'report-jpy.json': report({ polledAt: '2026-10-08T15:00:00Z', currency: 'JPY', timeZone: 'Asia/Tokyo', base: 1186000, rpm: 260, through: '2026-10-09', seed: 11 }),
   // The first day of a month, compared with a 30-day September and a 31-day August.
   'report-eur-month-start.json': report({ polledAt: '2026-10-01T09:00:00Z', currency: 'EUR', timeZone: 'Europe/Berlin', base: 8.4, through: '2026-10-01', seed: 23, gaps: ['2026-09-24'] }),
   // Just after midnight in Johannesburg: yesterday is complete and today has no row yet.
-  'report-zar-early.json': report({ polledAt: '2026-10-08T22:30:00Z', currency: 'ZAR', timeZone: 'Africa/Johannesburg', base: 612, through: '2026-10-08', partial: null, seed: 5 }),
+  'report-zar-early.json': report({ polledAt: '2026-10-08T22:30:00Z', currency: 'ZAR', timeZone: 'Africa/Johannesburg', base: 612, rpm: 32, through: '2026-10-08', partial: null, seed: 5 }),
 };
 fixtures['report-empty.json'] = report({ polledAt: '2026-10-08T15:00:00Z', currency: 'USD', timeZone: 'America/Los_Angeles', base: 0, through: '2026-07-01', seed: 1 }).filter(element => !element.row);
 fixtures['report-empty.json'].at(-1).footer.matchingRowCount = '0';

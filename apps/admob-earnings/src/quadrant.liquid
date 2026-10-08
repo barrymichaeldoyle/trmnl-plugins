@@ -1,14 +1,15 @@
-<div class="layout layout--col layout--stretch-x layout--center-y{{ appearance_class }}" data-appearance="{{ appearance }}">
+{%- comment -%}The primary figure with the three secondary amounts in a row beneath it; portrait stacks them.{%- endcomment -%}
+<div class="layout layout--col layout--stretch-x layout--center-y gap{{ appearance_class }}" data-appearance="{{ appearance }}">
   {% if status == 'ok' %}
-    <div class="grid grid--cols-2 portrait:grid--cols-1 gap">
-      {% for tile in tiles limit: 2 %}
-        <div class="item" data-tile="{{ tile.key }}">
-          <div class="meta"></div>
-          <div class="content gap--xsmall">
-            <span class="label label--small">{{ tile.label | escape }}</span>
-            <span class="value {{ amount_classes.quadrant }} value--tnums" data-amount="true">{{ tile.amount_compact | escape }}</span>
-            <span class="label label--small" data-direction="{{ tile.direction }}">{{ tile.comparison_short | escape }}</span>
-          </div>
+      <div class="flex flex--col flex--center-y flex--left gap--small" data-tile="{{ primary.key }}">
+        <span class="title title--small">{{ primary.label | escape }}</span>
+        <span class="value {{ amount_classes.primary.quadrant }} value--tnums" data-amount="true">{{ primary.amount | escape }}</span>
+      </div>
+    <div class="grid grid--cols-3 portrait:grid--cols-1 gap--small w--full">
+      {% for tile in secondary %}
+        <div class="flex flex--col portrait:flex--row portrait:flex--between portrait:flex--center-y" data-tile="{{ tile.key }}">
+          <span class="label label--small">{{ tile.label | escape }}</span>
+          <span class="value {{ amount_classes.secondary.quadrant }} value--tnums" data-amount="true">{{ tile.amount_short | escape }}</span>
         </div>
       {% endfor %}
     </div>
@@ -19,5 +20,5 @@
 <div class="title_bar{{ appearance_class }}" data-appearance="{{ appearance }}">
   <img class="image" src="{{ icon_uri }}" alt="">
   <span class="title" data-footer-name="true">{{ plugin_name }}</span>
-  {% if month_tile %}<span class="instance portrait:hidden">Month {{ month_tile.amount_compact | escape }}</span>{% endif %}
+  {% if bar_detail %}<span class="instance portrait:hidden">{{ bar_detail }}</span>{% endif %}
 </div>

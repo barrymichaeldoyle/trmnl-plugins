@@ -30,6 +30,15 @@
       "metricValues": {
         "ESTIMATED_EARNINGS": {
           "microsValue": "628971347"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23297"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21193"
+        },
+        "CLICKS": {
+          "integerValue": "195"
         }
       }
     }
@@ -43,7 +52,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "552780495"
+          "microsValue": "688856318"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27857"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "24221"
+        },
+        "CLICKS": {
+          "integerValue": "251"
         }
       }
     }
@@ -57,7 +75,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "709150949"
+          "microsValue": "593996102"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "24048"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20217"
+        },
+        "CLICKS": {
+          "integerValue": "208"
         }
       }
     }
@@ -71,7 +98,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "568164074"
+          "microsValue": "645786911"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "25260"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21464"
+        },
+        "CLICKS": {
+          "integerValue": "281"
         }
       }
     }
@@ -85,7 +121,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "812850455"
+          "microsValue": "623227876"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "26692"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "22292"
+        },
+        "CLICKS": {
+          "integerValue": "246"
         }
       }
     }
@@ -99,7 +144,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "615061138"
+          "microsValue": "686186676"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "29985"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "24674"
+        },
+        "CLICKS": {
+          "integerValue": "385"
         }
       }
     }
@@ -113,7 +167,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "610749657"
+          "microsValue": "601113114"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "20915"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17253"
+        },
+        "CLICKS": {
+          "integerValue": "117"
         }
       }
     }
@@ -127,7 +190,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "596078210"
+          "microsValue": "710726407"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23909"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19844"
+        },
+        "CLICKS": {
+          "integerValue": "236"
         }
       }
     }
@@ -141,7 +213,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "593996102"
+          "microsValue": "698872517"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22567"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19699"
+        },
+        "CLICKS": {
+          "integerValue": "270"
         }
       }
     }
@@ -155,7 +236,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "545207624"
+          "microsValue": "664238804"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27094"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "23062"
+        },
+        "CLICKS": {
+          "integerValue": "286"
         }
       }
     }
@@ -169,7 +259,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "540248369"
+          "microsValue": "677925570"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22242"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19044"
+        },
+        "CLICKS": {
+          "integerValue": "182"
         }
       }
     }
@@ -183,7 +282,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "701443206"
+          "microsValue": "790986881"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "26298"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "22946"
+        },
+        "CLICKS": {
+          "integerValue": "142"
         }
       }
     }
@@ -197,7 +305,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "762028556"
+          "microsValue": "622779674"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22471"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19016"
+        },
+        "CLICKS": {
+          "integerValue": "198"
         }
       }
     }
@@ -211,7 +328,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "563210822"
+          "microsValue": "640559214"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21122"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18940"
+        },
+        "CLICKS": {
+          "integerValue": "259"
         }
       }
     }
@@ -225,7 +351,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "562380640"
+          "microsValue": "703936924"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "24512"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21723"
+        },
+        "CLICKS": {
+          "integerValue": "297"
         }
       }
     }
@@ -239,7 +374,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "663618940"
+          "microsValue": "611864243"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "24028"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20318"
+        },
+        "CLICKS": {
+          "integerValue": "139"
         }
       }
     }
@@ -253,7 +397,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "528159217"
+          "microsValue": "707634929"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "24644"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20764"
+        },
+        "CLICKS": {
+          "integerValue": "220"
         }
       }
     }
@@ -267,7 +420,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "508902553"
+          "microsValue": "622645927"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "19981"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17396"
+        },
+        "CLICKS": {
+          "integerValue": "204"
         }
       }
     }
@@ -281,7 +443,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "621542872"
+          "microsValue": "838714512"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "32608"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "28764"
+        },
+        "CLICKS": {
+          "integerValue": "220"
         }
       }
     }
@@ -295,7 +466,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "723484303"
+          "microsValue": "698387171"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22877"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19853"
+        },
+        "CLICKS": {
+          "integerValue": "205"
         }
       }
     }
@@ -309,7 +489,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "581514132"
+          "microsValue": "717915310"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "30492"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "25590"
+        },
+        "CLICKS": {
+          "integerValue": "306"
         }
       }
     }
@@ -323,7 +512,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "505164597"
+          "microsValue": "557139884"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "18612"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "15963"
+        },
+        "CLICKS": {
+          "integerValue": "241"
         }
       }
     }
@@ -337,7 +535,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "496642983"
+          "microsValue": "680394345"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22321"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19086"
+        },
+        "CLICKS": {
+          "integerValue": "264"
         }
       }
     }
@@ -351,7 +558,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "725174571"
+          "microsValue": "567978006"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "19454"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "16845"
+        },
+        "CLICKS": {
+          "integerValue": "137"
         }
       }
     }
@@ -365,7 +581,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "601113114"
+          "microsValue": "721683061"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "29127"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "26394"
+        },
+        "CLICKS": {
+          "integerValue": "403"
         }
       }
     }
@@ -379,7 +604,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "807660474"
+          "microsValue": "645401884"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27203"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "22881"
+        },
+        "CLICKS": {
+          "integerValue": "288"
         }
       }
     }
@@ -393,7 +627,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "591907653"
+          "microsValue": "794900105"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27145"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "24016"
+        },
+        "CLICKS": {
+          "integerValue": "149"
         }
       }
     }
@@ -407,7 +650,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "509062035"
+          "microsValue": "660835643"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22122"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18368"
+        },
+        "CLICKS": {
+          "integerValue": "187"
         }
       }
     }
@@ -421,7 +673,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "710726407"
+          "microsValue": "705378857"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "26414"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "22438"
+        },
+        "CLICKS": {
+          "integerValue": "191"
         }
       }
     }
@@ -435,7 +696,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "709311336"
+          "microsValue": "549335946"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "24385"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20158"
+        },
+        "CLICKS": {
+          "integerValue": "179"
         }
       }
     }
@@ -449,7 +719,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "514047001"
+          "microsValue": "655685301"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21436"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19679"
+        },
+        "CLICKS": {
+          "integerValue": "177"
         }
       }
     }
@@ -463,7 +742,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "633380518"
+          "microsValue": "730931551"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27663"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "24632"
+        },
+        "CLICKS": {
+          "integerValue": "275"
         }
       }
     }
@@ -477,7 +765,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "824669570"
+          "microsValue": "671344351"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23045"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18916"
+        },
+        "CLICKS": {
+          "integerValue": "290"
         }
       }
     }
@@ -491,7 +788,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "826822050"
+          "microsValue": "760583221"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "25266"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "22848"
+        },
+        "CLICKS": {
+          "integerValue": "334"
         }
       }
     }
@@ -505,7 +811,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "619166885"
+          "microsValue": "594496201"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23495"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21559"
+        },
+        "CLICKS": {
+          "integerValue": "231"
         }
       }
     }
@@ -519,7 +834,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "677722606"
+          "microsValue": "529424859"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "16876"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "14981"
+        },
+        "CLICKS": {
+          "integerValue": "91"
         }
       }
     }
@@ -533,7 +857,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "664238804"
+          "microsValue": "489633654"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "20088"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17490"
+        },
+        "CLICKS": {
+          "integerValue": "153"
         }
       }
     }
@@ -547,7 +880,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "530445398"
+          "microsValue": "604647544"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21086"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19277"
+        },
+        "CLICKS": {
+          "integerValue": "296"
         }
       }
     }
@@ -561,7 +903,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "565934864"
+          "microsValue": "718826035"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23641"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21458"
+        },
+        "CLICKS": {
+          "integerValue": "342"
         }
       }
     }
@@ -575,7 +926,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "762643070"
+          "microsValue": "855932630"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "37289"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "30644"
+        },
+        "CLICKS": {
+          "integerValue": "371"
         }
       }
     }
@@ -589,7 +949,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "799952173"
+          "microsValue": "627253842"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "24839"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21257"
+        },
+        "CLICKS": {
+          "integerValue": "261"
         }
       }
     }
@@ -603,7 +972,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "703768600"
+          "microsValue": "537632827"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "20069"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18074"
+        },
+        "CLICKS": {
+          "integerValue": "226"
         }
       }
     }
@@ -617,7 +995,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "578277596"
+          "microsValue": "715829262"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23518"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20876"
+        },
+        "CLICKS": {
+          "integerValue": "215"
         }
       }
     }
@@ -631,7 +1018,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "577001974"
+          "microsValue": "516901714"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "18640"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "15384"
+        },
+        "CLICKS": {
+          "integerValue": "167"
         }
       }
     }
@@ -645,7 +1041,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "670327865"
+          "microsValue": "539474385"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "17688"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "15276"
+        },
+        "CLICKS": {
+          "integerValue": "98"
         }
       }
     }
@@ -659,7 +1064,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "675043746"
+          "microsValue": "655328276"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "28522"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "24085"
+        },
+        "CLICKS": {
+          "integerValue": "372"
         }
       }
     }
@@ -673,7 +1087,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "729468404"
+          "microsValue": "664658536"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27261"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "23483"
+        },
+        "CLICKS": {
+          "integerValue": "194"
         }
       }
     }
@@ -687,7 +1110,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "583707478"
+          "microsValue": "674268431"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22759"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18944"
+        },
+        "CLICKS": {
+          "integerValue": "242"
         }
       }
     }
@@ -701,7 +1133,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "527779385"
+          "microsValue": "534047386"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "19452"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "16658"
+        },
+        "CLICKS": {
+          "integerValue": "216"
         }
       }
     }
@@ -715,7 +1156,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "631147062"
+          "microsValue": "560081006"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22841"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18829"
+        },
+        "CLICKS": {
+          "integerValue": "149"
         }
       }
     }
@@ -729,7 +1179,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "553863572"
+          "microsValue": "668981314"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22367"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20051"
+        },
+        "CLICKS": {
+          "integerValue": "299"
         }
       }
     }
@@ -743,7 +1202,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "598035038"
+          "microsValue": "682487952"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23542"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21385"
+        },
+        "CLICKS": {
+          "integerValue": "231"
         }
       }
     }
@@ -757,7 +1225,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "640559214"
+          "microsValue": "593543628"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "19164"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "16918"
+        },
+        "CLICKS": {
+          "integerValue": "211"
         }
       }
     }
@@ -771,7 +1248,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "776960705"
+          "microsValue": "725507659"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27415"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "25135"
+        },
+        "CLICKS": {
+          "integerValue": "172"
         }
       }
     }
@@ -785,7 +1271,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "799326552"
+          "microsValue": "694135723"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "30092"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "24988"
+        },
+        "CLICKS": {
+          "integerValue": "389"
         }
       }
     }
@@ -799,7 +1294,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "677414994"
+          "microsValue": "514185967"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "20996"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17638"
+        },
+        "CLICKS": {
+          "integerValue": "185"
         }
       }
     }
@@ -813,7 +1317,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "703936924"
+          "microsValue": "669870839"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22222"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19942"
+        },
+        "CLICKS": {
+          "integerValue": "296"
         }
       }
     }
@@ -827,7 +1340,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "622324162"
+          "microsValue": "567202366"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "20130"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "16841"
+        },
+        "CLICKS": {
+          "integerValue": "117"
         }
       }
     }
@@ -841,7 +1363,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "651692429"
+          "microsValue": "704482475"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27511"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "23128"
+        },
+        "CLICKS": {
+          "integerValue": "171"
         }
       }
     }
@@ -855,7 +1386,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "677605497"
+          "microsValue": "659259770"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21743"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18536"
+        },
+        "CLICKS": {
+          "integerValue": "143"
         }
       }
     }
@@ -869,7 +1409,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "721999807"
+          "microsValue": "728324955"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22643"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20307"
+        },
+        "CLICKS": {
+          "integerValue": "277"
         }
       }
     }
@@ -883,7 +1432,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "665419074"
+          "microsValue": "585252417"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "24732"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20918"
+        },
+        "CLICKS": {
+          "integerValue": "242"
         }
       }
     }
@@ -897,7 +1455,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "552298460"
+          "microsValue": "656215473"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "20407"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17971"
+        },
+        "CLICKS": {
+          "integerValue": "154"
         }
       }
     }
@@ -911,7 +1478,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "509675297"
+          "microsValue": "618790986"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21316"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18544"
+        },
+        "CLICKS": {
+          "integerValue": "275"
         }
       }
     }
@@ -925,7 +1501,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "707634929"
+          "microsValue": "628043452"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22640"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19784"
+        },
+        "CLICKS": {
+          "integerValue": "272"
         }
       }
     }
@@ -939,7 +1524,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "665046165"
+          "microsValue": "497504121"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "17956"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "15855"
+        },
+        "CLICKS": {
+          "integerValue": "172"
         }
       }
     }
@@ -953,7 +1547,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "544786638"
+          "microsValue": "711577673"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23953"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20232"
+        },
+        "CLICKS": {
+          "integerValue": "127"
         }
       }
     }
@@ -967,7 +1570,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "711028566"
+          "microsValue": "849858359"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "31614"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "26082"
+        },
+        "CLICKS": {
+          "integerValue": "213"
         }
       }
     }
@@ -981,7 +1593,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "734722194"
+          "microsValue": "756807755"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "24965"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "22793"
+        },
+        "CLICKS": {
+          "integerValue": "137"
         }
       }
     }
@@ -995,7 +1616,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "708728738"
+          "microsValue": "594917543"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21346"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17709"
+        },
+        "CLICKS": {
+          "integerValue": "194"
         }
       }
     }
@@ -1009,7 +1639,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "613524665"
+          "microsValue": "593811377"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21129"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19380"
+        },
+        "CLICKS": {
+          "integerValue": "203"
         }
       }
     }
@@ -1023,7 +1662,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "630359661"
+          "microsValue": "530763778"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "18364"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "15094"
+        },
+        "CLICKS": {
+          "integerValue": "226"
         }
       }
     }
@@ -1037,7 +1685,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "710775010"
+          "microsValue": "578676520"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "19343"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "16341"
+        },
+        "CLICKS": {
+          "integerValue": "113"
         }
       }
     }
@@ -1051,7 +1708,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "539533187"
+          "microsValue": "566838265"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21141"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18601"
+        },
+        "CLICKS": {
+          "integerValue": "223"
         }
       }
     }
@@ -1065,7 +1731,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "757154716"
+          "microsValue": "726609898"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "25491"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21394"
+        },
+        "CLICKS": {
+          "integerValue": "197"
         }
       }
     }
@@ -1079,7 +1754,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "625704082"
+          "microsValue": "694745804"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "25270"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21323"
+        },
+        "CLICKS": {
+          "integerValue": "326"
         }
       }
     }
@@ -1093,7 +1777,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "591853535"
+          "microsValue": "539140538"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "20517"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18422"
+        },
+        "CLICKS": {
+          "integerValue": "121"
         }
       }
     }
@@ -1107,7 +1800,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "693058413"
+          "microsValue": "716276548"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "27500"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "24105"
+        },
+        "CLICKS": {
+          "integerValue": "241"
         }
       }
     }
@@ -1121,7 +1823,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "606657864"
+          "microsValue": "677158743"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22091"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19685"
+        },
+        "CLICKS": {
+          "integerValue": "295"
         }
       }
     }
@@ -1135,7 +1846,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "595629238"
+          "microsValue": "516043225"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "20315"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17212"
+        },
+        "CLICKS": {
+          "integerValue": "199"
         }
       }
     }
@@ -1149,7 +1869,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "717915310"
+          "microsValue": "556125502"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21822"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "18887"
+        },
+        "CLICKS": {
+          "integerValue": "171"
         }
       }
     }
@@ -1163,7 +1892,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "603426493"
+          "microsValue": "590366881"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "19519"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17830"
+        },
+        "CLICKS": {
+          "integerValue": "131"
         }
       }
     }
@@ -1177,7 +1915,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "633317420"
+          "microsValue": "681107517"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23760"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "21833"
+        },
+        "CLICKS": {
+          "integerValue": "258"
         }
       }
     }
@@ -1191,7 +1938,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "635766393"
+          "microsValue": "660157086"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23324"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20326"
+        },
+        "CLICKS": {
+          "integerValue": "212"
         }
       }
     }
@@ -1205,7 +1961,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "557139884"
+          "microsValue": "636820477"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "22726"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19188"
+        },
+        "CLICKS": {
+          "integerValue": "246"
         }
       }
     }
@@ -1219,7 +1984,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "685998540"
+          "microsValue": "645070001"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "25967"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "22156"
+        },
+        "CLICKS": {
+          "integerValue": "141"
         }
       }
     }
@@ -1233,7 +2007,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "581841297"
+          "microsValue": "553563204"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "18774"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "16269"
+        },
+        "CLICKS": {
+          "integerValue": "193"
         }
       }
     }
@@ -1247,7 +2030,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "712666616"
+          "microsValue": "522916710"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21404"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "17874"
+        },
+        "CLICKS": {
+          "integerValue": "178"
         }
       }
     }
@@ -1261,7 +2053,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "802865328"
+          "microsValue": "821912406"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "35571"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "29767"
+        },
+        "CLICKS": {
+          "integerValue": "222"
         }
       }
     }
@@ -1275,7 +2076,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "831930075"
+          "microsValue": "648900981"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "21709"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "19843"
+        },
+        "CLICKS": {
+          "integerValue": "145"
         }
       }
     }
@@ -1289,7 +2099,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "575456647"
+          "microsValue": "667098544"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "23378"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "20195"
+        },
+        "CLICKS": {
+          "integerValue": "175"
         }
       }
     }
@@ -1303,7 +2122,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "680855428"
+          "microsValue": "642051808"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "25440"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "22655"
+        },
+        "CLICKS": {
+          "integerValue": "237"
         }
       }
     }
@@ -1317,7 +2145,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "567978006"
+          "microsValue": "528080133"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "18544"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "16203"
+        },
+        "CLICKS": {
+          "integerValue": "201"
         }
       }
     }
@@ -1331,7 +2168,16 @@
       },
       "metricValues": {
         "ESTIMATED_EARNINGS": {
-          "microsValue": "655785149"
+          "microsValue": "566223296"
+        },
+        "AD_REQUESTS": {
+          "integerValue": "19402"
+        },
+        "IMPRESSIONS": {
+          "integerValue": "16593"
+        },
+        "CLICKS": {
+          "integerValue": "135"
         }
       }
     }

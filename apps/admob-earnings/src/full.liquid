@@ -1,25 +1,28 @@
-<div class="layout layout--col layout--stretch-x layout--center-y gap--xlarge{{ appearance_class }}" data-appearance="{{ appearance }}">
+{%- comment -%}One large primary figure and three equal secondary tiles: side by side in landscape, stacked in portrait.{%- endcomment -%}
+<div class="layout layout--col layout--stretch-x layout--center-y{{ appearance_class }}" data-appearance="{{ appearance }}">
   {% if status == 'ok' %}
-    {% assign rows = 'today,yesterday|month,last_month' | split: '|' %}
-    {% for row in rows %}
-      {% assign keys = row | split: ',' %}
-      <div class="grid grid--cols-2 portrait:grid--cols-1 gap">
-        {% for key in keys %}
-          {% assign tile = tiles | where: 'key', key | first %}
+    <div class="grid grid--cols-3 portrait:grid--cols-1 gap--xlarge w--full">
+      <div class="col--span-2 portrait:col--span-1 flex flex--col flex--center-y flex--left gap--small" data-tile="{{ primary.key }}">
+        <span class="title title--large lg:title--xlarge">{{ primary.label | escape }}</span>
+        <span class="value {{ amount_classes.primary.full }} value--tnums" data-amount="true">{{ primary.amount | escape }}</span>
+        <span class="label lg:label--large">{{ primary.metrics_line | escape }}</span>
+      </div>
+      <div class="col--span-1 flex flex--col gap">
+        {% for tile in secondary %}
           <div class="item" data-tile="{{ tile.key }}">
             <div class="meta"></div>
-            <div class="content gap--xsmall">
-              <span class="label">{{ tile.label | escape }} · {{ tile.period | escape }}</span>
-              <span class="value {{ amount_classes.full }} value--tnums" data-amount="true">{{ tile.amount | escape }}</span>
-              <span class="label" data-direction="{{ tile.direction }}">{{ tile.comparison | escape }}</span>
+            <div class="content">
+              <span class="label">{{ tile.label | escape }}</span>
+              <span class="value {{ amount_classes.secondary.full }} value--tnums" data-amount="true">{{ tile.amount | escape }}</span>
+              <span class="label label--small" data-direction="{{ tile.direction }}">{{ tile.comparison | escape }}</span>
+              <span class="label label--small">{{ tile.metrics_line_compact | escape }}</span>
             </div>
           </div>
         {% endfor %}
       </div>
-      {% unless forloop.last %}<div class="divider"></div>{% endunless %}
-    {% endfor %}
+    </div>
   {% else %}
-    <div class="flex flex--col flex--center gap h--full">
+    <div class="flex flex--col flex--center gap--small h--full">
       <span class="title title--large lg:title--xlarge text--center">{{ message_title }}</span>
       <p class="description description--large lg:description--xlarge text--center">{{ message_text }}</p>
     </div>

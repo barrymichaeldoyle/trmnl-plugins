@@ -21,7 +21,7 @@ test('the polling request is a well-formed AdMob network report call', async () 
   const { reportSpec } = JSON.parse(request.body);
   assert.deepEqual(reportSpec.dateRange, { startDate: { year: 2026, month: 7, day: 7 }, endDate: { year: 2026, month: 10, day: 9 } });
   assert.deepEqual(reportSpec.dimensions, ['DATE']);
-  assert.deepEqual(reportSpec.metrics, ['ESTIMATED_EARNINGS']);
+  assert.deepEqual(reportSpec.metrics, ['ESTIMATED_EARNINGS', 'AD_REQUESTS', 'IMPRESSIONS', 'CLICKS']);
   assert.ok(reportSpec.maxReportRows >= 95);
 });
 
@@ -73,11 +73,11 @@ test('every fixture renders all four views with framework markup only', async ()
     }
   }
   const full = await renderView(plugin, 'full', { data: plugin.fixtures.usd, ...previewTiming(plugin, 'usd') });
-  for (const text of ['$14.70', '$44.11', '$320.05', '$1,306.86', '+6.7% vs last Wed', 'USD · Thu 8 Oct']) assert.ok(full.includes(text), text);
+  for (const text of ['Today so far', '$18.20', '$47.77', '$337.20', '$1,365.65', '+6.1% vs the same day last week', '12,958 requests', 'Updated 08:00']) assert.ok(full.includes(text), text);
   const noCurrency = structuredClone(plugin.fixtures.usd);
   delete noCurrency.data[0].header.localizationSettings;
   const bare = await renderView(plugin, 'full', { data: noCurrency, ...previewTiming(plugin, 'usd') });
-  assert.ok(bare.includes('<span class="instance">Thu 8 Oct</span>') && bare.includes('1,306.86') && !bare.includes('$'));
+  assert.ok(bare.includes('<span class="instance">Updated 08:00</span>') && bare.includes('1,365.65') && !bare.includes('$'));
   const auth = await renderView(plugin, 'quadrant', { data: plugin.fixtures.unauthenticated, ...previewTiming(plugin, 'unauthenticated') });
   assert.ok(auth.includes('Connect Google again'));
   const dark = await renderView(plugin, 'half_vertical', { data: plugin.fixtures.usd, fields: { appearance: 'dark' }, ...previewTiming(plugin, 'usd') });

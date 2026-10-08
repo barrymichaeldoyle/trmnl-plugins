@@ -1,14 +1,11 @@
 {%- comment -%}
-  Shared runs before each view. The transform supplies status, account, as_of
-  and four tiles (today, yesterday, month, last_month) with formatted amounts
-  and comparison text, so the views only arrange them.
+  Shared runs before each view. The transform supplies status, account,
+  updated_at, the primary tile (today so far) and three secondary tiles
+  (yesterday, this month so far, last month) with formatted amounts, comparison
+  text and request, impression and click counts, so the views only arrange them.
 {%- endcomment -%}
 {%- assign options = trmnl.plugin_settings.custom_fields_values -%}
 {%- assign plugin_name = trmnl.plugin_settings.instance_name | default: 'AdMob Earnings' | escape -%}
-{%- assign today_tile = tiles | where: 'key', 'today' | first -%}
-{%- assign yesterday_tile = tiles | where: 'key', 'yesterday' | first -%}
-{%- assign month_tile = tiles | where: 'key', 'month' | first -%}
-{%- assign last_month_tile = tiles | where: 'key', 'last_month' | first -%}
 {%- assign publisher = account.publisher_id | default: 'this account' | escape -%}
 {%- case status -%}
   {%- when 'ok' -%}
@@ -29,7 +26,7 @@
     {%- assign message_text = 'The latest AdMob report could not be read. The next refresh will try again.' -%}
 {%- endcase -%}
 {%- if status == 'ok' -%}
-  {%- capture bar_detail -%}{% if account.currency != blank %}{{ account.currency | escape }} · {% endif %}{{ as_of | escape }}{%- endcapture -%}
+  {%- assign bar_detail = updated_at | escape -%}
 {%- endif -%}
 
 {%- comment -%}

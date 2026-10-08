@@ -45,7 +45,7 @@ test('declared review cases select suites, fixtures, fields and expected text', 
   assert.equal(yen.options.fields.comparison_style, 'both');
   assert.equal(yen.options.fields.publisher_id, plugin.config.preview.fields.publisher_id);
   assert.equal(yen.options.timestamp, Date.parse('2026-10-08T15:00:00Z') / 1000);
-  assert.ok(yen.expectTextByView.full.includes('¥36,342,382'));
+  assert.ok(yen.expectTextByView.full.includes('¥38,443,005'));
   assert.equal(reviewOptions(plugin, yen, { model: 'og', portrait: false }).data, plugin.fixtures.jpy);
   assert.throws(() => reviewScenarios({ ...plugin, config: { ...plugin.config, review: { cases: [{ id: 'x', fixture: 'missing' }] } } }, 'curated'), /unknown fixture/);
 });

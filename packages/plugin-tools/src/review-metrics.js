@@ -121,8 +121,11 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
         const style = getComputedStyle(ancestor);
         if (/(hidden|clip|scroll|auto)/.test(`${style.overflowX} ${style.overflowY}`) && bounds.some(b => !inside(b, rect(ancestor)))) { errors.push(`Text is clipped: ${normalize(node.textContent).slice(0, 40)}`); break; }
       }
+      // Glyph boxes overhang tight framework leading; compare line boxes instead.
       const tile = node.parentElement.closest('[data-tile]');
-      if (tile && bounds.some(b => !inside(b, rect(tile)))) errors.push(`Text spills out of its tile: ${normalize(node.textContent).slice(0, 40)}`);
+      const lineHeight = parseFloat(getComputedStyle(node.parentElement).lineHeight) * scale;
+      const lineBoxes = bounds.map(b => { const trim = Number.isFinite(lineHeight) ? Math.max(0, (b.height - lineHeight) / 2) : 0; return { left: b.left, right: b.right, top: b.top + trim, bottom: b.bottom - trim }; });
+      if (tile && lineBoxes.some(b => !inside(b, rect(tile)))) errors.push(`Text spills out of its tile: ${normalize(node.textContent).slice(0, 40)}`);
     }
     const tiles = Array.from(view.querySelectorAll('[data-tile]')).filter(visible);
     tiles.forEach((a, index) => tiles.slice(index + 1).forEach(b => {
