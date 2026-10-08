@@ -21,13 +21,17 @@ function transform(input) {
   const failure = errorOf(source) || (elements || []).map(element => element && element.error).find(Boolean);
   if (failure) {
     const code = Number(failure.code);
+    // Google answers a mistyped or unknown publisher ID with 400 "Invalid account information".
+    const badAccount = code === 400 && /account/i.test(String(failure.message || ''));
     const status = code === 401 || failure.status === 'UNAUTHENTICATED' ? 'auth'
-      : [403, 404].includes(code) || ['PERMISSION_DENIED', 'NOT_FOUND'].includes(failure.status) ? 'access' : 'error';
+      : badAccount || [403, 404].includes(code) || ['PERMISSION_DENIED', 'NOT_FOUND'].includes(failure.status) ? 'access' : 'error';
     return { ...base, status };
   }
   if (!elements) return { ...base, status: 'error' };
 
   const header = (elements.find(element => element && element.header) || {}).header || {};
+  // The header repeats the request's localization settings. The request sends
+  // none, so if Google leaves the currency out, amounts show without a symbol.
   const currency = String(header.localizationSettings?.currencyCode || '').toUpperCase();
   const timeZone = header.reportingTimeZone || source.trmnl?.user?.time_zone_iana || '';
   const account = { publisher_id: publisherId, currency, time_zone: timeZone };

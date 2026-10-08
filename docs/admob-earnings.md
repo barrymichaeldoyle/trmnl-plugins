@@ -7,10 +7,10 @@
 | Step | State |
 | --- | --- |
 | 1. Workspace, tooling, fixtures, transform, views, tests | Done |
-| 2. Private plugin on TRMNL, OAuth connected, request confirmed | Needs the Google OAuth client |
+| 2. Private plugin on TRMNL, OAuth connected, first refresh | Needs the Google OAuth client; the open questions are researched below |
 | 3. Real-response fixture, transform and layout adjustments | Needs a token; `pnpm --filter @trmnl/admob-earnings fetch` is ready |
 | 4. Device check across a month boundary, compare with AdMob console | Not started |
-| 5. Google verification, then publish | Not started; listing draft in `apps/admob-earnings/docs/listing.md` |
+| 5. Publish the recipe | Not started; listing draft in `apps/admob-earnings/docs/listing.md`. Google verification is optional (see Google setup) |
 
 Design changes made while building, which supersede the text below where they differ:
 
@@ -18,6 +18,7 @@ Design changes made while building, which supersede the text below where they di
 - **No `show_today` field.** Three settings (account, comparison style, appearance) keep the form short; the quadrant already omits the month tiles.
 - **No `render_key`.** Unchanged figures should not produce a new image; any change in the amounts changes the merge variables.
 - **The transform writes the comparison sentences and chooses value sizes.** It reads `comparison_style`, so the views need no Liquid partials (TRMNL's `{% template %}` tag does not exist in the local renderer). One size per view, picked from the widest amount and the measured tile widths, replaces the framework's per-element fit, which sized tiles inconsistently and let long values overflow.
+- **Narrower scope.** The recipe asks for `admob.report` (reports and account basics) instead of `admob.readonly`, which also covers inventory and mediation settings. The API discovery document lists both scopes for `accounts.list`, `accounts.get` and `networkReport.generate`.
 - **"Today" uses the report's time zone.** The transform uses `Intl` with the header's `reportingTimeZone` when available, then the TRMNL user's offset, and a row dated later always wins.
 
 The rest of this document is the original plan, kept for its reasoning and references.
@@ -48,11 +49,11 @@ Installers sign in with Google and choose their account from a list. No API key,
 | Provider | Google template from TRMNL's provider library, or manual |
 | Authorization URL | `https://accounts.google.com/o/oauth2/v2/auth` |
 | Token URL | `https://oauth2.googleapis.com/token` |
-| Scopes | `https://www.googleapis.com/auth/admob.readonly` |
+| Scopes | `https://www.googleapis.com/auth/admob.report` |
 | Custom auth params | `access_type=offline`, `prompt=consent` (needed to receive a refresh token) |
 | PKCE | Yes |
 | Client ID / secret | From the Google Cloud project, see Google setup |
-| Share credentials with installers | Yes, once the Google app is verified |
+| Share credentials with installers | Yes, once the Google app is in production (verification optional) |
 
 The redirect URL shown by TRMNL goes into the Google OAuth client's authorised redirect URIs.
 
@@ -158,11 +159,14 @@ Tests use the Node test runner already wired at the root. The transform tests ar
 
 ## Google setup (one-time, by the account owner)
 
-1. Create a Google Cloud project, enable the **AdMob API**.
-2. Configure the OAuth consent screen as external, with the app name, support email, homepage and privacy policy URLs. The repository can host a short privacy page via GitHub Pages stating that the recipe reads earnings only and that tokens are stored by TRMNL.
-3. Create an OAuth client of type web application; add TRMNL's redirect URL.
-4. Add the AdMob scope and submit the app for verification. Unverified apps show a warning screen and are capped at 100 users for the project's lifetime, so verification must land before the recipe is listed publicly. Until then the recipe works for the owner and testers.
-5. Paste the client ID and secret into the TRMNL plugin's OAuth settings. Connect the owner's Google account and force refresh to confirm the data flows.
+1. Create a Google Cloud project and enable the **AdMob API**.
+2. Configure the OAuth consent screen as external, with the app name, support email, homepage and privacy policy URLs. The repository can host a short privacy page via GitHub Pages; `apps/admob-earnings/docs/listing.md` has the statement.
+3. Create a web application OAuth client. Add TRMNL's redirect URL and, for local testing with `trmnlp serve`, `http://localhost:4567/oauth/callback`.
+4. Add the `admob.report` scope. The Data Access page shows whether Google classes it as sensitive.
+5. **Set the publishing status to In production.** This step is required. In Testing mode, consent and refresh tokens expire seven days after sign-in, so every installer's screen would fall back to "Reconnect Google" each week.
+6. Paste the client ID and secret into the TRMNL plugin's OAuth settings, connect the owner's Google account and force a refresh.
+
+**Verification is optional.** An unverified app in production works without expiry. If the scope is sensitive, installers see Google's "unverified app" warning and click through it, and the project is capped at 100 users over its lifetime; the cap cannot be reset. If the scope is not sensitive, neither applies. Submit for verification only if the recipe approaches that cap or the warning screen puts people off.
 
 ## Build order
 
@@ -170,17 +174,20 @@ Tests use the Node test runner already wired at the root. The transform tests ar
 2. Create the private plugin on TRMNL, enable OAuth, connect the owner account, and confirm the rendered polling body with the **Parse** button and a **Force Refresh**. This step settles the open questions below before any markup is finalised.
 3. Write the transform against the real response, then the four views, and run the review board for clipping.
 4. Import the built ZIP, verify on a device for a few days across a month boundary, and compare figures with AdBoard and the AdMob console.
-5. Publish as a recipe once Google verification is complete; set the fastest refresh rate and listing copy from `docs/listing.md`.
+5. Publish as a recipe once the Google app is in production; set the fastest refresh rate and listing copy from `docs/listing.md`. Verification is optional.
 
-## Open questions to settle in step 2
+## Open questions, researched 8 October 2026
 
-- Whether the polling body is Liquid-rendered the way the polling URL is. The help centre documents Liquid for URLs only; `trmnlp` 0.14.1 renders URL, headers and body with the same custom-field and OAuth variables (`Config::Plugin#polling_body`), and states that it mirrors the hosted service. If production sends the body unrendered, ask TRMNL support; there is no static body that keeps a rolling date range.
-- Whether AdMob accepts an end date one day in the future. If it rejects it, end on the UTC date instead; accounts east of UTC then miss today's partial figure for a few hours after midnight, and the transform already shows "No earnings reported yet" in that case.
-- Whether the `xhrSelect` `remote:` block reaches the AdMob accounts list once OAuth is connected, and whether `label_field` accepts the Liquid template used. The fallback is a plain `string` field with a `pub-` placeholder, which changes nothing else.
-- Whether TRMNL's importer keeps the `oauth_*` keys from the ZIP. `trmnlp` round-trips them through push and pull, which suggests it does; otherwise paste them from `settings.yml`.
-- Whether TRMNL's default transform runtime provides `Intl` time zones. Without it, "today" follows the TRMNL user's offset, which is right for most installers.
-- Whether Google classes the AdMob scopes as sensitive. This changes how long verification takes, not whether it is needed for a public recipe.
-- Resolved: the API returns no row for a day without activity; the transform counts missing days as zero and reports today as "No earnings reported yet" when its row is absent.
+Nothing here needs the account owner. Each answer says how sure it is; the first refresh on TRMNL confirms them all at once.
+
+- **Liquid in the polling body: yes (high confidence).** TRMNL's help centre says form-field values work in the polling URL, body and headers, and that the whole Liquid library is available. TRMNL's open-source implementations render the body with full Liquid: `trmnlp`, which states it mirrors the hosted service (`Config::Plugin#polling_body`, with the OAuth variables), and LaraPaper (`Plugin::resolveLiquidVariables($this->polling_body)`). Neither exposes `trmnl.*` to the request, so the body uses `"now"` in UTC rather than the user's offset.
+- **An end date one day ahead: accepted (medium-high confidence).** The API's only documented date rules are "both dates are inclusive" and the end date "must be greater than or equal to the start date" (discovery document). Google's error guide lists no date error for 400 responses: only a bad account ID, too many rows and incompatible metrics. Google's PHP sample ends its range on the server's local date, which can be ahead of the account's day. If the first refresh fails with a date error anyway, change `plus: 86400` to `plus: 0` in `polling_body`. That is a one-line change, and the transform already shows "No earnings reported yet" while today's row is missing.
+- **The account picker: documented by TRMNL (high confidence).** TRMNL's template guide documents `xhrSelect` with a `remote:` block that TRMNL calls server-side with `{{ oauth_access_token }}`, `response_path` for the array, and a `label_field` that accepts a Liquid template. AdMob's `accounts.list` returns the array under `account`, with `publisherId` and `currencyCode` on each entry. The list is paginated, but publishers rarely have more than one account.
+- **OAuth keys in the import ZIP: kept (high confidence).** `trmnlp push` uploads the same archive format to `plugin_settings/:id/archive`, and its README says the hosted service stores the flat `oauth_*` keys from `settings.yml`. Daily Bread's exported `settings.yml` contains them too. The client ID and secret are never in the file and are pasted in TRMNL.
+- **`Intl` time zones in the transform: not needed.** TRMNL's default runtime documents standard built-ins only. Without `Intl`, the transform uses the TRMNL user's offset, and a row dated later always wins. The hosted serverless Node 20 runtime also calls `transform(input)`, and has full time zone data if wanted.
+- **Currency in the report header: likely present, handled if not.** The API says the header's `localizationSettings` are "identical to the settings in the report request", and the recipe sends none. Google's examples always show a currency, but no public response confirms the default. If it is missing, amounts show without a symbol and the title bar shows only the date. A first refresh settles it; the fix would be a currency field sent as `localizationSettings.currencyCode`.
+- **Sensitive scope: shown at setup.** Google's public scope list does not mark AdMob scopes, and AdMob describes them as excluding payments. The consent screen labels them when the scope is added. Either way the recipe works unverified (see Google setup).
+- Resolved earlier: the API returns no row for a day without activity; the transform counts missing days as zero and reports today as "No earnings reported yet" when its row is absent. Google answers an unknown publisher ID with 400 "Invalid account information", which the transform maps to the account-access message.
 
 ## References
 
@@ -191,3 +198,8 @@ Tests use the Node test runner already wired at the root. The transform tests ar
 - AdMob network report: <https://developers.google.com/admob/api/reference/rest/v1/accounts.networkReport/generate>
 - AdMob accounts: <https://developers.google.com/admob/api/reference/rest/v1/accounts>
 - Google OAuth verification FAQ: <https://support.google.com/cloud/answer/13463817>
+- Google app audience, Testing mode and the seven-day token expiry: <https://support.google.com/cloud/answer/15549945>
+- AdMob API discovery document (scopes per method, date range rules): <https://admob.googleapis.com/$discovery/rest?version=v1>
+- AdMob API common errors: <https://developers.google.com/admob/api/v1/errors>
+- TRMNL custom plugins, dynamic values in polling URL, body and headers: <https://help.trmnl.com/en/articles/9510536-custom-plugins>
+- LaraPaper polling implementation: <https://github.com/usetrmnl/larapaper/blob/main/app/Models/Plugin.php>

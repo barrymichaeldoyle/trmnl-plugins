@@ -23,7 +23,7 @@ oauth_enabled: 'true'
 oauth_pkce_enabled: 'yes'
 oauth_authorize_url: https://accounts.google.com/o/oauth2/v2/auth
 oauth_token_url: https://oauth2.googleapis.com/token
-oauth_scopes: https://www.googleapis.com/auth/admob.readonly
+oauth_scopes: https://www.googleapis.com/auth/admob.report
 oauth_scope_separator: ' '
 oauth_refresh_url: ''
 oauth_auth_params: '{"access_type":"offline","prompt":"consent"}'

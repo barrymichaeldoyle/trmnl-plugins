@@ -148,6 +148,12 @@ test('formats currencies with symbols, grouping and whole units', () => {
   assert.equal(amount('INR', 2e9).amount_compact, '₹2B');
 });
 
+test('shows plain amounts when the report header has no currency', () => {
+  const result = run(report({ '2026-10-08': 1234.5 }, { currency: '', start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z' });
+  assert.equal(result.account.currency, '');
+  assert.equal(tile(result, 'today').amount, '1,234.50');
+});
+
 test('writes comparisons in the chosen style', () => {
   const earnings = { '2026-09-30': 40, '2026-10-07': 50 };
   const line = style => tile(run(report(earnings, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z', options: { comparison_style: style } }), 'yesterday');
@@ -167,6 +173,8 @@ test('maps API errors and missing input to recovery states', () => {
   assert.equal(run({ error: { code: 403, status: 'PERMISSION_DENIED' } }, at).status, 'access');
   assert.equal(run({ error: { code: 404, status: 'NOT_FOUND' } }, at).status, 'access');
   assert.equal(run({ error: { code: 500, status: 'INTERNAL' } }, at).status, 'error');
+  assert.equal(run({ error: { code: 400, status: 'INVALID_ARGUMENT', message: "Invalid account information in request url: 'accounts/pub-1'" } }, at).status, 'access');
+  assert.equal(run({ error: { code: 400, status: 'INVALID_ARGUMENT', message: 'Requested metrics and dimensions are incompatible.' } }, at).status, 'error');
   // Streaming methods can report an error as an element of the array.
   assert.equal(run({ data: [{ error: { code: 401, status: 'UNAUTHENTICATED' } }] }, at).status, 'auth');
   assert.equal(run({}, at).status, 'error');

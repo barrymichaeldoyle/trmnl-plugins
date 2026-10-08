@@ -4,7 +4,7 @@
 //
 //   ADMOB_ACCESS_TOKEN=ya29... pnpm --filter @trmnl/admob-earnings fetch [--publisher pub-…] [--scale 0.37] [--output fixtures/recorded.json]
 //
-// The token needs the admob.readonly scope (for example from trmnlp serve's
+// The token needs the admob.report scope (for example from trmnlp serve's
 // OAuth flow or gcloud with your own OAuth client). It is read from the
 // environment only and never written. Without --publisher the script lists the
 // accounts the token can see, which is also what the account picker shows.
@@ -17,7 +17,7 @@ import { loadPlugin, renderPolling } from '@trmnl/plugin-tools';
 
 const flags = Object.fromEntries(process.argv.slice(2).join(' ').split(/\s*--/).filter(Boolean).map(pair => pair.split(/\s+/)).map(([key, value]) => [key, value ?? true]));
 const token = process.env.ADMOB_ACCESS_TOKEN;
-if (!token) throw new Error('Set ADMOB_ACCESS_TOKEN to an OAuth access token with the admob.readonly scope.');
+if (!token) throw new Error('Set ADMOB_ACCESS_TOKEN to an OAuth access token with the admob.report scope.');
 const headers = { authorization: `Bearer ${token}` };
 
 const accounts = await fetch('https://admob.googleapis.com/v1/accounts', { headers });

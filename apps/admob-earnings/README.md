@@ -51,8 +51,8 @@ pnpm build:admob          # dist/admob-earnings.zip for TRMNL's importer
 
 Everything below needs credentials, so it has not been done yet.
 
-1. **Google Cloud**: create a project, enable the AdMob API, configure the OAuth consent screen (external) and create a web OAuth client. Add TRMNL's redirect URL and, for local testing, `http://localhost:4567/oauth/callback`.
-2. **Record a real response**: run `trmnlp serve` here with `TRMNL_OAUTH_CLIENT_ID` and `TRMNL_OAUTH_CLIENT_SECRET` set to sign in locally, or use any token with the `admob.readonly` scope:
+1. **Google Cloud**: create a project, enable the AdMob API, configure the OAuth consent screen (external) and create a web OAuth client. Add TRMNL's redirect URL and, for local testing, `http://localhost:4567/oauth/callback`. Add the `admob.report` scope and set the publishing status to **In production**: in Testing mode Google expires every sign-in after seven days.
+2. **Record a real response**: run `trmnlp serve` here with `TRMNL_OAUTH_CLIENT_ID` and `TRMNL_OAUTH_CLIENT_SECRET` set to sign in locally, or use any token with the `admob.report` scope:
 
    ```sh
    ADMOB_ACCESS_TOKEN=… pnpm --filter @trmnl/admob-earnings fetch                     # lists your accounts
@@ -61,6 +61,6 @@ Everything below needs credentials, so it has not been done yet.
 
    The response is written to `.cache/` (ignored). `--scale` hides real revenue before a recording becomes a committed fixture.
 3. **TRMNL**: import `dist/admob-earnings.zip`, then in the plugin's settings confirm the OAuth fields (the ZIP carries the provider URLs, scope and `access_type=offline`), paste the client ID and secret, connect Google, choose the account, and use **Force Refresh**.
-4. **Settle the open questions** listed in the plan, compare figures with the AdMob console for a few days across a month boundary, then submit the Google app for verification before publishing the recipe.
+4. **Confirm the first refresh** against the researched open questions in the plan, compare figures with the AdMob console for a few days across a month boundary, then publish the recipe. Google verification is optional; the plan explains the warning screen and 100-user cap.
 
 Never commit the client ID, secret, tokens or TRMNL plugin IDs. `checkPlugin` rejects `oauth_client_*` keys in `settings.yml`.

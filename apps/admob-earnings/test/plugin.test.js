@@ -52,7 +52,7 @@ test('settings use Google OAuth with the read-only scope and keep credentials ou
   const { settings } = plugin;
   assert.equal(settings.strategy, 'polling');
   assert.equal(settings.oauth_enabled, 'true');
-  assert.equal(settings.oauth_scopes, 'https://www.googleapis.com/auth/admob.readonly');
+  assert.equal(settings.oauth_scopes, 'https://www.googleapis.com/auth/admob.report');
   assert.deepEqual(JSON.parse(settings.oauth_auth_params), { access_type: 'offline', prompt: 'consent' });
   assert.ok(!/client_(id|secret)|GOCSPX|apps\.googleusercontent/.test(YAML.stringify(settings)));
   const picker = settings.custom_fields.find(field => field.keyname === 'publisher_id');
@@ -72,6 +72,10 @@ test('every fixture renders all four views with framework markup only', async ()
   }
   const full = await renderView(plugin, 'full', { data: plugin.fixtures.usd, ...previewTiming(plugin, 'usd') });
   for (const text of ['$14.70', '$44.11', '$320.05', '$1,306.86', '+6.7% vs last Wed', 'USD · Thu 8 Oct']) assert.ok(full.includes(text), text);
+  const noCurrency = structuredClone(plugin.fixtures.usd);
+  delete noCurrency.data[0].header.localizationSettings;
+  const bare = await renderView(plugin, 'full', { data: noCurrency, ...previewTiming(plugin, 'usd') });
+  assert.ok(bare.includes('<span class="instance">Thu 8 Oct</span>') && bare.includes('1,306.86') && !bare.includes('$'));
   const auth = await renderView(plugin, 'quadrant', { data: plugin.fixtures.unauthenticated, ...previewTiming(plugin, 'unauthenticated') });
   assert.ok(auth.includes('Connect Google again'));
   const dark = await renderView(plugin, 'half_vertical', { data: plugin.fixtures.usd, fields: { appearance: 'dark' }, ...previewTiming(plugin, 'usd') });

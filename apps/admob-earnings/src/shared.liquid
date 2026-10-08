@@ -29,7 +29,7 @@
     {%- assign message_text = 'The latest AdMob report could not be read. The next refresh will try again.' -%}
 {%- endcase -%}
 {%- if status == 'ok' -%}
-  {%- capture bar_detail -%}{{ account.currency | escape }} · {{ as_of | escape }}{%- endcapture -%}
+  {%- capture bar_detail -%}{% if account.currency != blank %}{{ account.currency | escape }} · {% endif %}{{ as_of | escape }}{%- endcapture -%}
 {%- endif -%}
 
 {%- comment -%}
