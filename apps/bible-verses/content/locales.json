@@ -72,10 +72,6 @@
       "faith": "Foi et prière"
     },
     "labels": {
-      "daily": "Chaque jour",
-      "hourly": "Chaque heure",
-      "six_hours": "Toutes les 6 heures",
-      "twelve_hours": "Toutes les 12 heures",
       "missing_title": "La collection biblique est manquante",
       "missing_text": "Réimportez le ZIP Daily Bread pour restaurer les passages bibliques."
     }
@@ -132,10 +128,6 @@
       "faith": "Fe y oración"
     },
     "labels": {
-      "daily": "Cada día",
-      "hourly": "Cada hora",
-      "six_hours": "Cada 6 horas",
-      "twelve_hours": "Cada 12 horas",
       "missing_title": "Falta la colección de las Escrituras",
       "missing_text": "Vuelve a importar el ZIP de Daily Bread para restaurar los pasajes bíblicos."
     }

@@ -9,8 +9,11 @@ function transform(input) {
   const bundled = typeof SCRIPTURE === 'undefined' ? {} : SCRIPTURE;
   const content = { ...data, translations: { ...bundled.translations, ...data.translations } };
   const options = trmnl?.plugin_settings?.custom_fields_values || {};
-  const rotation = options.rotation;
-  const seconds = { hourly: 3600, six_hours: 21600, twelve_hours: 43200 }[rotation] || 86400;
+  // The plugin refresh rate sets the passage interval: the longest whole-hour
+  // division of the local day that fits, so slots still start at local midnight.
+  const minutes = Number(trmnl?.plugin_settings?.refresh_interval_minutes) || 1440;
+  const hours = [24, 12, 8, 6, 4, 3, 2, 1].find(hours => hours * 60 <= minutes) || 1;
+  const seconds = hours * 3600;
   const offset = Number(trmnl?.user?.utc_offset) || 0;
   const language = ['en', 'fr', 'es'].includes(options.language) ? options.language : 'en';
   // A missing selected translation must show recovery, never English under

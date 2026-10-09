@@ -16,6 +16,7 @@ function optionsFrom(url) {
   const result = { fields, model: url.searchParams.get('model') ?? 'og', portrait: url.searchParams.get('portrait') === 'true' };
   if (url.searchParams.has('timestamp')) result.timestamp = Number(url.searchParams.get('timestamp'));
   if (url.searchParams.has('offset')) result.utcOffset = Number(url.searchParams.get('offset'));
+  if (url.searchParams.has('refresh')) result.refreshMinutes = Number(url.searchParams.get('refresh'));
   if (url.searchParams.has('fixture')) result.fixture = url.searchParams.get('fixture');
   return result;
 }
@@ -55,7 +56,7 @@ export function createPreviewServer(directory, { reviewByDefault = false, worker
       }
       const plugin = await loadPlugin(root);
       if (url.pathname === '/plugin') {
-        json({ name: plugin.settings.name, fields: plugin.settings.custom_fields, defaults: { ...plugin.defaults, ...plugin.config.preview?.fields }, data: plugin.config.data ? plugin.data : undefined, devices, offset: plugin.config.preview?.utc_offset ?? 0,
+        json({ name: plugin.settings.name, fields: plugin.settings.custom_fields, defaults: { ...plugin.defaults, ...plugin.config.preview?.fields }, data: plugin.config.data ? plugin.data : undefined, devices, offset: plugin.config.preview?.utc_offset ?? 0, refresh: plugin.settings.refresh_interval,
           fixtures: Object.fromEntries(Object.keys(plugin.fixtures ?? {}).map(name => [name, plugin.config.fixtures[name].time ?? null])), fixture: plugin.config.preview?.fixture });
       } else if (['/review/manifest', '/review/render', '/review/capture', '/review/results', '/review/summary'].includes(url.pathname)) {
         const mode = url.searchParams.get('mode') ?? 'curated';

@@ -93,7 +93,7 @@ test('documentation screenshots name real screens and reach each passage through
   assert.equal(new Set(entries.map(entry => entry.file)).size, entries.length);
   for (const entry of entries) {
     assert.ok(screens.has(entry.screen), entry.file);
-    const fields = { ...plugin.defaults, language: entry.language, theme: 'all', rotation: 'daily', show_context_qr: entry.qr };
+    const fields = { ...plugin.defaults, language: entry.language, theme: 'all', show_context_qr: entry.qr };
     assert.equal(passageSchedule(plugin, fields, entry.passage).expected.id, entry.passage, entry.file);
   }
 });

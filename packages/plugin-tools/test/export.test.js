@@ -24,7 +24,7 @@ test('TRMNL ZIP is flat, self-contained, and renders identically after an import
   }
   const reloaded = { ...plugin, settings, data: JSON.parse(settings.static_data), transform: imported['transform.js'], templates: Object.fromEntries(views.map(v => [v, imported[`${v}.liquid`]])) };
   for (const language of ['en', ...Object.keys(plugin.data.translations ?? {})]) {
-    const options = { timestamp: 1790848800, fields: { language, theme: ['family', 'work'], rotation: 'hourly' } };
+    const options = { timestamp: 1790848800, refreshMinutes: 60, fields: { language, theme: ['family', 'work'] } };
     for (const view of views) assert.equal(await renderView(reloaded, view, options), await renderView(plugin, view, options));
   }
 });

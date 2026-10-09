@@ -33,7 +33,7 @@ export async function writeScreenshots(plugin) {
         console.log(`${entry.file} · ${base.name} · ${screen.width}×${screen.height}${result.errors.length ? ' · FAILED' : ''}`);
         return;
       }
-      const fields = { ...plugin.defaults, language: entry.language, theme: 'all', rotation: 'daily', show_context_qr: entry.qr ?? true, ...entry.fields };
+      const fields = { ...plugin.defaults, language: entry.language, theme: 'all', show_context_qr: entry.qr ?? true, ...entry.fields };
       const { options, expected } = passageSchedule(plugin, fields, entry.passage, plugin.data);
       if (expected?.id !== entry.passage) throw new Error(`${entry.file}: passage ${entry.passage} is not in the ${entry.language} collection.`);
       const scenario = { id: `screenshot-${entry.file.replace(/\W+/g, '-')}`, options, expected, recovery: false };

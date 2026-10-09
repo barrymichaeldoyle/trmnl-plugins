@@ -6,9 +6,12 @@ import { loadPlugin, renderView, views, escapeHtml } from '../../../packages/plu
 
 const plugin = await loadPlugin(fileURLToPath(new URL('..', import.meta.url)));
 
-test('TRMNL select controls submit the language, theme and rotation identifiers', () => {
+test('TRMNL select controls submit the language and theme identifiers, and refresh rate sets rotation', () => {
   const fields = plugin.settings.custom_fields;
-  for (const keyname of ['language', 'theme', 'rotation']) {
+  assert.equal(fields.find(field => field.keyname === 'rotation'), undefined);
+  assert.equal(plugin.settings.refresh_interval, 1440);
+  assert.equal(plugin.settings.refresh_interval_floor, '60');
+  for (const keyname of ['language', 'theme']) {
     const field = fields.find(field => field.keyname === keyname);
     const values = field.options.map(option => {
       assert.equal(typeof option, 'object', `${keyname} options must be YAML label/value mappings`);
@@ -18,7 +21,6 @@ test('TRMNL select controls submit the language, theme and rotation identifiers'
     if (field.default) assert.ok(values.includes(field.default), `${keyname} default must be selectable`);
     if (keyname === 'language') assert.deepEqual(values, ['en', 'fr', 'es']);
     if (keyname === 'theme') assert.deepEqual(values, plugin.data.themes.map(theme => theme.id));
-    if (keyname === 'rotation') assert.deepEqual(values, ['daily', 'twelve_hours', 'six_hours', 'hourly']);
   }
 });
 
@@ -75,7 +77,7 @@ test('French Psalm numbering follows the source while preserving the equivalent 
 });
 
 test('language changes preserve theme and local rotation, and unknown languages use English', async () => {
-  const options = { timestamp: 1790848800, utcOffset: 7200, fields: { theme: ['family', 'work', 'faith'], rotation: 'hourly' } };
+  const options = { timestamp: 1790848800, utcOffset: 7200, refreshMinutes: 60, fields: { theme: ['family', 'work', 'faith'] } };
   const english = await renderView(plugin, 'full', options);
   const id = html => html.match(/data-verse-id="([^"]+)"/)?.[1];
   assert.equal(await renderView(plugin, 'full', { ...options, fields: { ...options.fields, language: 'unknown' } }), english);
@@ -176,11 +178,11 @@ test('invalid array entries do not prevent complete, correctly attributed passag
 
 
 test('fresh and blank preferences use English, all themes, daily rotation, QR on and light appearance in every layout', async () => {
-  assert.deepEqual(plugin.defaults, { language: 'en', rotation: 'daily', show_context_qr: true, appearance: 'light' });
+  assert.deepEqual(plugin.defaults, { language: 'en', show_context_qr: true, appearance: 'light' });
   const options = { timestamp: 1790848800, utcOffset: 0 };
   for (const view of views) {
     const initial = await renderView(plugin, view, options);
-    const blank = await renderView(plugin, view, { ...options, fields: { language: '', theme: [], rotation: null, show_context_qr: null, appearance: null } });
+    const blank = await renderView(plugin, view, { ...options, fields: { language: '', theme: [], show_context_qr: null, appearance: null } });
     assert.equal(blank, initial);
     assert.ok(initial.includes('data-appearance="light"'));
     assert.ok(!initial.includes('inverse bg--canvas"'));

@@ -1,6 +1,7 @@
 {%- comment -%}
-  Shared runs before each view. The transform changes rotation_slot to trigger
-  new images. All four sizes select the same passage at render time.
+  Shared runs before each view. The transform derives interval_seconds from the
+  plugin refresh rate and changes rotation_slot to trigger new images. All four
+  sizes select the same passage at render time.
 {%- endcomment -%}
 {%- assign options = trmnl.plugin_settings.custom_fields_values -%}
 {%- assign collection = translations[options.language] -%}
@@ -25,15 +26,6 @@
 {%- assign theme_label = nil -%}
 {%- assign context_qr = nil -%}
 {%- assign interval_seconds = interval_seconds | default: 86400 -%}
-{%- assign rotation_label = labels.daily | default: 'Daily' -%}
-{%- case options.rotation -%}
-  {%- when 'hourly' -%}
-    {%- assign rotation_label = labels.hourly | default: 'Hourly' -%}
-  {%- when 'six_hours' -%}
-    {%- assign rotation_label = labels.six_hours | default: 'Every 6 hours' -%}
-  {%- when 'twelve_hours' -%}
-    {%- assign rotation_label = labels.twelve_hours | default: 'Every 12 hours' -%}
-{%- endcase -%}
 {%- assign render_time = trmnl.system.timestamp_utc | default: 'now' | date: '%s' | plus: 0 -%}
 {%- assign local_time = render_time | plus: trmnl.user.utc_offset -%}
 {%- assign slot = local_time | divided_by: interval_seconds | floor -%}

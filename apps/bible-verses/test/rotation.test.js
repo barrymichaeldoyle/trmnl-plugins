@@ -18,20 +18,22 @@ test('daily changes at local midnight, including positive, negative and fraction
   }
 });
 
-test('all offered intervals remain stable inside their local slot and change at the boundary', async () => {
-  for (const [rotation, seconds] of Object.entries({ daily: 86400, twelve_hours: 43200, six_hours: 21600, hourly: 3600 })) {
+const intervals = { 1440: 86400, 720: 43200, 480: 28800, 360: 21600, 240: 14400, 120: 7200, 60: 3600 };
+
+test('every whole-hour refresh rate stays stable inside its local slot and changes at the boundary', async () => {
+  for (const [refreshMinutes, seconds] of Object.entries(intervals)) {
     const timestamp = epoch('2026-10-01T00:00:00Z');
-    const options = { fields: { rotation }, utcOffset: 0 };
+    const options = { refreshMinutes, utcOffset: 0 };
     assert.equal(id(await render({ ...options, timestamp })), id(await render({ ...options, timestamp: timestamp + seconds - 1 })));
     assert.notEqual(id(await render({ ...options, timestamp })), id(await render({ ...options, timestamp: timestamp + seconds })));
   }
 });
 
 test('the transform changes the image marker only at each local rotation boundary and preserves Scripture', () => {
-  for (const [rotation, seconds] of Object.entries({ daily: 86400, twelve_hours: 43200, six_hours: 21600, hourly: 3600 })) {
+  for (const [refreshMinutes, seconds] of Object.entries(intervals)) {
     for (const utcOffset of [7200, -18000, 20700]) {
       const boundary = epoch('2026-10-02T00:00:00Z') - utcOffset;
-      const transformed = timestamp => runTransform(plugin, contextFor(plugin, { timestamp, utcOffset, fields: { rotation } }));
+      const transformed = timestamp => runTransform(plugin, contextFor(plugin, { timestamp, utcOffset, refreshMinutes }));
       const before = transformed(boundary - 1);
       const after = transformed(boundary);
       assert.equal(after.interval_seconds, seconds);
@@ -40,6 +42,13 @@ test('the transform changes the image marker only at each local rotation boundar
       assert.deepEqual(JSON.parse(JSON.stringify(after.reading_pool)), plugin.data.verses);
       assert.equal(after.trmnl, undefined);
     }
+  }
+});
+
+test('other refresh rates use the longest whole-hour slot that divides the day', () => {
+  const seconds = refreshMinutes => runTransform(plugin, contextFor(plugin, { refreshMinutes })).interval_seconds;
+  for (const [refreshMinutes, expected] of [[5, 3600], [15, 3600], [90, 3600], [180, 10800], [300, 14400], [600, 28800], [1000, 43200], [2880, 86400], [undefined, 86400], ['', 86400]]) {
+    assert.equal(seconds(refreshMinutes), expected, `refresh ${refreshMinutes}`);
   }
 });
 
@@ -86,7 +95,7 @@ test('all views show the same complete passage for every slot, including the lon
 
 test('unknown settings use the mixed daily defaults; missing data gives a useful recovery message', async () => {
   const options = { timestamp: epoch('2026-10-01T10:00:00Z'), utcOffset: 0 };
-  assert.equal(id(await render(options)), id(await render({ ...options, fields: { theme: 'old-theme', rotation: 'invalid' } })));
+  assert.equal(id(await render(options)), id(await render({ ...options, fields: { theme: 'old-theme', rotation: 'hourly' } })));
   for (const view of views) {
     const html = await renderView(plugin, view, { data: { verses: [] } });
     assert.match(html, /[Rr]eimport/);
@@ -127,7 +136,7 @@ test('several accepted themes form a balanced, repeat-free cycle in every view',
 });
 
 test('theme selection handles blank, legacy, duplicate and reordered values without broadening valid choices', async () => {
-  const options = { timestamp: 1790848800, utcOffset: 20700, fields: { rotation: 'six_hours' } };
+  const options = { timestamp: 1790848800, utcOffset: 20700, refreshMinutes: 360, fields: {} };
   const select = theme => render({ ...options, fields: { ...options.fields, theme } });
   for (const theme of [undefined, null, '', [], [''], 'all', ['all'], 'unknown', [false, 123, {}]]) {
     assert.equal(id(await select(theme)), id(await select('all')));

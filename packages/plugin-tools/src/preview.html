@@ -31,7 +31,7 @@
     <aside aria-label="Preview settings">
       <div><label for="language">Language</label><select id="language"></select></div>
       <div><label id="theme-label">Themes</label><details class="theme-picker"><summary id="theme-summary" aria-labelledby="theme-label theme-summary">All themes</summary><fieldset id="theme"><legend>Leave empty for every theme</legend></fieldset></details></div>
-      <div><label for="rotation">New passage</label><select id="rotation"></select></div>
+      <div><label for="refresh">Refresh rate</label><select id="refresh"><option value="1440">Daily</option><option value="720">Every 12 hours</option><option value="360">Every 6 hours</option><option value="240">Every 4 hours</option><option value="120">Every 2 hours</option><option value="60">Hourly</option></select></div>
       <div><label for="context-qr">Chapter QR code</label><select id="context-qr"><option value="true">Show</option><option value="false">Hide</option></select></div>
       <div><label for="model">Device</label><select id="model"></select></div>
       <div><label for="orientation">Orientation</label><select id="orientation"><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></div>
@@ -54,10 +54,13 @@
   <script type="module">
     const byId = id => document.getElementById(id);
     const fractions = { full:[1,1], half_horizontal:[1,0.5], half_vertical:[0.5,1], quadrant:[0.5,0.5] };
-    const intervals = { daily:86400, twelve_hours:43200, six_hours:21600, hourly:3600 };
+    // Every offered refresh rate divides the day, so it is also the passage interval.
+    const interval = () => Number(byId('refresh').value) * 60;
     let plugin;
     let actualPixels = false;
     let screenSize = [800,480];
+    // Select options are YAML label/value mappings; older settings used "Label: value" strings.
+    const option = entry => typeof entry === 'string' ? entry.split(': ') : Object.entries(entry)[0];
     const selectedThemes = () => Array.from(byId('theme').querySelectorAll('input:checked'), input => input.value);
     function fitPreview() {
       const [width,height] = screenSize;
@@ -76,7 +79,7 @@
       const wall = Date.parse(byId('time').value + ':00Z');
       const offset = Number(byId('offset').value) * 3600;
       if (!Number.isFinite(wall) || !byId('offset').checkValidity() || byId('offset').value === '') throw new Error('Enter a valid preview time and UTC offset.');
-      const query = new URLSearchParams({ timestamp: String(wall / 1000 - offset), offset: String(offset), model: byId('model').value, portrait: String(byId('orientation').value === 'portrait'), 'field.language': byId('language').value, 'field.rotation': byId('rotation').value, 'field.show_context_qr': byId('context-qr').value });
+      const query = new URLSearchParams({ timestamp: String(wall / 1000 - offset), offset: String(offset), model: byId('model').value, portrait: String(byId('orientation').value === 'portrait'), 'field.language': byId('language').value, refresh: byId('refresh').value, 'field.show_context_qr': byId('context-qr').value });
       for (const theme of selectedThemes()) query.append('field.theme', theme);
       return query;
     }
@@ -96,7 +99,7 @@
         const chosen = selectedThemes();
         const collection = plugin.data.translations?.[byId('language').value] ?? plugin.data;
         const pool = chosen.length ? collection.verses.filter(v => chosen.includes(v.theme)) : collection.verses;
-        const slot = Math.floor((Number(query.get('timestamp')) + Number(query.get('offset'))) / intervals[byId('rotation').value]);
+        const slot = Math.floor((Number(query.get('timestamp')) + Number(query.get('offset'))) / interval());
         const verse = pool[((slot % pool.length) + pool.length) % pool.length];
         byId('reference').replaceChildren();
         const source = document.createElement('a'); source.href = verse.source; source.target = '_blank'; source.rel = 'noreferrer'; source.textContent = verse.reference;
@@ -109,7 +112,6 @@
         byId('theme-summary').textContent = chosen.length === 0 || chosen.length === collection.themes.length ? allLabel : chosen.length === 1 ? collection.themes.find(t => t.id === chosen[0]).name : `${chosen.length} ${{en:'themes',fr:'thèmes',es:'temas'}[language] ?? 'themes'}`;
         byId('theme-label').textContent = {en:'Themes',fr:'Thèmes',es:'Temas'}[language] ?? 'Themes';
         byId('theme').querySelector('legend').textContent = {en:'Leave empty for every theme',fr:'Laissez vide pour tous les thèmes',es:'Déjalo vacío para todos los temas'}[language] ?? 'Leave empty for every theme';
-        for (const option of byId('rotation').options) if (collection.labels?.[option.value]) option.textContent = collection.labels[option.value]; else option.textContent = plugin.fields.find(f => f.keyname === 'rotation').options.find(entry => entry.endsWith(': '+option.value)).split(': ')[0];
         byId('summary').textContent = pool.length + ' curated passages in this rotation. Every passage appears once before the cycle repeats.';
         byId('links').replaceChildren(...Object.keys(fractions).map(v => { const a = document.createElement('a'); a.href='/render?'+query+'&view='+v; a.textContent=v.replaceAll('_',' '); a.target='_blank'; return a; }));
         byId('error').hidden = true;
@@ -120,14 +122,14 @@
       if (!response.ok) throw new Error('The plugin could not load. Check your files and reload.');
       plugin = await response.json();
       for (const [model,device] of Object.entries(plugin.devices)) byId('model').add(new Option(device.name,model));
-      for (const name of ['language','rotation']) {
+      for (const name of ['language']) {
         const field = plugin.fields.find(f => f.keyname === name);
-        for (const entry of field.options) { const [label,value] = entry.split(': '); byId(name).add(new Option(label,value)); }
+        for (const entry of field.options) { const [label,value] = option(entry); byId(name).add(new Option(label,value)); }
         byId(name).value = plugin.defaults[name];
       }
       const themeField = plugin.fields.find(field => field.keyname === 'theme');
       for (const entry of themeField.options) {
-        const [text, value] = entry.split(': ');
+        const [text, value] = option(entry);
         const label = document.createElement('label');
         const input = document.createElement('input'); input.type = 'checkbox'; input.value = value; input.checked = false;
         const span = document.createElement('span'); span.textContent = text;
@@ -135,12 +137,13 @@
       }
       byId('theme').addEventListener('change', update);
       byId('offset').value = plugin.offset / 3600;
+      byId('refresh').value = String(plugin.refresh ?? 1440);
       byId('time').value = new Date(Date.now() + plugin.offset * 1000).toISOString().slice(0,16);
-      for (const name of ['language','rotation','context-qr','model','orientation','view','time','offset']) byId(name).addEventListener('change',update);
+      for (const name of ['language','refresh','context-qr','model','orientation','view','time','offset']) byId(name).addEventListener('change',update);
       byId('zoom').addEventListener('click',() => { actualPixels = !actualPixels; fitPreview(); });
       new ResizeObserver(fitPreview).observe(byId('canvas'));
       window.addEventListener('resize',fitPreview);
-      byId('next').addEventListener('click', () => { try { const query = params(); const local = Number(query.get('timestamp')) + Number(query.get('offset')); const interval=intervals[byId('rotation').value]; byId('time').value=new Date((Math.floor(local/interval)+1)*interval*1000).toISOString().slice(0,16); update(); } catch(error) { byId('error').textContent=error.message; byId('error').hidden=false; } });
+      byId('next').addEventListener('click', () => { try { const query = params(); const local = Number(query.get('timestamp')) + Number(query.get('offset')); const step=interval(); byId('time').value=new Date((Math.floor(local/step)+1)*step*1000).toISOString().slice(0,16); update(); } catch(error) { byId('error').textContent=error.message; byId('error').hidden=false; } });
       update();
     } catch(error) { byId('current').textContent='Preview unavailable'; byId('error').textContent=error.message; byId('error').hidden=false; }
   </script>

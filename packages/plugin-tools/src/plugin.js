@@ -97,7 +97,7 @@ export async function checkPolling(plugin) {
   return request;
 }
 
-export function contextFor(plugin, { fields = {}, timestamp = Date.now() / 1000, utcOffset = plugin.config.preview?.utc_offset ?? 0, instanceName = plugin.settings.name, data = plugin.data, model = 'og', portrait = false } = {}) {
+export function contextFor(plugin, { fields = {}, timestamp = Date.now() / 1000, utcOffset = plugin.config.preview?.utc_offset ?? 0, instanceName = plugin.settings.name, refreshMinutes = plugin.settings.refresh_interval, data = plugin.data, model = 'og', portrait = false } = {}) {
   if (!Number.isFinite(Number(timestamp)) || !Number.isFinite(Number(utcOffset))) throw new Error('Preview time and UTC offset must be numbers.');
   return {
     ...data,
@@ -105,7 +105,7 @@ export function contextFor(plugin, { fields = {}, timestamp = Date.now() / 1000,
       system: { timestamp_utc: Math.floor(Number(timestamp)) },
       user: { utc_offset: Number(utcOffset), locale: 'en', ...(plugin.config.preview?.time_zone ? { time_zone_iana: plugin.config.preview.time_zone } : {}) },
       device: { ...previewDevice(model, portrait), bit_depth: model === 'v2' ? 4 : model === 'ogv2' ? 2 : 1 },
-      plugin_settings: { instance_name: instanceName, custom_fields_values: { ...plugin.defaults, ...plugin.config.preview?.fields, ...fields } },
+      plugin_settings: { instance_name: instanceName, refresh_interval_minutes: Number(refreshMinutes) || undefined, custom_fields_values: { ...plugin.defaults, ...plugin.config.preview?.fields, ...fields } },
     },
   };
 }

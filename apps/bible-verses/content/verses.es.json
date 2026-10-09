@@ -808,10 +808,6 @@
     }
   ],
   "labels": {
-    "daily": "Cada día",
-    "hourly": "Cada hora",
-    "six_hours": "Cada 6 horas",
-    "twelve_hours": "Cada 12 horas",
     "missing_title": "Falta la colección de las Escrituras",
     "missing_text": "Vuelve a importar el ZIP de Daily Bread para restaurar los pasajes bíblicos."
   }

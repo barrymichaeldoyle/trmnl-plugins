@@ -43,7 +43,7 @@ The [2 October collection and language review](content-review.md) verified all 3
 
 The exported TRMNL settings use the platform's native multi-select, labelled with one word per theme. An empty selection is the default and mixes every theme; one or several selections restrict the cycle to those themes. Installations that saved the earlier “All themes” value (`all`) keep the mix, and specific selections still take priority over it. Empty or entirely unrecognized values restore the mixed default. Unknown values alongside valid choices are ignored, without adding unwanted themes. Selection order and duplicate choices do not change the cycle.
 
-The interleaved collection alternates among selected themes, with no repeated passage until the filtered cycle repeats. At the current collection size, one theme has a 12-slot cycle, two have 24, and all nine have 108. An hourly interval traverses the same collection faster; it does not increase the number of simultaneous passages.
+The interleaved collection alternates among selected themes, with no repeated passage until the filtered cycle repeats. At the current collection size, one theme has a 12-slot cycle, two have 24, and all nine have 108. An hourly refresh rate traverses the same collection faster; it does not increase the number of simultaneous passages.
 
 Previous single-theme values remain supported: peace → Worry & rest; hope/strength → Hard times & loss; trust/prayer → Faith & prayer; wisdom → Decisions & direction; love → Relationships; gratitude → Joy & gratitude.
 

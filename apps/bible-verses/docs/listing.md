@@ -24,7 +24,7 @@ Daily Bread brings daily Bible verses to your TRMNL, with one complete passage t
 
 Explore 108 curated passages in each of three languages: English, French and Spanish. Choose one or several of nine everyday themes, including family, relationships, work, generosity, decisions, worry, loss, gratitude and prayer. Leave all themes selected for a varied daily reading.
 
-Daily Bread changes passages each day by default, following your TRMNL timezone. You can also choose hourly, six-hour or twelve-hour rotation. An optional QR code opens the full chapter in your chosen translation, helping you read each passage in context.
+Daily Bread changes passages each day by default, following your TRMNL timezone. Set a faster refresh rate, down to hourly, for new passages more often. An optional QR code opens the full chapter in your chosen translation, helping you read each passage in context.
 
 English uses the World English Bible, French uses Louis Segond 1910, and Spanish uses Reina Valera 1909. All three are public-domain translations, preserving the publisher's Scripture wording. The collection is included with the recipe, so you need no Bible API key or separate Bible subscription. Full-screen and all three mashup layouts are included.
 

@@ -5,7 +5,7 @@ import { devices, views, previewDevice, contextFor, runTransform, previewTiming 
 export const reviewEpoch = Date.parse('2026-10-01T12:00:00Z') / 1000;
 export const viewLabels = { full: 'Full', half_horizontal: 'Half horizontal', half_vertical: 'Half vertical', quadrant: 'Quadrant' };
 const fractions = { full: [1, 1], half_horizontal: [1, .5], half_vertical: [.5, 1], quadrant: [.5, .5] };
-const intervals = { daily: 86400, twelve_hours: 43200, six_hours: 21600, hourly: 3600 };
+const refreshRates = [1440, 720, 360, 60];
 
 export function reviewScreens() {
   return Object.keys(devices).flatMap(model => [false, true].flatMap(portrait => {
@@ -58,11 +58,10 @@ export function passageSamples(verses) {
 
 // Normal rotation selects passages, so a fixed timestamp reaches the target
 // passage through the same transform and Liquid logic as a device render.
-export function passageSchedule(plugin, fields, targetId, data = plugin.data) {
+export function passageSchedule(plugin, fields, targetId, data = plugin.data, refreshMinutes = plugin.settings.refresh_interval) {
   const utcOffset = plugin.config.preview?.utc_offset ?? 0;
-  const pool = runTransform(plugin, contextFor(plugin, { fields, timestamp: reviewEpoch, utcOffset, data })).reading_pool;
+  const { reading_pool: pool, interval_seconds: seconds = 86400 } = runTransform(plugin, contextFor(plugin, { fields, timestamp: reviewEpoch, utcOffset, refreshMinutes, data }));
   if (!Array.isArray(pool)) throw new Error('The Scripture review adapter requires reading_pool from the transform.');
-  const seconds = intervals[fields.rotation] ?? 86400;
   let slot = Math.floor((reviewEpoch + utcOffset) / seconds);
   if (targetId) {
     const index = pool.findIndex(verse => verse.id === targetId);
@@ -70,7 +69,7 @@ export function passageSchedule(plugin, fields, targetId, data = plugin.data) {
     slot += (index - slot % pool.length + pool.length) % pool.length;
   }
   const timestamp = targetId ? slot * seconds - utcOffset + Math.min(seconds / 2, 3600) : reviewEpoch;
-  return { options: { fields, utcOffset, timestamp }, expected: pool.length ? pool[slot % pool.length] : null };
+  return { options: { fields, utcOffset, timestamp, refreshMinutes }, expected: pool.length ? pool[slot % pool.length] : null };
 }
 
 export function reviewScenarios(plugin, mode = 'curated') {
@@ -80,9 +79,9 @@ export function reviewScenarios(plugin, mode = 'curated') {
   if (collections.some(collection => !collection.translation || !collection.verses?.length || !collection.themes?.length)) throw new Error('Review suites require Scripture collections with translation, verses, and themes.');
   const cases = [];
   const seen = new Map();
-  const add = (collection, name, key, fields = {}, target, recovery = false, sample) => {
-    fields = { ...plugin.defaults, language: collection.translation.language, theme: 'all', rotation: 'daily', show_context_qr: true, ...fields };
-    const { options, expected } = passageSchedule(plugin, fields, target?.id, recovery ? recoveryData(plugin) : plugin.data);
+  const add = (collection, name, key, fields = {}, target, recovery = false, sample, refreshMinutes) => {
+    fields = { ...plugin.defaults, language: collection.translation.language, theme: 'all', show_context_qr: true, ...fields };
+    const { options, expected } = passageSchedule(plugin, fields, target?.id, recovery ? recoveryData(plugin) : plugin.data, refreshMinutes);
     const signature = JSON.stringify([options, recovery, sample?.kind]);
     if (seen.has(signature)) { seen.get(signature).coverage.push(name); return; }
     const scenario = {
@@ -110,7 +109,7 @@ export function reviewScenarios(plugin, mode = 'curated') {
     } else if (mode === 'settings') {
       for (let selection = 0; selection < 2 ** collection.themes.length; selection++) {
         const theme = collection.themes.filter((_, index) => selection & (1 << index)).map(theme => theme.id);
-        for (const rotation of Object.keys(intervals)) for (const qr of [true, false]) add(collection, 'Every settings combination', `selection-${selection}-${rotation}-qr-${qr}`, { theme, rotation, show_context_qr: qr });
+        for (const refresh of refreshRates) for (const qr of [true, false]) add(collection, 'Every settings combination', `selection-${selection}-refresh-${refresh}-qr-${qr}`, { theme, show_context_qr: qr }, undefined, false, undefined, refresh);
       }
     } else {
       add(collection, 'Mixed daily default', 'default');

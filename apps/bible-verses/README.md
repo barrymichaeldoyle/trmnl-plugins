@@ -13,7 +13,7 @@ The [listing icon](assets/icon.png) and its [SVG source](assets/icon.svg), publi
 - **108 passages**, with 12 in each of nine practical themes: Family & home, Relationships, Work & purpose, Money & generosity, Decisions & direction, Worry & rest, Hard times & loss, Joy & gratitude, and Faith & prayer.
 - **Every theme** by default, interleaved so successive intervals move between themes. Users can choose one or several themes with [TRMNL’s native multi-select](https://help.trmnl.com/en/articles/10513740-custom-plugin-form-builder); leaving it empty keeps the mix.
 - **One translation per language**: English (default) uses the updated, LORD edition of the [World English Bible](https://worldenglish.bible/) (`engwebp`); French uses [Louis Segond 1910](https://ebible.org/bible/details.php?id=fraLSG); Spanish uses [Reina Valera 1909](https://ebible.org/bible/details.php?id=spaRV1909). All three sources are public domain. Each language includes the same 108 curated selections, with localized references, themes and attribution.
-- **Daily** by default; every 12 hours, every 6 hours, or hourly are also available.
+- **Daily** by default. The plugin's TRMNL refresh rate sets how often the passage changes, down to hourly.
 - Full, half horizontal, half vertical, and quadrant layouts, in both orientations. Complete passage text and reference in every layout. Scripture fills a reading column; the chapter QR code sits at the top of a second column and the dimensional cross at its bottom, above the reference bar. In narrow portrait halves and quadrants the QR code and cross move into a row beneath the Scripture. The cross remains visible with QR enabled or disabled. Full views use a 128px QR footprint, left/right halves 80–96px, and wide halves and quadrants 64px with a smaller quiet zone, all scaled by the framework. OG cross sizes are restrained, while TRMNL X uses larger artwork.
 - Light (default) or Dark appearance. Dark full screens use the framework's screen dark mode; dark mashup layouts use framework `inverse` tokens on Daily Bread's own content, so neighbouring plugins keep their appearance. The cross and ornament artwork swap ink and paper to stay dimensional on black; the chapter QR code keeps a white tile for reliable scanning. Leave the plugin's own dark mode setting off, since it would invert a Dark selection back to light.
 - No hosted backend, Bible API subscription, authentication, or API key.
@@ -25,7 +25,7 @@ Passage text dynamically fits the measured reading area using [TRMNL Fit Value](
 1. From the monorepo root, run `pnpm install` and `pnpm build`.
 2. Open **Plugins → Private Plugin** in TRMNL and choose **Import new**.
 3. Select `apps/bible-verses/dist/daily-bread.zip`.
-4. Choose **Language**, **Themes**, **New passage**, **Chapter QR code** and **Appearance** in the imported plugin's settings.
+4. Choose **Language**, **Themes**, **Chapter QR code** and **Appearance** in the imported plugin's settings, and set its refresh rate to how often you want a new passage.
 5. Confirm your TRMNL account timezone, add the plugin to your preferred playlist or mashup, and refresh.
 
 To upload from the command line instead, run `pnpm upload` from the monorepo root after `bundle exec trmnlp login`. It creates a new private plugin. To update an existing one, set its ID: `TRMNL_PLUGIN_ID=<id> pnpm upload`. Keep that ID out of the repository.
@@ -36,18 +36,23 @@ The build exports a flat ZIP with `settings.yml`, four `.liquid` files, and `tra
 
 ## Timing
 
-Rotation uses the current render timestamp and the user's TRMNL UTC offset, [as documented by TRMNL](https://help.trmnl.com/en/articles/10693981-advanced-liquid). It does not count refreshes or choose a fresh random verse. TRMNL [skips unchanged merge variables](https://help.trmnl.com/en/articles/9510536-private-plugins), so the bundled default-runtime transform adds a `rotation_slot` marker that changes at the selected local boundary. The marker is independent of the static Scripture data and ensures the transformed payload changes when a new image is needed.
+Rotation uses the current render timestamp and the user's TRMNL UTC offset, [as documented by TRMNL](https://help.trmnl.com/en/articles/10693981-advanced-liquid). It does not count refreshes or choose a fresh random verse. TRMNL [skips unchanged merge variables](https://help.trmnl.com/en/articles/9510536-private-plugins), so the bundled default-runtime transform adds a `rotation_slot` marker that changes at each local boundary. The marker is independent of the static Scripture data and ensures the transformed payload changes when a new image is needed.
 
-| Setting | Local boundaries |
-| --- | --- |
-| Every day | Midnight |
-| Every 12 hours | Midnight and noon |
-| Every 6 hours | 00:00, 06:00, 12:00, 18:00 |
-| Every hour | The start of each hour |
+There is no separate rotation setting. The plugin's refresh rate (`trmnl.plugin_settings.refresh_interval_minutes`) sets the slot length: the longest whole-hour division of the local day that fits within it, so every slot starts at local midnight. The recipe defaults to a daily refresh and sets its fastest refresh rate to 60 minutes.
 
-A passage stays stable throughout its slot and changes on the first successful plugin render after the next boundary. The recipe's refresh interval defaults to 60 minutes, supporting every offered rotation. Device wake time, playlist order, sleep mode, connectivity, and TRMNL caching can delay when a new image appears. The custom rotation field does not change the plugin refresh or device wake interval. Keep plugin refresh at 60 minutes or faster for hourly rotation; daily users can choose a slower refresh if they accept later delivery after midnight.
+| Refresh rate | Slot | Local boundaries |
+| --- | --- | --- |
+| Daily (default) | 24 hours | Midnight |
+| Every 12 hours | 12 hours | Midnight and noon |
+| Every 6 hours | 6 hours | 00:00, 06:00, 12:00, 18:00 |
+| Every 4, 3 or 2 hours | Same | Every 4, 3 or 2 hours from midnight |
+| Hourly | 1 hour | The start of each hour |
 
-The selection is deterministic: users with the same accepted themes, interval, and local slot see the same passage. The mixed cycle repeats after 108 slots; a single-theme cycle repeats after 12, and two themes after 24. Each selected theme receives an equal share of the current cycle, without repeating passages. Selection order and duplicate values do not affect rotation. Changing themes or interval immediately selects that setting's current slot. Skipped refreshes advance directly to the current passage; there is no backlog. TRMNL supplies the current timezone offset, including daylight-saving changes; an hourly slot may repeat or be skipped when the local clock changes.
+Rates between those round down to the nearest listed slot (for example 90 minutes uses hourly slots and 10 hours uses 8-hour slots); a missing rate uses daily slots.
+
+A passage stays stable throughout its slot and changes on the first successful plugin render after the next boundary. Because TRMNL refreshes on its own schedule rather than at midnight, a daily refresh can show the new day's passage up to a day late, at whatever time the refresh falls. Device wake time, playlist order, sleep mode, connectivity, and TRMNL caching can delay it further.
+
+The selection is deterministic: users with the same accepted themes, refresh rate, and local slot see the same passage. The mixed cycle repeats after 108 slots; a single-theme cycle repeats after 12, and two themes after 24. Each selected theme receives an equal share of the current cycle, without repeating passages. Selection order and duplicate values do not affect rotation. Changing themes or refresh rate immediately selects that setting's current slot. Skipped refreshes advance directly to the current passage; there is no backlog. TRMNL supplies the current timezone offset, including daylight-saving changes; an hourly slot may repeat or be skipped when the local clock changes.
 
 ## Curation and text provenance
 
