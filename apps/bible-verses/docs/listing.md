@@ -1,6 +1,6 @@
 # Daily Bread publication copy
 
-Prepared 2 October 2026. The name, short description, public `recipe_overview`, categories and credits are in `src/settings.yml` and will be included in the import ZIP. The imported public Overview, icon and OG/X marketplace images were verified in the existing TRMNL account, and the recipe was submitted for public human review on 2 October 2026. Public availability awaits approval.
+Prepared 2 October 2026. The name, short description, public `recipe_overview`, categories and credits are in `src/settings.yml` and will be included in the import ZIP. The imported public Overview, icon and OG/X marketplace images were verified in the existing TRMNL account, and the recipe was submitted for public human review on 2 October 2026. It was approved and published as a public recipe (confirmed 9 October 2026).
 
 ## Name and short description
 
@@ -93,7 +93,7 @@ Use “daily Bible verses,” “TRMNL Bible plugin,” “Scripture,” the lan
 
 ## Preview image and attribution
 
-**Listing icon:** [icon.png](../assets/icon.png) is a 512×512 PNG with the recipe's dimensional cross centered on white. A [128×128 PNG](../assets/icon-128.png) and [SVG source](../assets/icon.svg) are also included. Use the PNG when the TRMNL submission form asks for an icon. It matches the cross in the display and the embedded icon in all four title bars. The listing icon is a separate submission asset; the import ZIP contains the embedded display icon, not the standalone PNG files.
+**Listing icon:** [icon.png](../assets/icon.png) is a 512×512 PNG with the recipe's dimensional cross centered on black (dark mode): white front face, black depth faces, and a white rim that separates the cross from the background. A [128×128 PNG](../assets/icon-128.png) and [SVG source](../assets/icon.svg) are also included. Use the PNG when the TRMNL submission form asks for an icon. It uses the same cross artwork as the display and the embedded title-bar icon. The listing icon is a separate submission asset; the import ZIP contains the embedded display icon, not the standalone PNG files.
 
 Use the existing dimensional cross and a representative complete passage in the full-screen preview. The listing image is `docs/screenshots/listing-full.png`: Matthew 11:28–30 in English on a TRMNL OG full screen (800×480) with the chapter QR code. It shows the complete invitation and its context rather than a single clipped line.
 

@@ -21,6 +21,6 @@
   <img class="image" src="{{ hero_cross_uri }}" alt="" data-plugin-icon="true">
   <div class="flex flex--left flex--center-y grow w--0 gap--small">
     {% if verse %}<span class="title hidden" data-value-fit="true" data-footer-reference="true" title="{{ selected_translation.name | escape }} ({{ selected_translation.abbreviation | escape }})">{{ verse.reference | escape }}</span>{% endif %}<span class="title" data-value-fit="true" data-footer-name="true">{{ trmnl.plugin_settings.instance_name | default: 'Daily Bread' | escape }}</span>
-    <span class="instance" title="{{ selected_translation.name | escape }}">{{ selected_translation.abbreviation | escape }}</span>
+    <span class="instance" title="{{ selected_translation.name | escape }} ({{ selected_translation.abbreviation | escape }})">{{ selected_translation.name | escape }}</span>
   </div>
 </div>
