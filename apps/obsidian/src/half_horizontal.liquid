@@ -15,12 +15,14 @@
   {%- when 'due_tasks' -%}{%- assign item_count = tasks.size -%}
   {%- when 'pinned_note' -%}{%- assign item_count = lines.size -%}
 {%- endcase -%}
-{%- if item_count <= 6 -%}
+{%- if item_count <= 7 -%}
   {%- assign text_class = 'title lg:title--xlarge' -%}
   {%- assign box_class = 'w--5 h--5 lg:w--7 lg:h--7' -%}
+  {%- assign row_space = '' -%}
 {%- else -%}
   {%- assign text_class = 'title title--small lg:title' -%}
   {%- assign box_class = 'w--4 h--4 lg:w--6 lg:h--6' -%}
+  {%- assign row_space = '' -%}
 {%- endif -%}
 {%- assign bar_heights = '1,4,7,10,12,16,20,24,28' | split: ',' -%}
 {%- assign bar_heights_lg = '1,5,10,14,20,24,28,32,40' | split: ',' -%}
@@ -43,10 +45,10 @@
           </div>
           <div class="col--span-9 portrait:col--span-12">
             {% if open > 0 %}
-              <div class="columns" data-overflow="true" data-overflow-max-cols="2" data-overflow-counter="true">
+              <div class="columns" data-overflow="true" data-overflow-max-cols="2" data-overflow-max-cols-lg="1" data-overflow-counter="true">
                 <div class="column">
                   {% assign shown = 0 %}{% for group in groups %}{% for task in group.tasks %}{% unless task.done or shown >= list_cap %}{% assign shown = shown | plus: 1 %}
-                    <div class="item{% if task.sub %} pl--6{% endif %}"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{{ box_uri }}" alt="Open"></span><span class="{{ text_class }} w--full" data-clamp="1">{{ task.text | escape }}</span></div></div></div>
+                    <div class="item{{ row_space }}{% if task.sub %} pl--6{% endif %}"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{{ box_uri }}" alt="Open"></span><span class="{{ text_class }} w--full" data-clamp="1">{{ task.text | escape }}</span></div></div></div>
                   {% endunless %}{% endfor %}{% endfor %}
                 </div>
               </div>
@@ -103,7 +105,7 @@
       {% when 'resurface' %}
         <div class="grid grid--cols-12 gap w--full h--full">
           <div class="col--span-4 portrait:col--span-12 flex flex--col flex--center-y gap--xsmall">
-            <span class="title lg:title--xlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
+            <span class="title lg:title--xxlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
             <span class="label label--small lg:label w--full" data-clamp="2" data-clamp-portrait="1">{{ age_label | escape }} · {{ word_count }} words</span>
           </div>
           <div class="col--span-8 portrait:col--span-12 flex flex--col flex--center-y">
@@ -128,7 +130,7 @@
       {% when 'pinned_note' %}
         <div class="grid grid--cols-12 gap w--full h--full">
           <div class="col--span-3 portrait:col--span-12 flex flex--col flex--center-y">
-            <span class="title lg:title--xlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
+            <span class="title lg:title--xxlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
           </div>
           <div class="col--span-9 portrait:col--span-12">
             <div class="columns" data-overflow="true" data-overflow-max-cols="2" data-overflow-counter="true">
@@ -138,11 +140,11 @@
                     {% when 'heading' %}
                       <span class="label label--underline group-header" data-group-header="true">{{ line.text | escape }}</span>
                     {% when 'pair' %}
-                      <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="1">{{ line.label | escape }}: {{ line.text | escape }}</span></div></div></div>
+                      <div class="item{{ row_space }}"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="1">{{ line.label | escape }}: {{ line.text | escape }}</span></div></div></div>
                     {% when 'task' %}
-                      <div class="item"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if line.done %} text--gray-45 1bit:text--black{% endif %} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
+                      <div class="item{{ row_space }}"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if line.done %} text--gray-45 1bit:text--black{% endif %} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
                     {% else %}
-                      <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
+                      <div class="item{{ row_space }}"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
                   {% endcase %}
                 {% endfor %}
               </div>

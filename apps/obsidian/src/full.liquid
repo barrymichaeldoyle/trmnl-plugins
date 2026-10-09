@@ -20,14 +20,17 @@
   {%- assign text_class = 'title title--large lg:title--xxlarge' -%}
   {%- assign box_class = 'w--6 h--6 lg:w--8 lg:h--8' -%}
   {%- assign body_class = 'description description--xxlarge' -%}
+  {%- assign row_space = ' lg:pb--6' -%}
 {%- elsif item_count <= 12 -%}
   {%- assign text_class = 'title lg:title--xlarge' -%}
   {%- assign box_class = 'w--5 h--5 lg:w--7 lg:h--7' -%}
   {%- assign body_class = 'description description--xlarge lg:description--xxlarge' -%}
+  {%- assign row_space = ' lg:pb--3' -%}
 {%- else -%}
   {%- assign text_class = 'title title--small lg:title' -%}
   {%- assign box_class = 'w--4 h--4 lg:w--6 lg:h--6' -%}
   {%- assign body_class = 'description lg:description--xlarge' -%}
+  {%- assign row_space = '' -%}
 {%- endif -%}
 {%- assign bar_heights = '1,5,10,14,20,24,28,36,40' | split: ',' -%}
 {%- assign bar_heights_lg = '1,8,16,24,32,40,48,56,64' | split: ',' -%}
@@ -52,7 +55,7 @@
               {% for group in groups %}
                 {% if group.heading != blank and shown < list_cap %}<span class="label label--underline group-header" data-group-header="true">{{ group.heading | escape }}</span>{% endif %}
                 {% for task in group.tasks %}{% if shown < list_cap %}{% assign shown = shown | plus: 1 %}
-                  <div class="item{% if task.sub %} pl--8{% endif %}">
+                  <div class="item{{ row_space }}{% if task.sub %} pl--8{% endif %}">
                     <div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if task.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if task.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if task.done %} text--gray-45 1bit:text--black{% endif %} w--full" data-clamp="2">{{ task.text | escape }}</span></div></div>
                   </div>
                 {% endif %}{% endfor %}
@@ -100,8 +103,8 @@
         </div>
         {% if rows.size > 0 %}
           {% if kind == 'table' %}
-            <table class="table lg:table--large">
-              <thead><tr>{% for header in headers limit: 5 %}<th><span class="title title--small lg:title pr--4">{{ header | escape }}</span></th>{% endfor %}</tr></thead>
+            <table class="table lg:table--xlarge">
+              <thead><tr>{% for header in headers limit: 5 %}<th><span class="title title--small lg:title--large pr--4">{{ header | escape }}</span></th>{% endfor %}</tr></thead>
               <tbody>
                 {% for row in rows limit: 7 %}<tr>{% for cell in row limit: 5 %}<td><span class="label lg:label--large pr--4 w--full" data-clamp="1">{{ cell | escape }}</span></td>{% endfor %}</tr>{% endfor %}
               </tbody>
@@ -123,7 +126,7 @@
           <span class="label lg:label--large w--full" data-clamp="1">{% if folder != blank %}{{ folder | escape }} · {% endif %}{{ age_label | escape }} · {{ word_count }} words</span>
         </div>
         <div class="richtext richtext--left w--full grow">
-          <div class="content content--xlarge lg:content--xxlarge gap" data-content-limiter="true">
+          <div class="content content--xlarge lg:content--xxxlarge gap">
             {% for paragraph in paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}
           </div>
         </div>
@@ -157,13 +160,13 @@
                 {% when 'heading' %}
                   <span class="label label--underline group-header" data-group-header="true">{{ line.text | escape }}</span>
                 {% when 'pair' %}
-                  <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="label lg:label--large">{{ line.label | escape }}</span><span class="{{ text_class }} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
+                  <div class="item{{ row_space }}"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="label lg:label--large">{{ line.label | escape }}</span><span class="{{ text_class }} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
                 {% when 'task' %}
-                  <div class="item{% if line.sub %} pl--8{% endif %}"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if line.done %} text--gray-45 1bit:text--black{% endif %} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
+                  <div class="item{{ row_space }}{% if line.sub %} pl--8{% endif %}"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if line.done %} text--gray-45 1bit:text--black{% endif %} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
                 {% when 'li' %}
-                  <div class="item{% if line.sub %} pl--8{% endif %}"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
+                  <div class="item{{ row_space }}{% if line.sub %} pl--8{% endif %}"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
                 {% else %}
-                  <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ body_class }} w--full" data-clamp="3">{{ line.text | escape }}</span></div></div></div>
+                  <div class="item{{ row_space }}"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ body_class }} w--full" data-clamp="3">{{ line.text | escape }}</span></div></div></div>
               {% endcase %}
             {% endfor %}
           </div>
