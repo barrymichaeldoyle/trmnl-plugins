@@ -73,7 +73,7 @@ test('every fixture renders all four views with framework markup only', async ()
     }
   }
   const full = await renderView(plugin, 'full', { data: plugin.fixtures.usd, ...previewTiming(plugin, 'usd') });
-  for (const text of ['Today so far', '$18.19', '$47.77', '$337.19', '$1,365.65', '+6%', 'vs the same day last week', '12,958 requests', '34,054 requests', 'Updated 08:00']) assert.ok(full.includes(text), text);
+  for (const text of ['Today so far', '$18.20', '$47.77', '$337.20', '$1,365.65', '+6%', 'vs the same day last week', '12,958 requests', '34,054 requests', 'Updated 08:00']) assert.ok(full.includes(text), text);
   const noCurrency = structuredClone(plugin.fixtures.usd);
   delete noCurrency.data[0].header.localizationSettings;
   const bare = await renderView(plugin, 'full', { data: noCurrency, ...previewTiming(plugin, 'usd') });

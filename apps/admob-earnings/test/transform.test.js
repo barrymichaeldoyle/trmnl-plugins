@@ -161,10 +161,10 @@ test('formats currencies with symbols, grouping and whole units', () => {
   const amount = (currency, value) => tile(run(report({ '2026-10-08': value }, { currency, start: '2026-07-07' }), at), 'today');
   assert.equal(amount('USD', 1234567.891).amount, '$1,234,567.89');
   assert.equal(amount('JPY', 1234567.4).amount, '¥1,234,567');
-  // Amounts round down: a fraction of a cent never shows as the next cent.
-  assert.equal(amount('EUR', 0.005).amount, '€0.00');
-  assert.equal(amount('USD', 18.19609).amount, '$18.19');
-  assert.equal(amount('USD', 0.999999).amount, '$0.99');
+  // Amounts round to the nearest cent, halves up.
+  assert.equal(amount('EUR', 0.005).amount, '€0.01');
+  assert.equal(amount('EUR', 0.004999).amount, '€0.00');
+  assert.equal(amount('USD', 18.19609).amount, '$18.20');
   assert.equal(amount('ZAR', 12.5).amount, 'R12.50');
   assert.equal(amount('CHF', 9).amount, 'CHF 9.00');
   assert.equal(amount('USD', 9999.99).amount_compact, '$9,999.99');
@@ -172,17 +172,19 @@ test('formats currencies with symbols, grouping and whole units', () => {
   assert.equal(amount('USD', 100000).amount_compact, '$100K');
   assert.equal(amount('JPY', 38400000).amount_compact, '¥38.4M');
   assert.equal(amount('INR', 2e9).amount_compact, '₹2B');
-  // Abbreviations round down too, so they never roll over into the next unit.
-  assert.equal(amount('USD', 12399.99).amount_compact, '$12.3K');
-  assert.equal(amount('USD', 999960).amount_compact, '$999K');
-  assert.equal(amount('JPY', 999999999).amount_compact, '¥999M');
+  // Abbreviations round to nearest, and a value that rounds up to 1,000 moves to the next unit.
+  assert.equal(amount('USD', 12349.99).amount_compact, '$12.3K');
+  assert.equal(amount('USD', 12350).amount_compact, '$12.4K');
+  assert.equal(amount('USD', 999400).amount_compact, '$999K');
+  assert.equal(amount('USD', 999960).amount_compact, '$1M');
+  assert.equal(amount('JPY', 999999999).amount_compact, '¥1B');
   // The narrowest tiles keep cents under 100, drop them under 1,000, then abbreviate.
   assert.equal(amount('USD', 47.77).amount_short, '$47.77');
   assert.equal(amount('USD', 337.2).amount_short, '$337');
-  assert.equal(amount('USD', 337.99).amount_short, '$337');
-  assert.equal(amount('USD', 999.6).amount_short, '$999');
-  assert.equal(amount('USD', 1365.65).amount_short, '$1.36K');
-  assert.equal(amount('JPY', 988579).amount_short, '¥988K');
+  assert.equal(amount('USD', 337.5).amount_short, '$338');
+  assert.equal(amount('USD', 999.6).amount_short, '$1K');
+  assert.equal(amount('USD', 1365.65).amount_short, '$1.37K');
+  assert.equal(amount('JPY', 988579).amount_short, '¥989K');
 });
 
 test('shows plain amounts when the report header has no currency', () => {
@@ -205,6 +207,11 @@ test('writes comparisons in the chosen style', () => {
   const down = tile(run(report({ '2026-09-30': 50, '2026-10-07': 40 }, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z' }), 'yesterday');
   assert.equal(down.delta_percent, '-20%');
   assert.equal(down.direction, 'down');
+  // The amount change is the difference of the two amounts as shown, not the raw difference rounded.
+  const shown = tile(run(report({ '2026-09-30': 10.004, '2026-10-07': 20.006 }, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z', options: { comparison_style: 'amount' } }), 'yesterday');
+  assert.equal(shown.amount, '$20.01');
+  assert.equal(shown.compare_amount, '$10.00');
+  assert.equal(shown.delta_amount, '+$10.01');
   // Percentages round to the nearest whole number, halves away from zero.
   const percent = (before, after) => tile(run(report({ '2026-09-30': before, '2026-10-07': after }, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z' }), 'yesterday');
   assert.equal(percent(200, 201).delta_percent, '+1%');

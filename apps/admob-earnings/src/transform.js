@@ -201,25 +201,30 @@ function decimalsFor(currency) { return WHOLE_UNITS.includes(currency) ? 0 : 2; 
 function prefixFor(currency) { return SYMBOLS[currency] || (currency ? `${currency} ` : ''); }
 function grouped(digits) { return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
-// Amounts always round down, so the screen never shows more than AdMob reports.
 function formatMoney(micros, currency) {
   const decimals = decimalsFor(currency);
-  const units = floorDiv(Math.abs(micros), 10 ** (6 - decimals));
+  const units = roundDiv(Math.abs(micros), 10 ** (6 - decimals));
   const whole = String(Math.floor(units / 10 ** decimals));
   const fraction = decimals ? `.${String(units % 10 ** decimals).padStart(decimals, '0')}` : '';
   return `${micros < 0 && units ? '-' : ''}${prefixFor(currency)}${grouped(whole)}${fraction}`;
 }
 
 // Narrow views abbreviate large amounts: $12.3K, ¥38.4M. Smaller ones stay exact.
-// Three significant figures, rounded down, so 999,960 is 999K rather than 1000K.
+// Three significant figures, rounded to nearest; a value that rounds up to 1,000
+// moves to the next unit, so 999,960 is 1M rather than 1000K.
 // `scale` is the size of one unit in `value`: 1e6 for micros, 1 for counts.
 function compactNumber(value, scale = 1) {
-  const units = floorDiv(value, scale);
-  const [divisor, suffix] = units >= 1e9 ? [1e9, 'B'] : units >= 1e6 ? [1e6, 'M'] : [1e3, 'K'];
-  const decimals = units >= divisor * 100 ? 0 : units >= divisor * 10 ? 1 : 2;
-  const digits = floorDiv(value, divisor * scale / 10 ** decimals);
-  const text = decimals ? `${Math.floor(digits / 10 ** decimals)}.${String(digits % 10 ** decimals).padStart(decimals, '0')}` : String(digits);
-  return `${text.includes('.') ? text.replace(/0+$/, '').replace(/\.$/, '') : text}${suffix}`;
+  const units = [[1e3, 'K'], [1e6, 'M'], [1e9, 'B']];
+  for (const [index, [divisor, suffix]] of units.entries()) {
+    const last = index === units.length - 1;
+    const scaled = value / (divisor * scale);
+    if (scaled >= 1000 && !last) continue;
+    const decimals = scaled >= 100 ? 0 : scaled >= 10 ? 1 : 2;
+    const digits = roundDiv(value, divisor * scale / 10 ** decimals);
+    if (decimals === 0 && digits >= 1000 && !last) continue;
+    const text = decimals ? `${Math.floor(digits / 10 ** decimals)}.${String(digits % 10 ** decimals).padStart(decimals, '0')}` : String(digits);
+    return `${text.includes('.') ? text.replace(/0+$/, '').replace(/\.$/, '') : text}${suffix}`;
+  }
 }
 
 // Exact floor of a / b for non-negative integers, correcting any floating-point slip.
@@ -230,24 +235,36 @@ function floorDiv(a, b) {
   return quotient;
 }
 
+// a / b rounded to the nearest integer, halves up, for non-negative integers.
+function roundDiv(a, b) { return floorDiv(2 * a + b, 2 * b); }
+
 // The narrowest tiles: cents below 100, whole units below 1,000, then K and M.
 function shortMoney(micros, currency) {
-  const value = Math.abs(micros) / 1e6;
+  const value = Math.abs(shownMicros(micros, currency)) / 1e6;
   if (value < 100 || decimalsFor(currency) === 0) return compactMoney(micros, currency, 1000);
-  if (value < 1000) return formatMoney(floorDiv(Math.abs(micros), 1e6) * 1e6 * Math.sign(micros), currency).replace(/\.0+$/, '');
-  return compactMoney(micros, currency, 1000);
+  const whole = roundDiv(Math.abs(micros), 1e6);
+  if (whole < 1000) return formatMoney(whole * 1e6 * Math.sign(micros), currency).replace(/\.0+$/, '');
+  return `${micros < 0 ? '-' : ''}${prefixFor(currency)}${compactNumber(Math.abs(micros), 1e6)}`;
+}
+
+// Micros rounded to the smallest unit formatMoney shows.
+function shownMicros(micros, currency) {
+  const step = 10 ** (6 - decimalsFor(currency));
+  return Math.sign(micros) * roundDiv(Math.abs(micros), step) * step;
 }
 
 function compactMoney(micros, currency, from = 10000) {
-  const value = Math.abs(micros) / 1e6;
+  const value = Math.abs(shownMicros(micros, currency)) / 1e6;
   if (value < from) return formatMoney(micros, currency);
   return `${micros < 0 ? '-' : ''}${prefixFor(currency)}${compactNumber(Math.abs(micros), 1e6)}`;
 }
 
 function delta(amount, compare, currency) {
   const difference = amount - compare;
-  const sign = difference > 0 ? '+' : difference < 0 ? '-' : '';
-  const deltaAmount = `${sign}${formatMoney(Math.abs(difference), currency)}`;
+  // The amount change subtracts the two amounts as displayed, so it always matches them.
+  const shown = shownMicros(amount, currency) - shownMicros(compare, currency);
+  const sign = shown > 0 ? '+' : shown < 0 ? '-' : '';
+  const deltaAmount = `${sign}${formatMoney(Math.abs(shown), currency)}`;
   if (compare === 0) return { delta_percent: amount === 0 ? '0%' : 'New', delta_amount: deltaAmount, direction: amount === 0 ? 'flat' : 'up' };
   // Whole percent, halves away from zero, in integer arithmetic so 0.5% is exactly 1%.
   const base = Math.abs(compare);

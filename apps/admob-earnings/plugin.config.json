@@ -55,13 +55,13 @@
         ],
         "expect": [
           "Today so far",
-          "$18.19",
+          "$18.20",
           "$47.77"
         ],
         "expect_by_view": {
           "full": [
             "$1,365.65",
-            "$337.19",
+            "$337.20",
             "+6% vs the same day last week",
             "-1% vs the month before last",
             "-6% vs the same day last month",
@@ -72,7 +72,7 @@
             "+6%",
             "-6%",
             "-1%",
-            "$1.36K",
+            "$1.37K",
             "Updated 08:00"
           ],
           "half_vertical": [
@@ -80,7 +80,7 @@
             "-1%"
           ],
           "quadrant": [
-            "$1.36K"
+            "$1.37K"
           ]
         }
       },
@@ -105,24 +105,24 @@
             "¥988,579",
             "¥10,983,185",
             "¥38,443,005",
-            "-26% (-¥349,531) vs the same day last week",
+            "-26% (-¥349,532) vs the same day last week",
             "-1% (-¥537,475) vs the month before last"
           ],
           "half_horizontal": [
-            "¥988K",
-            "¥10.9M",
+            "¥989K",
+            "¥11M",
             "¥38.4M",
             "-26%"
           ],
           "half_vertical": [
-            "¥988K",
-            "¥10.9M",
+            "¥989K",
+            "¥11M",
             "¥38.4M",
             "-26%"
           ],
           "quadrant": [
-            "¥988K",
-            "¥10.9M",
+            "¥989K",
+            "¥11M",
             "¥38.4M"
           ]
         }
@@ -142,25 +142,25 @@
         "expect": [
           "Today so far",
           "€3.29",
-          "€7.39"
+          "€7.40"
         ],
         "expect_by_view": {
           "full": [
             "-€0.11 vs the same day last week",
-            "-€17.33 vs the month before last",
+            "-€17.34 vs the month before last",
             "-€6.35 vs the same day last month",
-            "€248.97"
+            "€248.98"
           ],
           "half_horizontal": [
             "-€0.11",
-            "-€17.33"
+            "-€17.34"
           ],
           "half_vertical": [
             "-€0.11",
-            "-€17.33"
+            "-€17.34"
           ],
           "quadrant": [
-            "€248"
+            "€249"
           ]
         }
       },
@@ -196,7 +196,7 @@
           "full": [
             "+2% vs the same day last week",
             "R19,137.82",
-            "R4,950.74",
+            "R4,950.75",
             "R566.22",
             "Updated 00:30"
           ],
