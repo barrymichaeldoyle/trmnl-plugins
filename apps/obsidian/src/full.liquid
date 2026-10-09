@@ -1,0 +1,178 @@
+{%- comment -%}
+  One screen per install; the screen key picks its layout. Lists flow into two
+  columns and the framework hides rows that do not fit. Short lists use larger
+  type: the size steps down once a list would need more than two columns of
+  single lines.
+{%- endcomment -%}
+{%- comment -%}
+  list_cap keeps every list within what TRMNL X can show. Framework 3.4's overflow
+  engine measures X's scaled screen in mixed units and under-trims there; on
+  OG it still trims the rest and counts what it hides.
+{%- endcomment -%}
+{%- assign list_cap = 14 -%}
+{%- assign item_count = 0 -%}
+{%- case screen -%}
+  {%- when 'daily_tasks' -%}{%- for group in groups -%}{%- assign item_count = item_count | plus: group.tasks.size -%}{%- endfor -%}
+  {%- when 'due_tasks' -%}{%- assign item_count = tasks.size -%}
+  {%- when 'pinned_note' -%}{%- assign item_count = lines.size -%}
+{%- endcase -%}
+{%- if item_count <= 8 -%}
+  {%- assign text_class = 'title title--large lg:title--xxlarge' -%}
+  {%- assign box_class = 'w--7 h--7 lg:w--10 lg:h--10' -%}
+  {%- assign body_class = 'description description--xxlarge' -%}
+{%- elsif item_count <= 12 -%}
+  {%- assign text_class = 'title lg:title--xlarge' -%}
+  {%- assign box_class = 'w--6 h--6 lg:w--9 lg:h--9' -%}
+  {%- assign body_class = 'description description--xlarge lg:description--xxlarge' -%}
+{%- else -%}
+  {%- assign text_class = 'title title--small lg:title' -%}
+  {%- assign box_class = 'w--4 h--4 lg:w--6 lg:h--6' -%}
+  {%- assign body_class = 'description lg:description--xlarge' -%}
+{%- endif -%}
+{%- assign bar_heights = '1,5,10,14,20,24,28,36,40' | split: ',' -%}
+{%- assign bar_heights_lg = '1,8,16,24,32,40,48,56,64' | split: ',' -%}
+<div class="layout layout--col layout--stretch-x layout--top gap">
+  {% if message_title != blank %}
+    <div class="flex flex--col flex--center gap--small h--full">
+      <span class="value value--large lg:value--xlarge text--center">{{ message_title }}</span>
+      <p class="value value--small lg:value--base text--center">{{ message_text }}</p>
+    </div>
+  {% else %}
+    {% case screen %}
+      {% when 'daily_tasks' %}
+        <div class="flex flex--row flex--between flex--bottom gap w--full">
+          <span class="title title--large lg:title--xxlarge">{{ date_label | escape }}</span>
+          {% if total > 0 %}<span class="label lg:label--large no-shrink">{{ done }} of {{ total }} done</span>{% endif %}
+        </div>
+        {% if total > 0 %}
+          <div class="columns grow" data-overflow="true" data-overflow-max-cols="2" data-overflow-max-cols-portrait="1" data-overflow-counter="true">
+            <div class="column">
+              {% assign shown = 0 %}
+
+              {% for group in groups %}
+                {% if group.heading != blank and shown < list_cap %}<span class="label label--underline group-header" data-group-header="true">{{ group.heading | escape }}</span>{% endif %}
+                {% for task in group.tasks %}{% if shown < list_cap %}{% assign shown = shown | plus: 1 %}
+                  <div class="item{% if task.sub %} pl--8{% endif %}">
+                    <div class="content grow"><div class="flex flex--top gap--small w--full"><img class="image no-shrink {{ box_class }}" src="{% if task.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if task.done %}Done{% else %}Open{% endif %}"><span class="{{ text_class }}{% if task.done %} text--gray-45{% endif %} w--full" data-clamp="2">{{ task.text | escape }}</span></div></div>
+                  </div>
+                {% endif %}{% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <p class="value value--small lg:value--base">Today’s note has no checkboxes yet.</p>
+        {% endif %}
+
+      {% when 'due_tasks' %}
+        <div class="grid grid--cols-3 gap w--full">
+          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xlarge value--tnums">{{ overdue_count }}</span><span class="label lg:label--large">Overdue</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xlarge value--tnums">{{ today_count }}</span><span class="label lg:label--large">Due today</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xlarge value--tnums">{{ upcoming_count }}</span><span class="label lg:label--large">Next {{ lookahead_days }} days</span></div>
+        </div>
+        {% if tasks.size > 0 %}
+          {% assign current = '' %}
+          <div class="columns grow" data-overflow="true" data-overflow-max-cols="2" data-overflow-max-cols-portrait="1" data-overflow-counter="true">
+            <div class="column">
+              {% for task in tasks limit: list_cap %}
+                {% if task.bucket != current %}
+                  {% assign current = task.bucket %}
+                  <span class="label label--underline group-header" data-group-header="true">{% case task.bucket %}{% when 'overdue' %}Overdue{% when 'today' %}Due today{% else %}Coming up{% endcase %}</span>
+                {% endif %}
+                <div class="item">
+                  <div class="content grow"><div class="flex flex--col flex--left w--full">
+                  <span class="title title--small lg:title w--full" data-clamp="1">{{ task.text | escape }}</span>
+                  <span class="label label--small lg:label w--full" data-clamp="1">{{ task.file | escape }}{% if task.bucket == 'overdue' %} · {{ task.when | escape }}{% elsif task.bucket == 'upcoming' %} · {{ task.due_label | escape }}{% endif %}</span></div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <p class="value value--small lg:value--base">Nothing due in the next {{ lookahead_days }} days.</p>
+        {% endif %}
+
+      {% when 'dataview_query' %}
+        <div class="flex flex--row flex--between flex--bottom gap w--full">
+          <span class="title title--large lg:title--xxlarge w--full" data-clamp="1">{{ title | escape }}</span>
+          {% assign shown_rows = rows.size | at_most: 7 %}
+          {% if kind == 'list' %}{% assign shown_rows = rows.size | at_most: 14 %}{% endif %}
+          {% if row_count > shown_rows %}<span class="label lg:label--large no-shrink">{{ shown_rows }} of {{ row_count }}</span>{% endif %}
+        </div>
+        {% if rows.size > 0 %}
+          {% if kind == 'table' %}
+            <table class="table lg:table--large">
+              <thead><tr>{% for header in headers limit: 5 %}<th><span class="title title--small lg:title pr--4">{{ header | escape }}</span></th>{% endfor %}</tr></thead>
+              <tbody>
+                {% for row in rows limit: 7 %}<tr>{% for cell in row limit: 5 %}<td><span class="label lg:label--large pr--4 w--full" data-clamp="1">{{ cell | escape }}</span></td>{% endfor %}</tr>{% endfor %}
+              </tbody>
+            </table>
+          {% else %}
+            <div class="columns grow" data-overflow="true" data-overflow-max-cols="2" data-overflow-max-cols-portrait="1" data-overflow-counter="true">
+              <div class="column">
+                {% for row in rows limit: 14 %}<div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="title lg:title--xlarge w--full" data-clamp="1">{{ row[0] | escape }}</span></div></div></div>{% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        {% else %}
+          <p class="value value--small lg:value--base">The query has no results.</p>
+        {% endif %}
+
+      {% when 'resurface' %}
+        <div class="flex flex--col gap--xsmall w--full">
+          <span class="title title--xlarge lg:title--xxlarge w--full" data-clamp="2">{{ title | escape }}</span>
+          <span class="label lg:label--large w--full" data-clamp="1">{% if folder != blank %}{{ folder | escape }} · {% endif %}{{ age_label | escape }} · {{ word_count }} words</span>
+        </div>
+        <div class="richtext richtext--left w--full grow">
+          <div class="content content--xlarge lg:content--xxlarge gap" data-content-limiter="true">
+            {% for paragraph in paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}
+          </div>
+        </div>
+
+      {% when 'writing_stats' %}
+        <div class="grid grid--cols-12 gap--large w--full h--full">
+          <div class="col--span-4 portrait:col--span-12 flex flex--col portrait:flex--row flex--between flex--left gap">
+            <div class="flex flex--col flex--left"><span class="value value--xxlarge lg:value--xxxlarge value--tnums">{{ labels.words_today }}</span><span class="label lg:label--large">Words today</span></div>
+            <div class="flex flex--col flex--left"><span class="value value--xxlarge lg:value--xxxlarge value--tnums">{{ streak_days }}</span><span class="label lg:label--large">Day streak</span></div>
+          </div>
+          <div class="col--span-8 portrait:col--span-12 flex flex--col flex--stretch-x gap--small">
+            <span class="label lg:label--large">Last {{ history.size }} days · most {{ labels.history_max }} words</span>
+            <div class="flex flex--row flex--bottom gap--small w--full grow">
+              {% for day in history %}
+                <div class="flex flex--col flex--bottom flex--center-x gap--xsmall grow h--full">
+                  <div class="w--full h--{{ bar_heights[day.level] }} lg:h--{{ bar_heights_lg[day.level] }} bg--black"></div>
+                  <span class="label label--small lg:label{% if day.today %} label--inverted{% endif %}">{{ day.label }}</span>
+                </div>
+              {% endfor %}
+            </div>
+            <span class="label lg:label--large">{{ notes_created_7d }} new notes this week · {{ labels.total_words }} words in {{ labels.total_notes }} notes</span>
+          </div>
+        </div>
+
+      {% when 'pinned_note' %}
+        <span class="title title--large lg:title--xxlarge">{{ title | escape }}</span>
+        <div class="columns grow" data-overflow="true" data-overflow-max-cols="2" data-overflow-max-cols-portrait="1" data-overflow-counter="true">
+          <div class="column">
+            {% for line in lines limit: list_cap %}
+              {% case line.kind %}
+                {% when 'heading' %}
+                  <span class="label label--underline group-header" data-group-header="true">{{ line.text | escape }}</span>
+                {% when 'pair' %}
+                  <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="label lg:label--large">{{ line.label | escape }}</span><span class="{{ text_class }} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
+                {% when 'task' %}
+                  <div class="item{% if line.sub %} pl--8{% endif %}"><div class="content grow"><div class="flex flex--top gap--small w--full"><img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"><span class="{{ text_class }}{% if line.done %} text--gray-45{% endif %} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
+                {% when 'li' %}
+                  <div class="item{% if line.sub %} pl--8{% endif %}"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
+                {% else %}
+                  <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ body_class }} w--full" data-clamp="3">{{ line.text | escape }}</span></div></div></div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+    {% endcase %}
+  {% endif %}
+</div>
+<div class="title_bar">
+  <img class="image" src="{{ icon_uri }}" alt="">
+  <span class="title" data-footer-name="true">{{ plugin_name }}</span>
+  {% if bar_detail != blank %}<span class="instance">{{ bar_detail }}</span>{% endif %}
+</div>

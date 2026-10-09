@@ -1,0 +1,91 @@
+{
+  "screen": "writing_stats",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "words_today": 0,
+  "streak_days": 0,
+  "notes_created_7d": 0,
+  "total_notes": 1,
+  "total_words": 7,
+  "labels": {
+    "words_today": "0",
+    "total_words": "7",
+    "total_notes": "1",
+    "history_max": "0"
+  },
+  "history_max": 0,
+  "history": [
+    {
+      "label": "S",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "S",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "M",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "T",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "W",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "T",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "F",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "S",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "S",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "M",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "T",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "W",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "T",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "F",
+      "words": 0,
+      "level": 0,
+      "today": true
+    }
+  ]
+}

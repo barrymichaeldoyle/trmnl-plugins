@@ -36,6 +36,7 @@ export async function loadPlugin(directory) {
   // stand in for the poll, shaped the way TRMNL hands them to the transform:
   // "fixtures": { "name": { "files": ["fixtures/report.json"], "time": "2026-10-08T15:00:00Z" } }
   // One file per polling URL; time is when the response was recorded.
+  // Webhook plugins record one file per push: the merge_variables object.
   const fixtures = Object.fromEntries(await Promise.all(Object.entries(config.fixtures ?? {}).map(async ([name, entry]) =>
     [name, polledData(await Promise.all([entry.files ?? entry.file ?? entry].flat().map(async path => JSON.parse(await readFile(join(root, path), 'utf8')))))])));
   const defaultFixture = config.preview?.fixture ?? Object.keys(fixtures)[0];
@@ -156,7 +157,7 @@ export function previewTiming(plugin, fixture) {
 }
 
 export async function checkPlugin(plugin) {
-  if (!plugin.settings.name || !['static', 'polling'].includes(plugin.settings.strategy)) throw new Error('This tool supports named static and polling recipes.');
+  if (!plugin.settings.name || !['static', 'polling', 'webhook'].includes(plugin.settings.strategy)) throw new Error('This tool supports named static, polling and webhook recipes.');
   if (plugin.settings.strategy === 'polling') await checkPolling(plugin);
   if (!Array.isArray(plugin.settings.custom_fields)) throw new Error('custom_fields must be an array.');
   for (const [view, template] of Object.entries(plugin.templates)) {

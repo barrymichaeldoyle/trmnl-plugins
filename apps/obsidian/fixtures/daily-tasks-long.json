@@ -1,0 +1,109 @@
+{
+  "screen": "daily_tasks",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "date_label": "Friday 9 October",
+  "total": 25,
+  "done": 5,
+  "open": 20,
+  "groups": [
+    {
+      "heading": "Work",
+      "tasks": [
+        {
+          "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and see it on the device…",
+          "done": false
+        },
+        {
+          "text": "Draft the release notes for version 0.2",
+          "done": false
+        },
+        {
+          "text": "Back up the vault",
+          "done": false
+        },
+        {
+          "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and see it on the device…",
+          "done": false
+        },
+        {
+          "text": "Water the seedlings",
+          "done": false
+        },
+        {
+          "text": "Back up the vault",
+          "done": false
+        },
+        {
+          "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and see it on the device…",
+          "done": false
+        },
+        {
+          "text": "A subtask with a long description that wraps onto the next line",
+          "done": false,
+          "sub": true
+        }
+      ]
+    },
+    {
+      "heading": "Home",
+      "tasks": [
+        {
+          "text": "Water the seedlings",
+          "done": false
+        },
+        {
+          "text": "Draft the release notes for version 0.2",
+          "done": false
+        },
+        {
+          "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and see it on the device…",
+          "done": false
+        },
+        {
+          "text": "Water the seedlings",
+          "done": false
+        },
+        {
+          "text": "Draft the release notes for version 0.2",
+          "done": false
+        },
+        {
+          "text": "Back up the vault",
+          "done": false
+        }
+      ]
+    },
+    {
+      "heading": "Errands and appointments for the long weekend",
+      "tasks": [
+        {
+          "text": "Water the seedlings",
+          "done": false
+        },
+        {
+          "text": "Draft the release notes for version 0.2",
+          "done": false
+        },
+        {
+          "text": "Back up the vault",
+          "done": false
+        },
+        {
+          "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and see it on the device…",
+          "done": false
+        },
+        {
+          "text": "Draft the release notes for version 0.2",
+          "done": false
+        },
+        {
+          "text": "Back up the vault",
+          "done": false
+        }
+      ]
+    }
+  ],
+  "hidden": 5
+}

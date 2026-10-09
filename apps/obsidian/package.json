@@ -1,0 +1,25 @@
+{
+  "name": "@trmnl/obsidian",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch ../../packages/plugin-tools/src/cli.js dev .",
+    "review": "node --watch ../../packages/plugin-tools/src/cli.js review .",
+    "review:check": "node ../../packages/plugin-tools/src/cli.js review-check .",
+    "screenshots": "node ../../packages/plugin-tools/src/cli.js screenshots .",
+    "upload": "node ../../packages/plugin-tools/src/cli.js upload .",
+    "build": "node ../../packages/plugin-tools/src/cli.js build . && node scripts/build-plugin.js",
+    "check": "node ../../packages/plugin-tools/src/cli.js check .",
+    "lint": "bundle exec trmnlp lint --dir .",
+    "fixtures": "node scripts/generate-fixtures.js",
+    "plugin:dev": "node scripts/build-plugin.js --watch --vault",
+    "plugin:build": "node scripts/build-plugin.js",
+    "demo:age": "node scripts/age-demo-vault.js"
+  },
+  "devDependencies": {
+    "@trmnl/plugin-tools": "workspace:*",
+    "esbuild": "0.28.2",
+    "moment": "2.31.0",
+    "yaml": "^2.9.1"
+  }
+}

@@ -214,3 +214,9 @@ tiles overlap, or when an amount (`[data-amount]`) overflows its box. The
 typography matrix reports the smallest amount size and the share of the layout
 the tiles fill. Documentation images name a case instead of a passage in
 `docs/screenshots.json`.
+
+Clipping and view checks compare line boxes, not glyph boxes, so a large
+font's overhang past tight framework leading is not reported. An app that
+shortens text on purpose with the framework's clamp engine sets
+`"review": { "allow_line_clamp": true }`; text inside a `[data-clamp]` element
+is then not reported as clipped. Obsidian Screens does this for its lists.

@@ -1,0 +1,12 @@
+{
+  "screen": "due_tasks",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "overdue_count": 0,
+  "today_count": 0,
+  "upcoming_count": 0,
+  "lookahead_days": 7,
+  "tasks": [],
+  "hidden": 0
+}

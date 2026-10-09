@@ -1,0 +1,30 @@
+{
+  "screen": "daily_tasks",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "date_label": "Friday 9 October",
+  "total": 3,
+  "done": 3,
+  "open": 0,
+  "groups": [
+    {
+      "heading": "Work",
+      "tasks": [
+        {
+          "text": "Ship it",
+          "done": true
+        },
+        {
+          "text": "Tell everyone",
+          "done": true
+        },
+        {
+          "text": "Go home",
+          "done": true
+        }
+      ]
+    }
+  ],
+  "hidden": 0
+}

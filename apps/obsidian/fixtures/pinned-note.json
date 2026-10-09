@@ -1,0 +1,45 @@
+{
+  "screen": "pinned_note",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "title": "This Week",
+  "lines": [
+    {
+      "kind": "pair",
+      "text": "TRMNL Obsidian plugin MVP",
+      "label": "Ship"
+    },
+    {
+      "kind": "pair",
+      "text": "adding image rendering",
+      "label": "Avoid"
+    },
+    {
+      "kind": "pair",
+      "text": "Thinking in Systems, chapter 3",
+      "label": "Read"
+    },
+    {
+      "kind": "heading",
+      "text": "Before Sunday"
+    },
+    {
+      "kind": "task",
+      "text": "Decide the six screens",
+      "done": true
+    },
+    {
+      "kind": "task",
+      "text": "Get the daily tasks screen onto the device",
+      "done": false
+    },
+    {
+      "kind": "task",
+      "text": "Order the display stand",
+      "done": false
+    }
+  ],
+  "hidden": 0,
+  "modified_label": "7 Oct 08:30"
+}

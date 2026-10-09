@@ -1,0 +1,103 @@
+{
+  "screen": "dataview_query",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "title": "Reading list with a very long title for the screen",
+  "kind": "table",
+  "headers": [
+    "Book",
+    "Author",
+    "Status",
+    "Rating",
+    "Notes"
+  ],
+  "rows": [
+    [
+      "Book 1",
+      "Ursula K. Le Guin",
+      "finished",
+      "0",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "A Considerably Longer Book Title…",
+      "Ursula K. Le Guin",
+      "reading",
+      "1",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "Book 3",
+      "Ursula K. Le Guin",
+      "reading",
+      "2",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "A Considerably Longer Book Title…",
+      "Ursula K. Le Guin",
+      "finished",
+      "3",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "Book 5",
+      "Ursula K. Le Guin",
+      "reading",
+      "4",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "A Considerably Longer Book Title…",
+      "Ursula K. Le Guin",
+      "reading",
+      "0",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "Book 7",
+      "Ursula K. Le Guin",
+      "finished",
+      "1",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "A Considerably Longer Book Title…",
+      "Ursula K. Le Guin",
+      "reading",
+      "2",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "Book 9",
+      "Ursula K. Le Guin",
+      "reading",
+      "3",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "A Considerably Longer Book Title…",
+      "Ursula K. Le Guin",
+      "finished",
+      "4",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "Book 11",
+      "Ursula K. Le Guin",
+      "reading",
+      "0",
+      "Recommended by a friend at the library…"
+    ],
+    [
+      "A Considerably Longer Book Title…",
+      "Ursula K. Le Guin",
+      "reading",
+      "1",
+      "Recommended by a friend at the library…"
+    ]
+  ],
+  "row_count": 20,
+  "hidden": 8
+}

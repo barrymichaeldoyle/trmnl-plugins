@@ -1,0 +1,398 @@
+{
+  "slug": "obsidian-screens",
+  "fixtures": {
+    "waiting": {
+      "file": "fixtures/waiting.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "daily-tasks": {
+      "file": "fixtures/daily-tasks.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "due-tasks": {
+      "file": "fixtures/due-tasks.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "dataview-query": {
+      "file": "fixtures/dataview-query.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "resurface": {
+      "file": "fixtures/resurface.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "writing-stats": {
+      "file": "fixtures/writing-stats.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "pinned-note": {
+      "file": "fixtures/pinned-note.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "daily-tasks-long": {
+      "file": "fixtures/daily-tasks-long.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "daily-tasks-done": {
+      "file": "fixtures/daily-tasks-done.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "daily-tasks-missing": {
+      "file": "fixtures/daily-tasks-missing.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "due-tasks-long": {
+      "file": "fixtures/due-tasks-long.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "due-tasks-clear": {
+      "file": "fixtures/due-tasks-clear.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "dataview-wide": {
+      "file": "fixtures/dataview-wide.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "dataview-list": {
+      "file": "fixtures/dataview-list.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "dataview-missing": {
+      "file": "fixtures/dataview-missing.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "resurface-long": {
+      "file": "fixtures/resurface-long.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "writing-stats-first-day": {
+      "file": "fixtures/writing-stats-first-day.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "pinned-note-long": {
+      "file": "fixtures/pinned-note-long.json",
+      "time": "2026-10-09T14:00:00Z"
+    },
+    "pinned-note-missing": {
+      "file": "fixtures/pinned-note-missing.json",
+      "time": "2026-10-09T14:00:00Z"
+    }
+  },
+  "preview": {
+    "shell": "fixtures",
+    "fixture": "daily-tasks",
+    "utc_offset": 0
+  },
+  "review": {
+    "allow_line_clamp": true,
+    "min_font_size": {
+      "quadrant": 12,
+      "half_vertical": 12,
+      "default": 16
+    },
+    "cases": [
+      {
+        "id": "waiting",
+        "name": "Before the first push",
+        "fixture": "waiting",
+        "suites": [
+          "curated"
+        ],
+        "expect": [
+          "Waiting for Obsidian"
+        ],
+        "expect_by_view": {}
+      },
+      {
+        "id": "daily-tasks",
+        "name": "Daily tasks",
+        "fixture": "daily-tasks",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [
+          "Sketch collect()"
+        ],
+        "expect_by_view": {
+          "full": [
+            "Friday 9 October",
+            "2 of 7 done",
+            "Work",
+            "Personal"
+          ],
+          "half_vertical": [
+            "Friday 9 October",
+            "2 of 7 done"
+          ]
+        }
+      },
+      {
+        "id": "due-tasks",
+        "name": "Due tasks",
+        "fixture": "due-tasks",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [
+          "Get quotes"
+        ],
+        "expect_by_view": {
+          "full": [
+            "Overdue",
+            "Garden Rebuild · 6 days late",
+            "Due today",
+            "Coming up"
+          ],
+          "half_vertical": [
+            "Overdue",
+            "Garden Rebuild · 6 days late"
+          ],
+          "half_horizontal": [
+            "overdue"
+          ]
+        }
+      },
+      {
+        "id": "dataview-query",
+        "name": "Dataview table",
+        "fixture": "dataview-query",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [
+          "TRMNL Plugin",
+          "active"
+        ],
+        "expect_by_view": {
+          "full": [
+            "Active projects",
+            "1 Oct 2026",
+            "Status"
+          ]
+        }
+      },
+      {
+        "id": "resurface",
+        "name": "Resurfaced note",
+        "fixture": "resurface",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [
+          "Old Idea - Vault Metrics",
+          "What if a vault"
+        ],
+        "expect_by_view": {
+          "full": [
+            "Notes · Edited 100 days ago · 102 words"
+          ]
+        }
+      },
+      {
+        "id": "writing-stats",
+        "name": "Writing stats",
+        "fixture": "writing-stats",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [
+          "312",
+          "Words today",
+          "Day streak"
+        ],
+        "expect_by_view": {
+          "full": [
+            "Last 14 days · most 610 words",
+            "8 new notes this week · 1,212 words in 18 notes"
+          ]
+        }
+      },
+      {
+        "id": "pinned-note",
+        "name": "Pinned note",
+        "fixture": "pinned-note",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [
+          "This Week"
+        ],
+        "expect_by_view": {
+          "full": [
+            "Ship",
+            "TRMNL Obsidian plugin MVP",
+            "Before Sunday"
+          ],
+          "half_vertical": [
+            "Ship",
+            "Avoid"
+          ]
+        }
+      },
+      {
+        "id": "daily-tasks-long",
+        "name": "Daily tasks · 25 tasks, long text",
+        "fixture": "daily-tasks-long",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [],
+        "expect_by_view": {}
+      },
+      {
+        "id": "daily-tasks-done",
+        "name": "Daily tasks · all done",
+        "fixture": "daily-tasks-done",
+        "suites": [
+          "curated"
+        ],
+        "expect": [
+          "3"
+        ],
+        "expect_by_view": {
+          "full": [
+            "3 of 3 done",
+            "Ship it"
+          ],
+          "half_horizontal": [
+            "Everything’s done."
+          ],
+          "quadrant": [
+            "All done"
+          ]
+        }
+      },
+      {
+        "id": "daily-tasks-missing",
+        "name": "No daily note today",
+        "fixture": "daily-tasks-missing",
+        "suites": [
+          "curated"
+        ],
+        "expect": [
+          "No daily note yet",
+          "Create today’s note in Obsidian"
+        ],
+        "expect_by_view": {}
+      },
+      {
+        "id": "due-tasks-long",
+        "name": "Due tasks · 28 due, long names",
+        "fixture": "due-tasks-long",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [],
+        "expect_by_view": {}
+      },
+      {
+        "id": "due-tasks-clear",
+        "name": "Due tasks · nothing due",
+        "fixture": "due-tasks-clear",
+        "suites": [
+          "curated"
+        ],
+        "expect": [
+          "0"
+        ],
+        "expect_by_view": {
+          "full": [
+            "Nothing due in the next 7 days."
+          ],
+          "half_horizontal": [
+            "Nothing due soon."
+          ]
+        }
+      },
+      {
+        "id": "dataview-wide",
+        "name": "Dataview · six columns, 20 rows",
+        "fixture": "dataview-wide",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [],
+        "expect_by_view": {}
+      },
+      {
+        "id": "dataview-list",
+        "name": "Dataview LIST",
+        "fixture": "dataview-list",
+        "suites": [
+          "curated"
+        ],
+        "expect": [
+          "Compost Ratios",
+          "Garden Rebuild"
+        ],
+        "expect_by_view": {}
+      },
+      {
+        "id": "dataview-missing",
+        "name": "Dataview not installed",
+        "fixture": "dataview-missing",
+        "suites": [
+          "curated"
+        ],
+        "expect": [
+          "Install and enable the Dataview plugin"
+        ],
+        "expect_by_view": {}
+      },
+      {
+        "id": "resurface-long",
+        "name": "Resurfaced note · long excerpt",
+        "fixture": "resurface-long",
+        "suites": [
+          "curated"
+        ],
+        "expect": [],
+        "expect_by_view": {}
+      },
+      {
+        "id": "writing-stats-first-day",
+        "name": "Writing stats · first day",
+        "fixture": "writing-stats-first-day",
+        "suites": [
+          "curated"
+        ],
+        "expect": [
+          "Words today"
+        ],
+        "expect_by_view": {}
+      },
+      {
+        "id": "pinned-note-long",
+        "name": "Pinned note · long note",
+        "fixture": "pinned-note-long",
+        "suites": [
+          "responsive",
+          "curated"
+        ],
+        "expect": [],
+        "expect_by_view": {}
+      },
+      {
+        "id": "pinned-note-missing",
+        "name": "Pinned note · missing",
+        "fixture": "pinned-note-missing",
+        "suites": [
+          "curated"
+        ],
+        "expect": [
+          "There is no note at Weekly Plan.md."
+        ],
+        "expect_by_view": {}
+      }
+    ]
+  }
+}

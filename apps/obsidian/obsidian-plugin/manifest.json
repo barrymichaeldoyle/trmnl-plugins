@@ -1,0 +1,10 @@
+{
+  "id": "trmnl-screens",
+  "name": "TRMNL Screens",
+  "version": "0.1.0",
+  "minAppVersion": "1.11.4",
+  "description": "Push today's tasks, due tasks, Dataview queries, resurfaced notes, writing stats or a pinned note to a TRMNL e-ink display.",
+  "author": "Barry Michael Doyle",
+  "authorUrl": "https://github.com/barrymichaeldoyle",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,7 @@
+# Obsidian rewrites these whenever the vault is opened.
+.obsidian/workspace*.json
+.obsidian/graph.json
+.obsidian/cache
+.trash/
+# Built by pnpm --filter @trmnl/obsidian plugin:dev, and settings saved by Obsidian.
+.obsidian/plugins/

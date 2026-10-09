@@ -1,0 +1,133 @@
+{
+  "screen": "due_tasks",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "overdue_count": 20,
+  "today_count": 1,
+  "upcoming_count": 7,
+  "lookahead_days": 7,
+  "tasks": [
+    {
+      "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and…",
+      "file": "Client project number 1 with a long name",
+      "bucket": "overdue",
+      "days": -29,
+      "due_label": "Thu 10 Sep",
+      "when": "29 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 2 with a long name",
+      "bucket": "overdue",
+      "days": -28,
+      "due_label": "Fri 11 Sep",
+      "when": "28 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 3 with a long name",
+      "bucket": "overdue",
+      "days": -27,
+      "due_label": "Sat 12 Sep",
+      "when": "27 days late"
+    },
+    {
+      "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and…",
+      "file": "Client project number 4 with a long name",
+      "bucket": "overdue",
+      "days": -26,
+      "due_label": "Sun 13 Sep",
+      "when": "26 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 5 with a long name",
+      "bucket": "overdue",
+      "days": -25,
+      "due_label": "Mon 14 Sep",
+      "when": "25 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 6 with a long name",
+      "bucket": "overdue",
+      "days": -24,
+      "due_label": "Tue 15 Sep",
+      "when": "24 days late"
+    },
+    {
+      "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and…",
+      "file": "Client project number 7 with a long name",
+      "bucket": "overdue",
+      "days": -23,
+      "due_label": "Wed 16 Sep",
+      "when": "23 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 8 with a long name",
+      "bucket": "overdue",
+      "days": -22,
+      "due_label": "Thu 17 Sep",
+      "when": "22 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 9 with a long name",
+      "bucket": "overdue",
+      "days": -21,
+      "due_label": "Fri 18 Sep",
+      "when": "21 days late"
+    },
+    {
+      "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and…",
+      "file": "Client project number 10 with a long…",
+      "bucket": "overdue",
+      "days": -20,
+      "due_label": "Sat 19 Sep",
+      "when": "20 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 11 with a long…",
+      "bucket": "overdue",
+      "days": -19,
+      "due_label": "Sun 20 Sep",
+      "when": "19 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 12 with a long…",
+      "bucket": "overdue",
+      "days": -18,
+      "due_label": "Mon 21 Sep",
+      "when": "18 days late"
+    },
+    {
+      "text": "Rewrite the onboarding flow so that a first-time user can connect their vault, choose a screen and…",
+      "file": "Client project number 13 with a long…",
+      "bucket": "overdue",
+      "days": -17,
+      "due_label": "Tue 22 Sep",
+      "when": "17 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 14 with a long…",
+      "bucket": "overdue",
+      "days": -16,
+      "due_label": "Wed 23 Sep",
+      "when": "16 days late"
+    },
+    {
+      "text": "Send the invoice",
+      "file": "Client project number 15 with a long…",
+      "bucket": "overdue",
+      "days": -15,
+      "due_label": "Thu 24 Sep",
+      "when": "15 days late"
+    }
+  ],
+  "hidden": 13
+}

@@ -1,0 +1,12 @@
+[
+  { "file": "daily-tasks.png", "case": "daily-tasks", "screen": "og-landscape-full" },
+  { "file": "due-tasks.png", "case": "due-tasks", "screen": "og-landscape-full" },
+  { "file": "dataview-query.png", "case": "dataview-query", "screen": "og-landscape-full" },
+  { "file": "resurface.png", "case": "resurface", "screen": "og-landscape-full" },
+  { "file": "writing-stats.png", "case": "writing-stats", "screen": "og-landscape-full" },
+  { "file": "pinned-note.png", "case": "pinned-note", "screen": "og-landscape-full" },
+  { "file": "due-tasks-half-horizontal.png", "case": "due-tasks", "screen": "og-landscape-half_horizontal" },
+  { "file": "writing-stats-half-vertical.png", "case": "writing-stats", "screen": "og-landscape-half_vertical" },
+  { "file": "daily-tasks-quadrant.png", "case": "daily-tasks", "screen": "og-landscape-quadrant" },
+  { "file": "daily-tasks-x.png", "case": "daily-tasks", "screen": "v2-landscape-full" }
+]

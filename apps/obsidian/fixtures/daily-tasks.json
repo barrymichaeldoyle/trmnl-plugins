@@ -1,0 +1,51 @@
+{
+  "screen": "daily_tasks",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "date_label": "Friday 9 October",
+  "total": 7,
+  "done": 2,
+  "open": 5,
+  "groups": [
+    {
+      "heading": "Work",
+      "tasks": [
+        {
+          "text": "Review TRMNLcast source",
+          "done": true
+        },
+        {
+          "text": "Sketch collect() for daily tasks",
+          "done": false
+        },
+        {
+          "text": "Register a webhook for each screen",
+          "done": false
+        },
+        {
+          "text": "Write the Liquid templates for all four sizes",
+          "done": false
+        }
+      ]
+    },
+    {
+      "heading": "Personal",
+      "tasks": [
+        {
+          "text": "Order the e-ink display stand",
+          "done": false
+        },
+        {
+          "text": "20 minute run",
+          "done": true
+        },
+        {
+          "text": "Pick up seed potatoes for the garden",
+          "done": false
+        }
+      ]
+    }
+  ],
+  "hidden": 0
+}

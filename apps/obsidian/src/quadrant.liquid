@@ -1,0 +1,106 @@
+{%- comment -%}
+  A postcard: one figure and the few items that matter most. Tasks show open
+  items only; the title bar keeps the vault and update time where it fits.
+{%- endcomment -%}
+{%- comment -%}
+  list_cap keeps every list within what TRMNL X can show. Framework 3.4's overflow
+  engine measures X's scaled screen in mixed units and under-trims there; on
+  OG it still trims the rest and counts what it hides.
+{%- endcomment -%}
+{%- assign list_cap = 5 -%}
+<div class="layout layout--col layout--stretch-x layout--center-y gap--small">
+  {% if message_title != blank %}
+    <div class="flex flex--col flex--center gap--xsmall h--full">
+      <span class="title title--large lg:title--xlarge text--center">{{ message_title }}</span>
+      <p class="description description--xlarge lg:description--xxlarge text--center" data-clamp="4">{{ message_text }}</p>
+    </div>
+  {% else %}
+    {% case screen %}
+      {% when 'daily_tasks' %}
+        <div class="grid grid--cols-12 gap--small w--full h--full">
+          <div class="col--span-4 portrait:col--span-12 flex flex--col flex--left flex--center-y portrait:flex--row portrait:flex--between">
+            <span class="value value--large lg:value--xlarge value--tnums">{{ open }}</span>
+            <span class="label label--small lg:label">open of {{ total }}</span>
+          </div>
+          <div class="col--span-8 portrait:col--span-12">
+            {% if open > 0 %}
+              <div class="columns" data-overflow="true" data-overflow-max-cols="1" data-overflow-counter="true">
+                <div class="column">
+                  {% assign shown = 0 %}{% for group in groups %}{% for task in group.tasks %}{% unless task.done or shown >= list_cap %}{% assign shown = shown | plus: 1 %}
+                    <div class="item"><div class="content grow"><div class="flex flex--top gap--xsmall w--full"><img class="image no-shrink w--4 h--4 lg:w--6 lg:h--6" src="{{ box_uri }}" alt="Open"><span class="title title--small lg:title w--full" data-clamp="1">{{ task.text | escape }}</span></div></div></div>
+                  {% endunless %}{% endfor %}{% endfor %}
+                </div>
+              </div>
+            {% else %}
+              <div class="flex flex--col flex--center h--full"><span class="title lg:title--large">{% if total > 0 %}All done{% else %}No tasks today{% endif %}</span></div>
+            {% endif %}
+          </div>
+        </div>
+
+      {% when 'due_tasks' %}
+        <div class="grid grid--cols-3 gap--small w--full">
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ overdue_count }}</span><span class="label label--small lg:label">Overdue</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ today_count }}</span><span class="label label--small lg:label">Today</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ upcoming_count }}</span><span class="label label--small lg:label">{{ lookahead_days }} days</span></div>
+        </div>
+        {% if tasks.size > 0 %}
+          <div class="columns" data-overflow="true" data-overflow-max-cols="1">
+            <div class="column">
+              {% for task in tasks limit: 3 %}
+                <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="title title--small lg:title w--full" data-clamp="1">{{ task.text | escape }}</span></div></div></div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+      {% when 'dataview_query' %}
+        <span class="title title--small lg:title w--full" data-clamp="1">{{ title | escape }}</span>
+        {% if rows.size > 0 %}
+          <table class="table table--small lg:table">
+            <tbody>
+              {% for row in rows limit: 3 %}<tr>{% for cell in row limit: 2 %}<td><span class="label lg:label--large pr--4 w--full" data-clamp="1">{{ cell | escape }}</span></td>{% endfor %}</tr>{% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <span class="label lg:label--large">The query has no results.</span>
+        {% endif %}
+
+      {% when 'resurface' %}
+        <div class="flex flex--col gap--xsmall w--full">
+          <span class="title lg:title--xlarge w--full" data-clamp="2">{{ title | escape }}</span>
+          <span class="label label--small lg:label w--full" data-clamp="1">{{ age_label | escape }}</span>
+        </div>
+        <p class="description lg:description--xlarge" data-clamp="3" data-clamp-portrait="6">{{ paragraphs[0] | escape }}</p>
+
+      {% when 'writing_stats' %}
+        <div class="grid grid--cols-2 portrait:grid--cols-1 gap w--full">
+          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xlarge value--tnums">{{ labels.words_today }}</span><span class="label label--small lg:label">Words today</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xlarge value--tnums">{{ streak_days }}</span><span class="label label--small lg:label">Day streak</span></div>
+        </div>
+
+      {% when 'pinned_note' %}
+        <span class="title lg:title--large w--full" data-clamp="1">{{ title | escape }}</span>
+        <div class="columns" data-overflow="true" data-overflow-max-cols="1" data-overflow-counter="true">
+          <div class="column">
+            {% for line in lines limit: list_cap %}
+              {% case line.kind %}
+                {% when 'heading' %}
+                  <span class="label label--underline group-header" data-group-header="true">{{ line.text | escape }}</span>
+                {% when 'pair' %}
+                  <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="title title--small lg:title w--full" data-clamp="1">{{ line.label | escape }}: {{ line.text | escape }}</span></div></div></div>
+                {% when 'task' %}
+                  <div class="item"><div class="content grow"><div class="flex flex--top gap--xsmall w--full"><img class="image no-shrink w--4 h--4 lg:w--6 lg:h--6" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"><span class="title title--small lg:title{% if line.done %} text--gray-45{% endif %} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
+                {% else %}
+                  <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="title title--small lg:title w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+    {% endcase %}
+  {% endif %}
+</div>
+<div class="title_bar">
+  <img class="image" src="{{ icon_uri }}" alt="">
+  <span class="title" data-footer-name="true">{{ plugin_name }}</span>
+  {% if bar_detail != blank %}<span class="instance portrait:hidden">{{ bar_detail }}</span>{% endif %}
+</div>

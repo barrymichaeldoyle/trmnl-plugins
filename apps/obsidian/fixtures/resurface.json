@@ -1,0 +1,16 @@
+{
+  "screen": "resurface",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "title": "Old Idea - Vault Metrics",
+  "folder": "Notes",
+  "paragraphs": [
+    "What if a vault's word count over time was a proxy for how much thinking you are actually doing? Not notes created, but words revised.",
+    "Most note apps reward capture. You clip, you save, you file, and the pile grows. But a pile is not understanding. The notes that matter are the ones you come back to and rewrite, because rewriting is where you find out what you actually think."
+  ],
+  "modified_label": "1 Jul 2026",
+  "age_label": "Edited 100 days ago",
+  "age_days": 100,
+  "word_count": 102
+}

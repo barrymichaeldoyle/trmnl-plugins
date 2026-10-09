@@ -1,5 +1,5 @@
 // Self-contained so Playwright can evaluate it in the rendered document.
-export function measureReview({ expected, missingTitle, missingText, qr, recovery, minFontSize = 16, minFill = 45, expectText }) {
+export function measureReview({ expected, missingTitle, missingText, qr, recovery, minFontSize = 16, minFill = 45, expectText, allowLineClamp = false }) {
   const errors = [];
   // Warnings flag legibility and wasted space; they never fail a run.
   const warnings = [];
@@ -116,15 +116,18 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
       if (!node.textContent.trim() || !visible(node.parentElement) || node.parentElement.closest('script')) continue;
       const range = document.createRange(); range.selectNodeContents(node);
       const bounds = Array.from(range.getClientRects()).filter(b => b.width > 0);
-      if (bounds.some(b => !inside(b, rect(view)))) { errors.push(`Text extends outside the view: ${normalize(node.textContent).slice(0, 40)}`); continue; }
-      for (let ancestor = node.parentElement; ancestor && ancestor !== view; ancestor = ancestor.parentElement) {
-        const style = getComputedStyle(ancestor);
-        if (/(hidden|clip|scroll|auto)/.test(`${style.overflowX} ${style.overflowY}`) && bounds.some(b => !inside(b, rect(ancestor)))) { errors.push(`Text is clipped: ${normalize(node.textContent).slice(0, 40)}`); break; }
-      }
       // Glyph boxes overhang tight framework leading; compare line boxes instead.
-      const tile = node.parentElement.closest('[data-tile]');
       const lineHeight = parseFloat(getComputedStyle(node.parentElement).lineHeight) * scale;
       const lineBoxes = bounds.map(b => { const trim = Number.isFinite(lineHeight) ? Math.max(0, (b.height - lineHeight) / 2) : 0; return { left: b.left, right: b.right, top: b.top + trim, bottom: b.bottom - trim }; });
+      if (lineBoxes.some(b => !inside(b, rect(view)))) { errors.push(`Text extends outside the view: ${normalize(node.textContent).slice(0, 40)}`); continue; }
+      for (let ancestor = node.parentElement; ancestor && ancestor !== view; ancestor = ancestor.parentElement) {
+        const style = getComputedStyle(ancestor);
+        // Apps that opt in may shorten text with the framework's clamp engine,
+        // which ends the last kept line with an ellipsis.
+        if (allowLineClamp && ancestor.hasAttribute('data-clamp')) continue;
+        if (/(hidden|clip|scroll|auto)/.test(`${style.overflowX} ${style.overflowY}`) && lineBoxes.some(b => !inside(b, rect(ancestor)))) { errors.push(`Text is clipped: ${normalize(node.textContent).slice(0, 40)}`); break; }
+      }
+      const tile = node.parentElement.closest('[data-tile]');
       if (tile && lineBoxes.some(b => !inside(b, rect(tile)))) errors.push(`Text spills out of its tile: ${normalize(node.textContent).slice(0, 40)}`);
     }
     const tiles = Array.from(view.querySelectorAll('[data-tile]')).filter(visible);

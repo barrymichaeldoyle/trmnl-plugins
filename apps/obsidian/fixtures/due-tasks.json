@@ -1,0 +1,101 @@
+{
+  "screen": "due_tasks",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "overdue_count": 3,
+  "today_count": 1,
+  "upcoming_count": 7,
+  "lookahead_days": 7,
+  "tasks": [
+    {
+      "text": "Get quotes for the raised beds",
+      "file": "Garden Rebuild",
+      "bucket": "overdue",
+      "days": -6,
+      "due_label": "Sat 3 Oct",
+      "when": "6 days late"
+    },
+    {
+      "text": "Hash the payload to skip pushes that change nothing",
+      "file": "TRMNL Plugin",
+      "bucket": "overdue",
+      "days": -2,
+      "due_label": "Wed 7 Oct",
+      "when": "2 days late"
+    },
+    {
+      "text": "Find the studs behind the tiles",
+      "file": "Kitchen Shelf",
+      "bucket": "overdue",
+      "days": -1,
+      "due_label": "Yesterday",
+      "when": "1 day late"
+    },
+    {
+      "text": "Write Liquid templates for all four sizes",
+      "file": "TRMNL Plugin",
+      "bucket": "today",
+      "days": 0,
+      "due_label": "Today",
+      "when": "Today"
+    },
+    {
+      "text": "Call Mum about Sunday lunch",
+      "file": "Daily note",
+      "bucket": "upcoming",
+      "days": 1,
+      "due_label": "Tomorrow",
+      "when": "Tomorrow"
+    },
+    {
+      "text": "Order soil",
+      "file": "Garden Rebuild",
+      "bucket": "upcoming",
+      "days": 1,
+      "due_label": "Tomorrow",
+      "when": "Tomorrow"
+    },
+    {
+      "text": "Buy a 60 cm oak board",
+      "file": "Kitchen Shelf",
+      "bucket": "upcoming",
+      "days": 2,
+      "due_label": "Sun 11 Oct",
+      "when": "Sun 11 Oct"
+    },
+    {
+      "text": "Read chapter 3",
+      "file": "Thinking in Systems",
+      "bucket": "upcoming",
+      "days": 3,
+      "due_label": "Mon 12 Oct",
+      "when": "Mon 12 Oct"
+    },
+    {
+      "text": "Add the push budget to the status bar",
+      "file": "TRMNL Plugin",
+      "bucket": "upcoming",
+      "days": 3,
+      "due_label": "Mon 12 Oct",
+      "when": "Mon 12 Oct"
+    },
+    {
+      "text": "Fix the outside tap",
+      "file": "Garden Rebuild",
+      "bucket": "upcoming",
+      "days": 5,
+      "due_label": "Wed 14 Oct",
+      "when": "Wed 14 Oct"
+    },
+    {
+      "text": "Publish the recipe on TRMNL",
+      "file": "TRMNL Plugin",
+      "bucket": "upcoming",
+      "days": 7,
+      "due_label": "Fri 16 Oct",
+      "when": "Fri 16 Oct"
+    }
+  ],
+  "hidden": 0
+}

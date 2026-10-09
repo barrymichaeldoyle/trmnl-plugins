@@ -1,0 +1,91 @@
+{
+  "screen": "writing_stats",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "words_today": 312,
+  "streak_days": 9,
+  "notes_created_7d": 8,
+  "total_notes": 18,
+  "total_words": 1212,
+  "labels": {
+    "words_today": "312",
+    "total_words": "1,212",
+    "total_notes": "18",
+    "history_max": "610"
+  },
+  "history_max": 610,
+  "history": [
+    {
+      "label": "S",
+      "words": 410,
+      "level": 5
+    },
+    {
+      "label": "S",
+      "words": 180,
+      "level": 2
+    },
+    {
+      "label": "M",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "T",
+      "words": 265,
+      "level": 3
+    },
+    {
+      "label": "W",
+      "words": 0,
+      "level": 0
+    },
+    {
+      "label": "T",
+      "words": 520,
+      "level": 7
+    },
+    {
+      "label": "F",
+      "words": 95,
+      "level": 1
+    },
+    {
+      "label": "S",
+      "words": 330,
+      "level": 4
+    },
+    {
+      "label": "S",
+      "words": 140,
+      "level": 2
+    },
+    {
+      "label": "M",
+      "words": 610,
+      "level": 8
+    },
+    {
+      "label": "T",
+      "words": 275,
+      "level": 4
+    },
+    {
+      "label": "W",
+      "words": 480,
+      "level": 6
+    },
+    {
+      "label": "T",
+      "words": 205,
+      "level": 3
+    },
+    {
+      "label": "F",
+      "words": 312,
+      "level": 4,
+      "today": true
+    }
+  ]
+}

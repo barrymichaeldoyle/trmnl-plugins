@@ -1,0 +1,42 @@
+{
+  "screen": "dataview_query",
+  "vault": "Demo vault",
+  "updated": "14:00",
+  "status": "ok",
+  "title": "Active projects",
+  "kind": "table",
+  "headers": [
+    "File",
+    "Status",
+    "Area",
+    "Started"
+  ],
+  "rows": [
+    [
+      "TRMNL Plugin",
+      "active",
+      "software",
+      "1 Oct 2026"
+    ],
+    [
+      "Kitchen Shelf",
+      "active",
+      "home",
+      "28 Sep 2026"
+    ],
+    [
+      "Garden Rebuild",
+      "paused",
+      "home",
+      "12 Sep 2026"
+    ],
+    [
+      "Reading Year",
+      "active",
+      "reading",
+      "1 Jan 2026"
+    ]
+  ],
+  "row_count": 4,
+  "hidden": 0
+}

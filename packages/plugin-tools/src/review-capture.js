@@ -96,7 +96,7 @@ export class ReviewCapture {
       await page.waitForFunction(() => window.TRMNL_PLUGINS_READY === true, null, { timeout: 15000 });
       // Two animation frames let the final layout flush after font fitting.
       await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-      metrics = await page.evaluate(measureReview, { expected: scenario.expected, missingTitle: scenario.missingTitle, missingText: scenario.missingText, qr: scenario.options.fields.show_context_qr, recovery: scenario.recovery, minFontSize: minFontSize(plugin, screen.view), expectText: scenario.expectText ? [...scenario.expectText, ...(scenario.expectTextByView?.[screen.view] ?? [])] : undefined });
+      metrics = await page.evaluate(measureReview, { expected: scenario.expected, missingTitle: scenario.missingTitle, missingText: scenario.missingText, qr: scenario.options.fields.show_context_qr, recovery: scenario.recovery, minFontSize: minFontSize(plugin, screen.view), expectText: scenario.expectText ? [...scenario.expectText, ...(scenario.expectTextByView?.[screen.view] ?? [])] : undefined, allowLineClamp: plugin.config.review?.allow_line_clamp === true });
       await atomicWrite(screenshotPath, await page.screenshot({ animations: 'disabled' }));
     } catch (error) {
       errors.push(error.message);
