@@ -24,7 +24,7 @@ Amounts appear in your account's reporting currency and follow its reporting tim
 
 ## Listing icon
 
-[icon.png](../assets/icon.png) is a 512×512 PNG: three rising bars on a baseline, black on white, with no AdMob or Google marks. A [128×128 PNG](../assets/icon-128.png) and the [SVG source](../assets/icon.svg) sit beside it. It matches the icon embedded in every title bar (`src/shared.liquid`). Upload the 512px PNG when the TRMNL submission form asks for an icon: the import ZIP carries only the title-bar icon, not these files.
+[icon.png](../assets/icon.png) is a 512×512 PNG in colour: three rising white bars, a gold trend arrow and a gold coin on an emerald-to-blue gradient, so it stands out on the recipe page. A [128×128 PNG](../assets/icon-128.png) and the [SVG source](../assets/icon.svg) sit beside it; re-render both PNGs from the SVG after editing it. It deliberately avoids the AdMob logo and Google's colours: Google's brand rules do not allow third parties to use or imitate a Google product logo in their own icon, and the recipe name already says what it reads. The title-bar icon on the device (`src/shared.liquid`) stays black and white for e-ink, with the same rising-bars idea. Upload the 512px PNG when the TRMNL submission form asks for an icon: the import ZIP carries only the title-bar icon, not these files.
 
 ## Screenshots
 
