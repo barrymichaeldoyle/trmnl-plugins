@@ -11,7 +11,7 @@
           <span class="label label--small">{{ tile.label | escape }}</span>
           <div class="flex flex--col flex--left gap--xsmall">
             <span class="value {{ amount_classes.secondary.quadrant }} value--tnums" data-amount="true">{{ tile.amount_short | escape }}</span>
-            {% if tile.comparison_short != blank %}<span class="hidden portrait:flex lg:flex flex--row flex--center-y gap--xsmall" data-direction="{{ tile.direction }}">{% if tile.direction == 'up' %}<img class="image w--3 h--3 no-shrink" src="{{ arrow_up_uri }}" alt="Up">{% elsif tile.direction == 'down' %}<img class="image w--3 h--3 no-shrink" src="{{ arrow_down_uri }}" alt="Down">{% endif %}<span class="label label--small">{{ tile.comparison_short | escape }}</span></span>{% endif %}
+            {% if tile.comparison_short != blank %}<span class="hidden portrait:flex lg:flex flex--row flex--center-y gap--xsmall">{% if tile.direction == 'up' %}<img class="image w--3 h--3 no-shrink" src="{{ arrow_up_uri }}" alt="Up">{% elsif tile.direction == 'down' %}<img class="image w--3 h--3 no-shrink" src="{{ arrow_down_uri }}" alt="Down">{% endif %}<span class="label label--small">{{ tile.comparison_short | escape }}</span></span>{% endif %}
           </div>
         </div>
       {% endfor %}
