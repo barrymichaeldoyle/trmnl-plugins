@@ -140,7 +140,7 @@
                     {% when 'pair' %}
                       <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="1">{{ line.label | escape }}: {{ line.text | escape }}</span></div></div></div>
                     {% when 'task' %}
-                      <div class="item"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if line.done %} text--gray-45{% endif %} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
+                      <div class="item"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if line.done %} text--gray-45 1bit:text--black{% endif %} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
                     {% else %}
                       <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
                   {% endcase %}
