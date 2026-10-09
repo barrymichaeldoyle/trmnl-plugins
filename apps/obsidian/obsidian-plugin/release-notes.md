@@ -1,0 +1,1 @@
+Release files are now built by GitHub Actions from this repository's source, with build provenance attestations, and the npm lockfile is committed so builds can be verified. No change to how the plugin works.

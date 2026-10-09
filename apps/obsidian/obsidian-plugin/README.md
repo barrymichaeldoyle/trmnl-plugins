@@ -36,12 +36,13 @@ Add another screen of the same kind, such as a second pinned note, with **Add a 
 ## Privacy and limits
 
 - The plugin reads your vault on your device and sends only the screen's data, as JSON, to the TRMNL webhook you paste. Nothing goes anywhere else, and only when the screen's data changes (plus a refresh every few hours so the update time stays current).
+- The plugin lists the files in your vault, because due tasks, writing stats and resurfacing look across all your notes. It reads note text only to build the screens you turn on, and never changes your notes.
 - Webhook URLs are stored in Obsidian's secret storage, not in your vault or the plugin's settings file.
 - TRMNL accepts 12 pushes an hour per webhook and 5 KB per push (30 and 10 KB with TRMNL+; turn on **TRMNL+** in settings). Long lists are shortened by dropping whole items, never by cutting text to fit.
 - Requires Obsidian 1.11.4 or later. Works on desktop and mobile; on a phone, pushes happen while Obsidian is open.
 
 ## Development
 
-The source lives in the [trmnl-plugins](https://github.com/barrymichaeldoyle/trmnl-plugins/tree/main/apps/obsidian) monorepo with the TRMNL recipe, a demo vault and the tests; this repository is exported from it for Obsidian's plugin directory. `npm install && npm run build` produces `main.js`.
+The source lives in the [trmnl-plugins](https://github.com/barrymichaeldoyle/trmnl-plugins/tree/main/apps/obsidian) monorepo with the TRMNL recipe, a demo vault and the tests; this repository is exported from it for Obsidian's plugin directory. `npm ci && npm run build` produces `main.js`; releases are built and attested by GitHub Actions. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Not affiliated with Obsidian or TRMNL.
