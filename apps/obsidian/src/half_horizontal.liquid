@@ -17,7 +17,7 @@
 {%- endcase -%}
 {%- if item_count <= 6 -%}
   {%- assign text_class = 'title lg:title--xlarge' -%}
-  {%- assign box_class = 'w--6 h--6 lg:w--9 lg:h--9' -%}
+  {%- assign box_class = 'w--5 h--5 lg:w--7 lg:h--7' -%}
 {%- else -%}
   {%- assign text_class = 'title title--small lg:title' -%}
   {%- assign box_class = 'w--4 h--4 lg:w--6 lg:h--6' -%}
@@ -46,7 +46,7 @@
               <div class="columns" data-overflow="true" data-overflow-max-cols="2" data-overflow-counter="true">
                 <div class="column">
                   {% assign shown = 0 %}{% for group in groups %}{% for task in group.tasks %}{% unless task.done or shown >= list_cap %}{% assign shown = shown | plus: 1 %}
-                    <div class="item{% if task.sub %} pl--6{% endif %}"><div class="content grow"><div class="flex flex--top gap--small w--full"><img class="image no-shrink {{ box_class }}" src="{{ box_uri }}" alt="Open"><span class="{{ text_class }} w--full" data-clamp="1">{{ task.text | escape }}</span></div></div></div>
+                    <div class="item{% if task.sub %} pl--6{% endif %}"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{{ box_uri }}" alt="Open"></span><span class="{{ text_class }} w--full" data-clamp="1">{{ task.text | escape }}</span></div></div></div>
                   {% endunless %}{% endfor %}{% endfor %}
                 </div>
               </div>
@@ -140,7 +140,7 @@
                     {% when 'pair' %}
                       <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="1">{{ line.label | escape }}: {{ line.text | escape }}</span></div></div></div>
                     {% when 'task' %}
-                      <div class="item"><div class="content grow"><div class="flex flex--top gap--small w--full"><img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"><span class="{{ text_class }}{% if line.done %} text--gray-45{% endif %} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
+                      <div class="item"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if line.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if line.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if line.done %} text--gray-45{% endif %} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
                     {% else %}
                       <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="{{ text_class }} w--full" data-clamp="1">{{ line.text | escape }}</span></div></div></div>
                   {% endcase %}
