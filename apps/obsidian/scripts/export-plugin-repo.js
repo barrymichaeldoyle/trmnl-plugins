@@ -42,7 +42,7 @@ const build = await context({
 if (process.argv.includes('--watch')) await build.watch();
 else { await build.rebuild(); await build.dispose(); }
 `);
-await writeFile(join(out, '.gitignore'), 'node_modules/\nmain.js\n');
+await writeFile(join(out, '.gitignore'), '/node_modules/\n/main.js\n');
 // The committed lockfile lets the release workflow use npm ci and lets
 // Obsidian's review verify the build.
 execFileSync('npm', ['install', '--package-lock-only', '--ignore-scripts', '--no-audit', '--no-fund'], { cwd: out, stdio: 'ignore' });
