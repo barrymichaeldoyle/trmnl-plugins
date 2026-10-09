@@ -102,7 +102,7 @@ function transform(input) {
 // Requests, impressions and clicks: exact in wide tiles, abbreviated in narrow ones.
 function metrics(totals) {
   const exact = value => grouped(String(Math.round(value)));
-  const compact = value => value < 10000 ? exact(value) : compactNumber(value);
+  const compact = value => value < 10000 ? exact(value) : compactNumber(Math.round(value));
   const plural = (value, word) => `${word}${value === 1 ? '' : 's'}`;
   return {
     requests: exact(totals.requests), impressions: exact(totals.impressions), clicks: exact(totals.clicks),
@@ -201,34 +201,47 @@ function decimalsFor(currency) { return WHOLE_UNITS.includes(currency) ? 0 : 2; 
 function prefixFor(currency) { return SYMBOLS[currency] || (currency ? `${currency} ` : ''); }
 function grouped(digits) { return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
+// Amounts always round down, so the screen never shows more than AdMob reports.
 function formatMoney(micros, currency) {
   const decimals = decimalsFor(currency);
-  const units = Math.round(Math.abs(micros) / 10 ** (6 - decimals));
+  const units = floorDiv(Math.abs(micros), 10 ** (6 - decimals));
   const whole = String(Math.floor(units / 10 ** decimals));
   const fraction = decimals ? `.${String(units % 10 ** decimals).padStart(decimals, '0')}` : '';
   return `${micros < 0 && units ? '-' : ''}${prefixFor(currency)}${grouped(whole)}${fraction}`;
 }
 
 // Narrow views abbreviate large amounts: $12.3K, ¥38.4M. Smaller ones stay exact.
-function compactNumber(value) {
-  const [divisor, suffix] = value >= 1e9 ? [1e9, 'B'] : value >= 1e6 ? [1e6, 'M'] : [1e3, 'K'];
-  const scaled = value / divisor;
-  const text = scaled >= 100 ? scaled.toFixed(0) : scaled >= 10 ? scaled.toFixed(1) : scaled.toFixed(2);
+// Three significant figures, rounded down, so 999,960 is 999K rather than 1000K.
+// `scale` is the size of one unit in `value`: 1e6 for micros, 1 for counts.
+function compactNumber(value, scale = 1) {
+  const units = floorDiv(value, scale);
+  const [divisor, suffix] = units >= 1e9 ? [1e9, 'B'] : units >= 1e6 ? [1e6, 'M'] : [1e3, 'K'];
+  const decimals = units >= divisor * 100 ? 0 : units >= divisor * 10 ? 1 : 2;
+  const digits = floorDiv(value, divisor * scale / 10 ** decimals);
+  const text = decimals ? `${Math.floor(digits / 10 ** decimals)}.${String(digits % 10 ** decimals).padStart(decimals, '0')}` : String(digits);
   return `${text.includes('.') ? text.replace(/0+$/, '').replace(/\.$/, '') : text}${suffix}`;
+}
+
+// Exact floor of a / b for non-negative integers, correcting any floating-point slip.
+function floorDiv(a, b) {
+  let quotient = Math.floor(a / b);
+  if (quotient * b > a) quotient -= 1;
+  else if ((quotient + 1) * b <= a) quotient += 1;
+  return quotient;
 }
 
 // The narrowest tiles: cents below 100, whole units below 1,000, then K and M.
 function shortMoney(micros, currency) {
   const value = Math.abs(micros) / 1e6;
   if (value < 100 || decimalsFor(currency) === 0) return compactMoney(micros, currency, 1000);
-  if (value < 1000) return formatMoney(Math.round(micros / 1e6) * 1e6, currency).replace(/\.0+$/, '');
+  if (value < 1000) return formatMoney(floorDiv(Math.abs(micros), 1e6) * 1e6 * Math.sign(micros), currency).replace(/\.0+$/, '');
   return compactMoney(micros, currency, 1000);
 }
 
 function compactMoney(micros, currency, from = 10000) {
   const value = Math.abs(micros) / 1e6;
   if (value < from) return formatMoney(micros, currency);
-  return `${micros < 0 ? '-' : ''}${prefixFor(currency)}${compactNumber(value)}`;
+  return `${micros < 0 ? '-' : ''}${prefixFor(currency)}${compactNumber(Math.abs(micros), 1e6)}`;
 }
 
 function delta(amount, compare, currency) {
@@ -236,8 +249,9 @@ function delta(amount, compare, currency) {
   const sign = difference > 0 ? '+' : difference < 0 ? '-' : '';
   const deltaAmount = `${sign}${formatMoney(Math.abs(difference), currency)}`;
   if (compare === 0) return { delta_percent: amount === 0 ? '0%' : 'New', delta_amount: deltaAmount, direction: amount === 0 ? 'flat' : 'up' };
-  const percent = difference / Math.abs(compare) * 100;
-  const rounded = Math.abs(percent) >= 100 ? Math.round(Math.abs(percent)).toString() : Math.abs(percent).toFixed(1);
-  if (Number(rounded) === 0) return { delta_percent: '0%', delta_amount: deltaAmount, direction: 'flat' };
-  return { delta_percent: `${sign}${rounded}%`, delta_amount: deltaAmount, direction: percent > 0 ? 'up' : 'down' };
+  // Whole percent, halves away from zero, in integer arithmetic so 0.5% is exactly 1%.
+  const base = Math.abs(compare);
+  const rounded = floorDiv(Math.abs(difference) * 200 + base, base * 2);
+  if (rounded === 0) return { delta_percent: '0%', delta_amount: deltaAmount, direction: 'flat' };
+  return { delta_percent: `${sign}${rounded}%`, delta_amount: deltaAmount, direction: difference > 0 ? 'up' : 'down' };
 }

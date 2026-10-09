@@ -60,7 +60,7 @@ test('computes the primary and three secondary tiles mid-month', () => {
   // Oct 1-8 (7 × 3 + 10) against Sep 1-8 (8 × 2).
   assert.equal(tile(result, 'month').amount, '$31.00');
   assert.equal(tile(result, 'month').compare_amount, '$16.00');
-  assert.equal(tile(result, 'month').comparison, '+93.8% vs the same day last month');
+  assert.equal(tile(result, 'month').comparison, '+94% vs the same day last month');
   // September: 29 × 2 + 5; August: 31 × 1.
   assert.equal(tile(result, 'last_month').amount, '$63.00');
   assert.equal(tile(result, 'last_month').compare_amount, '$31.00');
@@ -161,7 +161,10 @@ test('formats currencies with symbols, grouping and whole units', () => {
   const amount = (currency, value) => tile(run(report({ '2026-10-08': value }, { currency, start: '2026-07-07' }), at), 'today');
   assert.equal(amount('USD', 1234567.891).amount, '$1,234,567.89');
   assert.equal(amount('JPY', 1234567.4).amount, '¥1,234,567');
-  assert.equal(amount('EUR', 0.005).amount, '€0.01');
+  // Amounts round down: a fraction of a cent never shows as the next cent.
+  assert.equal(amount('EUR', 0.005).amount, '€0.00');
+  assert.equal(amount('USD', 18.19609).amount, '$18.19');
+  assert.equal(amount('USD', 0.999999).amount, '$0.99');
   assert.equal(amount('ZAR', 12.5).amount, 'R12.50');
   assert.equal(amount('CHF', 9).amount, 'CHF 9.00');
   assert.equal(amount('USD', 9999.99).amount_compact, '$9,999.99');
@@ -169,11 +172,17 @@ test('formats currencies with symbols, grouping and whole units', () => {
   assert.equal(amount('USD', 100000).amount_compact, '$100K');
   assert.equal(amount('JPY', 38400000).amount_compact, '¥38.4M');
   assert.equal(amount('INR', 2e9).amount_compact, '₹2B');
+  // Abbreviations round down too, so they never roll over into the next unit.
+  assert.equal(amount('USD', 12399.99).amount_compact, '$12.3K');
+  assert.equal(amount('USD', 999960).amount_compact, '$999K');
+  assert.equal(amount('JPY', 999999999).amount_compact, '¥999M');
   // The narrowest tiles keep cents under 100, drop them under 1,000, then abbreviate.
   assert.equal(amount('USD', 47.77).amount_short, '$47.77');
   assert.equal(amount('USD', 337.2).amount_short, '$337');
-  assert.equal(amount('USD', 1365.65).amount_short, '$1.37K');
-  assert.equal(amount('JPY', 988579).amount_short, '¥989K');
+  assert.equal(amount('USD', 337.99).amount_short, '$337');
+  assert.equal(amount('USD', 999.6).amount_short, '$999');
+  assert.equal(amount('USD', 1365.65).amount_short, '$1.36K');
+  assert.equal(amount('JPY', 988579).amount_short, '¥988K');
 });
 
 test('shows plain amounts when the report header has no currency', () => {
@@ -185,17 +194,25 @@ test('shows plain amounts when the report header has no currency', () => {
 test('writes comparisons in the chosen style', () => {
   const earnings = { '2026-09-30': 40, '2026-10-07': 50 };
   const line = style => tile(run(report(earnings, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z', options: { comparison_style: style } }), 'yesterday');
-  assert.equal(line('percent').comparison, '+25.0% vs the same day last week');
+  assert.equal(line('percent').comparison, '+25% vs the same day last week');
   assert.equal(line('amount').comparison, '+$10.00 vs the same day last week');
-  assert.equal(line('both').comparison, '+25.0% (+$10.00) vs the same day last week');
+  assert.equal(line('both').comparison, '+25% (+$10.00) vs the same day last week');
   assert.equal(line('amount').comparison_short, '+$10.00');
   // Wide tiles split the change from its period.
-  assert.equal(line('both').change, '+25.0% (+$10.00)');
+  assert.equal(line('both').change, '+25% (+$10.00)');
   assert.equal(line('both').compare_phrase, 'vs the same day last week');
-  assert.equal(line(undefined).comparison_short, '+25.0%');
+  assert.equal(line(undefined).comparison_short, '+25%');
   const down = tile(run(report({ '2026-09-30': 50, '2026-10-07': 40 }, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z' }), 'yesterday');
-  assert.equal(down.delta_percent, '-20.0%');
+  assert.equal(down.delta_percent, '-20%');
   assert.equal(down.direction, 'down');
+  // Percentages round to the nearest whole number, halves away from zero.
+  const percent = (before, after) => tile(run(report({ '2026-09-30': before, '2026-10-07': after }, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z' }), 'yesterday');
+  assert.equal(percent(200, 201).delta_percent, '+1%');
+  assert.equal(percent(1000, 1004.99).delta_percent, '0%');
+  assert.equal(percent(1000, 1004.99).direction, 'flat');
+  assert.equal(percent(200, 199).delta_percent, '-1%');
+  assert.equal(percent(100, 105.49).delta_percent, '+5%');
+  assert.equal(percent(100, 105.5).delta_percent, '+6%');
 });
 
 test('maps API errors and missing input to recovery states', () => {
