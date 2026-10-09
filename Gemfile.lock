@@ -133,7 +133,7 @@ GEM
     rspec-support (3.13.7)
     rubyzip (3.7.0)
     securerandom (0.4.1)
-    selenium-webdriver (4.50.0)
+    selenium-webdriver (4.51.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rubyzip (>= 1.2.2, < 4.0)
@@ -157,7 +157,7 @@ GEM
       redcarpet (~> 3.6)
       rqrcode (~> 3.2)
       tzinfo (~> 2.0)
-    trmnl_preview (0.25.0)
+    trmnl_preview (0.26.0)
       activesupport (~> 8.0)
       capybara (~> 3.40)
       cgi (~> 0.5)
@@ -199,7 +199,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  trmnl_preview (= 0.25.0)
+  trmnl_preview (= 0.26.0)
 
 CHECKSUMS
   activesupport (8.1.4) sha256=891dd3fe43c4fc8391934b237b1189bb1f661c932a84a840043db9d46a4e80df
@@ -264,7 +264,7 @@ CHECKSUMS
   rspec-support (3.13.7) sha256=0640e5570872aafefd79867901deeeeb40b0c9875a36b983d85f54fb7381c47c
   rubyzip (3.7.0) sha256=65c19294da75297a939006f3516deacc33185fbd721ff1954f7a231db6d3e121
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  selenium-webdriver (4.50.0) sha256=d12f94025bc33af44428ed6b8def4896a7bb9c4521212579241650d6cb060fcb
+  selenium-webdriver (4.51.0) sha256=09edf1b7fc360e0570bac609676f804ed527fe0b2f285e03233561e29b0ec105
   sinatra (4.2.1) sha256=b7aeb9b11d046b552972ade834f1f9be98b185fa8444480688e3627625377080
   snaky_hash (2.0.7) sha256=7d02c70012a3f932e48860cd024577908300c9aa615e0cb9b450aaa749cbcb4d
   strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e
@@ -272,7 +272,7 @@ CHECKSUMS
   tilt (2.9.0) sha256=da5735d0280bba96e9a91041bb14aee435ccad5c17b0fa519249ae543d9aa3a5
   timeout (0.6.1) sha256=78f57368a7e7bbadec56971f78a3f5ecbcfb59b7fcbb0a3ed6ddc08a5094accb
   trmnl-liquid (0.8.2) sha256=ad47dc74afed5e2dffedee35928739950e6435584e004d340e48428860b25232
-  trmnl_preview (0.25.0) sha256=52333a53d1e34d7539f1687c926141aa4ab01a426fa93e8578cceaaa829169e2
+  trmnl_preview (0.26.0) sha256=243b84fa7ab8812aa74bf6c3f7b0d75fbcc286894b70aafa811d2c990622fb33
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   tzinfo-data (1.2026.5) sha256=0bdc3c5a540b1704f73a7b5c9be5c90bd0a5866c8e9e8e8a7885977d23a81645
   uri (1.1.2) sha256=89292e98eabbef6248b0a0ed5e7e398e152f83f17560023a6d94a7f492b169fb
