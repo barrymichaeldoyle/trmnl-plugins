@@ -29,8 +29,10 @@ function transform(input) {
 
   const header = (elements.find(element => element && element.header) || {}).header || {};
   // The header repeats the request's localization settings. The request sends
-  // none, so if Google leaves the currency out, amounts show without a symbol.
-  const currency = String(header.localizationSettings?.currencyCode || '').toUpperCase();
+  // a currency only when one is chosen; if Google leaves it out, the chosen
+  // code stands in, and without either, amounts show without a symbol.
+  const chosen = /^[A-Za-z]{3}$/.test(options.currency || '') ? options.currency : '';
+  const currency = String(header.localizationSettings?.currencyCode || chosen).toUpperCase();
   const timeZone = header.reportingTimeZone || source.trmnl?.user?.time_zone_iana || '';
   const account = { publisher_id: publisherId, currency, time_zone: timeZone };
   // One record per AdMob day: earnings in micros plus the three counts.
@@ -128,6 +130,8 @@ function clockTime(timeZone, offsetSeconds) {
 // Every amount in a group shares one size: the largest the widest amount fits.
 // Room is the text width in CSS px for TRMNL OG landscape, OG portrait, X
 // landscape and X portrait, measured in the framework; caps keep rows in height.
+// A new device or a tile markup change means remeasuring these widths (or
+// adding a column, in PREFIXES order); pnpm review:admob shows each amount's fill.
 const VALUE_SIZES = [['xsmall', 20], ['small', 26], ['base', 38], ['large', 58], ['xlarge', 74], ['xxlarge', 96], ['xxxlarge', 128], ['mega', 170], ['giga', 220]];
 const PREFIXES = ['', 'portrait:', 'lg:', 'lg:portrait:'];
 const ROOM = {

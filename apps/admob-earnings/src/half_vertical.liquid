@@ -13,7 +13,7 @@
             <div class="content">
               <span class="label label--small">{{ tile.label | escape }}</span>
               <span class="value {{ amount_classes.secondary.half_vertical }} value--tnums portrait:hidden" data-amount="true">{{ tile.amount_compact | escape }}</span><span class="value {{ amount_classes.secondary.half_vertical }} value--tnums hidden portrait:visible" data-amount="true">{{ tile.amount_short | escape }}</span>
-              <span class="flex flex--row flex--left flex--center-y gap--xsmall" data-direction="{{ tile.direction }}">{% if tile.direction == 'up' %}<img class="image w--3 h--3 lg:w--4 lg:h--4 no-shrink" src="{{ arrow_up_uri }}" alt="Up">{% elsif tile.direction == 'down' %}<img class="image w--3 h--3 lg:w--4 lg:h--4 no-shrink" src="{{ arrow_down_uri }}" alt="Down">{% endif %}<span class="label label--small lg:label">{{ tile.comparison_short | escape }}</span></span>
+              <span class="flex flex--row flex--left flex--center-y gap--xsmall">{% if tile.direction == 'up' %}<img class="image w--3 h--3 lg:w--4 lg:h--4 no-shrink" src="{{ arrow_up_uri }}" alt="Up">{% elsif tile.direction == 'down' %}<img class="image w--3 h--3 lg:w--4 lg:h--4 no-shrink" src="{{ arrow_down_uri }}" alt="Down">{% endif %}<span class="label label--small lg:label">{{ tile.comparison_short | escape }}</span></span>
               <span class="label label--small hidden portrait:visible lg:visible">{{ tile.compare_phrase | escape }}</span>
               {% for line in tile.metric_lines_compact %}<span class="label label--small hidden portrait:visible lg:visible">{{ line | escape }}</span>{% endfor %}
             </div>
