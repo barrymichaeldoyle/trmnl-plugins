@@ -193,6 +193,15 @@ test('shows plain amounts when the report header has no currency', () => {
   assert.equal(tile(result, 'today').amount, '1,234.50');
 });
 
+test('uses the chosen currency when the report header leaves it out', () => {
+  const at = { now: '2026-10-08T12:00:00Z' };
+  const amount = options => tile(run(report({ '2026-10-08': 12.5 }, { currency: '', start: '2026-07-07' }), { ...at, options }), 'today').amount;
+  assert.equal(amount({ currency: 'EUR' }), '€12.50');
+  assert.equal(amount({ currency: 'account' }), '12.50');
+  // The header wins, since it names the currency Google actually reported in.
+  assert.equal(tile(run(report({ '2026-10-08': 12.5 }, { currency: 'GBP', start: '2026-07-07' }), { ...at, options: { currency: 'EUR' } }), 'today').amount, '£12.50');
+});
+
 test('writes comparisons in the chosen style', () => {
   const earnings = { '2026-09-30': 40, '2026-10-07': 50 };
   const line = style => tile(run(report(earnings, { start: '2026-07-07' }), { now: '2026-10-08T12:00:00Z', options: { comparison_style: style } }), 'yesterday');

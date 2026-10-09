@@ -1,6 +1,6 @@
 # AdMob Earnings
 
-A TRMNL recipe that shows Google AdMob estimated earnings at a glance, in the account's reporting currency:
+A TRMNL recipe that shows Google AdMob estimated earnings at a glance, in the account's reporting currency or one chosen in the plugin (AdMob converts at the daily average rate):
 
 | Tile | Figure | Comparison line |
 | --- | --- | --- |

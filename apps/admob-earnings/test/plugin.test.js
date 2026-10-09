@@ -25,6 +25,13 @@ test('the polling request is a well-formed AdMob network report call', async () 
   assert.ok(reportSpec.maxReportRows >= 95);
 });
 
+test('the request asks for a chosen currency and otherwise leaves the account default', async () => {
+  const spec = async fields => JSON.parse((await pollAt('2026-10-08T15:00:00Z', { publisher_id: 'pub-1', ...fields })).body).reportSpec;
+  assert.equal((await spec({})).localizationSettings, undefined);
+  assert.equal((await spec({ currency: 'account' })).localizationSettings, undefined);
+  assert.deepEqual((await spec({ currency: 'EUR' })).localizationSettings, { currencyCode: 'EUR' });
+});
+
 test('the requested window always covers the month before last', async () => {
   // Worst cases: the last day of a 31-day month after two 31-day months, a year boundary, a leap day.
   for (const time of ['2026-08-31T23:59:00Z', '2026-12-31T23:59:00Z', '2027-01-31T00:00:00Z', '2028-03-01T00:00:00Z', '2026-10-31T12:00:00Z']) {

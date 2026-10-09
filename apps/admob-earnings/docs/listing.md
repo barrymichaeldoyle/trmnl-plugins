@@ -20,7 +20,7 @@ At least 100 words, so the recipe page is indexed. It lives in the author bio's 
 
 AdMob Earnings puts your Google AdMob revenue on your TRMNL, so you can see how your apps are doing without opening the AdMob console or a phone app. Today's earnings so far take centre stage, with yesterday, this month so far and last month alongside. Each is compared with the period before it: yesterday with the same day last week, this month with the same day last month, and last month with the month before last. Choose percent change, amount change or both. Full screen also shows each figure's ad requests, impressions and clicks.
 
-Amounts appear in your account's reporting currency and follow its reporting time zone, the same way the AdMob console counts a day. Sign in with Google and pick your AdMob account from a list. There is no API key to copy, and access is read-only. TRMNL stores and refreshes the sign-in; the recipe sends your data nowhere else. Full-screen and all three mashup layouts are included, in light or dark.
+Amounts appear in your account's reporting currency, or a currency you choose, and follow its reporting time zone, the same way the AdMob console counts a day. Sign in with Google and pick your AdMob account from a list. There is no API key to copy, and access is read-only. TRMNL stores and refreshes the sign-in; the recipe sends your data nowhere else. Full-screen and all three mashup layouts are included, in light or dark.
 
 ## Listing icon
 
