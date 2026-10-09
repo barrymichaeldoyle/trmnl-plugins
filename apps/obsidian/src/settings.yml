@@ -12,7 +12,7 @@ polling_headers: ''
 polling_body: ''
 id: 500911
 oauth_enabled: 'false'
-oauth_pkce_enabled: 'no'
+oauth_pkce_enabled: false
 oauth_authorize_url: ''
 oauth_token_url: ''
 oauth_scopes: ''
