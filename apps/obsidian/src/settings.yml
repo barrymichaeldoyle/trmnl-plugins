@@ -8,9 +8,9 @@ custom_fields:
 - keyname: about
   field_type: author_bio
   name: About Obsidian Screens
-  description: 'An independent TRMNL recipe for Obsidian. The TRMNL Screens plugin for Obsidian reads your vault on your own computer and pushes one screen to this plugin&#39;s webhook URL. Nothing else is sent, and only when the screen changes. Not affiliated with or endorsed by Obsidian.<br><br>Install this recipe once for each screen you want, copy its webhook URL into the TRMNL Screens settings in Obsidian, and pick what it shows: today&#39;s daily note tasks, due and overdue tasks across your vault, the rows of a Dataview query, a note resurfaced from your archive, your writing streak, or a pinned note such as a weekly plan. Full-screen and all three mashup layouts are included.'
-  category: productivity
+  description: 'An independent recipe for Obsidian. The free TRMNL Screens plugin for Obsidian reads your vault on your own device and pushes one screen of it to this recipe&#39;s webhook URL, only when that screen changes. Nothing else is sent. Not affiliated with or endorsed by Obsidian.<br><br>Obsidian Screens puts your notes on your TRMNL: today&#39;s daily note tasks grouped by heading, due and overdue tasks from anywhere in your vault, the rows of a Dataview query, an older note resurfaced each day, your writing streak with words written today, or a pinned note such as a weekly plan. Due dates from the Tasks plugin and Dataview are both understood, and links read as plain text.<br><br>Install this recipe once for each screen you want. Then install TRMNL Screens from Obsidian&#39;s Community plugins, paste this recipe&#39;s webhook URL into a screen in its settings, and select Push now. The plugin keeps the screen current by itself, a minute after you stop editing. Full-screen and all three mashup layouts are included, on TRMNL OG and TRMNL X.'
+  category: productivity,personal
   github_url: https://github.com/barrymichaeldoyle/trmnl-plugins
-  learn_more_url: https://github.com/barrymichaeldoyle/trmnl-plugins/tree/main/apps/obsidian
+  learn_more_url: https://github.com/barrymichaeldoyle/obsidian-trmnl-screens#setup
 name: Obsidian Screens
 description: Your Obsidian vault on TRMNL

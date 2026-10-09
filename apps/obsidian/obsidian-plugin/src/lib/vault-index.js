@@ -17,7 +17,10 @@ export class VaultIndex {
     return this.source.files().filter(file => (!include.length || within(file.path, include)) && !within(file.path, exclude));
   }
 
+  // A source that can look a path up directly (Obsidian's getFileByPath) is
+  // asked; otherwise the list is searched.
   file(path) {
+    if (this.source.file) return this.source.file(path);
     return this.source.files().find(file => file.path === path) ?? null;
   }
 

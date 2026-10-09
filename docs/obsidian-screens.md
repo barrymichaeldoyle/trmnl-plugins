@@ -11,8 +11,8 @@
 | 3. Obsidian plugin runtime: scheduler, push budget, secrets, settings, status bar, commands | Done; tested with a fake Obsidian API (`test/runtime.test.js`) |
 | 4. Load the plugin in Obsidian with the demo vault | Done 9 October 2026: Obsidian 1.14.4 on macOS, all six screens connected through secrets and pushed from Obsidian (20:25 to 20:41). The Dataview screen shows its install message until Dataview is added to the vault |
 | 5. Import the recipe on TRMNL, push each screen, check on the device | 9 October 2026: private plugin 500911 created with `pnpm --filter @trmnl/obsidian upload`, on the device playlist. A daily-tasks payload built by the collector was written through the account API (`POST /api/plugin_settings/500911/data`); TRMNL's own preview renders all four sizes as the local review does. The other five screens followed the same way as plugins 500917 (Due), 500918 (Projects, from the demo's Dataview stand-in), 500919 (Resurfaced), 500920 (Writing) and 500921 (Focus), each renamed "Obsidian · …" and on the device playlist. Each is connected to its screen in Obsidian |
-| 6. Mobile check (iOS or Android Obsidian) | After step 5 |
-| 7. Publish: recipe on TRMNL, plugin in Obsidian's community directory | Not started; ask before either |
+| 6. Mobile check (iOS or Android Obsidian) | Skipped for now: the plugin avoids desktop-only APIs and declares mobile support, but has not run on a phone |
+| 7. Publish: recipe on TRMNL, plugin in Obsidian's community directory | Ready to submit 9 October 2026; see [apps/obsidian/docs/listing.md](../apps/obsidian/docs/listing.md). Plugin repository [obsidian-trmnl-screens](https://github.com/barrymichaeldoyle/obsidian-trmnl-screens) is public (MIT) with release 0.1.0; Obsidian's linter reports no errors. The recipe publishes from plugin 500911, renamed "Obsidian Screens" |
 
 ## Where this differs from the original spec
 
@@ -41,4 +41,4 @@ The shared review tools gained two things for this recipe: `review.allow_line_cl
 ## Open questions
 
 - Whether TRMNL counts a request that it rejects (4xx) against the hourly budget. The plugin counts every request it sends.
-- Whether the recipe name "Obsidian Screens" and plugin name "TRMNL Screens" pass both directories' naming rules. Obsidian's guidelines forbid "Obsidian" in a plugin name, which this avoids; TRMNL's recipe rules allow third-party names with a disclaimer, as AdMob Earnings has.
+- The listing icon and title-bar icon are a note page with a tick, not the gem used during development, so nothing resembles Obsidian's logo.

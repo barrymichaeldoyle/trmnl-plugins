@@ -22,9 +22,9 @@ globalThis.document = { hidden: false };
 
 async function plugin({ secrets = { 'trmnl-daily': `https://trmnl.com/api/custom_plugins/${UUID}` }, data } = {}) {
   const source = await nodeVault(demoVaultPath, { times: demoTimes });
-  const files = source.files().map(file => Object.assign(new obsidian.TFile(), { path: file.path, stat: { mtime: file.mtime, ctime: file.ctime } }));
+  const files = source.files().map(file => Object.assign(new obsidian.TFile(), { path: file.path, extension: 'md', stat: { mtime: file.mtime, ctime: file.ctime } }));
   const app = {
-    vault: { getMarkdownFiles: () => files, getAbstractFileByPath: path => files.find(file => file.path === path), cachedRead: file => source.read(file.path), getName: () => 'Demo vault', on: () => ({}) },
+    vault: { getMarkdownFiles: () => files, getFileByPath: path => files.find(file => file.path === path) ?? null, cachedRead: file => source.read(file.path), getName: () => 'Demo vault', on: () => ({}) },
     workspace: { onLayoutReady: () => {} },
     secretStorage: { getSecret: id => secrets[id] ?? null },
     internalPlugins: { getPluginById: () => ({ instance: { options: { folder: 'Daily', format: 'YYYY-MM-DD' } } }) },

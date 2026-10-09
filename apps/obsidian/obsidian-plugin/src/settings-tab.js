@@ -1,7 +1,7 @@
 import { PluginSettingTab, Setting, SecretComponent, AbstractInputSuggest, moment } from 'obsidian';
 import { screens, screenTypes, newScreen } from './screens/index.js';
 
-const RECIPE_URL = 'https://github.com/barrymichaeldoyle/trmnl-plugins/tree/main/apps/obsidian';
+const SETUP_URL = 'https://github.com/barrymichaeldoyle/obsidian-trmnl-screens#setup';
 const folders = value => String(value).split(',').map(folder => folder.trim().replace(/^\/+|\/+$/g, '')).filter(Boolean);
 
 class NoteSuggest extends AbstractInputSuggest {
@@ -42,7 +42,7 @@ export class TrmnlSettingTab extends PluginSettingTab {
 
     const intro = containerEl.createEl('p');
     intro.appendText('Each screen pushes to one TRMNL plugin. Install the Obsidian Screens recipe on TRMNL once per screen, then paste that plugin’s webhook URL here. ');
-    intro.createEl('a', { text: 'Setup guide', href: RECIPE_URL });
+    intro.createEl('a', { text: 'Setup guide', href: SETUP_URL });
 
     new Setting(containerEl).setName('TRMNL+').setDesc('TRMNL+ allows 30 pushes an hour and 10 KB per push instead of 12 and 5 KB.')
       .addToggle(toggle => toggle.setValue(plugin.settings.plus).onChange(async value => { plugin.settings.plus = value; await save(); }));

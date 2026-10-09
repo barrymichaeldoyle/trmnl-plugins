@@ -14,7 +14,8 @@
     "fixtures": "node scripts/generate-fixtures.js",
     "plugin:dev": "node scripts/build-plugin.js --watch --vault",
     "plugin:build": "node scripts/build-plugin.js",
-    "demo:age": "node scripts/age-demo-vault.js"
+    "demo:age": "node scripts/age-demo-vault.js",
+    "plugin:export": "node scripts/export-plugin-repo.js"
   },
   "devDependencies": {
     "@trmnl/plugin-tools": "workspace:*",

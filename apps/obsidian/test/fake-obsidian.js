@@ -13,6 +13,7 @@ export async function requestUrl(request) {
   return { status, text: '' };
 }
 export class TFile {}
+export const normalizePath = path => String(path).replace(/\\/g, '/').replace(/\/+/g, '/').replace(/^\/|\/$/g, '');
 export class Notice { constructor(message) { Notice.messages.push(message); } static messages = []; }
 class Element {
   constructor() { this.text = ''; this.attrs = {}; }

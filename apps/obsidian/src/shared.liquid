@@ -30,7 +30,8 @@
   {%- assign message_text = 'Obsidian sent a screen this version of the recipe does not know. Install the latest Obsidian Screens recipe.' -%}
 {%- endif -%}
 
-{%- capture icon_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="black" stroke-width="2" stroke-linejoin="round" d="M12 2 4 9l3 12h10l3-12zM4 9h16M12 2 9 9l3 12 3-12z"/></svg>{%- endcapture -%}
+{%- comment -%}A note page with a ticked checkbox: the listing icon in black and white.{%- endcomment -%}
+{%- capture icon_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="black" stroke-width="2" stroke-linejoin="round" d="M6 2.5h8.5l4.5 4.5v13a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20V4a1.5 1.5 0 0 1 1-1.5zM14.5 2.5V7H19"/><path fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 13l2 2 4-4.5M8 18.5h8"/></svg>{%- endcapture -%}
 {%- assign icon_uri = icon_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
 {%- comment -%}Checkboxes are drawn, never emoji: an empty square, and a filled one with a tick.{%- endcomment -%}
 {%- capture box_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><rect x="2" y="2" width="16" height="16" rx="3" fill="none" stroke="black" stroke-width="2.5"/></svg>{%- endcapture -%}

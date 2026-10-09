@@ -12,7 +12,8 @@ export function splitFrontmatter(content) {
 const TASK_DATE = /[📅📆🗓⏳⌛🛫✅➕❌]️?\s*\d{4}-\d{2}-\d{2}/gu;
 const TASK_RECURRENCE = /🔁️?\s*[^📅📆🗓⏳⌛🛫✅➕❌⏫🔼🔽⏬🔺🆔⛔]*/gu;
 const TASK_IDS = /(?:🆔|⛔)️?\s*[\w,-]+/gu;
-const EMOJI = /[\p{Extended_Pictographic}\p{Regional_Indicator}\u{1F3FB}-\u{1F3FF}️‍⃣]/gu;
+// Joiners and selectors sit outside the class so each is matched on its own.
+const EMOJI = /[\p{Extended_Pictographic}\p{Regional_Indicator}\u{1F3FB}-\u{1F3FF}]|\uFE0F|\u200D|\u20E3/gu;
 
 // One line of Markdown as plain text: links keep their visible text, inline
 // fields and Tasks signifiers go, and emoji are removed.

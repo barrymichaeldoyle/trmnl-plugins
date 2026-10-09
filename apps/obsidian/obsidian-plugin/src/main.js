@@ -1,4 +1,4 @@
-import { Plugin, Notice, Platform, moment, requestUrl, TFile } from 'obsidian';
+import { Plugin, Notice, Platform, moment, requestUrl, normalizePath } from 'obsidian';
 import { VaultIndex } from './lib/vault-index.js';
 import { LIMITS, WEBHOOK_BASE, webhookId, hash, remaining, nextSlot } from './lib/push.js';
 import { prepare, isDue, context } from './prepare.js';
@@ -23,9 +23,13 @@ export default class TrmnlScreensPlugin extends Plugin {
 
     this.index = new VaultIndex({
       files: () => this.app.vault.getMarkdownFiles().map(file => ({ path: file.path, mtime: file.stat.mtime, ctime: file.stat.ctime })),
+      file: path => {
+        const file = this.app.vault.getFileByPath(normalizePath(path));
+        return file?.extension === 'md' ? { path: file.path, mtime: file.stat.mtime, ctime: file.stat.ctime } : null;
+      },
       read: path => {
-        const file = this.app.vault.getAbstractFileByPath(path);
-        if (!(file instanceof TFile)) throw new Error(`Missing file: ${path}`);
+        const file = this.app.vault.getFileByPath(normalizePath(path));
+        if (!file) throw new Error(`Missing file: ${path}`);
         return this.app.vault.cachedRead(file);
       },
     });
