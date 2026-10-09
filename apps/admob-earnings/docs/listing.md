@@ -10,7 +10,7 @@ Drafted 8 October 2026; ready to submit 9 October 2026, after the live plugin's 
 
 **Expanded summary for sharing:** Today, yesterday, this month and last month from Google AdMob on your TRMNL, each compared with the period before. Sign in with Google; no API keys.
 
-**Categories:** `analytics,personal`, both on TRMNL's recipe list (checked 9 October 2026). `kpi` and `finance` also exist if a different pairing reads better.
+**Categories:** `finance,kpi`, both on TRMNL's recipe list (checked 9 October 2026). Recipes that show stats pair a subject with `kpi` (GitHub Stats: `programming kpi`; Apple Health: `life kpi`), and AdMob's subject is money.
 
 The name says what the recipe reads without implying it is a Google product. Google's brand guidelines allow naming the product the recipe works with; the listing must not use the AdMob logo, and the author bio states it is not affiliated with or endorsed by Google.
 
