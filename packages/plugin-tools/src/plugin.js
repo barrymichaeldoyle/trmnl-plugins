@@ -160,6 +160,8 @@ export async function checkPlugin(plugin) {
   if (!plugin.settings.name || !['static', 'polling', 'webhook'].includes(plugin.settings.strategy)) throw new Error('This tool supports named static, polling and webhook recipes.');
   if (plugin.settings.strategy === 'polling') await checkPolling(plugin);
   if (!Array.isArray(plugin.settings.custom_fields)) throw new Error('custom_fields must be an array.');
+  // TRMNL's recipe checker requires webhook recipes to show installers their URL.
+  if (plugin.settings.strategy === 'webhook' && !plugin.settings.custom_fields.some(field => field.field_type === 'copyable_webhook_url')) throw new Error('Webhook recipes need a custom field with field_type copyable_webhook_url.');
   for (const [view, template] of Object.entries(plugin.templates)) {
     const frameworkMarkup = template.replace(/<style data-plugin-style="([\w-]+)">[\s\S]*?<\/style>/g, (block, name) =>
       plugin.config.allowed_style_blocks?.includes(name) ? '' : block);

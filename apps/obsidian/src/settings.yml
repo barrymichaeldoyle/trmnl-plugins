@@ -5,6 +5,10 @@ dark_mode: 'no'
 static_data: ''
 framework_version: 3.4.0
 custom_fields:
+- keyname: webhook_url
+  field_type: copyable_webhook_url
+  name: Webhook URL
+  description: In Obsidian, open Settings, then TRMNL Screens, turn on the screen you want, and paste this URL as its webhook URL. Each install of this recipe has its own URL, so install it once per screen.
 - keyname: about
   field_type: author_bio
   name: About Obsidian Screens

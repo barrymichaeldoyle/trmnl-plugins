@@ -29,6 +29,7 @@ test('polling checks reject insecure URLs, broken JSON bodies and committed OAut
   await assert.rejects(checkPolling(withSettings({ oauth_client_secret: 'x' })), /credentials/);
   await assert.rejects(checkPolling(withSettings({ oauth_scopes: '' })), /oauth_scopes/);
   await assert.rejects(checkPlugin(withSettings({ strategy: 'plugin_merge' })), /static, polling and webhook/);
+  await assert.rejects(checkPlugin(withSettings({ strategy: 'webhook' })), /copyable_webhook_url/);
 });
 
 test('fixtures preview at the moment they were recorded', () => {
