@@ -32,8 +32,9 @@
   {%- assign body_class = 'description lg:description--xlarge' -%}
   {%- assign row_space = '' -%}
 {%- endif -%}
-{%- assign bar_heights = '1,5,10,14,20,24,28,36,40' | split: ',' -%}
-{%- assign bar_heights_lg = '1,8,16,24,32,40,48,56,64' | split: ',' -%}
+{%- assign bar_heights = '1,8,16,24,32,40,48,56,64' | split: ',' -%}
+{%- assign bar_heights_lg = '1,12,24,36,48,56,64,80,96' | split: ',' -%}
+{%- assign bar_heights_portrait = '1,12,24,36,48,60,72,80,96' | split: ',' -%}
 <div class="layout layout--col layout--stretch-x layout--top gap">
   {% if message_title != blank %}
     <div class="flex flex--col flex--center gap--small h--full">
@@ -67,10 +68,17 @@
         {% endif %}
 
       {% when 'due_tasks' %}
-        <div class="grid grid--cols-3 gap w--full">
-          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xlarge value--tnums">{{ overdue_count }}</span><span class="label lg:label--large">Overdue</span></div>
-          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xlarge value--tnums">{{ today_count }}</span><span class="label lg:label--large">Due today</span></div>
-          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xlarge value--tnums">{{ upcoming_count }}</span><span class="label lg:label--large">Next {{ lookahead_days }} days</span></div>
+        {%- if tasks.size <= 12 -%}
+          {%- assign due_text = 'title lg:title--large' -%}
+          {%- assign due_meta = 'label lg:label--large' -%}
+        {%- else -%}
+          {%- assign due_text = 'title title--small lg:title' -%}
+          {%- assign due_meta = 'label label--small lg:label' -%}
+        {%- endif -%}
+        <div class="flex flex--row flex--left flex--bottom gap--xlarge w--full">
+          <div class="flex flex--row flex--bottom gap--small"><span class="value value--base lg:value--large value--tnums">{{ overdue_count }}</span><span class="label lg:label--large">overdue</span></div>
+          <div class="flex flex--row flex--bottom gap--small"><span class="value value--base lg:value--large value--tnums">{{ today_count }}</span><span class="label lg:label--large">due today</span></div>
+          <div class="flex flex--row flex--bottom gap--small"><span class="value value--base lg:value--large value--tnums">{{ upcoming_count }}</span><span class="label lg:label--large">in the next {{ lookahead_days }} days</span></div>
         </div>
         {% if tasks.size > 0 %}
           {% assign current = '' %}
@@ -83,8 +91,8 @@
                 {% endif %}
                 <div class="item">
                   <div class="content grow"><div class="flex flex--col flex--left w--full">
-                  <span class="title title--small lg:title w--full" data-clamp="1">{{ task.text | escape }}</span>
-                  <span class="label label--small lg:label w--full" data-clamp="1">{{ task.file | escape }}{% if task.bucket == 'overdue' %} · {{ task.when | escape }}{% elsif task.bucket == 'upcoming' %} · {{ task.due_label | escape }}{% endif %}</span></div>
+                  <span class="{{ due_text }} w--full" data-clamp="1">{{ task.text | escape }}</span>
+                  <span class="{{ due_meta }} w--full" data-clamp="1">{{ task.file | escape }}{% if task.bucket == 'overdue' %} · {{ task.when | escape }}{% elsif task.bucket == 'upcoming' %} · {{ task.due_label | escape }}{% endif %}</span></div>
                   </div>
                 </div>
               {% endfor %}
@@ -103,10 +111,11 @@
         </div>
         {% if rows.size > 0 %}
           {% if kind == 'table' %}
-            <table class="table lg:table--xlarge">
+            {%- if rows.size <= 5 -%}{%- assign table_size = 'landscape:table--large portrait:table--xlarge lg:table--xlarge' -%}{%- assign cell_text = 'label landscape:label--large lg:label--xlarge' -%}{%- else -%}{%- assign table_size = 'lg:table--xlarge' -%}{%- assign cell_text = 'label lg:label--xlarge' -%}{%- endif -%}
+            <table class="table {{ table_size }}">
               <thead><tr>{% for header in headers limit: 5 %}<th><span class="title title--small lg:title--large pr--4">{{ header | escape }}</span></th>{% endfor %}</tr></thead>
               <tbody>
-                {% for row in rows limit: 7 %}<tr>{% for cell in row limit: 5 %}<td><span class="label lg:label--large pr--4 w--full" data-clamp="1">{{ cell | escape }}</span></td>{% endfor %}</tr>{% endfor %}
+                {% for row in rows limit: 7 %}<tr>{% for cell in row limit: 5 %}<td><span class="{{ cell_text }} pr--4 w--full" data-clamp="1">{{ cell | escape }}</span></td>{% endfor %}</tr>{% endfor %}
               </tbody>
             </table>
           {% else %}
@@ -133,21 +142,21 @@
 
       {% when 'writing_stats' %}
         <div class="grid grid--cols-12 gap--large w--full h--full">
-          <div class="col--span-4 portrait:col--span-12 flex flex--col portrait:flex--row flex--between flex--left gap">
+          <div class="col--span-4 portrait:col--span-12 flex flex--col portrait:flex--row flex--center-y flex--left portrait:flex--between gap--xlarge">
             <div class="flex flex--col flex--left"><span class="value value--xxlarge lg:value--xxxlarge value--tnums">{{ labels.words_today }}</span><span class="label lg:label--large">Words today</span></div>
             <div class="flex flex--col flex--left"><span class="value value--xxlarge lg:value--xxxlarge value--tnums">{{ streak_days }}</span><span class="label lg:label--large">Day streak</span></div>
           </div>
-          <div class="col--span-8 portrait:col--span-12 flex flex--col flex--stretch-x gap--small">
-            <span class="label lg:label--large">Last {{ history.size }} days · most {{ labels.history_max }} words</span>
-            <div class="flex flex--row flex--bottom gap--small w--full grow">
+          <div class="col--span-8 portrait:col--span-12 flex flex--col flex--bottom flex--stretch-x gap--small">
+            <span class="label lg:label--large w--full">Last {{ history.size }} days · most {{ labels.history_max }} words</span>
+            <div class="flex flex--row flex--bottom gap--small w--full">
               {% for day in history %}
                 <div class="flex flex--col flex--bottom flex--center-x gap--xsmall grow h--full">
-                  <div class="w--full h--{{ bar_heights[day.level] }} lg:h--{{ bar_heights_lg[day.level] }} bg--black"></div>
+                  <div class="w--full h--{{ bar_heights[day.level] }} portrait:h--{{ bar_heights_portrait[day.level] }} lg:h--{{ bar_heights_lg[day.level] }} lg:portrait:h--{{ bar_heights_lg[day.level] }} bg--black"></div>
                   <span class="label label--small lg:label{% if day.today %} label--inverted{% endif %}">{{ day.label }}</span>
                 </div>
               {% endfor %}
             </div>
-            <span class="label lg:label--large">{{ notes_created_7d }} new notes this week · {{ labels.total_words }} words in {{ labels.total_notes }} notes</span>
+            <span class="label lg:label--large w--full">{{ notes_created_7d }} new notes this week · {{ labels.total_words }} words in {{ labels.total_notes }} notes</span>
           </div>
         </div>
 

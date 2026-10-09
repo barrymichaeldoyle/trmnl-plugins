@@ -18,11 +18,11 @@
     {% case screen %}
       {% when 'daily_tasks' %}
         <div class="grid grid--cols-12 gap--small w--full h--full">
-          <div class="col--span-4 portrait:col--span-12 flex flex--col flex--left flex--center-y portrait:flex--row portrait:flex--between">
+          <div class="col--span-3 portrait:col--span-12 flex flex--col flex--left flex--center-y">
             <span class="value value--large lg:value--xxlarge value--tnums">{{ open }}</span>
             <span class="label label--small lg:label">open of {{ total }}</span>
           </div>
-          <div class="col--span-8 portrait:col--span-12">
+          <div class="col--span-9 portrait:col--span-12">
             {% if open > 0 %}
               <div class="columns" data-overflow="true" data-overflow-max-cols="1" data-overflow-counter="true">
                 <div class="column">
@@ -67,10 +67,10 @@
 
       {% when 'resurface' %}
         <div class="flex flex--col gap--xsmall w--full">
-          <span class="title lg:title--xxlarge w--full" data-clamp="2">{{ title | escape }}</span>
+          <span class="title lg:title--xxlarge w--full" data-clamp="1" data-clamp-portrait="2">{{ title | escape }}</span>
           <span class="label label--small lg:label w--full" data-clamp="1">{{ age_label | escape }}</span>
         </div>
-        <p class="description lg:description--xxlarge" data-clamp="3" data-clamp-portrait="6">{{ paragraphs[0] | escape }}</p>
+        <p class="description description--xlarge lg:description--xxlarge w--full" data-clamp="3" data-clamp-portrait="5">{{ paragraphs | join: ' ' | escape }}</p>
 
       {% when 'writing_stats' %}
         <div class="grid grid--cols-2 portrait:grid--cols-1 gap w--full">

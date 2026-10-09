@@ -86,10 +86,11 @@
           {% if row_count > shown_rows %}<span class="label lg:label--large">{{ shown_rows }} of {{ row_count }}</span>{% endif %}
         </div>
         {% if rows.size > 0 %}
-          <table class="table lg:table--large">
+          {%- if rows.size <= 5 -%}{%- assign table_size = 'landscape:table--large lg:table--xlarge' -%}{%- assign cell_text = 'label landscape:label--large lg:label--xlarge' -%}{%- else -%}{%- assign table_size = 'lg:table--large' -%}{%- assign cell_text = 'label lg:label--large' -%}{%- endif -%}
+          <table class="table {{ table_size }}">
             {% if kind == 'table' %}<thead><tr>{% for header in headers limit: 2 %}<th><span class="title title--small lg:title pr--4">{{ header | escape }}</span></th>{% endfor %}</tr></thead>{% endif %}
             <tbody>
-              {% for row in rows limit: 6 %}<tr>{% for cell in row limit: 2 %}<td><span class="label lg:label--large pr--4 w--full" data-clamp="1">{{ cell | escape }}</span></td>{% endfor %}</tr>{% endfor %}
+              {% for row in rows limit: 6 %}<tr>{% for cell in row limit: 2 %}<td><span class="{{ cell_text }} pr--4 w--full" data-clamp="1">{{ cell | escape }}</span></td>{% endfor %}</tr>{% endfor %}
             </tbody>
           </table>
         {% else %}

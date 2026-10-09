@@ -105,11 +105,11 @@
       {% when 'resurface' %}
         <div class="grid grid--cols-12 gap w--full h--full">
           <div class="col--span-4 portrait:col--span-12 flex flex--col flex--center-y gap--xsmall">
-            <span class="title lg:title--xxlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
+            <span class="title title--large lg:title--xxlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
             <span class="label label--small lg:label w--full" data-clamp="2" data-clamp-portrait="1">{{ age_label | escape }} · {{ word_count }} words</span>
           </div>
           <div class="col--span-8 portrait:col--span-12 flex flex--col flex--center-y">
-            <p class="description description--xlarge lg:description--xxlarge" data-clamp="5" data-clamp-portrait="8">{{ paragraphs[0] | escape }}</p>
+            <p class="description description--xxlarge w--full" data-clamp="4" data-clamp-portrait="9">{{ paragraphs | join: ' ' | escape }}</p>
           </div>
         </div>
 
@@ -130,7 +130,7 @@
       {% when 'pinned_note' %}
         <div class="grid grid--cols-12 gap w--full h--full">
           <div class="col--span-3 portrait:col--span-12 flex flex--col flex--center-y">
-            <span class="title lg:title--xxlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
+            <span class="title title--large lg:title--xxlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
           </div>
           <div class="col--span-9 portrait:col--span-12">
             <div class="columns" data-overflow="true" data-overflow-max-cols="2" data-overflow-counter="true">
