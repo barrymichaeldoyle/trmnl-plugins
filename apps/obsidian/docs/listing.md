@@ -30,6 +30,8 @@ Other guidelines met: `this.app` only, no `innerHTML`, `requestUrl` for network,
 
 ## 2. TRMNL recipe: Obsidian Screens
 
+**Submitted 9 October 2026** as Public from plugin 500911, now "Plugin in review". Before submitting: the `copyable_webhook_url` field Chef requires, `1bit:text--black` on completed tasks (a publishing tip), and larger TRMNL X layouts after AI Chef noted short lists leaving a third of the X screen empty. AI Chef's second pass repeated the X point (the largest title size is already used; daily tasks fill about 81% of X), and suggested plain text instead of `&#39;` and `<br>` in the bio, which TRMNL's sync and best practices themselves use, so it was submitted as is.
+
 **Publish from:** private plugin 500911 ("Obsidian · Today"), which holds live data from the demo vault, so its featured image shows a filled task list. Rename it to "Obsidian Screens" before publishing; the recipe's name comes from the plugin's name.
 
 **Name:** Obsidian Screens
