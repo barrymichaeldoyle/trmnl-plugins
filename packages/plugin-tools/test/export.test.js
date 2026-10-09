@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
+import { cp, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import YAML from 'yaml';
 import { strToU8, strFromU8, zipSync, unzipSync } from 'fflate';
 import { loadPlugin, exportFiles, renderView, checkPlugin, views, screenHtml, previewDevice, settingsLimit } from '../src/plugin.js';
@@ -27,6 +30,18 @@ test('TRMNL ZIP is flat, self-contained, and renders identically after an import
     const options = { timestamp: 1790848800, refreshMinutes: 60, fields: { language, theme: ['family', 'work'] } };
     for (const view of views) assert.equal(await renderView(reloaded, view, options), await renderView(plugin, view, options));
   }
+});
+
+test('a transform synced back from TRMNL exports its Scripture bundle only once', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'synced-'));
+  try {
+    const app = fileURLToPath(new URL('../../../apps/bible-verses', import.meta.url));
+    for (const entry of ['plugin.config.json', 'src', 'content']) await cp(join(app, entry), join(root, entry), { recursive: true });
+    await writeFile(join(root, 'src/transform.js'), exportFiles(plugin)['transform.js']);
+    const synced = await loadPlugin(root);
+    assert.equal(synced.transform, plugin.transform);
+    assert.equal(exportFiles(synced)['transform.js'].match(/const SCRIPTURE = /g).length, 1);
+  } finally { await rm(root, { recursive: true, force: true }); }
 });
 
 test('exports fail before upload when settings.yml would exceed TRMNL\'s limit', () => {

@@ -51,6 +51,9 @@ export async function loadPlugin(directory) {
   let transform;
   try { transform = await readFile(join(root, 'src/transform.js'), 'utf8'); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
+  // GitHub Sync writes the exported transform back, bundle included; the
+  // collection files are the source, and the export bundles them again.
+  if (transform) transform = transform.replace(/^const SCRIPTURE = .*\n/, '');
   const shared = await readFile(join(root, 'src/shared.liquid'), 'utf8');
   const templates = Object.fromEntries(await Promise.all(views.map(async view => [view, shared + '\n' + await readFile(join(root, `src/${view}.liquid`), 'utf8')])));
   const defaults = Object.fromEntries((settings.custom_fields ?? []).filter(field => field.default !== undefined).map(field => [field.keyname, field.default]));
