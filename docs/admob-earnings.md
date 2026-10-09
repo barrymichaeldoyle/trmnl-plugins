@@ -8,9 +8,9 @@
 | --- | --- |
 | 1. Workspace, tooling, fixtures, transform, views, tests | Done |
 | 2. Private plugin on TRMNL, OAuth connected, first refresh | Done 9 October 2026: plugin 499993, real figures, GitHub Sync on. |
-| 3. Real-response fixture, transform and layout adjustments | Needs a token; `pnpm --filter @trmnl/admob-earnings fetch` is ready |
-| 4. Device check across a month boundary, compare with AdMob console | Not started |
-| 5. Publish the recipe | Not started; listing draft in `apps/admob-earnings/docs/listing.md`. Google verification is optional (see Google setup) |
+| 3. Real-response fixture, transform and layout adjustments | Done 9 October 2026: the transform handled the live response unchanged; layouts reworked (primary figure and three tiles) and approved, with review baselines recorded for all 288 captures. The synthetic fixtures still cover every state; `pnpm --filter @trmnl/admob-earnings fetch --scale` can record a real one if the response shape ever changes |
+| 4. Device check across a month boundary, compare with AdMob console | Figures match the AdMob console (9 October 2026). The month boundary check on 1 November is still to do; the month-start fixture covers it in tests |
+| 5. Publish the recipe | Ready to submit: Overview in the author bio, categories checked, screenshots current. Listing copy in `apps/admob-earnings/docs/listing.md`. Google verification is optional (see Google setup) |
 
 Design changes made while building, which supersede the text below where they differ:
 

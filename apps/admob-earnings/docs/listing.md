@@ -1,6 +1,6 @@
 # AdMob Earnings publication copy
 
-Drafted 8 October 2026. Not submitted: the recipe has not yet run against the real AdMob API. Its Google app must be in production before sharing; verification is optional (see [the plan](../../../docs/admob-earnings.md)). The name, short description and author bio are in `src/settings.yml`.
+Drafted 8 October 2026; ready to submit 9 October 2026, after the live plugin's figures matched the AdMob console. The Google app is in production; verification is optional (see [the plan](../../../docs/admob-earnings.md)). The name, short description, author bio and Overview are in `src/settings.yml`.
 
 ## Name and short description
 
@@ -10,15 +10,15 @@ Drafted 8 October 2026. Not submitted: the recipe has not yet run against the re
 
 **Expanded summary for sharing:** Today, yesterday, this month and last month from Google AdMob on your TRMNL, each compared with the period before. Sign in with Google; no API keys.
 
-**Categories:** `analytics,personal`. Check these against TRMNL's current list (`listCategories` in the account API) before submitting.
+**Categories:** `analytics,personal`, both on TRMNL's recipe list (checked 9 October 2026). `kpi` and `finance` also exist if a different pairing reads better.
 
 The name says what the recipe reads without implying it is a Google product. Google's brand guidelines allow naming the product the recipe works with; the listing must not use the AdMob logo, and the author bio states it is not affiliated with or endorsed by Google.
 
 ## Public recipe Overview
 
-At least 100 words, so the recipe page is indexed. Add it to `settings.yml` as `recipe_overview` when publishing.
+At least 100 words, so the recipe page is indexed. It lives in the author bio's `description`, after the bio, with paragraphs joined by `<br><br>`: TRMNL's GitHub Sync drops a top-level `recipe_overview` and moved Daily Bread's into its bio the same way. Keep the two copies in step.
 
-AdMob Earnings puts your Google AdMob revenue on your TRMNL, so you can see how your apps are doing without opening the AdMob console or a phone app. Today's earnings so far take centre stage, with yesterday, this month so far and last month alongside. Each is compared with the period before it: yesterday with the same day last week, this month with the same day last month, and last month with the month before last. Choose percent change, amount change or both. Every figure also shows its ad requests, impressions and clicks.
+AdMob Earnings puts your Google AdMob revenue on your TRMNL, so you can see how your apps are doing without opening the AdMob console or a phone app. Today's earnings so far take centre stage, with yesterday, this month so far and last month alongside. Each is compared with the period before it: yesterday with the same day last week, this month with the same day last month, and last month with the month before last. Choose percent change, amount change or both. Full screen also shows each figure's ad requests, impressions and clicks.
 
 Amounts appear in your account's reporting currency and follow its reporting time zone, the same way the AdMob console counts a day. Sign in with Google and pick your AdMob account from a list. There is no API key to copy, and access is read-only. TRMNL stores and refreshes the sign-in; the recipe sends your data nowhere else. Full-screen and all three mashup layouts are included, in light or dark.
 

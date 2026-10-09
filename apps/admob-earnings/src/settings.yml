@@ -66,7 +66,7 @@ custom_fields:
 - keyname: about
   field_type: author_bio
   name: About AdMob Earnings
-  description: An independent TRMNL recipe for Google AdMob publishers. It reads estimated earnings with read-only access through your Google sign-in, which TRMNL stores and refreshes. Nothing is sent anywhere else. Not affiliated with or endorsed by Google.
+  description: 'An independent TRMNL recipe for Google AdMob publishers. It reads estimated earnings with read-only access through your Google sign-in, which TRMNL stores and refreshes. Nothing is sent anywhere else. Not affiliated with or endorsed by Google.<br><br>AdMob Earnings puts your Google AdMob revenue on your TRMNL, so you can see how your apps are doing without opening the AdMob console or a phone app. Today&#39;s earnings so far take centre stage, with yesterday, this month so far and last month alongside. Each is compared with the period before it: yesterday with the same day last week, this month with the same day last month, and last month with the month before last. Choose percent change, amount change or both. Full screen also shows each figure&#39;s ad requests, impressions and clicks.<br><br>Amounts appear in your account&#39;s reporting currency and follow its reporting time zone, the same way the AdMob console counts a day. Sign in with Google and pick your AdMob account from a list. There is no API key to copy, and access is read-only. TRMNL stores and refreshes the sign-in; the recipe sends your data nowhere else. Full-screen and all three mashup layouts are included, in light or dark.'
   category: analytics,personal
   github_url: https://github.com/barrymichaeldoyle/trmnl-plugins
   learn_more_url: https://github.com/barrymichaeldoyle/trmnl-plugins/tree/main/apps/admob-earnings
