@@ -6,7 +6,7 @@ A pnpm monorepo for independent [TRMNL](https://trmnl.com) plugins and the tools
 | --- | --- | --- |
 | [Daily Bread: Bible Verses](apps/bible-verses/README.md) | Daily Scripture in English, French and Spanish, with nine practical themes | Published public recipe |
 | [AdMob Earnings](apps/admob-earnings/README.md) | Today, yesterday, month-to-date and last-month AdMob earnings with comparisons, via Google sign-in | Built and tested offline; awaiting Google OAuth credentials ([plan and status](docs/admob-earnings.md)) |
-| [Obsidian Screens](apps/obsidian/README.md) | Daily-note tasks, due tasks, a Dataview query, a resurfaced note, writing stats or a pinned note, pushed by an Obsidian plugin | Built and tested locally with a demo vault; not yet run in Obsidian or on TRMNL ([plan and status](docs/obsidian-screens.md)) |
+| [Obsidian Screens](apps/obsidian/README.md) | Daily-note tasks, due tasks, a Dataview query, a resurfaced note, writing stats or a pinned note, pushed by an Obsidian plugin | Running end to end with a demo vault: Obsidian pushes all six screens to a TRMNL ([plan and status](docs/obsidian-screens.md)) |
 
 The Formula 1 News plugin remains in the Grand Prix Picks monorepo. Add a link here when its public repository or recipe URL is ready. Future apps share the tooling without moving existing projects. AdMob Earnings is the first polling and OAuth recipe; [docs/admob-earnings.md](docs/admob-earnings.md) records its plan, status and the steps that need credentials.
 

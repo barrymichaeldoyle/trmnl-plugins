@@ -18,7 +18,7 @@ Every view comes in full, half horizontal, half vertical and quadrant, in landsc
 
 ![Today’s daily note tasks, full screen](docs/screenshots/daily-tasks.png)
 
-**Status:** built and tested locally against the demo vault, not yet run against a real TRMNL account. See [docs/obsidian-screens.md](../../docs/obsidian-screens.md) for the plan, decisions and what is left.
+**Status:** running end to end: Obsidian pushes all six screens from the demo vault to a TRMNL. See [docs/obsidian-screens.md](../../docs/obsidian-screens.md) for the plan, decisions and what is left.
 
 ## Try it with the demo vault
 

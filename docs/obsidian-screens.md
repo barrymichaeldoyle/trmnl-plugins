@@ -2,15 +2,15 @@
 
 ## Status
 
-9 October 2026: **built and tested locally; not yet run against TRMNL or inside Obsidian.** [`apps/obsidian`](../apps/obsidian/README.md) holds both halves: the TRMNL Screens Obsidian plugin and the Obsidian Screens webhook recipe, with a demo vault that doubles as test data. `pnpm check`, `pnpm test` and `pnpm build` cover it. The responsive and curated review suites pass on all 24 screens (456 captures, with expected text per view), and the contact sheets have been inspected; no visual baselines are recorded yet.
+9 October 2026: **running end to end with the demo vault.** Obsidian pushes all six screens to six installs on the device; mobile and publishing remain. [`apps/obsidian`](../apps/obsidian/README.md) holds both halves: the TRMNL Screens Obsidian plugin and the Obsidian Screens webhook recipe, with a demo vault that doubles as test data. `pnpm check`, `pnpm test` and `pnpm build` cover it. The responsive and curated review suites pass on all 24 screens (456 captures, with expected text per view), and the contact sheets have been inspected; no visual baselines are recorded yet.
 
 | Step | State |
 | --- | --- |
 | 1. Collectors for all six screens, fixtures from the demo vault, tests | Done |
 | 2. Recipe views for every screen at all four sizes, both orientations, OG and X | Done; baselines not yet recorded (`pnpm review:obsidian:check --update-baselines` after a final look) |
 | 3. Obsidian plugin runtime: scheduler, push budget, secrets, settings, status bar, commands | Done; tested with a fake Obsidian API (`test/runtime.test.js`) |
-| 4. Load the plugin in Obsidian with the demo vault | 9 October 2026: demo vault registered and opened in Obsidian 1.14.4, plugin installed, vault trusted. Next: paste the plugin's webhook URL into a TRMNL Screens secret and push from Obsidian |
-| 5. Import the recipe on TRMNL, push each screen, check on the device | 9 October 2026: private plugin 500911 created with `pnpm --filter @trmnl/obsidian upload`, on the device playlist. A daily-tasks payload built by the collector was written through the account API (`POST /api/plugin_settings/500911/data`); TRMNL's own preview renders all four sizes as the local review does. The other five screens followed the same way as plugins 500917 (Due), 500918 (Projects, from the demo's Dataview stand-in), 500919 (Resurfaced), 500920 (Writing) and 500921 (Focus), each renamed "Obsidian · …" and on the device playlist. Each still needs its webhook URL in the matching TRMNL Screens screen in Obsidian |
+| 4. Load the plugin in Obsidian with the demo vault | Done 9 October 2026: Obsidian 1.14.4 on macOS, all six screens connected through secrets and pushed from Obsidian (20:25 to 20:41). The Dataview screen shows its install message until Dataview is added to the vault |
+| 5. Import the recipe on TRMNL, push each screen, check on the device | 9 October 2026: private plugin 500911 created with `pnpm --filter @trmnl/obsidian upload`, on the device playlist. A daily-tasks payload built by the collector was written through the account API (`POST /api/plugin_settings/500911/data`); TRMNL's own preview renders all four sizes as the local review does. The other five screens followed the same way as plugins 500917 (Due), 500918 (Projects, from the demo's Dataview stand-in), 500919 (Resurfaced), 500920 (Writing) and 500921 (Focus), each renamed "Obsidian · …" and on the device playlist. Each is connected to its screen in Obsidian |
 | 6. Mobile check (iOS or Android Obsidian) | After step 5 |
 | 7. Publish: recipe on TRMNL, plugin in Obsidian's community directory | Not started; ask before either |
 
