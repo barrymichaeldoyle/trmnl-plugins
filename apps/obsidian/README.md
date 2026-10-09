@@ -50,6 +50,8 @@ pnpm build:obsidian          # dist/obsidian-screens.zip and dist/obsidian-plugi
 
 `pnpm check`, `pnpm test` and `pnpm build` at the root cover this app. Nothing in local development calls TRMNL.
 
+To update an installed copy on TRMNL, run `TRMNL_PLUGIN_ID=<id> pnpm --filter @trmnl/obsidian upload` for each copy. Pushed data survives an upload, but the name resets to "Obsidian Screens" from `settings.yml`, so rename each copy afterwards (the live copies are listed in [docs/obsidian-screens.md](../../docs/obsidian-screens.md)).
+
 ## How it works
 
 - **Collectors** (`obsidian-plugin/src/screens/`): one module per screen, each a pure function of a vault index, the current moment and the screen's options, so the same code runs in Obsidian, in tests and in the fixture generator. Text arrives as plain text: links read as their visible text, Tasks signifiers and inline fields are removed, and so are emoji, which e-ink cannot draw.
