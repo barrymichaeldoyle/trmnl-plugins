@@ -34,6 +34,10 @@
   {%- assign verse = pool[verse_index] -%}
   {%- assign selected_theme = selected_themes | where: 'id', verse.theme | first -%}
   {%- assign theme_label = selected_theme.name | default: verse.theme | escape -%}
+  {%- comment -%}Split "1 Corinthians 16:14" into the book and the chapter and verses for views that set them apart.{%- endcomment -%}
+  {%- assign reference_verses = verse.reference | split: ' ' | last -%}
+  {%- assign reference_book_size = verse.reference.size | minus: reference_verses.size | minus: 1 -%}
+  {%- assign reference_book = verse.reference | slice: 0, reference_book_size -%}
 {%- endif -%}
 {%- comment -%}
   Start large; TRMNL fits the complete passage to this height without truncation.
@@ -48,17 +52,20 @@
   {%- when 'fr' -%}{%- assign context_label = 'Lire le chapitre' -%}
   {%- when 'es' -%}{%- assign context_label = 'Leer el capítulo' -%}
 {%- endcase -%}
+{%- comment -%}Both dark systems (screen dark mode and inverse) swap the black token to white, so a dark tile asks for black to stay white behind the code and its quiet zone.{%- endcomment -%}
+{%- assign qr_tile = 'bg--white' -%}
+{%- if options.appearance == 'dark' -%}{%- assign qr_tile = 'bg--black' -%}{%- endif -%}
 {%- if verse and show_context_qr -%}
   {%- assign context_qr_svg = verse.source | qr_code: 1, 'm' -%}
   {%- assign context_qr_uri = context_qr_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
   {%- capture context_qr -%}
-    <a class="block w--24 h--24 p--3 bg--white no-shrink" href="{{ verse.source | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ context_label | escape }}" title="{{ context_label | escape }}" data-context-url="{{ verse.source | escape }}">
+    <a class="block w--24 h--24 p--3 {{ qr_tile }} no-shrink" href="{{ verse.source | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ context_label | escape }}" title="{{ context_label | escape }}" data-context-url="{{ verse.source | escape }}">
       <img class="image w--full h--full" src="{{ context_qr_uri }}" alt="{{ context_label | escape }}">
     </a>
   {%- endcapture -%}
 {%- endif -%}
 {%- assign device_height = trmnl.device.height | default: 480 -%}
-{%- assign full_text_height = device_height | times: 0.69 | floor -%}
+{%- assign full_text_height = device_height | times: 0.8 | floor -%}
 {%- assign banner_text_height = device_height | times: 0.30 | floor -%}
 {%- assign tall_text_height = device_height | times: 0.76 | floor -%}
 {%- assign small_text_height = device_height | times: 0.30 | floor -%}
@@ -84,8 +91,6 @@
 {%- comment -%}Dimensional hero: a white front with black sides in both appearances; outlines and top faces follow ink and paper.{%- endcomment -%}
 {%- capture hero_cross_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 8 132 206"><path d="M73 10h28v52h41v28h-41v108H73V90H33V62h40z" fill="black" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M55 24 73 10h28L83 24zM83 76l18-14h41l-18 14zM15 76l18-14h40L55 76z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M83 24l18-14v52L83 76zM124 76l18-14v28l-18 14zM83 104l18-14v108l-18 14z" fill="black" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M55 24h28v52h41v28H83v108H55V104H15V76h40z" fill="white" stroke="{{ ink }}" stroke-width="3" stroke-linejoin="round"/><path d="M62 33h14M23 83h25M62 112v91" fill="none" stroke="black" stroke-width="1.5"/></svg>{%- endcapture -%}
 {%- assign hero_cross_uri = hero_cross_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
-{%- capture reading_ornament_svg -%}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 20"><path d="M0 10h96m48 0h96" fill="none" stroke="{{ ink }}" stroke-width="2"/><path d="m120 2 8 8-8 8-8-8z" fill="{{ paper }}" stroke="{{ ink }}" stroke-width="2"/><path d="m102 10 4-4 4 4-4 4zm28 0 4-4 4 4-4 4z" fill="{{ ink }}"/></svg>{%- endcapture -%}
-{%- assign reading_ornament_uri = reading_ornament_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
 
 <script>
 (function () {
@@ -143,7 +148,7 @@
   function referenceCrowdsPassage() {
     return Array.from(document.querySelectorAll('[data-scripture-fit="true"]')).some(function (passage) {
       var reference = passage.parentElement.querySelector('[data-content-reference="true"]');
-      if (!reference || reference.classList.contains('hidden')) return false;
+      if (!reference || getComputedStyle(reference).display === 'none') return false;
       return parseFloat(getComputedStyle(passage).fontSize) < 1.25 * parseFloat(getComputedStyle(reference).fontSize);
     });
   }

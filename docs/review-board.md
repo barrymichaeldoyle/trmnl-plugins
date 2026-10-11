@@ -35,10 +35,10 @@ a stable reference ID tie-break. The middle example is the upper middle passage
 content. The current examples are 1 Corinthians 16:14 (English, 36 characters),
 Salmos 145:18–19 (Spanish, 172), and Hébreux 4:14–16 (French, 473).
 
-Choose **Curated regression suite** for broader coverage: 51 cases and 1,224
+Choose **Curated regression suite** for broader coverage: 54 cases and 1,296
 captures, including each language's median and longest, defaults, shortest
 passages, longest passages in every theme, multiple-theme selections, QR disabled,
-longest references, and missing-content recovery, in all three languages.
+longest references in light and dark, and missing-content recovery, in all three languages.
 Rotation intervals and timezone boundaries remain covered by behavioral tests.
 
 Cases use the actual collections and filtering transform. A fixed timestamp and

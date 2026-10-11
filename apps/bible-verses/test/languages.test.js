@@ -201,7 +201,10 @@ test('dark appearance inverts this plugin\'s content and artwork but keeps the Q
     const dark = await renderView(plugin, view, { ...options, fields: { appearance: 'dark' } });
     assert.ok(dark.includes('class="layout layout--col layout--top inverse bg--canvas" data-appearance="dark"'));
     assert.ok(dark.includes('class="title_bar inverse bg--canvas" data-appearance="dark"'));
-    assert.ok(dark.includes('bg--white'));
+    // Both dark systems swap the black token to white; the browser review checks the rendered tile.
+    const tileOf = html => html.match(/<a class="block [^"]*" href=[^>]*data-context-url/)[0];
+    assert.match(tileOf(light), / bg--white /);
+    assert.match(tileOf(dark), / bg--black /);
     const crossOf = html => html.match(/src="(data:image\/svg\+xml;base64,[^"]+)"[^>]*data-reading-cross/)[1];
     assert.notEqual(crossOf(dark), crossOf(light));
     assert.ok(Buffer.from(crossOf(dark).split(',')[1], 'base64').toString().includes('fill="white" stroke="white"'));

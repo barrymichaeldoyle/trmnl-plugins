@@ -19,8 +19,9 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
   const visible = element => { const style = getComputedStyle(element); return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0 && element.getBoundingClientRect().height > 0; };
   const text = element => element?.textContent.replace(/\s+/g, ' ').trim() ?? '';
   const normalize = value => value.replace(/\s+/g, ' ').trim();
-  // The reference sits under the passage when it fits, otherwise in the title bar.
-  const references = Array.from(document.querySelectorAll('[data-content-reference], [data-footer-reference]')).filter(visible);
+  // The reference sits under the passage (or in the artwork column on TRMNL X)
+  // when it fits, otherwise in the title bar.
+  const references = Array.from(document.querySelectorAll('[data-content-reference], [data-column-reference], [data-footer-reference]')).filter(visible);
   const reference = references[0] ?? null;
   const footerName = document.querySelector('[data-footer-name]');
   if (!view || !layout) errors.push('Missing view or layout.');
@@ -29,6 +30,10 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
     if (!passage || passage.dataset.verseId !== expected.id) errors.push('The selected passage does not match the case.');
     if (text(passage) !== normalize(expected.text)) errors.push('Scripture text differs from the complete publisher passage.');
     if (text(reference) !== normalize(expected.reference)) errors.push('Reference differs from the selected passage.');
+    if (reference && view) {
+      const range = document.createRange(); range.selectNodeContents(reference);
+      if (Array.from(range.getClientRects()).some(b => b.width > 1 && !inside(b, rect(view)))) errors.push('Reference extends outside the view.');
+    }
     if (passage && layout && !inside(rect(passage), rect(layout))) errors.push('Passage extends outside the reading area.');
     if (passage && !visible(passage)) errors.push('Passage is hidden.');
     if (passage) {
@@ -57,6 +62,8 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
     const context = Array.from(document.querySelectorAll('[data-context-url]')).find(visible) ?? null;
     if (qr && (!context || context.dataset.contextUrl !== expected.source)) errors.push('QR link is missing or points to the wrong chapter.');
     if (!qr && context) errors.push('QR is visible when disabled.');
+    // Scanners need a light quiet zone, including in dark appearances.
+    if (context && getComputedStyle(context).backgroundColor !== 'rgb(255, 255, 255)') errors.push('QR quiet zone is not white.');
     // Text may wrap around pinned artwork, so compare rendered lines, not the
     // paragraph box, against the QR code and each visible cross.
     if (passage) {
@@ -73,7 +80,7 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
         }));
       }
       const overlaps = element => lines.some(a => { const b = rect(element); return Math.min(a.right, b.right) - Math.max(a.left, b.left) > 1 && Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 1; });
-      const contentReference = reference?.matches('[data-content-reference]') ? reference : null;
+      const contentReference = reference?.matches('[data-content-reference], [data-column-reference]') ? reference : null;
       if (contentReference) {
         const range = document.createRange(); range.selectNodeContents(contentReference);
         const referenceLines = Array.from(range.getClientRects()).filter(b => b.width > 1 && b.height > 1);
@@ -92,7 +99,7 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
         Object.assign(probe.style, { position: 'absolute', visibility: 'hidden', width: 'min-content', minWidth: '0' });
         passage.parentElement.append(probe);
         const wordBound = probe.getBoundingClientRect().width > passage.parentElement.getBoundingClientRect().width;
-        typography = { fontSize: parseFloat(getComputedStyle(passage).fontSize), startSize: parseFloat(getComputedStyle(probe).fontSize), fill: content > 0 ? Math.round(100 * (bottom - top) / content) : null, lines: new Set(lines.map(b => Math.round(b.top))).size, wordBound, reference: reference?.matches('[data-content-reference]') ? 'content' : 'bar' };
+        typography = { fontSize: parseFloat(getComputedStyle(passage).fontSize), startSize: parseFloat(getComputedStyle(probe).fontSize), fill: content > 0 ? Math.round(100 * (bottom - top) / content) : null, lines: new Set(lines.map(b => Math.round(b.top))).size, wordBound, reference: reference?.matches('[data-column-reference]') ? 'column' : reference?.matches('[data-content-reference]') ? 'content' : 'bar' };
         probe.remove();
         if (typography.fontSize < minFontSize) warnings.push(`Scripture fits at ${typography.fontSize}px, below the ${minFontSize}px legibility floor.`);
         if (typography.fontSize < typography.startSize && !wordBound && typography.fill < minFill) warnings.push(`Scripture shrank to ${typography.fontSize}px while filling ${typography.fill}% of the layout; reserved space may be wasted.`);

@@ -119,7 +119,9 @@ export function reviewScenarios(plugin, mode = 'curated') {
       const theme = collection.themes.slice(0, 2).map(theme => theme.id);
       add(collection, 'Multiple themes', 'multiple', { theme });
       add(collection, 'Longest passage · QR off', 'longest-qr-off', { show_context_qr: false }, longest(collection.verses));
-      add(collection, 'Longest reference', 'longest-reference', {}, collection.verses.reduce((a, b) => a.reference.length >= b.reference.length ? a : b));
+      const longestReference = collection.verses.reduce((a, b) => a.reference.length >= b.reference.length ? a : b);
+      add(collection, 'Longest reference', 'longest-reference', {}, longestReference);
+      add(collection, 'Longest reference · Dark', 'longest-reference-dark', { appearance: 'dark' }, longestReference);
       add(collection, 'Missing collection recovery', 'recovery', {}, undefined, true);
     }
   }
