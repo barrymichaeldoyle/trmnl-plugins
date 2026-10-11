@@ -127,11 +127,13 @@ pnpm review:check --update-baselines
 pnpm review:check --require-baselines
 ```
 
-References live in `apps/bible-verses/review-baselines/<environment>/`. Keep these
-under version control after review. The environment key includes the Chromium
-version, operating system, architecture, and pixel ratio. Generate and compare
-baselines in the same environment; macOS captures cannot substitute for Linux CI
-baselines. See [Playwright's environment guidance](https://playwright.dev/docs/test-snapshots).
+References live in `apps/bible-verses/review-baselines/<environment>/`. Only the
+responsive suite's baselines (`*-sample-*`) are versioned, after review; curated and
+exhaustive baselines are ignored and stay local, since the full set is about 128 MB.
+Record them with `pnpm review:responsive --update-baselines`. The environment key
+includes the Chromium version, operating system, architecture, and pixel ratio.
+Generate and compare baselines in the same environment; macOS captures cannot
+substitute for Linux CI baselines. See [Playwright's environment guidance](https://playwright.dev/docs/test-snapshots).
 
 Baselines are never silently replaced. `--update-baselines` updates only cases
 that pass layout checks. `--require-baselines` also fails for missing references;

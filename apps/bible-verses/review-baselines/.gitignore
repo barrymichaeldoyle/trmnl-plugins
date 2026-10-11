@@ -1,0 +1,4 @@
+# Only the responsive suite's baselines are versioned; curated and exhaustive
+# baselines stay local to keep the repository small.
+*/*.png
+!*/*-sample-*.png
