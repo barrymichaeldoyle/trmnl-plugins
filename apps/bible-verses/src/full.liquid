@@ -4,14 +4,14 @@
       <div class="flex flex--col flex--center-y flex--left grow w--0 h--full" data-reading-area="true">
         <p class="value no-shrink value--large lg:value--xxlarge w--min-full" lang="{{ selected_translation.language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ full_text_height }}" data-verse-id="{{ verse.id | escape }}">{{ verse.text | escape }}</p>
       </div>
-      {%- comment -%}The chapter QR code sits at the top right of the artwork column and the cross at the bottom. The reference fills the space between them, sized by the cross's column.{%- endcomment -%}
+      {%- comment -%}The artwork column is as wide as the chapter QR code, top right, so the passage keeps the rest of the width. A card between the code and the cross names the passage; the cross sits at the bottom.{%- endcomment -%}
       <div class="flex flex--col flex--between flex--right no-shrink h--full gap--small">
-        {% if context_qr %}{{ context_qr | replace: 'w--24 h--24', 'w--32 h--32' }}{% else %}<span class="h--0" aria-hidden="true"></span>{% endif %}
-        <div class="w--0 w--min-full" data-column-reference="true">
-          <div class="flex flex--right w--full"><span class="value value--xsmall lg:value--small no-shrink" data-value-fit="true">{{ reference_book | escape }}</span></div>
-          <div class="flex flex--right w--full"><span class="value value--large lg:value--xlarge no-shrink" data-value-fit="true">{{ reference_verses | escape }}</span></div>
+        {% if context_qr %}{{ context_qr | replace: 'w--24 h--24', 'w--32 h--32 lg:w--40 lg:h--40' }}{% else %}<span class="h--0" aria-hidden="true"></span>{% endif %}
+        <div class="outline p--2 w--0 w--min-full" data-column-reference="true">
+          <div class="flex flex--center-x w--full"><span class="value value--xsmall lg:value--small no-shrink" data-value-fit="true">{{ reference_book | escape }}</span></div>
+          <div class="flex flex--center-x w--full"><span class="value value--small lg:value--base no-shrink" data-value-fit="true">{{ reference_verses | escape }}</span></div>
         </div>
-        <div class="w--[13cqw] portrait:w--[28cqw] lg:w--[23cqw] lg:portrait:w--[28cqw]" data-pinned-cross="true"><img class="image image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
+        <div class="w--[13cqw] portrait:w--[28cqw] lg:portrait:w--[17cqw]" data-pinned-cross="true"><img class="image image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
       </div>
     </div>
   {% else %}

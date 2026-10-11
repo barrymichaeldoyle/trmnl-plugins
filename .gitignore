@@ -13,3 +13,6 @@ _build/
 .impeccable/mocks/
 .impeccable/tmp/
 __pycache__/
+
+# Local browser automation logs
+.playwright-mcp/
