@@ -21,10 +21,11 @@ export function previewDevice(model = 'og', portrait = false) {
 }
 export const engine = new Liquid({ strictFilters: true, timezoneOffset: 0 });
 engine.registerFilter('base64_encode', value => Buffer.from(String(value)).toString('base64'));
-// Local equivalent of TRMNL's native qr_code filter. Production supplies it.
+// Local equivalent of TRMNL's native qr_code filter. Production supplies it and,
+// like trmnlp's mirror of core, draws a white quiet zone of four modules inside the code.
 engine.registerFilter('qr_code', async (value, size = 11, level = 'h') => {
   const correction = ['l', 'm', 'q', 'h'].includes(String(level).toLowerCase()) ? String(level).toUpperCase() : 'H';
-  return (await QRCode.toString(String(value), { type: 'svg', margin: 0, errorCorrectionLevel: correction })).replace('<svg ', '<svg class="qr-code" ');
+  return (await QRCode.toString(String(value), { type: 'svg', margin: 4, errorCorrectionLevel: correction })).replace('<svg ', '<svg class="qr-code" ');
 });
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 

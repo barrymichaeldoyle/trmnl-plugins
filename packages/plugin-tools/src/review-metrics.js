@@ -62,8 +62,6 @@ export function measureReview({ expected, missingTitle, missingText, qr, recover
     const context = Array.from(document.querySelectorAll('[data-context-url]')).find(visible) ?? null;
     if (qr && (!context || context.dataset.contextUrl !== expected.source)) errors.push('QR link is missing or points to the wrong chapter.');
     if (!qr && context) errors.push('QR is visible when disabled.');
-    // Scanners need a light quiet zone, including in dark appearances.
-    if (context && getComputedStyle(context).backgroundColor !== 'rgb(255, 255, 255)') errors.push('QR quiet zone is not white.');
     // Text may wrap around pinned artwork, so compare rendered lines, not the
     // paragraph box, against the QR code and each visible cross.
     if (passage) {

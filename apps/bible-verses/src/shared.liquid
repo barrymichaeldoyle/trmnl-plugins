@@ -52,14 +52,11 @@
   {%- when 'fr' -%}{%- assign context_label = 'Lire le chapitre' -%}
   {%- when 'es' -%}{%- assign context_label = 'Leer el capítulo' -%}
 {%- endcase -%}
-{%- comment -%}Both dark systems (screen dark mode and inverse) swap the black token to white, so a dark tile asks for black to stay white behind the code and its quiet zone.{%- endcomment -%}
-{%- assign qr_tile = 'bg--white' -%}
-{%- if options.appearance == 'dark' -%}{%- assign qr_tile = 'bg--black' -%}{%- endif -%}
 {%- if verse and show_context_qr -%}
   {%- assign context_qr_svg = verse.source | qr_code: 1, 'm' -%}
   {%- assign context_qr_uri = context_qr_svg | base64_encode | prepend: 'data:image/svg+xml;base64,' -%}
   {%- capture context_qr -%}
-    <a class="block w--24 h--24 p--3 {{ qr_tile }} no-shrink" href="{{ verse.source | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ context_label | escape }}" title="{{ context_label | escape }}" data-context-url="{{ verse.source | escape }}">
+    <a class="block w--24 h--24 no-shrink" href="{{ verse.source | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ context_label | escape }}" title="{{ context_label | escape }}" data-context-url="{{ verse.source | escape }}">
       <img class="image w--full h--full" src="{{ context_qr_uri }}" alt="{{ context_label | escape }}">
     </a>
   {%- endcapture -%}
@@ -76,7 +73,7 @@
   Dark uses the framework's inverse tokens on this plugin's own content, so a
   mashup neighbour keeps its appearance. A full view owns the screen, so the
   script below switches the whole screen to dark mode instead. Artwork swaps ink
-  and paper to match; the QR code keeps its white tile so scanners read it.
+  and paper to match; TRMNL's qr_code builds a white quiet zone into the code.
 {%- endcomment -%}
 {%- assign ink = 'black' -%}
 {%- assign paper = 'white' -%}

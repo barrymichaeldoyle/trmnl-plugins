@@ -194,17 +194,20 @@ test('fresh and blank preferences use English, all themes, daily rotation, QR on
   }
 });
 
-test('dark appearance inverts this plugin\'s content and artwork but keeps the QR tile white', async () => {
+test('dark appearance inverts this plugin\'s content and artwork; the QR code carries its own white quiet zone', async () => {
   const options = { timestamp: 1790848800, utcOffset: 0 };
   for (const view of views) {
     const light = await renderView(plugin, view, options);
     const dark = await renderView(plugin, view, { ...options, fields: { appearance: 'dark' } });
     assert.ok(dark.includes('class="layout layout--col layout--top inverse bg--canvas" data-appearance="dark"'));
     assert.ok(dark.includes('class="title_bar inverse bg--canvas" data-appearance="dark"'));
-    // Both dark systems swap the black token to white; the browser review checks the rendered tile.
-    const tileOf = html => html.match(/<a class="block [^"]*" href=[^>]*data-context-url/)[0];
-    assert.match(tileOf(light), / bg--white /);
-    assert.match(tileOf(dark), / bg--black /);
+    // No tile colour to flip: the code's white background extends four modules past
+    // its finder patterns, as TRMNL's qr_code draws it, so any appearance scans.
+    for (const html of [light, dark]) {
+      assert.doesNotMatch(html.match(/<a class="block [^"]*" href=[^>]*data-context-url/)[0], /bg--|p--/);
+      const qr = Buffer.from(html.match(/src="data:image\/svg\+xml;base64,([^"]+)" alt="Read in context"/)[1], 'base64').toString();
+      assert.match(qr, /<path fill="#ffffff" d="M0 0h(\d+)v\1H0z"\/><path stroke="#000000" d="M4 4\.5h7/);
+    }
     const crossOf = html => html.match(/src="(data:image\/svg\+xml;base64,[^"]+)"[^>]*data-reading-cross/)[1];
     assert.notEqual(crossOf(dark), crossOf(light));
     assert.ok(Buffer.from(crossOf(dark).split(',')[1], 'base64').toString().includes('fill="white" stroke="white"'));
