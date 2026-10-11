@@ -184,16 +184,23 @@ export async function checkPlugin(plugin) {
 export const settingsLimit = 100 * 1000;
 const packingBudget = 90 * 1000;
 
+// TRMNL stores these switches as 'yes'/'no' strings and GitHub Sync writes them
+// back that way. Emit the same form, quoted as YAML 1.1 requires (TRMNL parses
+// a bare no as false), so an upload and its sync commit agree.
+const yesNoSettings = ['no_screen_padding', 'dark_mode', 'oauth_pkce_enabled'];
+const settingsYaml = settings => YAML.stringify(Object.fromEntries(Object.entries(settings).map(([key, value]) =>
+  [key, yesNoSettings.includes(key) && typeof value === 'boolean' ? (value ? 'yes' : 'no') : value])), { version: '1.1' });
+
 export function exportFiles(plugin) {
   const { translations = {}, ...primary } = plugin.data;
   const staticTranslations = {};
   const bundled = {};
   if (plugin.settings.strategy !== 'static') {
-    const files = { 'settings.yml': YAML.stringify(plugin.settings), ...Object.fromEntries(views.map(view => [`${view}.liquid`, plugin.templates[view]])), ...(plugin.transform ? { 'transform.js': plugin.transform } : {}) };
+    const files = { 'settings.yml': settingsYaml(plugin.settings), ...Object.fromEntries(views.map(view => [`${view}.liquid`, plugin.templates[view]])), ...(plugin.transform ? { 'transform.js': plugin.transform } : {}) };
     for (const name of ['settings.yml', 'transform.js']) if (files[name] && Buffer.byteLength(files[name]) > settingsLimit) throw new Error(`${name} exceeds TRMNL's ${settingsLimit / 1000} KB limit.`);
     return files;
   }
-  const settingsFor = data => YAML.stringify({ ...plugin.settings, static_data: JSON.stringify(data) });
+  const settingsFor = data => settingsYaml({ ...plugin.settings, static_data: JSON.stringify(data) });
   for (const [language, collection] of Object.entries(translations)) {
     const candidate = { ...primary, translations: { ...staticTranslations, [language]: collection } };
     if (!plugin.config.bundle_data_in_transform || Buffer.byteLength(settingsFor(candidate)) <= packingBudget) staticTranslations[language] = collection;
