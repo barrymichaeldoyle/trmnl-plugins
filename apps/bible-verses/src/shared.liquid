@@ -99,8 +99,19 @@
     if (!dark.length || dark[0].closest('.mashup')) return;
     var screen = dark[0].closest('.screen');
     if (!screen) return;
+    // TRMNL owns screen dark mode (the editor's toggle and device settings reset it),
+    // so follow the class rather than fight it: whenever it is missing, the
+    // scoped inverse tokens keep this plugin's content dark.
+    function follow() {
+      var screenDark = screen.classList.contains('screen--dark-mode');
+      dark.forEach(function (element) {
+        element.classList.toggle('inverse', !screenDark);
+        element.classList.toggle('bg--canvas', !screenDark);
+      });
+    }
     screen.classList.add('screen--dark-mode');
-    dark.forEach(function (element) { element.classList.remove('inverse', 'bg--canvas'); });
+    follow();
+    new MutationObserver(follow).observe(screen, { attributes: true, attributeFilter: ['class'] });
   }
   // Physical content box of an element, excluding its padding. The scale covers
   // TRMNL X and other views that the framework scales after layout.
