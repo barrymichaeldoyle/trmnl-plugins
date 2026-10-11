@@ -1,6 +1,6 @@
 # AdMob Earnings publication copy
 
-Drafted 8 October 2026; ready to submit 9 October 2026, after the live plugin's figures matched the AdMob console. The Google app is in production; verification is optional (see [the plan](../../../docs/admob-earnings.md)). The name, short description, author bio and Overview are in `src/settings.yml`.
+Drafted 8 October 2026; ready to submit 9 October 2026, after the live plugin's figures matched the AdMob console. Submitted from plugin 499993; "Plugin in review" on 11 October 2026. The Google app is in production; verification is optional (see [the plan](../../../docs/admob-earnings.md)). The name, short description, author bio and Overview are in `src/settings.yml`.
 
 ## Name and short description
 
