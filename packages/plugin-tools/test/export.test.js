@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
-import { cp, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import YAML from 'yaml';
@@ -42,6 +42,15 @@ test('a transform synced back from TRMNL exports its Scripture bundle only once'
     assert.equal(synced.transform, plugin.transform);
     assert.equal(exportFiles(synced)['transform.js'].match(/const SCRIPTURE = /g).length, 1);
   } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test('Daily Bread source matches its export, so TRMNL\'s Import from GitHub is safe', async () => {
+  // GitHub Sync imports src/ as-is (shared.liquid stays separate). After a content
+  // change, upload with pnpm upload and pull the sync commit to restore the match.
+  const files = exportFiles(plugin);
+  const source = name => readFile(join(plugin.root, 'src', name), 'utf8');
+  assert.equal(await source('transform.js'), files['transform.js'], 'src/transform.js differs from the export');
+  assert.deepEqual(YAML.parse(await source('settings.yml')), YAML.parse(files['settings.yml']), 'src/settings.yml differs from the export');
 });
 
 test('exports fail before upload when settings.yml would exceed TRMNL\'s limit', () => {
