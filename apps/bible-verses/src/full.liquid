@@ -8,8 +8,8 @@
       <div class="flex flex--row flex--between flex--center-y no-shrink w--full gap" data-reading-footer="true">
         {% if context_qr %}{{ context_qr | replace: 'w--24 h--24', 'w--24 h--24 portrait:w--32 portrait:h--32 lg:w--48 lg:h--48' }}{% else %}<span class="w--0 h--0" aria-hidden="true"></span>{% endif %}
         <div class="flex flex--col flex--center grow w--0 text--center" data-row-reference="true">
-          <div class="flex flex--center-x w--full"><span class="value value--small lg:value--base no-shrink" data-value-fit="true">{{ reference_book | escape }}</span></div>
-          <div class="flex flex--center-x w--full"><span class="value value--base lg:value--large no-shrink" data-value-fit="true">{{ reference_verses | escape }}</span></div>
+          <div class="flex flex--center-x w--full"><span class="value value--base lg:value--large no-shrink" data-value-fit="true">{{ reference_book | escape }}</span></div>
+          <div class="flex flex--center-x w--full"><span class="value value--base portrait:value--large lg:value--xlarge no-shrink" data-value-fit="true">{{ reference_verses | escape }}</span></div>
         </div>
         <div class="h--24 portrait:h--32 lg:h--48 no-shrink" data-pinned-cross="true"><img class="image image--contain h--full w--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
       </div>
