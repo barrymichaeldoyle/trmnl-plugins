@@ -6,7 +6,7 @@
       </div>
       {%- comment -%}The passage keeps the full width. A footer row holds the chapter QR code at the left, the book and the chapter and verses in the middle, and the cross at the right, as tall as the code.{%- endcomment -%}
       <div class="flex flex--row flex--between flex--center-y no-shrink w--full gap--small" data-reading-footer="true">
-        {% if context_qr %}{{ context_qr | replace: 'w--24 h--24', 'w--20 h--20 lg:w--32 lg:h--32' }}{% else %}<span class="w--0 h--0" aria-hidden="true"></span>{% endif %}
+        {% if context_qr %}{{ context_qr | replace: 'w--24 h--24', 'w--20 h--20 lg:w--28 lg:h--28' }}{% else %}<span class="w--0 h--0" aria-hidden="true"></span>{% endif %}
         <div class="flex flex--col flex--center grow w--0 text--center" data-row-reference="true">
           <div class="flex flex--center-x w--full"><span class="value value--small lg:value--base no-shrink" data-value-fit="true">{{ reference_book | escape }}</span></div>
           <div class="flex flex--center-x w--full"><span class="value value--base lg:value--large no-shrink" data-value-fit="true">{{ reference_verses | escape }}</span></div>
