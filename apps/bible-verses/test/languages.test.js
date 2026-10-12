@@ -5,6 +5,13 @@ import { readFile } from 'node:fs/promises';
 import { loadPlugin, renderView, views, escapeHtml } from '../../../packages/plugin-tools/src/plugin.js';
 
 const plugin = await loadPlugin(fileURLToPath(new URL('..', import.meta.url)));
+// Views either show the whole reference or set the book apart from the chapter
+// and verses, as in "Hébreux" over "4:14–16".
+const showsReference = (html, reference) => {
+  const verses = reference.split(' ').at(-1);
+  const book = reference.slice(0, -verses.length - 1);
+  return html.includes(escapeHtml(reference)) || (html.includes(`>${escapeHtml(book)}<`) && html.includes(`>${escapeHtml(verses)}<`));
+};
 
 test('TRMNL select controls submit the language and theme identifiers, and refresh rate sets rotation', () => {
   const fields = plugin.settings.custom_fields;
@@ -49,7 +56,7 @@ test('every translated passage remains complete in every view, with the correct 
       for (const view of views) {
         const html = await renderView(plugin, view, { timestamp: slot * 86400, utcOffset: 0, fields: { language } });
         assert.ok(html.includes(escapeHtml(verse.text)), `${language} ${view} ${verse.reference}`);
-        assert.ok(html.includes(escapeHtml(verse.reference)));
+        assert.ok(showsReference(html, verse.reference), `${view} must show the ${verse.reference} reference`);
         assert.ok(html.includes(collection.translation.abbreviation));
         assert.ok(!html.includes(' · WEB'));
         assert.ok(html.includes(`lang="${language}" translate="no"`));

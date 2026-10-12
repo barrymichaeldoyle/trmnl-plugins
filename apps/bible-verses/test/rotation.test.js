@@ -4,6 +4,13 @@ import { fileURLToPath } from 'node:url';
 import { loadPlugin, renderView, views, escapeHtml, runTransform, contextFor } from '../../../packages/plugin-tools/src/plugin.js';
 
 const plugin = await loadPlugin(fileURLToPath(new URL('..', import.meta.url)));
+// Views either show the whole reference or set the book apart from the chapter
+// and verses, as in "Hébreux" over "4:14–16".
+const showsReference = (html, reference) => {
+  const verses = reference.split(' ').at(-1);
+  const book = reference.slice(0, -verses.length - 1);
+  return html.includes(escapeHtml(reference)) || (html.includes(`>${escapeHtml(book)}<`) && html.includes(`>${escapeHtml(verses)}<`));
+};
 const epoch = value => Date.parse(value) / 1000;
 const id = html => html.match(/data-verse-id="([^"]+)"/)?.[1];
 const render = options => renderView(plugin, 'full', options);
@@ -88,7 +95,7 @@ test('all views show the same complete passage for every slot, including the lon
       const html = await renderView(plugin, view, { timestamp: slot * 86400, utcOffset: 0 });
       assert.equal(id(html), verse.id);
       assert.ok(html.includes(escapeHtml(verse.text)), `${view} must preserve the entire ${verse.reference} passage`);
-      assert.ok(html.includes(escapeHtml(verse.reference)));
+      assert.ok(showsReference(html, verse.reference), `${view} must show the ${verse.reference} reference`);
     }
   }
 });

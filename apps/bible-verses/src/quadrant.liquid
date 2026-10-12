@@ -4,12 +4,16 @@
       <div class="flex flex--col flex--between flex--left grow w--0 portrait:w--full h--full portrait:h--0 gap--small">
         <div class="flex flex--col flex--center-y flex--left grow w--full h--0 gap--small" data-reading-area="true">
           <p class="value no-shrink value--large lg:value--xxlarge w--min-full" lang="{{ selected_translation.language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ small_text_height }}" data-verse-id="{{ verse.id | escape }}">{{ verse.text | escape }}</p>
-          <p class="title title--base lg:title--large text--bold no-shrink w--full" data-content-reference="true">{{ reference_book | escape }} <span class="inline-block">{{ reference_verses | escape }}</span></p>
+          <p class="title title--base lg:title--large text--bold no-shrink w--full portrait:hidden" data-content-reference="true">{{ reference_book | escape }} <span class="inline-block">{{ reference_verses | escape }}</span></p>
         </div>
       </div>
-      {%- comment -%}The chapter QR code sits at the top of the artwork column and the cross at the bottom; portrait stacks them in a row under the Scripture.{%- endcomment -%}
+      {%- comment -%}The chapter QR code sits at the top of the artwork column and the cross at the bottom; portrait stacks them in a row under the Scripture with the book and the chapter and verses between them.{%- endcomment -%}
       <div class="flex flex--col portrait:flex--row flex--between portrait:flex--between flex--center-y portrait:flex--bottom no-shrink h--full portrait:h--auto portrait:w--full">
         {% if context_qr %}{{ context_qr | replace: 'w--24 h--24', 'w--16 h--16' }}{% else %}<span class="h--0" aria-hidden="true"></span>{% endif %}
+        <div class="hidden portrait:flex flex--col flex--center grow w--0 text--center" data-row-reference="true">
+          <div class="flex flex--center-x w--full"><span class="value value--xsmall no-shrink" data-value-fit="true">{{ reference_book | escape }}</span></div>
+          <div class="flex flex--center-x w--full"><span class="value value--small no-shrink" data-value-fit="true">{{ reference_verses | escape }}</span></div>
+        </div>
         <div class="w--12 lg:w--14" data-pinned-cross="true"><img class="image image--contain w--full h--auto" src="{{ hero_cross_uri }}" alt="Christian cross" data-reading-cross="true"></div>
       </div>
     </div>
