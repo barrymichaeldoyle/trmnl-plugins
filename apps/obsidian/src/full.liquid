@@ -27,7 +27,7 @@
   {%- assign body_class = 'description description--xlarge lg:description--xxlarge' -%}
   {%- assign row_space = ' lg:pb--3' -%}
 {%- else -%}
-  {%- assign text_class = 'title title--small lg:title' -%}
+  {%- assign text_class = 'title title--small lg:title--base' -%}
   {%- assign box_class = 'w--4 h--4 lg:w--6 lg:h--6' -%}
   {%- assign body_class = 'description lg:description--xlarge' -%}
   {%- assign row_space = '' -%}
@@ -46,15 +46,16 @@
       {% when 'daily_tasks' %}
         <div class="flex flex--row flex--between flex--bottom gap w--full">
           <span class="title title--large lg:title--xxlarge">{{ date_label | escape }}</span>
-          {% if total > 0 %}<span class="label lg:label--large no-shrink">{{ done }} of {{ total }} done</span>{% endif %}
+          {% if total > 0 %}<span class="label lg:label--large no-shrink">{{ done }} of {{ total }} complete</span>{% endif %}
         </div>
         {% if total > 0 %}
+          {{ task_progress }}
           <div class="columns grow" data-overflow="true" data-overflow-max-cols="2" data-overflow-max-cols-portrait="1" data-overflow-counter="true">
             <div class="column">
               {% assign shown = 0 %}
 
               {% for group in groups %}
-                {% if group.heading != blank and shown < list_cap %}<span class="label label--underline group-header" data-group-header="true">{{ group.heading | escape }}</span>{% endif %}
+                {% if group.heading != blank and shown < list_cap %}<span class="label lg:label--large label--underline group-header" data-group-header="true">{{ group.heading | escape }}</span>{% endif %}
                 {% for task in group.tasks %}{% if shown < list_cap %}{% assign shown = shown | plus: 1 %}
                   <div class="item{{ row_space }}{% if task.sub %} pl--8{% endif %}">
                     <div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if task.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if task.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if task.done %} text--gray-45 1bit:text--black{% endif %} w--full" data-clamp="2">{{ task.text | escape }}</span></div></div>
@@ -72,8 +73,8 @@
           {%- assign due_text = 'title lg:title--large' -%}
           {%- assign due_meta = 'label lg:label--large' -%}
         {%- else -%}
-          {%- assign due_text = 'title title--small lg:title' -%}
-          {%- assign due_meta = 'label label--small lg:label' -%}
+          {%- assign due_text = 'title title--small lg:title--base' -%}
+          {%- assign due_meta = 'label label--small lg:label--base' -%}
         {%- endif -%}
         <div class="flex flex--row flex--left flex--bottom gap--xlarge w--full">
           <div class="flex flex--row flex--bottom gap--small"><span class="value value--base lg:value--large value--tnums">{{ overdue_count }}</span><span class="label lg:label--large">overdue</span></div>
@@ -87,7 +88,7 @@
               {% for task in tasks limit: list_cap %}
                 {% if task.bucket != current %}
                   {% assign current = task.bucket %}
-                  <span class="label label--underline group-header" data-group-header="true">{% case task.bucket %}{% when 'overdue' %}Overdue{% when 'today' %}Due today{% else %}Coming up{% endcase %}</span>
+                  <span class="label lg:label--large label--underline group-header" data-group-header="true">{% case task.bucket %}{% when 'overdue' %}Overdue{% when 'today' %}Due today{% else %}Coming up{% endcase %}</span>
                 {% endif %}
                 <div class="item">
                   <div class="content grow"><div class="flex flex--col flex--left w--full">
@@ -152,7 +153,7 @@
               {% for day in history %}
                 <div class="flex flex--col flex--bottom flex--center-x gap--xsmall grow h--full">
                   <div class="w--full h--{{ bar_heights[day.level] }} portrait:h--{{ bar_heights_portrait[day.level] }} lg:h--{{ bar_heights_lg[day.level] }} lg:portrait:h--{{ bar_heights_lg[day.level] }} bg--black"></div>
-                  <span class="label label--small lg:label{% if day.today %} label--inverted{% endif %}">{{ day.label }}</span>
+                  <span class="label label--small lg:label--base{% if day.today %} label--inverted{% endif %}">{{ day.label }}</span>
                 </div>
               {% endfor %}
             </div>
@@ -167,7 +168,7 @@
             {% for line in lines limit: list_cap %}
               {% case line.kind %}
                 {% when 'heading' %}
-                  <span class="label label--underline group-header" data-group-header="true">{{ line.text | escape }}</span>
+                  <span class="label lg:label--large label--underline group-header" data-group-header="true">{{ line.text | escape }}</span>
                 {% when 'pair' %}
                   <div class="item{{ row_space }}"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="label lg:label--large">{{ line.label | escape }}</span><span class="{{ text_class }} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
                 {% when 'task' %}

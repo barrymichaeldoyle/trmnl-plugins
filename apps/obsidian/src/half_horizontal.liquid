@@ -20,7 +20,7 @@
   {%- assign box_class = 'w--5 h--5 lg:w--7 lg:h--7' -%}
   {%- assign row_space = '' -%}
 {%- else -%}
-  {%- assign text_class = 'title title--small lg:title' -%}
+  {%- assign text_class = 'title title--small lg:title--base' -%}
   {%- assign box_class = 'w--4 h--4 lg:w--6 lg:h--6' -%}
   {%- assign row_space = '' -%}
 {%- endif -%}
@@ -36,14 +36,14 @@
     {% case screen %}
       {% when 'daily_tasks' %}
         <div class="grid grid--cols-12 gap w--full h--full">
-          <div class="col--span-3 portrait:col--span-12 flex flex--col flex--left flex--center-y portrait:flex--row portrait:flex--between">
-            <span class="title title--small lg:title">{{ date_label | escape }}</span>
-            <div class="flex flex--col flex--left portrait:flex--right">
-              <span class="value value--large lg:value--xlarge value--tnums">{{ open }}</span>
-              <span class="label lg:label--large">open · {{ done }} of {{ total }} done</span>
+          <div class="col--span-4 portrait:col--span-12 flex flex--col flex--left flex--center-y gap--small w--full">
+            <span class="title title--small lg:title--base">{{ date_label | escape }}</span>
+            <div class="flex flex--col flex--left gap--xsmall w--full">
+              <span class="value value--base lg:value--large value--tnums">{{ open }} left</span>
+              {% if total > 0 %}<span class="label label--small lg:label--base">{{ done }} of {{ total }} complete</span>{{ task_progress }}{% endif %}
             </div>
           </div>
-          <div class="col--span-9 portrait:col--span-12">
+          <div class="col--span-8 portrait:col--span-12">
             {% if open > 0 %}
               <div class="columns" data-overflow="true" data-overflow-max-cols="2" data-overflow-max-cols-lg="1" data-overflow-counter="true">
                 <div class="column">
@@ -73,8 +73,8 @@
                 <div class="column">
                   {% for task in tasks limit: list_cap %}
                     <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full">
-                      <span class="title title--small lg:title w--full" data-clamp="1">{{ task.text | escape }}</span>
-                      <span class="label label--small lg:label w--full" data-clamp="1">{% if task.bucket == 'overdue' %}{{ task.when | escape }}{% else %}{{ task.due_label | escape }}{% endif %} · {{ task.file | escape }}</span>
+                      <span class="title title--small lg:title--base w--full" data-clamp="1">{{ task.text | escape }}</span>
+                      <span class="label label--small lg:label--base w--full" data-clamp="1">{% if task.bucket == 'overdue' %}{{ task.when | escape }}{% else %}{{ task.due_label | escape }}{% endif %} · {{ task.file | escape }}</span>
                     </div></div></div>
                   {% endfor %}
                 </div>
@@ -87,7 +87,7 @@
 
       {% when 'dataview_query' %}
         <div class="flex flex--row flex--between flex--bottom gap w--full">
-          <span class="title title--small lg:title w--full" data-clamp="1">{{ title | escape }}</span>
+          <span class="title title--small lg:title--base w--full" data-clamp="1">{{ title | escape }}</span>
           {% assign shown_rows = rows.size | at_most: 3 %}
           {% if row_count > shown_rows %}<span class="label lg:label--large no-shrink">{{ shown_rows }} of {{ row_count }}</span>{% endif %}
         </div>
@@ -106,7 +106,7 @@
         <div class="grid grid--cols-12 gap w--full h--full">
           <div class="col--span-4 portrait:col--span-12 flex flex--col flex--center-y gap--xsmall">
             <span class="title title--large lg:title--xxlarge w--full" data-clamp="3" data-clamp-portrait="1">{{ title | escape }}</span>
-            <span class="label label--small lg:label w--full" data-clamp="2" data-clamp-portrait="1">{{ age_label | escape }} · {{ word_count }} words</span>
+            <span class="label label--small lg:label--base w--full" data-clamp="2" data-clamp-portrait="1">{{ age_label | escape }} · {{ word_count }} words</span>
           </div>
           <div class="col--span-8 portrait:col--span-12 flex flex--col flex--center-y">
             <p class="description description--xxlarge w--full" data-clamp="4" data-clamp-portrait="9">{{ paragraphs | join: ' ' | escape }}</p>

@@ -18,11 +18,11 @@
     {% case screen %}
       {% when 'daily_tasks' %}
         <div class="grid grid--cols-12 gap--small w--full h--full">
-          <div class="col--span-3 portrait:col--span-12 flex flex--col flex--left flex--center-y">
-            <span class="value value--large lg:value--xxlarge value--tnums">{{ open }}</span>
-            <span class="label label--small lg:label">open of {{ total }}</span>
+          <div class="col--span-4 portrait:col--span-12 flex flex--col flex--left flex--center-y gap--small w--full">
+            <span class="value value--small lg:value--small value--tnums">{{ open }} left</span>
+            {% if total > 0 %}<span class="label label--small lg:label--base">{{ done }} of {{ total }} complete</span>{{ task_progress }}{% endif %}
           </div>
-          <div class="col--span-9 portrait:col--span-12">
+          <div class="col--span-8 portrait:col--span-12">
             {% if open > 0 %}
               <div class="columns" data-overflow="true" data-overflow-max-cols="1" data-overflow-counter="true">
                 <div class="column">
@@ -39,9 +39,9 @@
 
       {% when 'due_tasks' %}
         <div class="grid grid--cols-3 gap--small w--full">
-          <div class="flex flex--col flex--left"><span class="value value--base lg:value--xlarge value--tnums">{{ overdue_count }}</span><span class="label label--small lg:label">Overdue</span></div>
-          <div class="flex flex--col flex--left"><span class="value value--base lg:value--xlarge value--tnums">{{ today_count }}</span><span class="label label--small lg:label">Today</span></div>
-          <div class="flex flex--col flex--left"><span class="value value--base lg:value--xlarge value--tnums">{{ upcoming_count }}</span><span class="label label--small lg:label">{{ lookahead_days }} days</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--xlarge value--tnums">{{ overdue_count }}</span><span class="label label--small lg:label--base">Overdue</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--xlarge value--tnums">{{ today_count }}</span><span class="label label--small lg:label--base">Today</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--xlarge value--tnums">{{ upcoming_count }}</span><span class="label label--small lg:label--base">{{ lookahead_days }} days</span></div>
         </div>
         {% if tasks.size > 0 %}
           <div class="columns" data-overflow="true" data-overflow-max-cols="1">
@@ -68,14 +68,14 @@
       {% when 'resurface' %}
         <div class="flex flex--col gap--xsmall w--full">
           <span class="title lg:title--xxlarge w--full" data-clamp="1" data-clamp-portrait="2">{{ title | escape }}</span>
-          <span class="label label--small lg:label w--full" data-clamp="1">{{ age_label | escape }}</span>
+          <span class="label label--small lg:label--base w--full" data-clamp="1">{{ age_label | escape }}</span>
         </div>
         <p class="description description--xlarge lg:description--xxlarge w--full" data-clamp="3" data-clamp-portrait="5">{{ paragraphs | join: ' ' | escape }}</p>
 
       {% when 'writing_stats' %}
         <div class="grid grid--cols-2 portrait:grid--cols-1 gap w--full">
-          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xxlarge value--tnums">{{ labels.words_today }}</span><span class="label label--small lg:label">Words today</span></div>
-          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xxlarge value--tnums">{{ streak_days }}</span><span class="label label--small lg:label">Day streak</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xxlarge value--tnums">{{ labels.words_today }}</span><span class="label label--small lg:label--base">Words today</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--large lg:value--xxlarge value--tnums">{{ streak_days }}</span><span class="label label--small lg:label--base">Day streak</span></div>
         </div>
 
       {% when 'pinned_note' %}

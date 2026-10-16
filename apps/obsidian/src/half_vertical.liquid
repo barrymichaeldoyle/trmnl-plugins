@@ -8,6 +8,8 @@
   OG it still trims the rest and counts what it hides.
 {%- endcomment -%}
 {%- assign list_cap = 9 -%}
+{%- comment -%}Due tasks also have metadata; eight rows leave room for scaled group headers on X.{%- endcomment -%}
+{%- assign due_list_cap = 8 -%}
 {%- assign item_count = 0 -%}
 {%- case screen -%}
   {%- when 'daily_tasks' -%}{%- for group in groups -%}{%- assign item_count = item_count | plus: group.tasks.size -%}{%- endfor -%}
@@ -18,7 +20,7 @@
   {%- assign text_class = 'title lg:title--xlarge' -%}
   {%- assign box_class = 'w--5 h--5 lg:w--7 lg:h--7' -%}
 {%- else -%}
-  {%- assign text_class = 'title title--small lg:title' -%}
+  {%- assign text_class = 'title title--small lg:title--base' -%}
   {%- assign box_class = 'w--4 h--4 lg:w--6 lg:h--6' -%}
 {%- endif -%}
 {%- assign bar_heights = '1,4,7,10,12,16,20,24,28' | split: ',' -%}
@@ -32,17 +34,19 @@
   {% else %}
     {% case screen %}
       {% when 'daily_tasks' %}
+        {% assign text_class = text_class | replace: 'lg:title--xlarge', 'lg:title--large' %}
         <div class="flex flex--col flex--left w--full">
           <span class="title lg:title--xlarge">{{ date_label | escape }}</span>
-          {% if total > 0 %}<span class="label lg:label--large">{{ done }} of {{ total }} done</span>{% endif %}
+          {% if total > 0 %}<span class="label lg:label--large">{{ done }} of {{ total }} complete</span>{% endif %}
         </div>
         {% if total > 0 %}
+          {{ task_progress }}
           <div class="columns" data-overflow="true" data-overflow-max-cols="1" data-overflow-counter="true">
             <div class="column">
               {% assign shown = 0 %}
 
               {% for group in groups %}
-                {% if group.heading != blank and shown < list_cap %}<span class="label label--underline group-header" data-group-header="true">{{ group.heading | escape }}</span>{% endif %}
+                {% if group.heading != blank and shown < list_cap %}<span class="label lg:label--large label--underline group-header" data-group-header="true">{{ group.heading | escape }}</span>{% endif %}
                 {% for task in group.tasks %}{% if shown < list_cap %}{% assign shown = shown | plus: 1 %}
                   <div class="item{% if task.sub %} pl--6{% endif %}"><div class="content grow"><div class="flex flex--top gap--small w--full"><span class="{{ text_class }} flex flex--center-y no-shrink">&#8203;<img class="image no-shrink {{ box_class }}" src="{% if task.done %}{{ check_uri }}{% else %}{{ box_uri }}{% endif %}" alt="{% if task.done %}Done{% else %}Open{% endif %}"></span><span class="{{ text_class }}{% if task.done %} text--gray-45 1bit:text--black{% endif %} w--full" data-clamp="2">{{ task.text | escape }}</span></div></div></div>
                 {% endif %}{% endfor %}
@@ -55,22 +59,22 @@
 
       {% when 'due_tasks' %}
         <div class="grid grid--cols-3 gap--small w--full">
-          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ overdue_count }}</span><span class="label label--small lg:label">Overdue</span></div>
-          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ today_count }}</span><span class="label label--small lg:label">Today</span></div>
-          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ upcoming_count }}</span><span class="label label--small lg:label">{{ lookahead_days }} days</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ overdue_count }}</span><span class="label label--small lg:label--base">Overdue</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ today_count }}</span><span class="label label--small lg:label--base">Today</span></div>
+          <div class="flex flex--col flex--left"><span class="value value--base lg:value--large value--tnums">{{ upcoming_count }}</span><span class="label label--small lg:label--base">{{ lookahead_days }} days</span></div>
         </div>
         {% if tasks.size > 0 %}
           {% assign current = '' %}
           <div class="columns grow" data-overflow="true" data-overflow-max-cols="1" data-overflow-counter="true">
             <div class="column">
-              {% for task in tasks limit: list_cap %}
+              {% for task in tasks limit: due_list_cap %}
                 {% if task.bucket != current %}
                   {% assign current = task.bucket %}
-                  <span class="label label--underline group-header" data-group-header="true">{% case task.bucket %}{% when 'overdue' %}Overdue{% when 'today' %}Due today{% else %}Coming up{% endcase %}</span>
+                  <span class="label lg:label--large label--underline group-header" data-group-header="true">{% case task.bucket %}{% when 'overdue' %}Overdue{% when 'today' %}Due today{% else %}Coming up{% endcase %}</span>
                 {% endif %}
                 <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full">
-                  <span class="title title--small lg:title w--full" data-clamp="2">{{ task.text | escape }}</span>
-                  <span class="label label--small lg:label w--full" data-clamp="1">{{ task.file | escape }}{% if task.bucket == 'overdue' %} · {{ task.when | escape }}{% elsif task.bucket == 'upcoming' %} · {{ task.due_label | escape }}{% endif %}</span>
+                  <span class="title title--small lg:title--base w--full" data-clamp="2" data-clamp-lg="1" data-clamp-lg-portrait="2">{{ task.text | escape }}</span>
+                  <span class="label label--small lg:label--base w--full" data-clamp="1">{{ task.file | escape }}{% if task.bucket == 'overdue' %} · {{ task.when | escape }}{% elsif task.bucket == 'upcoming' %} · {{ task.due_label | escape }}{% endif %}</span>
                 </div></div></div>
               {% endfor %}
             </div>
@@ -88,7 +92,7 @@
         {% if rows.size > 0 %}
           {%- if rows.size <= 5 -%}{%- assign table_size = 'landscape:table--large lg:table--xlarge' -%}{%- assign cell_text = 'label landscape:label--large lg:label--xlarge' -%}{%- else -%}{%- assign table_size = 'lg:table--large' -%}{%- assign cell_text = 'label lg:label--large' -%}{%- endif -%}
           <table class="table {{ table_size }}">
-            {% if kind == 'table' %}<thead><tr>{% for header in headers limit: 2 %}<th><span class="title title--small lg:title pr--4">{{ header | escape }}</span></th>{% endfor %}</tr></thead>{% endif %}
+            {% if kind == 'table' %}<thead><tr>{% for header in headers limit: 2 %}<th><span class="title title--small lg:title--base pr--4">{{ header | escape }}</span></th>{% endfor %}</tr></thead>{% endif %}
             <tbody>
               {% for row in rows limit: 6 %}<tr>{% for cell in row limit: 2 %}<td><span class="{{ cell_text }} pr--4 w--full" data-clamp="1">{{ cell | escape }}</span></td>{% endfor %}</tr>{% endfor %}
             </tbody>
@@ -123,7 +127,7 @@
               </div>
             {% endfor %}
           </div>
-          <span class="label label--small lg:label">{{ labels.total_words }} words in {{ labels.total_notes }} notes</span>
+          <span class="label label--small lg:label--base">{{ labels.total_words }} words in {{ labels.total_notes }} notes</span>
         </div>
 
       {% when 'pinned_note' %}
@@ -133,7 +137,7 @@
             {% for line in lines limit: list_cap %}
               {% case line.kind %}
                 {% when 'heading' %}
-                  <span class="label label--underline group-header" data-group-header="true">{{ line.text | escape }}</span>
+                  <span class="label lg:label--large label--underline group-header" data-group-header="true">{{ line.text | escape }}</span>
                 {% when 'pair' %}
                   <div class="item"><div class="content grow"><div class="flex flex--col flex--left w--full"><span class="label lg:label--large">{{ line.label | escape }}</span><span class="{{ text_class }} w--full" data-clamp="2">{{ line.text | escape }}</span></div></div></div>
                 {% when 'task' %}
