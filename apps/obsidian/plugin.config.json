@@ -117,13 +117,13 @@
         "expect_by_view": {
           "full": [
             "Friday 9 October",
-            "2 of 7 done",
+            "2 of 7 complete",
             "Work",
             "Personal"
           ],
           "half_vertical": [
             "Friday 9 October",
-            "2 of 7 done"
+            "2 of 7 complete"
           ]
         }
       },
@@ -258,7 +258,7 @@
         ],
         "expect_by_view": {
           "full": [
-            "3 of 3 done",
+            "3 of 3 complete",
             "Ship it"
           ],
           "half_horizontal": [

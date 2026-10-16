@@ -14,7 +14,7 @@ Your Obsidian vault on a TRMNL. Two halves live here:
 | Writing stats | Words written today, the daily streak and a bar for each of the last 14 days | The vault's word count, measured each run |
 | Pinned note | One note you choose, such as a weekly plan, as headings, `Label: text` pairs, list items and checkboxes | Any note |
 
-Every view comes in full, half horizontal, half vertical and quadrant, in landscape and portrait, on TRMNL OG and X.
+Every view comes in full, half horizontal, half vertical and quadrant, in landscape and portrait, on TRMNL OG and X. Daily tasks show a completion bar; compact views lead with the number left, while the completion count includes tasks outside the visible list.
 
 ![Today’s daily note tasks, full screen](docs/screenshots/daily-tasks.png)
 
@@ -58,7 +58,7 @@ To update an installed copy on TRMNL, run `TRMNL_PLUGIN_ID=<id> pnpm --filter @t
 - **Pushes** (`obsidian-plugin/src/main.js`): edits are collected and pushed once the vault has been quiet for a minute, only to screens they can affect; a check every 15 minutes catches date changes. A screen whose data has not changed is not pushed again for three hours. Each webhook gets 12 pushes in any sliding hour (30 with TRMNL+); past that a push waits for the next slot. Payloads are trimmed to 5 KB (10 KB) by dropping whole items, never by cutting text mid-word. The status bar shows the last push and the pushes left this hour.
 - **Recipe** (`src/`): `screen` in the pushed data picks the layout. Lists flow into columns with TRMNL's overflow engine and size their type by how many items there are. Framework classes only; checkboxes and the icon are inline SVG.
 
-TRMNL framework 3.4's overflow engine under-trims long lists on TRMNL X (it compares the scaled screen's bounding boxes with unscaled scroll heights), so each view also caps its list at what fits there. Group headings use plain `label` classes because the engine measures clones of them without size modifiers.
+TRMNL framework 3.4's overflow engine under-trims long lists on TRMNL X (it compares the scaled screen's bounding boxes with unscaled scroll heights), so each view also caps its list at what fits there. Group headings retain the base `label` size on OG and use `lg:label--large` in full and half-vertical views on X. The engine measures header clones at the base size, so the half-vertical due-task list caps at eight rows and uses one-line task titles on X landscape, with two lines in portrait, to leave room for headers and metadata.
 
 ## Fixtures
 

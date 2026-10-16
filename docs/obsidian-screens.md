@@ -2,12 +2,14 @@
 
 ## Status
 
+16 October 2026: Mario's recipe review feedback is addressed: responsive title and label modifiers now use explicit `--base` sizes, full and half-vertical group headers scale on X, and half-vertical due tasks use responsive line limits and an eight-row cap to avoid clipping. The daily-task summary now reads “5 left” in compact views, with a separate completion count and a thin progress bar in all four views. The bar includes tasks omitted from the visible list, handles zero and complete states, and uses only framework classes. Lint, all 99 tests, and the build pass. All 456 curated captures pass layout checks with no warnings; the contact sheets were inspected and the visual baselines refreshed. Uploaded to recipe master 500911 on 16 October, verified all four views and Shared against the downloaded live archive, and pulled the GitHub Sync save. Another review is pending; Mario has not been messaged.
+
 9 October 2026: **running end to end with the demo vault.** Obsidian pushes all six screens to six installs on the device; mobile and publishing remain. [`apps/obsidian`](../apps/obsidian/README.md) holds both halves: the TRMNL Screens Obsidian plugin and the Obsidian Screens webhook recipe, with a demo vault that doubles as test data. `pnpm check`, `pnpm test` and `pnpm build` cover it. The responsive and curated review suites pass on all 24 screens (456 captures, with expected text per view), and the contact sheets have been inspected; no visual baselines are recorded yet.
 
 | Step | State |
 | --- | --- |
 | 1. Collectors for all six screens, fixtures from the demo vault, tests | Done |
-| 2. Recipe views for every screen at all four sizes, both orientations, OG and X | Done; baselines not yet recorded (`pnpm review:obsidian:check --update-baselines` after a final look) |
+| 2. Recipe views for every screen at all four sizes, both orientations, OG and X | Done; 16 October review fixes and task progress uploaded to master 500911; all 456 curated captures pass with visual baselines refreshed after inspection |
 | 3. Obsidian plugin runtime: scheduler, push budget, secrets, settings, status bar, commands | Done; tested with a fake Obsidian API (`test/runtime.test.js`) |
 | 4. Load the plugin in Obsidian with the demo vault | Done 9 October 2026: Obsidian 1.14.4 on macOS, all six screens connected through secrets and pushed from Obsidian (20:25 to 20:41). The Dataview screen shows its install message until Dataview is added to the vault |
 | 5. Import the recipe on TRMNL, push each screen, check on the device | 9 October 2026: private plugin 500911 created with `pnpm --filter @trmnl/obsidian upload`, on the device playlist. A daily-tasks payload built by the collector was written through the account API (`POST /api/plugin_settings/500911/data`); TRMNL's own preview renders all four sizes as the local review does. The other five screens followed the same way as plugins 500917 (Due), 500918 (Projects, from the demo's Dataview stand-in), 500919 (Resurfaced), 500920 (Writing) and 500921 (Focus), each renamed "Obsidian · …" and on the device playlist. Each is connected to its screen in Obsidian |
@@ -35,6 +37,7 @@ Two things in TRMNL framework 3.4 shaped the views and are worth reporting upstr
 
 - On TRMNL X the screen is `transform: scale(1.8)`. The overflow engine's budget comes from `getBoundingClientRect` (scaled) but is compared with `scrollHeight` (unscaled), so long lists are under-trimmed and spill out of single columns. Each view caps its list at what fits on X; on OG the engine still trims and counts the rest.
 - The clamp engine measures the width of the nearest flex or grid child. A clamped span that shrinks to its text (inside `flex--left`, say) is measured at its own width and cut early; clamped spans here are `w--full`.
+- Responsive typography needs a size modifier: `lg:title--base` and `lg:label--base` work; `lg:title` and `lg:label` do not. Full and half-vertical group headers use `lg:label--large`. Header clones are measured at the base size by the overflow engine, so half-vertical due tasks allow eight rows, with `data-clamp-lg="1"` on landscape X and `data-clamp-lg-portrait="2"` in portrait.
 
 The shared review tools gained two things for this recipe: `review.allow_line_clamp`, so text shortened by the framework's clamp engine is not reported as clipped, and line-box comparison (already used for tiles) in the clipping and view checks, so glyph overhang is not reported as clipping.
 
