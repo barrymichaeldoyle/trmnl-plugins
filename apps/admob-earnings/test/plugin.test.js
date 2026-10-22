@@ -25,6 +25,10 @@ test('the polling request is a well-formed AdMob network report call', async () 
   assert.ok(reportSpec.maxReportRows >= 95);
 });
 
+test('installs without an account chosen send no request to Google', async () => {
+  for (const publisher_id of ['', null]) assert.deepEqual((await pollAt('2026-10-08T15:00:00Z', { publisher_id })).urls, []);
+});
+
 test('the request asks for a chosen currency and otherwise leaves the account default', async () => {
   const spec = async fields => JSON.parse((await pollAt('2026-10-08T15:00:00Z', { publisher_id: 'pub-1', ...fields })).body).reportSpec;
   assert.equal((await spec({})).localizationSettings, undefined);

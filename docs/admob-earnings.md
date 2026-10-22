@@ -2,13 +2,17 @@
 
 ## Status
 
+22 October 2026: TRMNL kept logging "HTTP 401 from https://admob.googleapis.com/v1/accounts//networkReport:generate" for installs with no account chosen and no Google connection. The polling URL is now wrapped in `{% if publisher_id != blank %}`, so such installs render an empty URL instead of calling Google; the transform already shows "Choose an AdMob account" before it reads the response. Saved on 499993 the same day (sync commit `4e9d0a7`); a Force Refresh with the account chosen still shows earnings. TRMNL's handling of an empty polling URL is undocumented and was not tested directly: if Error Messages stop showing `accounts//` 401s, it skips the poll.
+
+16 October 2026, icon refinement: a phone with an earnings chart and coin replaces the generic growth chart. Matching 512px and 128px marketplace PNGs and light/dark e-ink title-bar variants are prepared locally; upload is pending approval.
+
 16 October 2026: the workspace linter now uses `trmnl_preview` 0.31.0. Its responsive-prefix check identified ineffective `portrait:label` and `lg:label` tokens in three templates; these were removed, preserving the existing rendered sizes. All 192 curated captures pass layout checks without warnings; the contact sheets were inspected and baselines brought up to date with the existing reviewer edits. This cleanup is local and has not been uploaded.
 
 15 October 2026: **published as a public TRMNL recipe** from plugin 499993, after TRMNL's review (submitted 11 October). The reviewer scaled several labels up on large screens before publishing (see step 5). Built offline on 8 October 2026. [`apps/admob-earnings`](../apps/admob-earnings/README.md) contains the complete recipe: settings with the OAuth provider, polling request and account picker; the transform; all four views; synthetic fixtures for every state; tests; listing copy; and screenshots. The shared tooling now supports polling recipes, so `pnpm dev:admob`, `pnpm review:admob`, `pnpm check`, `pnpm test` and `pnpm build` cover it. The responsive and curated review suites pass on all 24 screens (288 captures), with visual review of the contact sheets.
 
 | Step | State |
 | --- | --- |
-| 1. Workspace, tooling, fixtures, transform, views, tests | Done; linter upgraded to 0.31.0 on 16 October, with ineffective responsive tokens removed locally |
+| 1. Workspace, tooling, fixtures, transform, views, tests | Done; linter upgraded to 0.31.0 on 16 October, with ineffective responsive tokens removed locally and a new mobile-earnings icon prepared |
 | 2. Private plugin on TRMNL, OAuth connected, first refresh | Done 9 October 2026: plugin 499993, real figures, GitHub Sync on. |
 | 3. Real-response fixture, transform and layout adjustments | Done 9 October 2026: the transform handled the live response unchanged; layouts reworked (primary figure and three tiles) and approved, with review baselines recorded for all 288 captures. The synthetic fixtures still cover every state; `pnpm --filter @trmnl/admob-earnings fetch --scale` can record a real one if the response shape ever changes |
 | 4. Device check across a month boundary, compare with AdMob console | Figures match the AdMob console (9 October 2026). The month boundary is covered by the month-start fixture in tests; a glance at the device on 1 November is a post-launch spot check, not a release gate |
