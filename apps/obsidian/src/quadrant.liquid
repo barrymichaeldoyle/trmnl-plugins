@@ -19,7 +19,7 @@
       {% when 'daily_tasks' %}
         <div class="grid grid--cols-12 gap--small w--full h--full">
           <div class="col--span-4 portrait:col--span-12 flex flex--col flex--left flex--center-y gap--small w--full">
-            <span class="value value--small lg:value--small value--tnums">{{ open }} left</span>
+            <span class="value value--small lg:value--large value--tnums">{{ open }} left</span>
             {% if total > 0 %}<span class="label label--small lg:label--base">{{ done }} of {{ total }} complete</span>{{ task_progress }}{% endif %}
           </div>
           <div class="col--span-8 portrait:col--span-12">
