@@ -46,7 +46,7 @@
       {% when 'daily_tasks' %}
         <div class="flex flex--row flex--between flex--bottom gap w--full">
           <span class="title title--large lg:title--xxlarge">{{ date_label | escape }}</span>
-          {% if total > 0 %}<span class="label lg:label--large no-shrink">{{ done }} of {{ total }} complete</span>{% endif %}
+          {% if total > 0 %}<span class="label lg:label--xlarge no-shrink">{{ done }} of {{ total }} complete</span>{% endif %}
         </div>
         {% if total > 0 %}
           {{ task_progress }}
