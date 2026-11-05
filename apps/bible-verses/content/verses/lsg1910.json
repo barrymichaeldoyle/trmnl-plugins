@@ -1,15 +1,17 @@
 {
   "translation": {
+    "id": "lsg1910",
+    "language": "fr",
     "name": "Louis Segond 1910",
     "abbreviation": "LSG1910",
-    "language": "fr",
     "edition": "1910 (fraLSG)",
     "license": "Public domain",
     "source": "https://ebible.org/fraLSG/"
   },
   "provenance": {
-    "imported_on": "2026-10-02",
-    "archive_sha256": "4984d70c9065e672ec4e3a71bcd45a23b3a8606c4a2224abcca200942ce7425c"
+    "imported_on": "2026-11-04",
+    "archive": "https://ebible.org/Scriptures/fraLSG_html.zip",
+    "archive_sha256": "a7be2868faa2cc453f8c94458b4c7b3835b17d21ad28ac6e59347ed61c6dab5f"
   },
   "themes": [
     {
@@ -49,6 +51,9 @@
       "name": "Foi et prière"
     }
   ],
+  "labels": {
+    "context": "Lire le chapitre"
+  },
   "verses": [
     {
       "id": "pro-1-8-9",
@@ -806,9 +811,5 @@
       "text": "Que le Dieu de l’espérance vous remplisse de toute joie et de toute paix dans la foi, pour que vous abondiez en espérance, par la puissance du Saint-Esprit!",
       "source": "https://ebible.org/fraLSG/ROM15.htm#V13"
     }
-  ],
-  "labels": {
-    "missing_title": "La collection biblique est manquante",
-    "missing_text": "Réimportez le ZIP Daily Bread pour restaurer les passages bibliques."
-  }
+  ]
 }

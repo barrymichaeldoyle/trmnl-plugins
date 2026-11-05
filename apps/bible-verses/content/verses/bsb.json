@@ -1,0 +1,815 @@
+{
+  "translation": {
+    "id": "bsb",
+    "language": "en",
+    "name": "Berean Standard Bible",
+    "abbreviation": "BSB",
+    "edition": "2020 (engbsb)",
+    "license": "Public domain",
+    "source": "https://ebible.org/engbsb/"
+  },
+  "provenance": {
+    "imported_on": "2026-11-04",
+    "archive": "https://ebible.org/Scriptures/engbsb_html.zip",
+    "archive_sha256": "923600cb2d06936213d268b7899f18b118079f61197cd17ad33e7fbc116cb147"
+  },
+  "themes": [
+    {
+      "id": "family",
+      "name": "Family & home"
+    },
+    {
+      "id": "relationships",
+      "name": "Relationships"
+    },
+    {
+      "id": "work",
+      "name": "Work & purpose"
+    },
+    {
+      "id": "money",
+      "name": "Money & generosity"
+    },
+    {
+      "id": "decisions",
+      "name": "Decisions & direction"
+    },
+    {
+      "id": "rest",
+      "name": "Worry & rest"
+    },
+    {
+      "id": "hardship",
+      "name": "Hard times & loss"
+    },
+    {
+      "id": "gratitude",
+      "name": "Joy & gratitude"
+    },
+    {
+      "id": "faith",
+      "name": "Faith & prayer"
+    }
+  ],
+  "labels": {
+    "context": "Read in context"
+  },
+  "verses": [
+    {
+      "id": "pro-1-8-9",
+      "theme": "family",
+      "reference": "Proverbs 1:8–9",
+      "text": "Listen, my son, to your father’s instruction, and do not forsake the teaching of your mother. For they are a garland of grace on your head and a pendant around your neck.",
+      "source": "https://ebible.org/engbsb/PRO01.htm#V8"
+    },
+    {
+      "id": "rom-13-8-10",
+      "theme": "relationships",
+      "reference": "Romans 13:8–10",
+      "text": "Be indebted to no one, except to one another in love. For he who loves his neighbor has fulfilled the law. The commandments “Do not commit adultery,” “Do not murder,” “Do not steal,” “Do not covet,” and any other commandments, are summed up in this one decree: “Love your neighbor as yourself.” Love does no wrong to its neighbor. Therefore love is the fulfillment of the law.",
+      "source": "https://ebible.org/engbsb/ROM13.htm#V8"
+    },
+    {
+      "id": "pro-16-3",
+      "theme": "work",
+      "reference": "Proverbs 16:3",
+      "text": "Commit your works to the LORD and your plans will be achieved.",
+      "source": "https://ebible.org/engbsb/PRO16.htm#V3"
+    },
+    {
+      "id": "heb-13-5-6",
+      "theme": "money",
+      "reference": "Hebrews 13:5–6",
+      "text": "Keep your lives free from the love of money and be content with what you have, for God has said: “Never will I leave you, never will I forsake you.” So we say with confidence: “The Lord is my helper; I will not be afraid. What can man do to me?”",
+      "source": "https://ebible.org/engbsb/HEB13.htm#V5"
+    },
+    {
+      "id": "jas-1-5",
+      "theme": "decisions",
+      "reference": "James 1:5",
+      "text": "Now if any of you lacks wisdom, he should ask God, who gives generously to all without finding fault, and it will be given to him.",
+      "source": "https://ebible.org/engbsb/JAS01.htm#V5"
+    },
+    {
+      "id": "jhn-14-27",
+      "theme": "rest",
+      "reference": "John 14:27",
+      "text": "Peace I leave with you; My peace I give to you. I do not give to you as the world gives. Do not let your hearts be troubled; do not be afraid.",
+      "source": "https://ebible.org/engbsb/JHN14.htm#V27"
+    },
+    {
+      "id": "psa-34-17-18",
+      "theme": "hardship",
+      "reference": "Psalm 34:17–18",
+      "text": "The righteous cry out, and the LORD hears; He delivers them from all their troubles. The LORD is near to the brokenhearted; He saves the contrite in spirit.",
+      "source": "https://ebible.org/engbsb/PSA034.htm#V17"
+    },
+    {
+      "id": "1th-5-16-18",
+      "theme": "gratitude",
+      "reference": "1 Thessalonians 5:16–18",
+      "text": "Rejoice at all times. Pray without ceasing. Give thanks in every circumstance, for this is God’s will for you in Christ Jesus.",
+      "source": "https://ebible.org/engbsb/1TH05.htm#V16"
+    },
+    {
+      "id": "heb-4-14-16",
+      "theme": "faith",
+      "reference": "Hebrews 4:14–16",
+      "text": "Therefore, since we have a great high priest who has passed through the heavens, Jesus the Son of God, let us hold firmly to what we profess. For we do not have a high priest who is unable to sympathize with our weaknesses, but we have one who was tempted in every way that we are, yet was without sin. Let us then approach the throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need.",
+      "source": "https://ebible.org/engbsb/HEB04.htm#V14"
+    },
+    {
+      "id": "eph-6-1-3",
+      "theme": "family",
+      "reference": "Ephesians 6:1–3",
+      "text": "Children, obey your parents in the Lord, for this is right. “Honor your father and mother” (which is the first commandment with a promise), “that it may go well with you and that you may have a long life on the earth.”",
+      "source": "https://ebible.org/engbsb/EPH06.htm#V1"
+    },
+    {
+      "id": "1co-13-4-7",
+      "theme": "relationships",
+      "reference": "1 Corinthians 13:4–7",
+      "text": "Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It is not rude, it is not self-seeking, it is not easily angered, it keeps no account of wrongs. Love takes no pleasure in evil, but rejoices in the truth. It bears all things, believes all things, hopes all things, endures all things.",
+      "source": "https://ebible.org/engbsb/1CO13.htm#V4"
+    },
+    {
+      "id": "pro-14-23",
+      "theme": "work",
+      "reference": "Proverbs 14:23",
+      "text": "There is profit in all labor, but mere talk leads only to poverty.",
+      "source": "https://ebible.org/engbsb/PRO14.htm#V23"
+    },
+    {
+      "id": "1ti-6-6-8",
+      "theme": "money",
+      "reference": "1 Timothy 6:6–8",
+      "text": "Of course, godliness with contentment is great gain. For we brought nothing into the world, so we cannot carry anything out of it. But if we have food and clothing, we will be content with these.",
+      "source": "https://ebible.org/engbsb/1TI06.htm#V6"
+    },
+    {
+      "id": "psa-119-130",
+      "theme": "decisions",
+      "reference": "Psalm 119:130",
+      "text": "The unfolding of Your words gives light; it informs the simple.",
+      "source": "https://ebible.org/engbsb/PSA119.htm#V130"
+    },
+    {
+      "id": "php-4-6-7",
+      "theme": "rest",
+      "reference": "Philippians 4:6–7",
+      "text": "Be anxious for nothing, but in everything, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus.",
+      "source": "https://ebible.org/engbsb/PHP04.htm#V6"
+    },
+    {
+      "id": "lam-3-22-24",
+      "theme": "hardship",
+      "reference": "Lamentations 3:22–24",
+      "text": "Because of the loving devotion of the LORD we are not consumed, for His mercies never fail. They are new every morning; great is Your faithfulness! “The LORD is my portion,” says my soul, “therefore I will hope in Him.”",
+      "source": "https://ebible.org/engbsb/LAM03.htm#V22"
+    },
+    {
+      "id": "psa-107-1",
+      "theme": "gratitude",
+      "reference": "Psalm 107:1",
+      "text": "Give thanks to the LORD, for He is good; His loving devotion endures forever.",
+      "source": "https://ebible.org/engbsb/PSA107.htm#V1"
+    },
+    {
+      "id": "psa-145-18-19",
+      "theme": "faith",
+      "reference": "Psalm 145:18–19",
+      "text": "The LORD is near to all who call on Him, to all who call out to Him in truth. He fulfills the desires of those who fear Him; He hears their cry and saves them.",
+      "source": "https://ebible.org/engbsb/PSA145.htm#V18"
+    },
+    {
+      "id": "eph-6-4",
+      "theme": "family",
+      "reference": "Ephesians 6:4",
+      "text": "Fathers, do not provoke your children to wrath; instead, bring them up in the discipline and instruction of the Lord.",
+      "source": "https://ebible.org/engbsb/EPH06.htm#V4"
+    },
+    {
+      "id": "eph-4-32",
+      "theme": "relationships",
+      "reference": "Ephesians 4:32",
+      "text": "Be kind and tenderhearted to one another, forgiving each other just as in Christ God forgave you.",
+      "source": "https://ebible.org/engbsb/EPH04.htm#V32"
+    },
+    {
+      "id": "col-3-23-24",
+      "theme": "work",
+      "reference": "Colossians 3:23–24",
+      "text": "Whatever you do, work at it with your whole being, for the Lord and not for men, because you know that you will receive an inheritance from the Lord as your reward. It is the Lord Christ you are serving.",
+      "source": "https://ebible.org/engbsb/COL03.htm#V23"
+    },
+    {
+      "id": "1ti-6-9-10",
+      "theme": "money",
+      "reference": "1 Timothy 6:9–10",
+      "text": "Those who want to be rich, however, fall into temptation and become ensnared by many foolish and harmful desires that plunge them into ruin and destruction. For the love of money is the root of all kinds of evil. By craving it, some have wandered away from the faith and pierced themselves with many sorrows.",
+      "source": "https://ebible.org/engbsb/1TI06.htm#V9"
+    },
+    {
+      "id": "pro-3-5-6",
+      "theme": "decisions",
+      "reference": "Proverbs 3:5–6",
+      "text": "Trust in the LORD with all your heart, and lean not on your own understanding; in all your ways acknowledge Him, and He will make your paths straight.",
+      "source": "https://ebible.org/engbsb/PRO03.htm#V5"
+    },
+    {
+      "id": "isa-26-3-4",
+      "theme": "rest",
+      "reference": "Isaiah 26:3–4",
+      "text": "You will keep in perfect peace the steadfast of mind, because he trusts in You. Trust in the LORD forever, because GOD the LORD is the Rock eternal.",
+      "source": "https://ebible.org/engbsb/ISA26.htm#V3"
+    },
+    {
+      "id": "psa-42-11",
+      "theme": "hardship",
+      "reference": "Psalm 42:11",
+      "text": "Why are you downcast, O my soul? Why the unease within me? Put your hope in God, for I will yet praise Him, my Savior and my God.",
+      "source": "https://ebible.org/engbsb/PSA042.htm#V11"
+    },
+    {
+      "id": "col-3-17",
+      "theme": "gratitude",
+      "reference": "Colossians 3:17",
+      "text": "And whatever you do, in word or deed, do it all in the name of the Lord Jesus, giving thanks to God the Father through Him.",
+      "source": "https://ebible.org/engbsb/COL03.htm#V17"
+    },
+    {
+      "id": "eph-2-8-10",
+      "theme": "faith",
+      "reference": "Ephesians 2:8–10",
+      "text": "For it is by grace you have been saved through faith, and this not from yourselves; it is the gift of God, not by works, so that no one can boast. For we are God’s workmanship, created in Christ Jesus to do good works, which God prepared in advance as our way of life.",
+      "source": "https://ebible.org/engbsb/EPH02.htm#V8"
+    },
+    {
+      "id": "gal-6-2",
+      "theme": "family",
+      "reference": "Galatians 6:2",
+      "text": "Carry one another’s burdens, and in this way you will fulfill the law of Christ.",
+      "source": "https://ebible.org/engbsb/GAL06.htm#V2"
+    },
+    {
+      "id": "col-3-12-14",
+      "theme": "relationships",
+      "reference": "Colossians 3:12–14",
+      "text": "Therefore, as the elect of God, holy and beloved, clothe yourselves with hearts of compassion, kindness, humility, gentleness, and patience. Bear with one another and forgive any complaint you may have against someone else. Forgive as the Lord forgave you. And over all these virtues put on love, which is the bond of perfect unity.",
+      "source": "https://ebible.org/engbsb/COL03.htm#V12"
+    },
+    {
+      "id": "pro-12-11",
+      "theme": "work",
+      "reference": "Proverbs 12:11",
+      "text": "The one who works his land will have plenty of food, but whoever chases fantasies lacks judgment.",
+      "source": "https://ebible.org/engbsb/PRO12.htm#V11"
+    },
+    {
+      "id": "1ti-6-17-19",
+      "theme": "money",
+      "reference": "1 Timothy 6:17–19",
+      "text": "Instruct those who are rich in the present age not to be conceited and not to put their hope in the uncertainty of wealth, but in God, who richly provides all things for us to enjoy. Instruct them to do good, to be rich in good works, and to be generous and ready to share, treasuring up for themselves a firm foundation for the future, so that they may take hold of that which is truly life.",
+      "source": "https://ebible.org/engbsb/1TI06.htm#V17"
+    },
+    {
+      "id": "pro-4-23",
+      "theme": "decisions",
+      "reference": "Proverbs 4:23",
+      "text": "Guard your heart with all diligence, for from it flow springs of life.",
+      "source": "https://ebible.org/engbsb/PRO04.htm#V23"
+    },
+    {
+      "id": "mat-11-28-30",
+      "theme": "rest",
+      "reference": "Matthew 11:28–30",
+      "text": "Come to Me, all you who are weary and burdened, and I will give you rest. Take My yoke upon you and learn from Me; for I am gentle and humble in heart, and you will find rest for your souls. For My yoke is easy and My burden is light.”",
+      "source": "https://ebible.org/engbsb/MAT11.htm#V28"
+    },
+    {
+      "id": "rom-5-3-5",
+      "theme": "hardship",
+      "reference": "Romans 5:3–5",
+      "text": "Not only that, but we also rejoice in our sufferings, because we know that suffering produces perseverance; perseverance, character; and character, hope. And hope does not disappoint us, because God has poured out His love into our hearts through the Holy Spirit, whom He has given us.",
+      "source": "https://ebible.org/engbsb/ROM05.htm#V3"
+    },
+    {
+      "id": "psa-118-24",
+      "theme": "gratitude",
+      "reference": "Psalm 118:24",
+      "text": "This is the day that the LORD has made; we will rejoice and be glad in it.",
+      "source": "https://ebible.org/engbsb/PSA118.htm#V24"
+    },
+    {
+      "id": "col-4-2-4",
+      "theme": "faith",
+      "reference": "Colossians 4:2–4",
+      "text": "Devote yourselves to prayer, being watchful and thankful, as you pray also for us, that God may open to us a door for the word, so that we may proclaim the mystery of Christ, for which I am in chains. Pray that I may declare it clearly, as I should.",
+      "source": "https://ebible.org/engbsb/COL04.htm#V2"
+    },
+    {
+      "id": "deu-6-4-7",
+      "theme": "family",
+      "reference": "Deuteronomy 6:4–7",
+      "text": "Hear, O Israel: The LORD our God, the LORD is One. And you shall love the LORD your God with all your heart and with all your soul and with all your strength. These words I am commanding you today are to be upon your hearts. And you shall teach them diligently to your children and speak of them when you sit at home and when you walk along the road, when you lie down and when you get up.",
+      "source": "https://ebible.org/engbsb/DEU06.htm#V4"
+    },
+    {
+      "id": "rom-12-9-13",
+      "theme": "relationships",
+      "reference": "Romans 12:9–13",
+      "text": "Love must be sincere. Detest what is evil; cling to what is good. Be devoted to one another in brotherly love. Outdo yourselves in honoring one another. Do not let your zeal subside; keep your spiritual fervor, serving the Lord. Be joyful in hope, patient in affliction, persistent in prayer. Share with the saints who are in need. Practice hospitality.",
+      "source": "https://ebible.org/engbsb/ROM12.htm#V9"
+    },
+    {
+      "id": "psa-90-16-17",
+      "theme": "work",
+      "reference": "Psalm 90:16–17",
+      "text": "May Your work be shown to Your servants, and Your splendor to their children. May the favor of the Lord our God rest upon us; establish for us the work of our hands— yes, establish the work of our hands!",
+      "source": "https://ebible.org/engbsb/PSA090.htm#V16"
+    },
+    {
+      "id": "php-4-11-13",
+      "theme": "money",
+      "reference": "Philippians 4:11–13",
+      "text": "I am not saying this out of need, for I have learned to be content regardless of my circumstances. I know how to live humbly, and I know how to abound. I am accustomed to any and every situation—to being filled and being hungry, to having plenty and having need. I can do all things through Christ who gives me strength.",
+      "source": "https://ebible.org/engbsb/PHP04.htm#V11"
+    },
+    {
+      "id": "mic-6-8",
+      "theme": "decisions",
+      "reference": "Micah 6:8",
+      "text": "He has shown you, O man, what is good. And what does the LORD require of you but to act justly, to love mercy, and to walk humbly with your God?",
+      "source": "https://ebible.org/engbsb/MIC06.htm#V8"
+    },
+    {
+      "id": "psa-4-8",
+      "theme": "rest",
+      "reference": "Psalm 4:8",
+      "text": "I will lie down and sleep in peace, for You alone, O LORD, make me dwell in safety.",
+      "source": "https://ebible.org/engbsb/PSA004.htm#V8"
+    },
+    {
+      "id": "2co-4-16-18",
+      "theme": "hardship",
+      "reference": "2 Corinthians 4:16–18",
+      "text": "Therefore we do not lose heart. Though our outer self is wasting away, yet our inner self is being renewed day by day. For our light and momentary affliction is producing for us an eternal glory that is far beyond comparison. So we fix our eyes not on what is seen, but on what is unseen. For what is seen is temporary, but what is unseen is eternal.",
+      "source": "https://ebible.org/engbsb/2CO04.htm#V16"
+    },
+    {
+      "id": "heb-13-15-16",
+      "theme": "gratitude",
+      "reference": "Hebrews 13:15–16",
+      "text": "Through Jesus, therefore, let us continually offer to God a sacrifice of praise, the fruit of lips that confess His name. And do not neglect to do good and to share with others, for with such sacrifices God is pleased.",
+      "source": "https://ebible.org/engbsb/HEB13.htm#V15"
+    },
+    {
+      "id": "jas-5-13",
+      "theme": "faith",
+      "reference": "James 5:13",
+      "text": "Is any one of you suffering? He should pray. Is anyone cheerful? He should sing praises.",
+      "source": "https://ebible.org/engbsb/JAS05.htm#V13"
+    },
+    {
+      "id": "1pe-4-8",
+      "theme": "family",
+      "reference": "1 Peter 4:8",
+      "text": "Above all, love one another deeply, because love covers over a multitude of sins.",
+      "source": "https://ebible.org/engbsb/1PE04.htm#V8"
+    },
+    {
+      "id": "rom-12-15-16",
+      "theme": "relationships",
+      "reference": "Romans 12:15–16",
+      "text": "Rejoice with those who rejoice; weep with those who weep. Live in harmony with one another. Do not be proud, but enjoy the company of the lowly. Do not be conceited.",
+      "source": "https://ebible.org/engbsb/ROM12.htm#V15"
+    },
+    {
+      "id": "ecc-3-12-13",
+      "theme": "work",
+      "reference": "Ecclesiastes 3:12–13",
+      "text": "I know that there is nothing better for them than to rejoice and do good while they live, and also that every man should eat and drink and find satisfaction in all his labor—this is the gift of God.",
+      "source": "https://ebible.org/engbsb/ECC03.htm#V12"
+    },
+    {
+      "id": "pro-15-16-17",
+      "theme": "money",
+      "reference": "Proverbs 15:16–17",
+      "text": "Better a little with the fear of the LORD than great treasure with turmoil. Better a dish of vegetables where there is love than a fattened ox with hatred.",
+      "source": "https://ebible.org/engbsb/PRO15.htm#V16"
+    },
+    {
+      "id": "rom-12-1-2",
+      "theme": "decisions",
+      "reference": "Romans 12:1–2",
+      "text": "Therefore I urge you, brothers, on account of God’s mercy, to offer your bodies as living sacrifices, holy and pleasing to God, which is your spiritual service of worship. Do not be conformed to this world, but be transformed by the renewing of your mind. Then you will be able to test and approve what is the good, pleasing, and perfect will of God.",
+      "source": "https://ebible.org/engbsb/ROM12.htm#V1"
+    },
+    {
+      "id": "1pe-5-6-7",
+      "theme": "rest",
+      "reference": "1 Peter 5:6–7",
+      "text": "Humble yourselves, therefore, under God’s mighty hand, so that in due time He may exalt you. Cast all your anxiety on Him, because He cares for you.",
+      "source": "https://ebible.org/engbsb/1PE05.htm#V6"
+    },
+    {
+      "id": "mat-5-4",
+      "theme": "hardship",
+      "reference": "Matthew 5:4",
+      "text": "Blessed are those who mourn, for they will be comforted.",
+      "source": "https://ebible.org/engbsb/MAT05.htm#V4"
+    },
+    {
+      "id": "jas-1-16-17",
+      "theme": "gratitude",
+      "reference": "James 1:16–17",
+      "text": "Do not be deceived, my beloved brothers. Every good and perfect gift is from above, coming down from the Father of the heavenly lights, with whom there is no change or shifting shadow.",
+      "source": "https://ebible.org/engbsb/JAS01.htm#V16"
+    },
+    {
+      "id": "heb-11-1",
+      "theme": "faith",
+      "reference": "Hebrews 11:1",
+      "text": "Now faith is the assurance of what we hope for and the certainty of what we do not see.",
+      "source": "https://ebible.org/engbsb/HEB11.htm#V1"
+    },
+    {
+      "id": "1co-16-14",
+      "theme": "family",
+      "reference": "1 Corinthians 16:14",
+      "text": "Do everything in love.",
+      "source": "https://ebible.org/engbsb/1CO16.htm#V14"
+    },
+    {
+      "id": "1jn-3-16-18",
+      "theme": "relationships",
+      "reference": "1 John 3:16–18",
+      "text": "By this we know what love is: Jesus laid down His life for us, and we ought to lay down our lives for our brothers. If anyone with earthly possessions sees his brother in need, but withholds his compassion from him, how can the love of God abide in him? Little children, let us love not in word and speech, but in action and truth.",
+      "source": "https://ebible.org/engbsb/1JN03.htm#V16"
+    },
+    {
+      "id": "1co-15-58",
+      "theme": "work",
+      "reference": "1 Corinthians 15:58",
+      "text": "Therefore, my beloved brothers, be steadfast and immovable. Always excel in the work of the Lord, because you know that your labor in the Lord is not in vain.",
+      "source": "https://ebible.org/engbsb/1CO15.htm#V58"
+    },
+    {
+      "id": "pro-22-1-2",
+      "theme": "money",
+      "reference": "Proverbs 22:1–2",
+      "text": "A good name is more desirable than great riches; favor is better than silver and gold. The rich and the poor have this in common: The LORD is Maker of them all.",
+      "source": "https://ebible.org/engbsb/PRO22.htm#V1"
+    },
+    {
+      "id": "eph-5-15-17",
+      "theme": "decisions",
+      "reference": "Ephesians 5:15–17",
+      "text": "Pay careful attention, then, to how you walk, not as unwise but as wise, redeeming the time, because the days are evil. Therefore do not be foolish, but understand what the Lord’s will is.",
+      "source": "https://ebible.org/engbsb/EPH05.htm#V15"
+    },
+    {
+      "id": "2th-3-16",
+      "theme": "rest",
+      "reference": "2 Thessalonians 3:16",
+      "text": "Now may the Lord of peace Himself give you peace at all times and in every way. The Lord be with all of you.",
+      "source": "https://ebible.org/engbsb/2TH03.htm#V16"
+    },
+    {
+      "id": "psa-94-17-19",
+      "theme": "hardship",
+      "reference": "Psalm 94:17–19",
+      "text": "Unless the LORD had been my helper, I would soon have dwelt in the abode of silence. If I say, “My foot is slipping,” Your loving devotion, O LORD, supports me. When anxiety overwhelms me, Your consolation delights my soul.",
+      "source": "https://ebible.org/engbsb/PSA094.htm#V17"
+    },
+    {
+      "id": "psa-145-8-10",
+      "theme": "gratitude",
+      "reference": "Psalm 145:8–10",
+      "text": "The LORD is gracious and compassionate, slow to anger and abounding in loving devotion. The LORD is good to all; His compassion rests on all He has made. All You have made will give You thanks, O LORD, and Your saints will bless You.",
+      "source": "https://ebible.org/engbsb/PSA145.htm#V8"
+    },
+    {
+      "id": "1jn-5-14-15",
+      "theme": "faith",
+      "reference": "1 John 5:14–15",
+      "text": "And this is the confidence that we have before Him: If we ask anything according to His will, He hears us. And if we know that He hears us in whatever we ask, we know that we already possess what we have asked of Him.",
+      "source": "https://ebible.org/engbsb/1JN05.htm#V14"
+    },
+    {
+      "id": "rut-1-16-17",
+      "theme": "family",
+      "reference": "Ruth 1:16–17",
+      "text": "But Ruth replied: “Do not urge me to leave you or to turn from following you. For wherever you go, I will go, and wherever you live, I will live; your people will be my people, and your God will be my God. Where you die, I will die, and there I will be buried. May the LORD punish me, and ever so severely, if anything but death separates you and me.”",
+      "source": "https://ebible.org/engbsb/RUT01.htm#V16"
+    },
+    {
+      "id": "mat-5-44-45",
+      "theme": "relationships",
+      "reference": "Matthew 5:44–45",
+      "text": "But I tell you, love your enemies and pray for those who persecute you, that you may be sons of your Father in heaven. He causes His sun to rise on the evil and the good, and sends rain on the righteous and the unrighteous.",
+      "source": "https://ebible.org/engbsb/MAT05.htm#V44"
+    },
+    {
+      "id": "heb-6-10",
+      "theme": "work",
+      "reference": "Hebrews 6:10",
+      "text": "For God is not unjust. He will not forget your work and the love you have shown for His name as you have ministered to the saints and continue to do so.",
+      "source": "https://ebible.org/engbsb/HEB06.htm#V10"
+    },
+    {
+      "id": "pro-22-9",
+      "theme": "money",
+      "reference": "Proverbs 22:9",
+      "text": "A generous man will be blessed, for he shares his bread with the poor.",
+      "source": "https://ebible.org/engbsb/PRO22.htm#V9"
+    },
+    {
+      "id": "pro-16-9",
+      "theme": "decisions",
+      "reference": "Proverbs 16:9",
+      "text": "A man’s heart plans his course, but the LORD determines his steps.",
+      "source": "https://ebible.org/engbsb/PRO16.htm#V9"
+    },
+    {
+      "id": "psa-55-22",
+      "theme": "rest",
+      "reference": "Psalm 55:22",
+      "text": "Cast your burden upon the LORD and He will sustain you; He will never let the righteous be shaken.",
+      "source": "https://ebible.org/engbsb/PSA055.htm#V22"
+    },
+    {
+      "id": "2co-1-3-4",
+      "theme": "hardship",
+      "reference": "2 Corinthians 1:3–4",
+      "text": "Blessed be the God and Father of our Lord Jesus Christ, the Father of compassion and the God of all comfort, who comforts us in all our troubles, so that we can comfort those in any trouble with the comfort we ourselves have received from God.",
+      "source": "https://ebible.org/engbsb/2CO01.htm#V3"
+    },
+    {
+      "id": "col-3-15",
+      "theme": "gratitude",
+      "reference": "Colossians 3:15",
+      "text": "Let the peace of Christ rule in your hearts, for to this you were called as members of one body. And be thankful.",
+      "source": "https://ebible.org/engbsb/COL03.htm#V15"
+    },
+    {
+      "id": "psa-5-3",
+      "theme": "faith",
+      "reference": "Psalm 5:3",
+      "text": "In the morning, O LORD, You hear my voice; at daybreak I lay my plea before You and wait in expectation.",
+      "source": "https://ebible.org/engbsb/PSA005.htm#V3"
+    },
+    {
+      "id": "psa-127-3",
+      "theme": "family",
+      "reference": "Psalm 127:3",
+      "text": "Children are indeed a heritage from the LORD, and the fruit of the womb is His reward.",
+      "source": "https://ebible.org/engbsb/PSA127.htm#V3"
+    },
+    {
+      "id": "eph-4-1-3",
+      "theme": "relationships",
+      "reference": "Ephesians 4:1–3",
+      "text": "As a prisoner in the Lord, then, I urge you to walk in a manner worthy of the calling you have received: with all humility and gentleness, with patience, bearing with one another in love, and with diligence to preserve the unity of the Spirit through the bond of peace.",
+      "source": "https://ebible.org/engbsb/EPH04.htm#V1"
+    },
+    {
+      "id": "mat-5-16",
+      "theme": "work",
+      "reference": "Matthew 5:16",
+      "text": "In the same way, let your light shine before men, that they may see your good deeds and glorify your Father in heaven.",
+      "source": "https://ebible.org/engbsb/MAT05.htm#V16"
+    },
+    {
+      "id": "pro-19-17",
+      "theme": "money",
+      "reference": "Proverbs 19:17",
+      "text": "Kindness to the poor is a loan to the LORD, and He will repay the lender.",
+      "source": "https://ebible.org/engbsb/PRO19.htm#V17"
+    },
+    {
+      "id": "jas-3-17-18",
+      "theme": "decisions",
+      "reference": "James 3:17–18",
+      "text": "But the wisdom from above is first of all pure, then peace-loving, gentle, accommodating, full of mercy and good fruit, impartial, and sincere. Peacemakers who sow in peace reap the fruit of righteousness.",
+      "source": "https://ebible.org/engbsb/JAS03.htm#V17"
+    },
+    {
+      "id": "pro-12-25",
+      "theme": "rest",
+      "reference": "Proverbs 12:25",
+      "text": "Anxiety weighs down the heart of a man, but a good word cheers it up.",
+      "source": "https://ebible.org/engbsb/PRO12.htm#V25"
+    },
+    {
+      "id": "psa-73-25-26",
+      "theme": "hardship",
+      "reference": "Psalm 73:25–26",
+      "text": "Whom have I in heaven but You? And on earth I desire no one besides You. My flesh and my heart may fail, but God is the strength of my heart and my portion forever.",
+      "source": "https://ebible.org/engbsb/PSA073.htm#V25"
+    },
+    {
+      "id": "col-2-6-7",
+      "theme": "gratitude",
+      "reference": "Colossians 2:6–7",
+      "text": "Therefore, just as you have received Christ Jesus as Lord, continue to walk in Him, rooted and built up in Him, established in the faith as you were taught, and overflowing with thankfulness.",
+      "source": "https://ebible.org/engbsb/COL02.htm#V6"
+    },
+    {
+      "id": "rom-8-26-27",
+      "theme": "faith",
+      "reference": "Romans 8:26–27",
+      "text": "In the same way, the Spirit helps us in our weakness. For we do not know how we ought to pray, but the Spirit Himself intercedes for us with groans too deep for words. And He who searches our hearts knows the mind of the Spirit, because the Spirit intercedes for the saints according to the will of God.",
+      "source": "https://ebible.org/engbsb/ROM08.htm#V26"
+    },
+    {
+      "id": "pro-14-26",
+      "theme": "family",
+      "reference": "Proverbs 14:26",
+      "text": "He who fears the LORD is secure in confidence, and his children shall have a place of refuge.",
+      "source": "https://ebible.org/engbsb/PRO14.htm#V26"
+    },
+    {
+      "id": "jas-1-19-20",
+      "theme": "relationships",
+      "reference": "James 1:19–20",
+      "text": "My beloved brothers, understand this: Everyone should be quick to listen, slow to speak, and slow to anger, for man’s anger does not bring about the righteousness that God desires.",
+      "source": "https://ebible.org/engbsb/JAS01.htm#V19"
+    },
+    {
+      "id": "gal-6-9-10",
+      "theme": "work",
+      "reference": "Galatians 6:9–10",
+      "text": "Let us not grow weary in well-doing, for in due time we will reap a harvest if we do not give up. Therefore, as we have opportunity, let us do good to everyone, and especially to the family of faith.",
+      "source": "https://ebible.org/engbsb/GAL06.htm#V9"
+    },
+    {
+      "id": "2co-9-6-7",
+      "theme": "money",
+      "reference": "2 Corinthians 9:6–7",
+      "text": "Remember this: Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously. Each one should give what he has decided in his heart to give, not out of regret or compulsion. For God loves a cheerful giver.",
+      "source": "https://ebible.org/engbsb/2CO09.htm#V6"
+    },
+    {
+      "id": "col-4-5-6",
+      "theme": "decisions",
+      "reference": "Colossians 4:5–6",
+      "text": "Act wisely toward outsiders, redeeming the time. Let your speech always be gracious, seasoned with salt, so that you may know how to answer everyone.",
+      "source": "https://ebible.org/engbsb/COL04.htm#V5"
+    },
+    {
+      "id": "mat-6-33-34",
+      "theme": "rest",
+      "reference": "Matthew 6:33–34",
+      "text": "But seek first the kingdom of God and His righteousness, and all these things will be added unto you. Therefore do not worry about tomorrow, for tomorrow will worry about itself. Today has enough trouble of its own.",
+      "source": "https://ebible.org/engbsb/MAT06.htm#V33"
+    },
+    {
+      "id": "isa-41-10",
+      "theme": "hardship",
+      "reference": "Isaiah 41:10",
+      "text": "Do not fear, for I am with you; do not be afraid, for I am your God. I will strengthen you; I will surely help you; I will uphold you with My right hand of righteousness.",
+      "source": "https://ebible.org/engbsb/ISA41.htm#V10"
+    },
+    {
+      "id": "psa-100-4-5",
+      "theme": "gratitude",
+      "reference": "Psalm 100:4–5",
+      "text": "Enter His gates with thanksgiving and His courts with praise; give thanks to Him and bless His name. For the LORD is good, and His loving devotion endures forever; His faithfulness continues to all generations.",
+      "source": "https://ebible.org/engbsb/PSA100.htm#V4"
+    },
+    {
+      "id": "psa-139-23-24",
+      "theme": "faith",
+      "reference": "Psalm 139:23–24",
+      "text": "Search me, O God, and know my heart; test me and know my concerns. See if there is any offensive way in me; lead me in the way everlasting.",
+      "source": "https://ebible.org/engbsb/PSA139.htm#V23"
+    },
+    {
+      "id": "pro-23-22",
+      "theme": "family",
+      "reference": "Proverbs 23:22",
+      "text": "Listen to your father who gave you life, and do not despise your mother when she is old.",
+      "source": "https://ebible.org/engbsb/PRO23.htm#V22"
+    },
+    {
+      "id": "pro-15-1",
+      "theme": "relationships",
+      "reference": "Proverbs 15:1",
+      "text": "A gentle answer turns away wrath, but a harsh word stirs up anger.",
+      "source": "https://ebible.org/engbsb/PRO15.htm#V1"
+    },
+    {
+      "id": "eph-4-28",
+      "theme": "work",
+      "reference": "Ephesians 4:28",
+      "text": "He who has been stealing must steal no longer, but must work, doing good with his own hands, that he may have something to share with the one in need.",
+      "source": "https://ebible.org/engbsb/EPH04.htm#V28"
+    },
+    {
+      "id": "pro-23-4-5",
+      "theme": "money",
+      "reference": "Proverbs 23:4–5",
+      "text": "Do not wear yourself out to get rich; be wise enough to restrain yourself. When you glance at wealth, it disappears, for it makes wings for itself and flies like an eagle to the sky.",
+      "source": "https://ebible.org/engbsb/PRO23.htm#V4"
+    },
+    {
+      "id": "psa-90-12",
+      "theme": "decisions",
+      "reference": "Psalm 90:12",
+      "text": "So teach us to number our days, that we may present a heart of wisdom.",
+      "source": "https://ebible.org/engbsb/PSA090.htm#V12"
+    },
+    {
+      "id": "psa-56-3-4",
+      "theme": "rest",
+      "reference": "Psalm 56:3–4",
+      "text": "When I am afraid, I put my trust in You. In God, whose word I praise— in God I trust. I will not be afraid. What can man do to me?",
+      "source": "https://ebible.org/engbsb/PSA056.htm#V3"
+    },
+    {
+      "id": "rom-8-38-39",
+      "theme": "hardship",
+      "reference": "Romans 8:38–39",
+      "text": "For I am convinced that neither death nor life, neither angels nor principalities, neither the present nor the future, nor any powers, neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord.",
+      "source": "https://ebible.org/engbsb/ROM08.htm#V38"
+    },
+    {
+      "id": "psa-95-1-2",
+      "theme": "gratitude",
+      "reference": "Psalm 95:1–2",
+      "text": "Come, let us sing for joy to the LORD; let us shout to the Rock of our salvation! Let us enter His presence with thanksgiving; let us make a joyful noise to Him in song.",
+      "source": "https://ebible.org/engbsb/PSA095.htm#V1"
+    },
+    {
+      "id": "jhn-15-4-5",
+      "theme": "faith",
+      "reference": "John 15:4–5",
+      "text": "Remain in Me, and I will remain in you. Just as no branch can bear fruit by itself unless it remains in the vine, neither can you bear fruit unless you remain in Me. I am the vine and you are the branches. The one who remains in Me, and I in him, will bear much fruit. For apart from Me you can do nothing.",
+      "source": "https://ebible.org/engbsb/JHN15.htm#V4"
+    },
+    {
+      "id": "pro-24-3-4",
+      "theme": "family",
+      "reference": "Proverbs 24:3–4",
+      "text": "By wisdom a house is built and by understanding it is established; through knowledge its rooms are filled with every precious and beautiful treasure.",
+      "source": "https://ebible.org/engbsb/PRO24.htm#V3"
+    },
+    {
+      "id": "ecc-4-9-10",
+      "theme": "relationships",
+      "reference": "Ecclesiastes 4:9–10",
+      "text": "Two are better than one, because they have a good return for their labor. For if one falls down, his companion can lift him up; but pity the one who falls without another to help him up!",
+      "source": "https://ebible.org/engbsb/ECC04.htm#V9"
+    },
+    {
+      "id": "1pe-4-10-11",
+      "theme": "work",
+      "reference": "1 Peter 4:10–11",
+      "text": "As good stewards of the manifold grace of God, each of you should use whatever gift he has received to serve one another. If anyone speaks, he should speak as one conveying the words of God. If anyone serves, he should serve with the strength God provides, so that in all things God may be glorified through Jesus Christ, to whom be the glory and the power forever and ever. Amen.",
+      "source": "https://ebible.org/engbsb/1PE04.htm#V10"
+    },
+    {
+      "id": "luk-12-15",
+      "theme": "money",
+      "reference": "Luke 12:15",
+      "text": "And He said to them, “Watch out! Guard yourselves against every form of greed, for one’s life does not consist in the abundance of his possessions.”",
+      "source": "https://ebible.org/engbsb/LUK12.htm#V15"
+    },
+    {
+      "id": "pro-15-22",
+      "theme": "decisions",
+      "reference": "Proverbs 15:22",
+      "text": "Plans fail for lack of counsel, but with many advisers they succeed.",
+      "source": "https://ebible.org/engbsb/PRO15.htm#V22"
+    },
+    {
+      "id": "psa-62-5-6",
+      "theme": "rest",
+      "reference": "Psalm 62:5–6",
+      "text": "Rest in God alone, O my soul, for my hope comes from Him. He alone is my rock and my salvation; He is my fortress; I will not be shaken.",
+      "source": "https://ebible.org/engbsb/PSA062.htm#V5"
+    },
+    {
+      "id": "rev-21-3-4",
+      "theme": "hardship",
+      "reference": "Revelation 21:3–4",
+      "text": "And I heard a loud voice from the throne saying: “Behold, the dwelling place of God is with man, and He will dwell with them. They will be His people, and God Himself will be with them as their God. ‘He will wipe away every tear from their eyes,’ and there will be no more death or mourning or crying or pain, for the former things have passed away.”",
+      "source": "https://ebible.org/engbsb/REV21.htm#V3"
+    },
+    {
+      "id": "php-4-4-5",
+      "theme": "gratitude",
+      "reference": "Philippians 4:4–5",
+      "text": "Rejoice in the Lord always. I will say it again: Rejoice! Let your gentleness be apparent to all. The Lord is near.",
+      "source": "https://ebible.org/engbsb/PHP04.htm#V4"
+    },
+    {
+      "id": "rom-15-13",
+      "theme": "faith",
+      "reference": "Romans 15:13",
+      "text": "Now may the God of hope fill you with all joy and peace as you believe in Him, so that you may overflow with hope by the power of the Holy Spirit.",
+      "source": "https://ebible.org/engbsb/ROM15.htm#V13"
+    }
+  ]
+}

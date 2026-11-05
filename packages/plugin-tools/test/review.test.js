@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PNG } from 'pngjs';
-import { loadPlugin, renderView, views } from '../src/plugin.js';
+import { loadPlugin, renderView, views, pollFiles } from '../src/plugin.js';
 import { reviewScreens, reviewScenarios, reviewManifest, reviewOptions, reviewCase, passageSamples, passageSchedule } from '../src/review.js';
 import { reviewSummary, contactSheetHtml, formatTypography } from '../src/review-report.js';
 import { reviewFlags, pruneReviewCache } from '../src/review-runner.js';
@@ -17,7 +17,7 @@ const plugin = await loadPlugin(fileURLToPath(new URL('../../../apps/bible-verse
 test('responsive samples select actual shortest, median and longest complete passages for both QR states', async () => {
   const scenarios = reviewScenarios(plugin, 'responsive');
   assert.equal(scenarios.length, 6);
-  const collections = [plugin.data, ...Object.values(plugin.data.translations)];
+  const collections = Object.values(plugin.collections);
   const lengths = collections.flatMap(c => c.verses.map(v => Array.from(v.text).length));
   for (const qr of [true, false]) {
     const samples = scenarios.filter(s => s.options.fields.show_context_qr === qr);
@@ -28,7 +28,7 @@ test('responsive samples select actual shortest, median and longest complete pas
     assert.ok(lengths.filter(n => n < median.sample.characters).length <= lengths.length / 2);
     assert.ok(lengths.filter(n => n > median.sample.characters).length <= lengths.length / 2);
     for (const sample of samples) {
-      const collection = collections.find(c => c.translation.language === sample.language);
+      const collection = plugin.collections[sample.language];
       assert.ok(collection.verses.some(v => v.id === sample.expected.id && v.text === sample.expected.text));
       const html = await renderView(plugin, 'full', reviewOptions(plugin, sample, { model: 'og', portrait: false }));
       assert.ok(html.includes(`data-verse-id="${sample.expected.id}"`));
@@ -72,7 +72,7 @@ test('summaries compare fitted type across screens and keep warnings separate fr
   assert.equal(summary.warnings.length, 1);
   assert.deepEqual(summary.typography.rows, [{ screen: 'og-landscape-quadrant', cells: Object.fromEntries(manifest.scenarios.map(s => [s.id, s.id === first.id ? '10px 83% !' : s.id === second.id ? '20px 97%' : null])) }]);
   const table = formatTypography(summary.typography);
-  assert.match(table, /en-shortest\+qr/);
+  assert.ok(table.includes(`${first.language}-shortest+qr`));
   assert.match(table, /og-landscape-quadrant +10px 83% ! +20px 97%/);
   const sheet = contactSheetHtml(manifest, first, captures.slice(0, 1));
   assert.ok(sheet.includes('400 × 240 · 10px 83% !'));
@@ -94,7 +94,7 @@ test('documentation screenshots name real screens and reach each passage through
   for (const entry of entries) {
     assert.ok(screens.has(entry.screen), entry.file);
     const fields = { ...plugin.defaults, language: entry.language, theme: 'all', show_context_qr: entry.qr };
-    assert.equal(passageSchedule(plugin, fields, entry.passage).expected.id, entry.passage, entry.file);
+    assert.equal(passageSchedule(plugin, fields, entry.passage, await pollFiles(plugin, fields)).expected.id, entry.passage, entry.file);
   }
 });
 
@@ -114,9 +114,10 @@ test('review cache pruning keeps the current fingerprint and the most recent oth
 test('curated cases cover each translated theme, short passages, references, QR-off and localized recovery', async () => {
   const scenarios = reviewScenarios(plugin);
   assert.equal(new Set(scenarios.map(s => s.id)).size, scenarios.length);
-  assert.deepEqual(scenarios.slice(0, 3).map(s => s.id), ['en-default', 'fr-default', 'es-default']);
-  for (const collection of [plugin.data, ...Object.values(plugin.data.translations)]) {
-    const language = collection.translation.language;
+  const ids = Object.keys(plugin.collections);
+  assert.deepEqual(scenarios.slice(0, ids.length).map(s => s.id), ids.map(id => `${id}-default`));
+  for (const collection of Object.values(plugin.collections)) {
+    const language = collection.translation.id;
     for (const theme of collection.themes) {
       const scenario = scenarios.find(s => s.id === `${language}-longest-${theme.id}`);
       const pool = collection.verses.filter(v => v.theme === theme.id);
@@ -141,12 +142,11 @@ test('curated cases cover each translated theme, short passages, references, QR-
 test('every-passage suite includes each publisher passage with both QR states and 24 native-size screens', () => {
   const cases = reviewScenarios(plugin, 'passages');
   const screens = reviewScreens();
-  assert.equal(cases.length, 648);
+  assert.equal(cases.length, Object.keys(plugin.collections).length * 108 * 2);
   assert.equal(screens.length, 24);
   assert.equal(new Set(screens.map(s => s.id)).size, 24);
-  assert.equal(cases.length * screens.length, 15552);
-  for (const collection of [plugin.data, ...Object.values(plugin.data.translations)]) for (const verse of collection.verses) {
-    const variants = cases.filter(c => c.language === collection.translation.language && c.expected.id === verse.id);
+  for (const collection of Object.values(plugin.collections)) for (const verse of collection.verses) {
+    const variants = cases.filter(c => c.language === collection.translation.id && c.expected.id === verse.id);
     assert.deepEqual(variants.map(c => c.options.fields.show_context_qr).sort(), [false, true]);
   }
   assert.deepEqual(screens.find(s => s.id === 'v2-portrait-quadrant').width, 702);
@@ -160,6 +160,7 @@ test('source fingerprints change for content, template, transform and settings c
     { ...plugin, templates: { ...plugin.templates, full: plugin.templates.full + '\n<!-- edit -->' } },
     { ...plugin, transform: plugin.transform + '\n// edit' },
     { ...plugin, data: { ...plugin.data, verses: plugin.data.verses.slice(1) } },
+    { ...plugin, collections: { ...plugin.collections, kjv: { ...plugin.collections.kjv, verses: plugin.collections.kjv.verses.slice(1) } } },
     { ...plugin, settings: { ...plugin.settings, description: 'Changed' } },
   ]) assert.notEqual(original, (await reviewManifest(changed)).sourceHash);
 });
@@ -201,7 +202,7 @@ test('preview server serves shared review cases, rejects stale source and invali
   try {
     const manifest = await (await fetch(origin + '/review/manifest')).json();
     assert.equal(manifest.total, manifest.scenarios.length * 24);
-    const selected = reviewCase(manifest, 'en-default', 'og-landscape-full');
+    const selected = reviewCase(manifest, 'web-default', 'og-landscape-full');
     assert.ok(selected.scenario.expected);
     const query = new URLSearchParams({ scenario: selected.scenario.id, screen: selected.screen.id, source: manifest.sourceHash });
     const render = await fetch(`${origin}/review/render?${query}`);

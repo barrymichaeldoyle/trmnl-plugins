@@ -1,0 +1,131 @@
+[
+  {
+    "id": "web",
+    "aliases": [
+      "en"
+    ],
+    "language": "en",
+    "name": "World English Bible",
+    "abbreviation": "WEB",
+    "edition": "Updated, LORD (engwebp)",
+    "license": "Public domain",
+    "source": "https://ebible.org/engwebp/",
+    "archive": "https://ebible.org/Scriptures/engwebp_html.zip",
+    "format": "ebible-html"
+  },
+  {
+    "id": "bsb",
+    "language": "en",
+    "name": "Berean Standard Bible",
+    "abbreviation": "BSB",
+    "edition": "2020 (engbsb)",
+    "license": "Public domain",
+    "source": "https://ebible.org/engbsb/",
+    "archive": "https://ebible.org/Scriptures/engbsb_html.zip",
+    "format": "ebible-html"
+  },
+  {
+    "id": "kjv",
+    "language": "en",
+    "name": "King James Version",
+    "abbreviation": "KJV",
+    "edition": "1769 standardized text (eng-kjv)",
+    "license": "Public domain outside the United Kingdom",
+    "source": "https://ebible.org/eng-kjv/",
+    "archive": "https://ebible.org/Scriptures/eng-kjv_html.zip",
+    "format": "ebible-html",
+    "layout_marks": [
+      "pilcrow"
+    ]
+  },
+  {
+    "id": "luther1912",
+    "language": "de",
+    "name": "Lutherbibel 1912",
+    "abbreviation": "LUT1912",
+    "edition": "1912 (deu1912)",
+    "license": "Public domain",
+    "source": "https://ebible.org/deu1912/",
+    "archive": "https://ebible.org/Scriptures/deu1912_html.zip",
+    "format": "ebible-html"
+  },
+  {
+    "id": "rv1909",
+    "aliases": [
+      "es"
+    ],
+    "language": "es",
+    "name": "Reina Valera 1909",
+    "abbreviation": "RV1909",
+    "edition": "1909 (spaRV1909)",
+    "license": "Public domain",
+    "source": "https://ebible.org/spaRV1909/",
+    "archive": "https://ebible.org/Scriptures/spaRV1909_html.zip",
+    "format": "ebible-html"
+  },
+  {
+    "id": "ntbt",
+    "language": "es",
+    "name": "Nueva Traducción BibliaTodo",
+    "abbreviation": "NTBT",
+    "edition": "Texto bíblico (fecha de corte in provenance)",
+    "license": "Licencia NTBT 1.3: free use with attribution",
+    "source": "https://www.bibliatodo.com/ntbt/",
+    "attribution": "Santa Biblia, Nueva Traducción BibliaTodo (NTBT). Publicada por BibliaTodo Bible Society, sello editorial de BibliaTodo LLC.",
+    "archive": "https://cdn.bibliatodo.com/ntbt/texto/NTBT-usfm.zip",
+    "format": "usfm",
+    "chapter_url": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/{slug}-{chapter}"
+  },
+  {
+    "id": "lsg1910",
+    "aliases": [
+      "fr"
+    ],
+    "language": "fr",
+    "name": "Louis Segond 1910",
+    "abbreviation": "LSG1910",
+    "edition": "1910 (fraLSG)",
+    "license": "Public domain",
+    "source": "https://ebible.org/fraLSG/",
+    "archive": "https://ebible.org/Scriptures/fraLSG_html.zip",
+    "format": "ebible-html"
+  },
+  {
+    "id": "riveduta1927",
+    "language": "it",
+    "name": "Riveduta 1927",
+    "abbreviation": "RIV",
+    "edition": "1927 (ita1927)",
+    "license": "Public domain",
+    "source": "https://ebible.org/ita1927/",
+    "archive": "https://ebible.org/Scriptures/ita1927_html.zip",
+    "format": "ebible-html"
+  },
+  {
+    "id": "hs1917",
+    "language": "nl",
+    "name": "De Heilige Schrift 1917",
+    "abbreviation": "HS1917",
+    "edition": "1917 (nld)",
+    "license": "Public domain",
+    "source": "https://ebible.org/nld/",
+    "archive": "https://ebible.org/Scriptures/nld_html.zip",
+    "format": "ebible-html",
+    "layout_marks": [
+      "psalm-numbering",
+      "acrostic-labels"
+    ]
+  },
+  {
+    "id": "blivre",
+    "language": "pt",
+    "name": "Bíblia Livre",
+    "abbreviation": "BLIVRE",
+    "edition": "2018 (porbr2018)",
+    "license": "CC BY 4.0",
+    "source": "https://ebible.org/porbr2018/",
+    "attribution": "Bíblia Livre (BLIVRE), Copyright © Diego Santos, Mario Sérgio e Marco Teles. Licença Creative Commons Atribuição 4.0 Brasil.",
+    "archive": "https://ebible.org/Scriptures/porbr2018_html.zip",
+    "format": "ebible-html"
+  }
+]

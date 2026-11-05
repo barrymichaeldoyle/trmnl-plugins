@@ -1,0 +1,817 @@
+{
+  "translation": {
+    "id": "ntbt",
+    "language": "es",
+    "name": "Nueva Traducción BibliaTodo",
+    "abbreviation": "NTBT",
+    "edition": "Texto bíblico (fecha de corte in provenance)",
+    "license": "Licencia NTBT 1.3: free use with attribution",
+    "source": "https://www.bibliatodo.com/ntbt/",
+    "attribution": "Santa Biblia, Nueva Traducción BibliaTodo (NTBT). Publicada por BibliaTodo Bible Society, sello editorial de BibliaTodo LLC."
+  },
+  "provenance": {
+    "imported_on": "2026-11-04",
+    "archive": "https://cdn.bibliatodo.com/ntbt/texto/NTBT-usfm.zip",
+    "archive_sha256": "56e10a972d3b1d7c62cb8a757fd58059c3f8ac3d5d9f978258b48b76f0e9e006",
+    "edition_cut": "NTBT-2026-11-04"
+  },
+  "themes": [
+    {
+      "id": "family",
+      "name": "Familia y hogar"
+    },
+    {
+      "id": "relationships",
+      "name": "Relaciones"
+    },
+    {
+      "id": "work",
+      "name": "Trabajo y propósito"
+    },
+    {
+      "id": "money",
+      "name": "Dinero y generosidad"
+    },
+    {
+      "id": "decisions",
+      "name": "Decisiones y dirección"
+    },
+    {
+      "id": "rest",
+      "name": "Preocupación y descanso"
+    },
+    {
+      "id": "hardship",
+      "name": "Dificultades y duelo"
+    },
+    {
+      "id": "gratitude",
+      "name": "Alegría y gratitud"
+    },
+    {
+      "id": "faith",
+      "name": "Fe y oración"
+    }
+  ],
+  "labels": {
+    "context": "Leer el capítulo"
+  },
+  "verses": [
+    {
+      "id": "pro-1-8-9",
+      "theme": "family",
+      "reference": "Proverbios 1:8–9",
+      "text": "Escucha, hijo mío, la instrucción de tu padre y no abandones la enseñanza de tu madre, porque serán una hermosa guirnalda para tu cabeza y collares para tu cuello.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-1"
+    },
+    {
+      "id": "rom-13-8-10",
+      "theme": "relationships",
+      "reference": "Romanos 13:8–10",
+      "text": "No deban nada a nadie, excepto amarse unos a otros; porque el que ama al otro ha cumplido la ley. Porque «no cometerás adulterio, no matarás, no robarás, no codiciarás», y cualquier otro mandamiento, se resume en esta palabra: «Amarás a tu prójimo como a ti mismo». El amor no hace mal al prójimo; por tanto, el amor es el cumplimiento de la ley.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/romanos-13"
+    },
+    {
+      "id": "pro-16-3",
+      "theme": "work",
+      "reference": "Proverbios 16:3",
+      "text": "Encomienda a Jehová tus obras y tus planes se afianzarán.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-16"
+    },
+    {
+      "id": "heb-13-5-6",
+      "theme": "money",
+      "reference": "Hebreos 13:5–6",
+      "text": "Que su conducta esté libre del amor al dinero; conténtense con lo que tienen, porque él mismo ha dicho: «Nunca te dejaré ni jamás te abandonaré». Así podemos decir con confianza: «El Señor es mi ayudador; no temeré. ¿Qué podrá hacerme el hombre?».",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/hebreos-13"
+    },
+    {
+      "id": "jas-1-5",
+      "theme": "decisions",
+      "reference": "Santiago 1:5",
+      "text": "Si a alguno de ustedes le falta sabiduría, que se la pida a Dios, quien da a todos generosamente y sin reprochar, y le será dada.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/santiago-1"
+    },
+    {
+      "id": "jhn-14-27",
+      "theme": "rest",
+      "reference": "Juan 14:27",
+      "text": "La paz les dejo; mi paz les doy. Yo no se la doy como la da el mundo. No se turbe su corazón ni tenga miedo.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/juan-14"
+    },
+    {
+      "id": "psa-34-17-18",
+      "theme": "hardship",
+      "reference": "Salmos 34:17–18",
+      "text": "Claman los justos, y Jehová escucha y los libra de todas sus angustias. Jehová está cerca de los quebrantados de corazón y salva a los de espíritu abatido.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-34"
+    },
+    {
+      "id": "1th-5-16-18",
+      "theme": "gratitude",
+      "reference": "1 Tesalonicenses 5:16–18",
+      "text": "Estén siempre gozosos. Oren sin cesar. Den gracias en todo, porque esta es la voluntad de Dios para ustedes en Cristo Jesús.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1tesalonicenses-5"
+    },
+    {
+      "id": "heb-4-14-16",
+      "theme": "faith",
+      "reference": "Hebreos 4:14–16",
+      "text": "Por tanto, ya que tenemos un gran sumo sacerdote que atravesó los cielos, Jesús, el Hijo de Dios, mantengamos nuestra confesión. Porque no tenemos un sumo sacerdote que no pueda compadecerse de nuestras debilidades, sino uno que fue tentado en todo de manera semejante a nosotros, pero sin pecado. Acerquémonos, pues, con confianza al trono de la gracia, para recibir misericordia y hallar gracia que nos ayude en el momento oportuno.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/hebreos-4"
+    },
+    {
+      "id": "eph-6-1-3",
+      "theme": "family",
+      "reference": "Efesios 6:1–3",
+      "text": "Hijos, obedezcan a sus padres en el Señor, porque esto es justo. «Honra a tu padre y a tu madre», que es el primer mandamiento con promesa: «Para que te vaya bien y tengas larga vida sobre la tierra».",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/efesios-6"
+    },
+    {
+      "id": "1co-13-4-7",
+      "theme": "relationships",
+      "reference": "1 Corintios 13:4–7",
+      "text": "El amor es paciente; el amor es bondadoso. El amor no tiene envidia, no se jacta, no se enorgullece; no se comporta de manera indecorosa, no busca lo suyo, no se irrita, no lleva cuenta del mal recibido; no se alegra de la injusticia, sino que se alegra con la verdad. Todo lo sufre, todo lo cree, todo lo espera, todo lo soporta.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1corintios-13"
+    },
+    {
+      "id": "pro-14-23",
+      "theme": "work",
+      "reference": "Proverbios 14:23",
+      "text": "En todo trabajo hay ganancia, pero hablar solamente lleva a la escasez.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-14"
+    },
+    {
+      "id": "1ti-6-6-8",
+      "theme": "money",
+      "reference": "1 Timoteo 6:6–8",
+      "text": "Pero gran ganancia es la piedad acompañada de contentamiento. Porque nada trajimos al mundo y tampoco podemos llevarnos nada. Así que, teniendo alimento y abrigo, con eso nos contentaremos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1timoteo-6"
+    },
+    {
+      "id": "psa-119-130",
+      "theme": "decisions",
+      "reference": "Salmos 119:130",
+      "text": "La exposición de tus palabras ilumina y da entendimiento a los sencillos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-119"
+    },
+    {
+      "id": "php-4-6-7",
+      "theme": "rest",
+      "reference": "Filipenses 4:6–7",
+      "text": "No se preocupen por nada, sino que, en toda situación, presenten sus peticiones a Dios mediante oración y súplica, con acción de gracias. Y la paz de Dios, que sobrepasa todo entendimiento, guardará sus corazones y sus pensamientos en Cristo Jesús.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/filipenses-4"
+    },
+    {
+      "id": "lam-3-22-24",
+      "theme": "hardship",
+      "reference": "Lamentaciones 3:22–24",
+      "text": "Por las misericordias de Jehová no hemos perecido, porque no se han agotado sus compasiones. Son nuevas cada mañana; ¡grande es tu fidelidad! «Jehová es mi porción —dice mi alma—; por eso esperaré en él».",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/lamentaciones-3"
+    },
+    {
+      "id": "psa-107-1",
+      "theme": "gratitude",
+      "reference": "Salmos 107:1",
+      "text": "Den gracias a Jehová, porque es bueno, porque su amor leal permanece para siempre.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-107"
+    },
+    {
+      "id": "psa-145-18-19",
+      "theme": "faith",
+      "reference": "Salmos 145:18–19",
+      "text": "Jehová está cerca de todos los que lo invocan, de todos los que lo invocan de verdad. Cumple el deseo de quienes le temen; escucha su clamor y los salva.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-145"
+    },
+    {
+      "id": "eph-6-4",
+      "theme": "family",
+      "reference": "Efesios 6:4",
+      "text": "Y ustedes, padres, no provoquen a ira a sus hijos; más bien, críenlos en la disciplina y amonestación del Señor.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/efesios-6"
+    },
+    {
+      "id": "eph-4-32",
+      "theme": "relationships",
+      "reference": "Efesios 4:32",
+      "text": "Sean bondadosos unos con otros, compasivos, perdonándose unos a otros, como también Dios los perdonó en Cristo.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/efesios-4"
+    },
+    {
+      "id": "col-3-23-24",
+      "theme": "work",
+      "reference": "Colosenses 3:23–24",
+      "text": "En todo lo que hagan, trabajen de corazón, como para el Señor y no para los hombres, sabiendo que del Señor recibirán la herencia como recompensa. Es a Cristo el Señor a quien sirven.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/colosenses-3"
+    },
+    {
+      "id": "1ti-6-9-10",
+      "theme": "money",
+      "reference": "1 Timoteo 6:9–10",
+      "text": "Pero los que quieren enriquecerse caen en tentación, en una trampa y en muchos deseos insensatos y dañinos, que hunden a los seres humanos en destrucción y perdición. Porque raíz de todos los males es el amor al dinero. Al codiciarlo, algunos se extraviaron de la fe y se traspasaron a sí mismos con muchos dolores.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1timoteo-6"
+    },
+    {
+      "id": "pro-3-5-6",
+      "theme": "decisions",
+      "reference": "Proverbios 3:5–6",
+      "text": "Confía en Jehová con todo tu corazón y no te apoyes en tu propio entendimiento. Reconócelo en todos tus caminos, y él enderezará tus sendas.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-3"
+    },
+    {
+      "id": "isa-26-3-4",
+      "theme": "rest",
+      "reference": "Isaías 26:3–4",
+      "text": "Al de pensamiento firme lo guardarás en paz, en paz, porque confía en ti. Confíen en Jehová para siempre, porque Jah Jehová es una Roca eterna.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/isaias-26"
+    },
+    {
+      "id": "psa-42-11",
+      "theme": "hardship",
+      "reference": "Salmos 42:11",
+      "text": "¿Por qué estás abatida, alma mía, y por qué gimes dentro de mí? Espera en Dios, porque aún lo alabaré, salvación mía y Dios mío.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-42"
+    },
+    {
+      "id": "col-3-17",
+      "theme": "gratitude",
+      "reference": "Colosenses 3:17",
+      "text": "Y todo lo que hagan, de palabra o de obra, háganlo todo en el nombre del Señor Jesús, dando gracias a Dios Padre por medio de él.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/colosenses-3"
+    },
+    {
+      "id": "eph-2-8-10",
+      "theme": "faith",
+      "reference": "Efesios 2:8–10",
+      "text": "Porque por gracia son salvos por medio de la fe, y esto no procede de ustedes: es don de Dios; no por obras, para que nadie se gloríe. Porque somos hechura suya, creados en Cristo Jesús para buenas obras, que Dios preparó de antemano para que anduviéramos en ellas.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/efesios-2"
+    },
+    {
+      "id": "gal-6-2",
+      "theme": "family",
+      "reference": "Gálatas 6:2",
+      "text": "Lleven unos las cargas de otros, y así cumplirán la ley de Cristo.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/galatas-6"
+    },
+    {
+      "id": "col-3-12-14",
+      "theme": "relationships",
+      "reference": "Colosenses 3:12–14",
+      "text": "Por tanto, como escogidos de Dios, santos y amados, revístanse de profunda compasión, bondad, humildad, mansedumbre y paciencia, soportándose unos a otros y perdonándose mutuamente si alguno tiene una queja contra otro. Como el Señor los perdonó, así también hagan ustedes. Y sobre todo esto revístanse de amor, que es el vínculo de la perfección.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/colosenses-3"
+    },
+    {
+      "id": "pro-12-11",
+      "theme": "work",
+      "reference": "Proverbios 12:11",
+      "text": "Quien cultiva su tierra tendrá pan en abundancia, pero quien persigue cosas vanas carece de juicio.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-12"
+    },
+    {
+      "id": "1ti-6-17-19",
+      "theme": "money",
+      "reference": "1 Timoteo 6:17–19",
+      "text": "Ordena a los ricos de esta era que no sean arrogantes ni pongan su esperanza en la incertidumbre de las riquezas, sino en Dios, quien nos proporciona todas las cosas en abundancia para disfrutarlas; que hagan el bien, que sean ricos en buenas obras, generosos y dispuestos a compartir, atesorando para sí un buen fundamento para el futuro, a fin de aferrarse a la vida verdadera.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1timoteo-6"
+    },
+    {
+      "id": "pro-4-23",
+      "theme": "decisions",
+      "reference": "Proverbios 4:23",
+      "text": "Por encima de todo, guarda tu corazón, porque de él brota la vida.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-4"
+    },
+    {
+      "id": "mat-11-28-30",
+      "theme": "rest",
+      "reference": "Mateo 11:28–30",
+      "text": "Vengan a mí todos los que están cansados y cargados, y yo les daré descanso. Lleven mi yugo sobre ustedes y aprendan de mí, porque soy manso y humilde de corazón, y encontrarán descanso para sus almas. Porque mi yugo es llevadero y mi carga es ligera».",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/mateo-11"
+    },
+    {
+      "id": "rom-5-3-5",
+      "theme": "hardship",
+      "reference": "Romanos 5:3–5",
+      "text": "Y no solo esto, sino que también nos gloriamos en las aflicciones, sabiendo que la aflicción produce perseverancia; la perseverancia, carácter probado; y el carácter probado, esperanza. La esperanza no defrauda, porque el amor de Dios ha sido derramado en nuestros corazones por medio del Espíritu Santo que nos fue dado.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/romanos-5"
+    },
+    {
+      "id": "psa-118-24",
+      "theme": "gratitude",
+      "reference": "Salmos 118:24",
+      "text": "Este es el día que ha hecho Jehová; regocijémonos y alegrémonos en él.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-118"
+    },
+    {
+      "id": "col-4-2-4",
+      "theme": "faith",
+      "reference": "Colosenses 4:2–4",
+      "text": "Perseveren en la oración, manteniéndose alerta en ella con acción de gracias. Oren también por nosotros, para que Dios nos abra una puerta para la palabra, a fin de hablar del misterio de Cristo, por el cual también estoy encadenado, para que lo manifieste como debo hablar.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/colosenses-4"
+    },
+    {
+      "id": "deu-6-4-7",
+      "theme": "family",
+      "reference": "Deuteronomio 6:4–7",
+      "text": "Oye, Israel: Jehová nuestro Dios, Jehová es uno. Amarás a Jehová tu Dios con todo tu corazón, con toda tu alma y con todas tus fuerzas. Estas palabras que yo te mando hoy estarán en tu corazón. Las repetirás a tus hijos y hablarás de ellas al sentarte en tu casa, al andar por el camino, al acostarte y al levantarte.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/deuteronomio-6"
+    },
+    {
+      "id": "rom-12-9-13",
+      "theme": "relationships",
+      "reference": "Romanos 12:9–13",
+      "text": "Que el amor sea sin hipocresía. Aborrezcan el mal y aférrense al bien. Ámense entrañablemente unos a otros con amor fraternal; adelántense a honrarse unos a otros. No sean perezosos en la diligencia; sean fervientes en espíritu, sirviendo al Señor. Alégrense en la esperanza, perseveren en la aflicción, sean constantes en la oración. Compartan para las necesidades de los santos y busquen practicar la hospitalidad.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/romanos-12"
+    },
+    {
+      "id": "psa-90-16-17",
+      "theme": "work",
+      "reference": "Salmos 90:16–17",
+      "text": "Que tus siervos vean tu obra, y sus hijos, tu majestad. Que el favor del Señor nuestro Dios esté sobre nosotros. Afirma para nosotros la obra de nuestras manos; sí, afirma la obra de nuestras manos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-90"
+    },
+    {
+      "id": "php-4-11-13",
+      "theme": "money",
+      "reference": "Filipenses 4:11–13",
+      "text": "No lo digo porque esté pasando necesidad, pues he aprendido a estar contento en cualquier situación en que me encuentre. Sé vivir con poco y sé vivir en abundancia. En toda circunstancia y en todas las cosas he aprendido el secreto, tanto de estar saciado como de pasar hambre, de tener abundancia como de padecer necesidad. Todo lo puedo en aquel que me fortalece.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/filipenses-4"
+    },
+    {
+      "id": "mic-6-8",
+      "theme": "decisions",
+      "reference": "Miqueas 6:8",
+      "text": "Él te ha declarado, hombre, lo que es bueno. ¿Y qué requiere Jehová de ti, sino practicar la justicia, amar la misericordia y andar humildemente con tu Dios?",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/miqueas-6"
+    },
+    {
+      "id": "psa-4-8",
+      "theme": "rest",
+      "reference": "Salmos 4:8",
+      "text": "En paz me acostaré y dormiré, porque solo tú, Jehová, me haces vivir seguro.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-4"
+    },
+    {
+      "id": "2co-4-16-18",
+      "theme": "hardship",
+      "reference": "2 Corintios 4:16–18",
+      "text": "Por eso no nos desanimamos. Aunque nuestro ser exterior se desgasta, nuestro ser interior se renueva día tras día. Porque nuestra aflicción momentánea y leve produce para nosotros un peso eterno de gloria que supera toda medida, mientras no fijamos la mirada en las cosas que se ven, sino en las que no se ven. Pues las cosas que se ven son temporales, pero las que no se ven son eternas.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/2corintios-4"
+    },
+    {
+      "id": "heb-13-15-16",
+      "theme": "gratitude",
+      "reference": "Hebreos 13:15–16",
+      "text": "Por medio de él, ofrezcamos continuamente a Dios un sacrificio de alabanza, es decir, el fruto de labios que confiesan su nombre. Y no se olviden de hacer el bien y de compartir, porque Dios se complace en tales sacrificios.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/hebreos-13"
+    },
+    {
+      "id": "jas-5-13",
+      "theme": "faith",
+      "reference": "Santiago 5:13",
+      "text": "¿Sufre alguno entre ustedes? Que ore. ¿Está alguno alegre? Que cante alabanzas.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/santiago-5"
+    },
+    {
+      "id": "1pe-4-8",
+      "theme": "family",
+      "reference": "1 Pedro 4:8",
+      "text": "Sobre todo, mantengan un amor ferviente unos por otros, porque el amor cubre una multitud de pecados.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1pedro-4"
+    },
+    {
+      "id": "rom-12-15-16",
+      "theme": "relationships",
+      "reference": "Romanos 12:15–16",
+      "text": "Alégrense con los que se alegran; lloren con los que lloran. Tengan el mismo sentir unos hacia otros. No aspiren a lo elevado, sino relaciónense con los humildes. No se consideren sabios en su propia opinión.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/romanos-12"
+    },
+    {
+      "id": "ecc-3-12-13",
+      "theme": "work",
+      "reference": "Eclesiastés 3:12–13",
+      "text": "Comprendí que no hay nada mejor para ellos que alegrarse y hacer el bien durante su vida; y que todo hombre coma, beba y disfrute del bien de todo su trabajo es un don de Dios.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/eclesiastes-3"
+    },
+    {
+      "id": "pro-15-16-17",
+      "theme": "money",
+      "reference": "Proverbios 15:16–17",
+      "text": "Mejor es tener poco con el temor de Jehová que un gran tesoro con inquietud. Mejor es un plato de verduras donde hay amor que un buey engordado donde hay odio.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-15"
+    },
+    {
+      "id": "rom-12-1-2",
+      "theme": "decisions",
+      "reference": "Romanos 12:1–2",
+      "text": "Por tanto, hermanos, les ruego por las misericordias de Dios que presenten sus cuerpos como sacrificio vivo, santo y agradable a Dios, que es su culto racional. No se amolden a esta era, sino sean transformados mediante la renovación de su mente, para que comprueben cuál es la voluntad de Dios: buena, agradable y perfecta.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/romanos-12"
+    },
+    {
+      "id": "1pe-5-6-7",
+      "theme": "rest",
+      "reference": "1 Pedro 5:6–7",
+      "text": "Humíllense, pues, bajo la poderosa mano de Dios, para que él los exalte a su debido tiempo, echando sobre él toda su ansiedad, porque él cuida de ustedes.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1pedro-5"
+    },
+    {
+      "id": "mat-5-4",
+      "theme": "hardship",
+      "reference": "Mateo 5:4",
+      "text": "Bienaventurados los que lloran, porque ellos serán consolados.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/mateo-5"
+    },
+    {
+      "id": "jas-1-16-17",
+      "theme": "gratitude",
+      "reference": "Santiago 1:16–17",
+      "text": "No se engañen, amados hermanos míos. Toda buena dádiva y todo don perfecto vienen de lo alto y descienden del Padre de las luces, en quien no hay cambio ni sombra de variación.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/santiago-1"
+    },
+    {
+      "id": "heb-11-1",
+      "theme": "faith",
+      "reference": "Hebreos 11:1",
+      "text": "Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/hebreos-11"
+    },
+    {
+      "id": "1co-16-14",
+      "theme": "family",
+      "reference": "1 Corintios 16:14",
+      "text": "Todo lo que hagan, háganlo con amor.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1corintios-16"
+    },
+    {
+      "id": "1jn-3-16-18",
+      "theme": "relationships",
+      "reference": "1 Juan 3:16–18",
+      "text": "En esto hemos conocido el amor: en que él entregó su vida por nosotros. También nosotros debemos entregar nuestras vidas por los hermanos. Si alguien tiene bienes de este mundo, ve a su hermano pasar necesidad y le cierra su corazón, ¿cómo permanece en él el amor de Dios? Hijitos, no amemos de palabra ni de labios, sino con hechos y de verdad.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1juan-3"
+    },
+    {
+      "id": "1co-15-58",
+      "theme": "work",
+      "reference": "1 Corintios 15:58",
+      "text": "Por tanto, mis amados hermanos, manténganse firmes, inconmovibles, abundando siempre en la obra del Señor, sabiendo que su trabajo no es en vano en el Señor.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1corintios-15"
+    },
+    {
+      "id": "pro-22-1-2",
+      "theme": "money",
+      "reference": "Proverbios 22:1–2",
+      "text": "Es preferible un buen nombre a grandes riquezas, y la buena estima a la plata y al oro. El rico y el pobre se encuentran: Jehová es el Creador de todos ellos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-22"
+    },
+    {
+      "id": "eph-5-15-17",
+      "theme": "decisions",
+      "reference": "Efesios 5:15–17",
+      "text": "Así pues, miren con cuidado cómo andan, no como insensatos, sino como sabios, aprovechando bien el tiempo, porque los días son malos. Por eso, no sean necios, sino entiendan cuál es la voluntad del Señor.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/efesios-5"
+    },
+    {
+      "id": "2th-3-16",
+      "theme": "rest",
+      "reference": "2 Tesalonicenses 3:16",
+      "text": "Que el mismo Señor de la paz les dé paz siempre y de todas las maneras. El Señor sea con todos ustedes.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/2tesalonicenses-3"
+    },
+    {
+      "id": "psa-94-17-19",
+      "theme": "hardship",
+      "reference": "Salmos 94:17–19",
+      "text": "Si Jehová no hubiera sido mi ayuda, pronto mi alma habría habitado en el silencio. Cuando digo: «Mi pie resbala», tu amor leal, Jehová, me sostiene. Cuando se multiplican las inquietudes en mi interior, tus consuelos alegran mi alma.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-94"
+    },
+    {
+      "id": "psa-145-8-10",
+      "theme": "gratitude",
+      "reference": "Salmos 145:8–10",
+      "text": "Jehová es clemente y compasivo, lento para la ira y grande en amor leal. Jehová es bueno con todos, y su compasión está sobre todas sus obras. Todas tus obras te darán gracias, Jehová, y tus fieles te bendecirán.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-145"
+    },
+    {
+      "id": "1jn-5-14-15",
+      "theme": "faith",
+      "reference": "1 Juan 5:14–15",
+      "text": "Esta es la confianza que tenemos ante él: si pedimos algo conforme a su voluntad, él nos escucha. Y, si sabemos que nos escucha en todo lo que pedimos, sabemos que tenemos lo que le hemos pedido.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1juan-5"
+    },
+    {
+      "id": "rut-1-16-17",
+      "theme": "family",
+      "reference": "Rut 1:16–17",
+      "text": "Pero Rut respondió: «No insistas en que te abandone y deje de seguirte. Adonde tú vayas, iré yo; donde pases la noche, la pasaré yo. Tu pueblo será mi pueblo y tu Dios será mi Dios. Donde mueras, moriré yo, y allí seré sepultada. Así me haga Jehová, y aun más, si algo que no sea la muerte nos separa».",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/rut-1"
+    },
+    {
+      "id": "mat-5-44-45",
+      "theme": "relationships",
+      "reference": "Mateo 5:44–45",
+      "text": "Pero yo les digo: amen a sus enemigos y oren por quienes los persiguen, para que sean hijos de su Padre que está en los cielos. Él hace salir su sol sobre malos y buenos, y hace llover sobre justos e injustos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/mateo-5"
+    },
+    {
+      "id": "heb-6-10",
+      "theme": "work",
+      "reference": "Hebreos 6:10",
+      "text": "Porque Dios no es injusto para olvidar su obra y el amor que mostraron hacia su nombre al servir a los santos, como todavía los sirven.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/hebreos-6"
+    },
+    {
+      "id": "pro-22-9",
+      "theme": "money",
+      "reference": "Proverbios 22:9",
+      "text": "El generoso será bendecido, porque comparte su pan con el pobre.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-22"
+    },
+    {
+      "id": "pro-16-9",
+      "theme": "decisions",
+      "reference": "Proverbios 16:9",
+      "text": "El corazón del hombre planea su camino, pero Jehová afirma sus pasos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-16"
+    },
+    {
+      "id": "psa-55-22",
+      "theme": "rest",
+      "reference": "Salmos 55:22",
+      "text": "Echa tu carga sobre Jehová, y él te sostendrá; jamás permitirá que el justo se tambalee.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-55"
+    },
+    {
+      "id": "2co-1-3-4",
+      "theme": "hardship",
+      "reference": "2 Corintios 1:3–4",
+      "text": "Bendito sea el Dios y Padre de nuestro Señor Jesucristo, el Padre de misericordias y Dios de todo consuelo, quien nos consuela en toda nuestra aflicción, para que podamos consolar a los que están en cualquier aflicción mediante el consuelo con que nosotros mismos somos consolados por Dios.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/2corintios-1"
+    },
+    {
+      "id": "col-3-15",
+      "theme": "gratitude",
+      "reference": "Colosenses 3:15",
+      "text": "Que la paz de Cristo gobierne en sus corazones, a la cual también fueron llamados en un solo cuerpo. Y sean agradecidos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/colosenses-3"
+    },
+    {
+      "id": "psa-5-3",
+      "theme": "faith",
+      "reference": "Salmos 5:3",
+      "text": "Jehová, por la mañana oirás mi voz; por la mañana presentaré ante ti mi oración y quedaré a la espera.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-5"
+    },
+    {
+      "id": "psa-127-3",
+      "theme": "family",
+      "reference": "Salmos 127:3",
+      "text": "Miren, los hijos son una heredad de Jehová; el fruto del vientre es una recompensa.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-127"
+    },
+    {
+      "id": "eph-4-1-3",
+      "theme": "relationships",
+      "reference": "Efesios 4:1–3",
+      "text": "Por tanto, yo, prisionero en el Señor, les ruego que anden de manera digna del llamamiento con que fueron llamados, con toda humildad y mansedumbre, con paciencia, soportándose unos a otros en amor, esforzándose por conservar la unidad del Espíritu en el vínculo de la paz.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/efesios-4"
+    },
+    {
+      "id": "mat-5-16",
+      "theme": "work",
+      "reference": "Mateo 5:16",
+      "text": "Así brille su luz delante de la gente, para que vean sus buenas obras y glorifiquen a su Padre que está en los cielos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/mateo-5"
+    },
+    {
+      "id": "pro-19-17",
+      "theme": "money",
+      "reference": "Proverbios 19:17",
+      "text": "Quien se apiada del pobre presta a Jehová, y él le pagará su buena obra.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-19"
+    },
+    {
+      "id": "jas-3-17-18",
+      "theme": "decisions",
+      "reference": "Santiago 3:17–18",
+      "text": "Pero la sabiduría de lo alto es ante todo pura; después pacífica, considerada, dócil, llena de misericordia y de buenos frutos, imparcial y sin hipocresía. Y el fruto de la justicia se siembra en paz para quienes hacen la paz.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/santiago-3"
+    },
+    {
+      "id": "pro-12-25",
+      "theme": "rest",
+      "reference": "Proverbios 12:25",
+      "text": "La ansiedad en el corazón del hombre lo abate, pero una buena palabra lo alegra.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-12"
+    },
+    {
+      "id": "psa-73-25-26",
+      "theme": "hardship",
+      "reference": "Salmos 73:25–26",
+      "text": "¿A quién tengo en los cielos sino a ti? Y fuera de ti, nada deseo en la tierra. Mi cuerpo y mi corazón pueden desfallecer, pero Dios es la roca de mi corazón y mi porción para siempre.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-73"
+    },
+    {
+      "id": "col-2-6-7",
+      "theme": "gratitude",
+      "reference": "Colosenses 2:6–7",
+      "text": "Por tanto, así como recibieron a Cristo Jesús, el Señor, caminen en él, arraigados y edificados en él, y confirmados en la fe, tal como fueron enseñados, abundando en acción de gracias.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/colosenses-2"
+    },
+    {
+      "id": "rom-8-26-27",
+      "theme": "faith",
+      "reference": "Romanos 8:26–27",
+      "text": "De igual manera, el Espíritu nos ayuda en nuestra debilidad. Porque no sabemos qué pedir en oración como conviene, pero el Espíritu mismo intercede por nosotros con gemidos inexpresables. El que examina los corazones conoce el sentir del Espíritu, porque el Espíritu intercede por los santos conforme a la voluntad de Dios.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/romanos-8"
+    },
+    {
+      "id": "pro-14-26",
+      "theme": "family",
+      "reference": "Proverbios 14:26",
+      "text": "En el temor de Jehová hay confianza firme, y sus hijos tendrán refugio.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-14"
+    },
+    {
+      "id": "jas-1-19-20",
+      "theme": "relationships",
+      "reference": "Santiago 1:19–20",
+      "text": "Sepan esto, amados hermanos míos: que toda persona sea pronta para escuchar, lenta para hablar y lenta para enojarse, porque la ira humana no produce la justicia de Dios.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/santiago-1"
+    },
+    {
+      "id": "gal-6-9-10",
+      "theme": "work",
+      "reference": "Gálatas 6:9–10",
+      "text": "No nos desanimemos al hacer el bien, porque a su debido tiempo cosecharemos, si no nos damos por vencidos. Así pues, mientras tenemos oportunidad, hagamos el bien a todos, especialmente a los de la familia de la fe.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/galatas-6"
+    },
+    {
+      "id": "2co-9-6-7",
+      "theme": "money",
+      "reference": "2 Corintios 9:6–7",
+      "text": "Esto digo: el que siembra escasamente también cosechará escasamente, y el que siembra generosamente también cosechará generosamente. Cada uno dé como haya decidido en su corazón, sin tristeza ni obligación, porque Dios ama al dador alegre.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/2corintios-9"
+    },
+    {
+      "id": "col-4-5-6",
+      "theme": "decisions",
+      "reference": "Colosenses 4:5–6",
+      "text": "Compórtense con sabiduría con los de afuera, aprovechando bien el tiempo. Que su conversación esté siempre llena de gracia, sazonada con sal, para que sepan cómo deben responder a cada uno.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/colosenses-4"
+    },
+    {
+      "id": "mat-6-33-34",
+      "theme": "rest",
+      "reference": "Mateo 6:33–34",
+      "text": "Pero busquen primero su reino y su justicia, y todas estas cosas les serán añadidas. Así que no se preocupen por el mañana, porque el mañana se preocupará de sí mismo. Basta a cada día su propio mal».",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/mateo-6"
+    },
+    {
+      "id": "isa-41-10",
+      "theme": "hardship",
+      "reference": "Isaías 41:10",
+      "text": "No temas, porque yo estoy contigo; no te angusties, porque yo soy tu Dios. Te fortaleceré, ciertamente te ayudaré, ciertamente te sostendré con la diestra de mi justicia.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/isaias-41"
+    },
+    {
+      "id": "psa-100-4-5",
+      "theme": "gratitude",
+      "reference": "Salmos 100:4–5",
+      "text": "Entren por sus puertas con acciones de gracias y por sus atrios con alabanza; denle gracias y bendigan su nombre. Porque Jehová es bueno; su amor leal permanece para siempre y su fidelidad, de generación en generación.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-100"
+    },
+    {
+      "id": "psa-139-23-24",
+      "theme": "faith",
+      "reference": "Salmos 139:23–24",
+      "text": "Examíname, oh Dios, y conoce mi corazón; ponme a prueba y conoce mis inquietudes. Mira si hay en mí un camino de perversidad y guíame por el camino eterno.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-139"
+    },
+    {
+      "id": "pro-23-22",
+      "theme": "family",
+      "reference": "Proverbios 23:22",
+      "text": "Escucha a tu padre, que te engendró, y no desprecies a tu madre cuando envejezca.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-23"
+    },
+    {
+      "id": "pro-15-1",
+      "theme": "relationships",
+      "reference": "Proverbios 15:1",
+      "text": "La respuesta amable calma el furor, pero la palabra hiriente aviva la ira.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-15"
+    },
+    {
+      "id": "eph-4-28",
+      "theme": "work",
+      "reference": "Efesios 4:28",
+      "text": "El que roba, que no robe más; más bien, que trabaje esforzadamente, haciendo con sus propias manos lo que es bueno, para tener qué compartir con el que tiene necesidad.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/efesios-4"
+    },
+    {
+      "id": "pro-23-4-5",
+      "theme": "money",
+      "reference": "Proverbios 23:4–5",
+      "text": "No te fatigues por hacerte rico; ten el juicio de desistir. ¿Fijas tus ojos en las riquezas? Ya no están, porque sin falta les salen alas y vuelan hacia el cielo como un águila.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-23"
+    },
+    {
+      "id": "psa-90-12",
+      "theme": "decisions",
+      "reference": "Salmos 90:12",
+      "text": "Enséñanos a contar así nuestros días, para que alcancemos un corazón sabio.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-90"
+    },
+    {
+      "id": "psa-56-3-4",
+      "theme": "rest",
+      "reference": "Salmos 56:3–4",
+      "text": "El día que siento temor, en ti confío. En Dios, cuya palabra alabo, en Dios confío y no temeré. ¿Qué puede hacerme un ser mortal?",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-56"
+    },
+    {
+      "id": "rom-8-38-39",
+      "theme": "hardship",
+      "reference": "Romanos 8:38–39",
+      "text": "Porque estoy convencido de que ni la muerte ni la vida, ni los ángeles ni los principados, ni lo presente ni lo futuro, ni los poderes, ni la altura ni la profundidad, ni ninguna otra cosa creada podrá separarnos del amor de Dios que está en Cristo Jesús, nuestro Señor.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/romanos-8"
+    },
+    {
+      "id": "psa-95-1-2",
+      "theme": "gratitude",
+      "reference": "Salmos 95:1–2",
+      "text": "Vengan, cantemos con alegría a Jehová; aclamemos a la roca de nuestra salvación. Vayamos a su presencia con acciones de gracias; aclamémoslo con cantos.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-95"
+    },
+    {
+      "id": "jhn-15-4-5",
+      "theme": "faith",
+      "reference": "Juan 15:4–5",
+      "text": "Permanezcan en mí, y yo en ustedes. Así como la rama no puede dar fruto por sí misma si no permanece en la vid, tampoco ustedes si no permanecen en mí. Yo soy la vid; ustedes son las ramas. El que permanece en mí, y yo en él, ese da mucho fruto, porque separados de mí no pueden hacer nada.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/juan-15"
+    },
+    {
+      "id": "pro-24-3-4",
+      "theme": "family",
+      "reference": "Proverbios 24:3–4",
+      "text": "Con sabiduría se edifica una casa y con entendimiento se afirma. Con conocimiento se llenan sus habitaciones de toda clase de riquezas preciosas y agradables.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-24"
+    },
+    {
+      "id": "ecc-4-9-10",
+      "theme": "relationships",
+      "reference": "Eclesiastés 4:9–10",
+      "text": "Mejores son dos que uno, porque tienen buena recompensa por su trabajo. Si caen, uno levanta a su compañero. Pero ¡ay del que está solo cuando cae, sin otro que lo levante!",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/eclesiastes-4"
+    },
+    {
+      "id": "1pe-4-10-11",
+      "theme": "work",
+      "reference": "1 Pedro 4:10–11",
+      "text": "Cada uno ponga al servicio de los demás el don que recibió, como buenos administradores de la multiforme gracia de Dios. Si alguno habla, hable conforme a las palabras de Dios; si alguno sirve, sirva con la fuerza que Dios proporciona, para que en todo sea glorificado Dios por medio de Jesucristo, a quien pertenecen la gloria y el poder por los siglos de los siglos. Amén.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/1pedro-4"
+    },
+    {
+      "id": "luk-12-15",
+      "theme": "money",
+      "reference": "Lucas 12:15",
+      "text": "Y les dijo: «Presten atención y guárdense de toda avaricia, porque la vida de una persona no depende de la abundancia de sus posesiones».",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/lucas-12"
+    },
+    {
+      "id": "pro-15-22",
+      "theme": "decisions",
+      "reference": "Proverbios 15:22",
+      "text": "Sin consulta los planes fracasan, pero con muchos consejeros se afirman.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/proverbios-15"
+    },
+    {
+      "id": "psa-62-5-6",
+      "theme": "rest",
+      "reference": "Salmos 62:5–6",
+      "text": "Alma mía, espera en silencio solo en Dios, porque de él viene mi esperanza. Solo él es mi roca y mi salvación, mi fortaleza; no seré sacudido.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/salmos-62"
+    },
+    {
+      "id": "rev-21-3-4",
+      "theme": "hardship",
+      "reference": "Apocalipsis 21:3–4",
+      "text": "Oí una voz fuerte que salía del trono y decía: «He aquí, la morada de Dios está entre los seres humanos. Él habitará con ellos, ellos serán sus pueblos y Dios mismo estará con ellos. Enjugará toda lágrima de sus ojos. Ya no habrá muerte, ni duelo, ni clamor, ni dolor, porque las primeras cosas han pasado».",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/apocalipsis-21"
+    },
+    {
+      "id": "php-4-4-5",
+      "theme": "gratitude",
+      "reference": "Filipenses 4:4–5",
+      "text": "Regocíjense siempre en el Señor. Lo diré otra vez: ¡regocíjense! Que todos conozcan su trato considerado. El Señor está cerca.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/filipenses-4"
+    },
+    {
+      "id": "rom-15-13",
+      "theme": "faith",
+      "reference": "Romanos 15:13",
+      "text": "Que el Dios de la esperanza los llene de todo gozo y paz al creer, para que abunden en la esperanza por el poder del Espíritu Santo.",
+      "source": "https://www.bibliatodo.com/la-biblia/nueva-traduccion-bibliatodo/romanos-15"
+    }
+  ]
+}

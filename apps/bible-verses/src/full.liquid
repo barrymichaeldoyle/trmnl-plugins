@@ -1,8 +1,8 @@
-<div class="layout layout--col layout--top{{ appearance_class }}" data-appearance="{{ appearance }}" lang="{{ selected_translation.language | escape }}" translate="no" data-theme="{{ theme_label }}">
+<div class="layout layout--col layout--top{{ appearance_class }}" data-appearance="{{ appearance }}" lang="{{ reading_language | escape }}" translate="no" data-theme="{{ theme_label }}">
   {% if verse %}
     <div class="flex flex--col flex--between w--full h--full gap--small">
       <div class="flex flex--col flex--center-y flex--left grow w--full h--0" data-reading-area="true">
-        <p class="value no-shrink value--large lg:value--xxlarge w--min-full" lang="{{ selected_translation.language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ full_text_height }}" data-verse-id="{{ verse.id | escape }}">{{ verse.text | escape }}</p>
+        <p class="value no-shrink value--large lg:value--xxlarge w--min-full" lang="{{ reading_language | escape }}" data-scripture-fit="true" data-value-fit="true" data-value-fit-max-height="{{ full_text_height }}" data-verse-id="{{ verse.id | escape }}">{{ verse.text | escape }}</p>
       </div>
       {%- comment -%}The passage keeps the full width. A footer row holds the chapter QR code at the left, the book and the chapter and verses in the middle, and the cross at the right, as tall as the code.{%- endcomment -%}
       <div class="flex flex--row flex--between flex--center-y no-shrink w--full gap" data-reading-footer="true">

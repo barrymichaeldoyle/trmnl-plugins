@@ -1,0 +1,815 @@
+{
+  "translation": {
+    "id": "hs1917",
+    "language": "nl",
+    "name": "De Heilige Schrift 1917",
+    "abbreviation": "HS1917",
+    "edition": "1917 (nld)",
+    "license": "Public domain",
+    "source": "https://ebible.org/nld/"
+  },
+  "provenance": {
+    "imported_on": "2026-11-04",
+    "archive": "https://ebible.org/Scriptures/nld_html.zip",
+    "archive_sha256": "c9460c5c8cfbc7c8a5dc874619984477ce8c3ed9e226e4c15c5fe77088c37a5c"
+  },
+  "themes": [
+    {
+      "id": "family",
+      "name": "Gezin en thuis"
+    },
+    {
+      "id": "relationships",
+      "name": "Relaties"
+    },
+    {
+      "id": "work",
+      "name": "Werk en roeping"
+    },
+    {
+      "id": "money",
+      "name": "Geld en vrijgevigheid"
+    },
+    {
+      "id": "decisions",
+      "name": "Keuzes en richting"
+    },
+    {
+      "id": "rest",
+      "name": "Zorgen en rust"
+    },
+    {
+      "id": "hardship",
+      "name": "Moeilijke tijden en verlies"
+    },
+    {
+      "id": "gratitude",
+      "name": "Vreugde en dankbaarheid"
+    },
+    {
+      "id": "faith",
+      "name": "Geloof en gebed"
+    }
+  ],
+  "labels": {
+    "context": "Hoofdstuk lezen"
+  },
+  "verses": [
+    {
+      "id": "pro-1-8-9",
+      "theme": "family",
+      "reference": "Spreuken 1:8–9",
+      "text": "Mijn zoon! hoor de tucht uws vaders, en verlaat de leer uwer moeder niet; Want zij zullen uw hoofd een aangenaam toevoegsel zijn, en ketenen aan uw hals.",
+      "source": "https://ebible.org/nld/PRO01.htm#V8"
+    },
+    {
+      "id": "rom-13-8-10",
+      "theme": "relationships",
+      "reference": "Romeinen 13:8–10",
+      "text": "Zijt niemand iets schuldig, dan elkander lief te hebben; want die den ander liefheeft, die heeft de wet vervuld. Want dit: Gij zult geen overspel doen, gij zult niet doden, gij zult niet stelen, gij zult geen valse getuigenis geven, gij zult niet begeren; en zo er enig ander gebod is, wordt in dit woord als in een hoofdsom begrepen, namelijk in dit: Gij zult uw naaste liefhebben gelijk uzelven. De liefde doet den naaste geen kwaad. Zo is dan de liefde de vervulling der wet.",
+      "source": "https://ebible.org/nld/ROM13.htm#V8"
+    },
+    {
+      "id": "pro-16-3",
+      "theme": "work",
+      "reference": "Spreuken 16:3",
+      "text": "Wentel uw werken op den HEERE, en uw gedachten zullen bevestigd worden.",
+      "source": "https://ebible.org/nld/PRO16.htm#V3"
+    },
+    {
+      "id": "heb-13-5-6",
+      "theme": "money",
+      "reference": "Hebreeën 13:5–6",
+      "text": "Uw wandel zij zonder geldgierigheid; en zijt vergenoegd met het tegenwoordige; want Hij heeft gezegd: Ik zal u niet begeven, en Ik zal u niet verlaten. Zodat wij vrijmoediglijk durven zeggen: De Heere is mij een Helper, en ik zal niet vrezen, wat mij een mens zal doen.",
+      "source": "https://ebible.org/nld/HEB13.htm#V5"
+    },
+    {
+      "id": "jas-1-5",
+      "theme": "decisions",
+      "reference": "Jakobus 1:5",
+      "text": "En indien iemand van u wijsheid ontbreekt, dat hij ze van God begere, Die een iegelijk mildelijk geeft, en niet verwijt; en zij zal hem gegeven worden.",
+      "source": "https://ebible.org/nld/JAS01.htm#V5"
+    },
+    {
+      "id": "jhn-14-27",
+      "theme": "rest",
+      "reference": "Johannes 14:27",
+      "text": "Vrede laat Ik u, Mijn vrede geef Ik u; niet gelijkerwijs de wereld hem geeft, geef Ik hem u. Uw hart worde niet ontroerd en zij niet versaagd.",
+      "source": "https://ebible.org/nld/JHN14.htm#V27"
+    },
+    {
+      "id": "psa-34-17-18",
+      "theme": "hardship",
+      "reference": "Psalm 34:17–18",
+      "text": "Zij roepen, en de HEERE hoort, en Hij redt hen uit al hun benauwdheden. De HEERE is nabij de gebrokenen van harte, en Hij behoudt de verslagenen van geest.",
+      "source": "https://ebible.org/nld/PSA034.htm#V17"
+    },
+    {
+      "id": "1th-5-16-18",
+      "theme": "gratitude",
+      "reference": "1 Thessalonicenzen 5:16–18",
+      "text": "Verblijdt u te allen tijd. Bidt zonder ophouden. Dankt God in alles; want dit is de wil van God in Christus Jezus over u.",
+      "source": "https://ebible.org/nld/1TH05.htm#V16"
+    },
+    {
+      "id": "heb-4-14-16",
+      "theme": "faith",
+      "reference": "Hebreeën 4:14–16",
+      "text": "Dewijl wij dan een groten Hogepriester hebben, Die door de hemelen doorgegaan is, namelijk Jezus, den Zoon van God, zo laat ons deze belijdenis vasthouden. Want wij hebben geen hogepriester, die niet kan medelijden hebben met onze zwakheden, maar Die in alle dingen, gelijk als wij, is verzocht geweest, doch zonder zonde. Laat ons dan met vrijmoedigheid toegaan tot den troon der genade, opdat wij barmhartigheid mogen verkrijgen, en genade vinden, om geholpen te worden ter bekwamer tijd.",
+      "source": "https://ebible.org/nld/HEB04.htm#V14"
+    },
+    {
+      "id": "eph-6-1-3",
+      "theme": "family",
+      "reference": "Efeziërs 6:1–3",
+      "text": "Gij kinderen, zijt uw ouderen gehoorzaam in den Heere; want dat is recht. Eert uw vader en moeder (hetwelk het eerste gebod is met een belofte), Opdat het u welga, en dat gij lang leeft op de aarde.",
+      "source": "https://ebible.org/nld/EPH06.htm#V1"
+    },
+    {
+      "id": "1co-13-4-7",
+      "theme": "relationships",
+      "reference": "1 Corinthiërs 13:4–7",
+      "text": "De liefde is lankmoedig, zij is goedertieren; de liefde is niet afgunstig; de liefde handelt niet lichtvaardiglijk, zij is niet opgeblazen; Zij handelt niet ongeschiktelijk, zij zoekt zichzelve niet, zij wordt niet verbitterd, zij denkt geen kwaad; Zij verblijdt zich niet in de ongerechtigheid, maar zij verblijdt zich in de waarheid; Zij bedekt alle dingen, zij gelooft alle dingen, zij hoopt alle dingen, zij verdraagt alle dingen.",
+      "source": "https://ebible.org/nld/1CO13.htm#V4"
+    },
+    {
+      "id": "pro-14-23",
+      "theme": "work",
+      "reference": "Spreuken 14:23",
+      "text": "In allen smartelijken arbeid is overschot; maar het woord der lippen strekt alleen tot gebrek.",
+      "source": "https://ebible.org/nld/PRO14.htm#V23"
+    },
+    {
+      "id": "1ti-6-6-8",
+      "theme": "money",
+      "reference": "1 Timotheüs 6:6–8",
+      "text": "Doch de godzaligheid is een groot gewin met vergenoeging. Want wij hebben niets in de wereld gebracht, het is openbaar, dat wij ook niet kunnen iets daaruit dragen. Maar als wij voedsel en deksel hebben, wij zullen daarmede vergenoegd zijn.",
+      "source": "https://ebible.org/nld/1TI06.htm#V6"
+    },
+    {
+      "id": "psa-119-130",
+      "theme": "decisions",
+      "reference": "Psalm 119:130",
+      "text": "De opening Uwer woorden geeft licht, de slechten verstandig makende.",
+      "source": "https://ebible.org/nld/PSA119.htm#V130"
+    },
+    {
+      "id": "php-4-6-7",
+      "theme": "rest",
+      "reference": "Filippenzen 4:6–7",
+      "text": "Weest in geen ding bezorgd; maar laat uw begeerten in alles, door bidden en smeken, met dankzegging bekend worden bij God; En de vrede Gods, die alle verstand te boven gaat, zal uw harten en uw zinnen bewaren in Christus Jezus.",
+      "source": "https://ebible.org/nld/PHP04.htm#V6"
+    },
+    {
+      "id": "lam-3-22-24",
+      "theme": "hardship",
+      "reference": "Klaagliederen 3:22–24",
+      "text": "Het zijn de goedertierenheden des HEEREN, dat wij niet vernield zijn, dat Zijn barmhartigheden geen einde hebben; Zij zijn allen morgen nieuw, Uw trouw is groot. De HEERE is mijn Deel, zegt mijn ziel, daarom zal ik op Hem hopen.",
+      "source": "https://ebible.org/nld/LAM03.htm#V22"
+    },
+    {
+      "id": "psa-107-1",
+      "theme": "gratitude",
+      "reference": "Psalm 107:1",
+      "text": "Looft den HEERE, want Hij is goed; want Zijn goedertierenheid is in der eeuwigheid.",
+      "source": "https://ebible.org/nld/PSA107.htm#V1"
+    },
+    {
+      "id": "psa-145-18-19",
+      "theme": "faith",
+      "reference": "Psalm 145:18–19",
+      "text": "De HEERE is nabij allen, die Hem aanroepen, allen, die Hem aanroepen in der waarheid. Hij doet het welbehagen dergenen, die Hem vrezen, en Hij hoort hun geroep, en verlost hen.",
+      "source": "https://ebible.org/nld/PSA145.htm#V18"
+    },
+    {
+      "id": "eph-6-4",
+      "theme": "family",
+      "reference": "Efeziërs 6:4",
+      "text": "En gij vaders, verwekt uw kinderen niet tot toorn, maar voedt hen op in de lering en vermaning des Heeren.",
+      "source": "https://ebible.org/nld/EPH06.htm#V4"
+    },
+    {
+      "id": "eph-4-32",
+      "theme": "relationships",
+      "reference": "Efeziërs 4:32",
+      "text": "Maar zijt jegens elkander goedertieren, barmhartig, vergevende elkander, gelijkerwijs ook God in Christus ulieden vergeven heeft.",
+      "source": "https://ebible.org/nld/EPH04.htm#V32"
+    },
+    {
+      "id": "col-3-23-24",
+      "theme": "work",
+      "reference": "Colossenzen 3:23–24",
+      "text": "En al wat gij doet, doet dat van harte als den Heere en niet den mensen; Wetende, dat gij van den Heere zult ontvangen de vergelding der erfenis; want gij dient den Heere Christus.",
+      "source": "https://ebible.org/nld/COL03.htm#V23"
+    },
+    {
+      "id": "1ti-6-9-10",
+      "theme": "money",
+      "reference": "1 Timotheüs 6:9–10",
+      "text": "Doch die rijk willen worden, vallen in verzoeking, en in den strik, en in vele dwaze en schadelijke begeerlijkheden, welke de mensen doen verzinken in verderf en ondergang. Want de geldgierigheid is een wortel van alle kwaad, tot welke sommigen lust hebbende zijn afgedwaald van het geloof, en hebben zichzelven met vele smarten doorstoken.",
+      "source": "https://ebible.org/nld/1TI06.htm#V9"
+    },
+    {
+      "id": "pro-3-5-6",
+      "theme": "decisions",
+      "reference": "Spreuken 3:5–6",
+      "text": "Vertrouw op den HEERE met uw ganse hart, en steun op uw verstand niet. Ken Hem in al uw wegen, en Hij zal uw paden recht maken.",
+      "source": "https://ebible.org/nld/PRO03.htm#V5"
+    },
+    {
+      "id": "isa-26-3-4",
+      "theme": "rest",
+      "reference": "Jesaja 26:3–4",
+      "text": "Het is een bevestigd voornemen, Gij zult allerlei vrede bewaren, want men heeft op U vertrouwd. Vertrouwt op den HEERE tot in der eeuwigheid; want in den Heere HEERE is een eeuwige rotssteen.",
+      "source": "https://ebible.org/nld/ISA26.htm#V3"
+    },
+    {
+      "id": "psa-42-11",
+      "theme": "hardship",
+      "reference": "Psalm 42:11",
+      "text": "Wat buigt gij u neder, o mijn ziel! en wat zijt gij onrustig in mij? Hoop op God, want ik zal Hem nog loven; Hij is de menigvuldige Verlossing mijns aangezichts, en mijn God.",
+      "source": "https://ebible.org/nld/PSA042.htm#V11"
+    },
+    {
+      "id": "col-3-17",
+      "theme": "gratitude",
+      "reference": "Colossenzen 3:17",
+      "text": "En al wat gij doet met woorden of met werken, doet het alles in den Naam van den Heere Jezus, dankende God en den Vader door Hem.",
+      "source": "https://ebible.org/nld/COL03.htm#V17"
+    },
+    {
+      "id": "eph-2-8-10",
+      "theme": "faith",
+      "reference": "Efeziërs 2:8–10",
+      "text": "Want uit genade zijt gij zalig geworden door het geloof; en dat niet uit u, het is Gods gave; Niet uit de werken, opdat niemand roeme. Want wij zijn Zijn maaksel, geschapen in Christus Jezus tot goede werken, welke God voorbereid heeft, opdat wij in dezelve zouden wandelen.",
+      "source": "https://ebible.org/nld/EPH02.htm#V8"
+    },
+    {
+      "id": "gal-6-2",
+      "theme": "family",
+      "reference": "Galaten 6:2",
+      "text": "Draagt elkanders lasten, en vervult alzo de wet van Christus.",
+      "source": "https://ebible.org/nld/GAL06.htm#V2"
+    },
+    {
+      "id": "col-3-12-14",
+      "theme": "relationships",
+      "reference": "Colossenzen 3:12–14",
+      "text": "Zo doet dan aan, als uitverkorenen Gods, heiligen en beminden, de innerlijke bewegingen der barmhartigheid, goedertierenheid, ootmoedigheid, zachtmoedigheid, lankmoedigheid; Verdragende elkander, en vergevende de een den anderen, zo iemand tegen iemand enige klacht heeft; gelijkerwijs als Christus u vergeven heeft, doet ook gij alzo. En boven dit alles doet aan de liefde, dewelke is de band der volmaaktheid.",
+      "source": "https://ebible.org/nld/COL03.htm#V12"
+    },
+    {
+      "id": "pro-12-11",
+      "theme": "work",
+      "reference": "Spreuken 12:11",
+      "text": "Die zijn land bouwt, zal van brood verzadigd worden; maar die ijdele mensen volgt, is verstandeloos.",
+      "source": "https://ebible.org/nld/PRO12.htm#V11"
+    },
+    {
+      "id": "1ti-6-17-19",
+      "theme": "money",
+      "reference": "1 Timotheüs 6:17–19",
+      "text": "Beveel den rijken in deze tegenwoordige wereld, dat zij niet hoogmoedig zijn, noch hun hoop stellen op de ongestadigheid des rijkdoms, maar op den levenden God, Die ons alle dingen rijkelijk verleent, om te genieten; Dat zij weldadig zijn, rijk worden in goede werken, gaarne mededelende zijn, en gemeenzaam; Leggende zichzelven weg tot een schat een goed fondament tegen het toekomende, opdat zij het eeuwige leven verkrijgen mogen.",
+      "source": "https://ebible.org/nld/1TI06.htm#V17"
+    },
+    {
+      "id": "pro-4-23",
+      "theme": "decisions",
+      "reference": "Spreuken 4:23",
+      "text": "Behoed uw hart boven al wat te bewaren is, want daaruit zijn de uitgangen des levens.",
+      "source": "https://ebible.org/nld/PRO04.htm#V23"
+    },
+    {
+      "id": "mat-11-28-30",
+      "theme": "rest",
+      "reference": "Mattheüs 11:28–30",
+      "text": "Komt herwaarts tot Mij, allen die vermoeid en belast zijt, en Ik zal u rust geven. Neemt Mijn juk op u, en leert van Mij, dat Ik zachtmoedig ben en nederig van hart; en gij zult rust vinden voor uw zielen. Want Mijn juk is zacht, en Mijn last is licht.",
+      "source": "https://ebible.org/nld/MAT11.htm#V28"
+    },
+    {
+      "id": "rom-5-3-5",
+      "theme": "hardship",
+      "reference": "Romeinen 5:3–5",
+      "text": "En niet alleenlijk dit, maar wij roemen ook in de verdrukkingen, wetende, dat de verdrukking lijdzaamheid werkt; En de lijdzaamheid bevinding, en de bevinding hoop; En de hoop beschaamt niet, omdat de liefde Gods in onze harten uitgestort is door den Heiligen Geest, Die ons is gegeven.",
+      "source": "https://ebible.org/nld/ROM05.htm#V3"
+    },
+    {
+      "id": "psa-118-24",
+      "theme": "gratitude",
+      "reference": "Psalm 118:24",
+      "text": "Dit is de dag, dien de HEERE gemaakt heeft; laat ons op denzelven ons verheugen, en verblijd zijn.",
+      "source": "https://ebible.org/nld/PSA118.htm#V24"
+    },
+    {
+      "id": "col-4-2-4",
+      "theme": "faith",
+      "reference": "Colossenzen 4:2–4",
+      "text": "Houdt sterk aan in het gebed, en waakt in hetzelve met dankzegging; Biddende meteen ook voor ons, dat God ons de deur des Woords opene, om te spreken de verborgenheid van Christus, om welke ik ook gebonden ben; Opdat ik dezelve moge openbaren, gelijk ik moet spreken.",
+      "source": "https://ebible.org/nld/COL04.htm#V2"
+    },
+    {
+      "id": "deu-6-4-7",
+      "theme": "family",
+      "reference": "Deuteronomium 6:4–7",
+      "text": "Hoor, Israel! de HEERE, onze God, is een enig HEERE! Zo zult gij den HEERE, uw God, liefhebben, met uw ganse hart, en met uw ganse ziel, en met al uw vermogen. En deze woorden, die ik u heden gebiede, zullen in uw hart zijn. En gij zult ze uw kinderen inscherpen, en daarvan spreken, als gij in uw huis zit, en als gij op den weg gaat, en als gij nederligt, en als gij opstaat.",
+      "source": "https://ebible.org/nld/DEU06.htm#V4"
+    },
+    {
+      "id": "rom-12-9-13",
+      "theme": "relationships",
+      "reference": "Romeinen 12:9–13",
+      "text": "De liefde zij ongeveinsd. Hebt een afkeer van het boze, en hangt het goede aan. Hebt elkander hartelijk lief met broederlijke liefde; met eer de een den ander voorgaande. Zijt niet traag in het benaarstigen. Zijt vurig van geest. Dient den Heere. Verblijdt u in de hoop. Zijt geduldig in de verdrukking. Volhardt in het gebed. Deelt mede tot de behoeften der heiligen. Tracht naar herbergzaamheid.",
+      "source": "https://ebible.org/nld/ROM12.htm#V9"
+    },
+    {
+      "id": "psa-90-16-17",
+      "theme": "work",
+      "reference": "Psalm 90:16–17",
+      "text": "Laat Uw werk aan Uw knechten gezien worden, en Uw heerlijkheid over hun kinderen. En de liefelijkheid des HEEREN, onzes Gods; zij over ons; en bevestig Gij het werk onzer handen over ons, ja, het werk onzer handen, bevestig dat.",
+      "source": "https://ebible.org/nld/PSA090.htm#V16"
+    },
+    {
+      "id": "php-4-11-13",
+      "theme": "money",
+      "reference": "Filippenzen 4:11–13",
+      "text": "Niet dat ik dit zeg vanwege gebrek; want ik heb geleerd vergenoegd te zijn in hetgeen ik ben. En ik weet vernederd te worden, ik weet ook overvloed te hebben; alleszins en in alles ben ik onderwezen, beide verzadigd te zijn en honger te lijden, beide overvloed te hebben en gebrek te lijden. Ik vermag alle dingen door Christus, Die mij kracht geeft.",
+      "source": "https://ebible.org/nld/PHP04.htm#V11"
+    },
+    {
+      "id": "mic-6-8",
+      "theme": "decisions",
+      "reference": "Micha 6:8",
+      "text": "Hij heeft u bekend gemaakt, o mens! wat goed is; en wat eist de HEERE van u, dan recht te doen, en weldadigheid lief te hebben, en ootmoediglijk te wandelen met uw God?",
+      "source": "https://ebible.org/nld/MIC06.htm#V8"
+    },
+    {
+      "id": "psa-4-8",
+      "theme": "rest",
+      "reference": "Psalm 4:8",
+      "text": "Ik zal in vrede te zamen nederliggen en slapen; want Gij, o HEERE! alleen zult mij doen zeker wonen.",
+      "source": "https://ebible.org/nld/PSA004.htm#V8"
+    },
+    {
+      "id": "2co-4-16-18",
+      "theme": "hardship",
+      "reference": "2 Corinthiërs 4:16–18",
+      "text": "Daarom vertragen wij niet; maar hoewel onze uitwendige mens verdorven wordt, zo wordt nochtans de inwendige vernieuwd van dag tot dag. Want onze lichte verdrukking, die zeer haast voorbij gaat, werkt ons een gans zeer uitnemend eeuwig gewicht der heerlijkheid; Dewijl wij niet aanmerken de dingen, die men ziet, maar de dingen, die men niet ziet; want de dingen, die men ziet, zijn tijdelijk, maar de dingen, die men niet ziet, zijn eeuwig.",
+      "source": "https://ebible.org/nld/2CO04.htm#V16"
+    },
+    {
+      "id": "heb-13-15-16",
+      "theme": "gratitude",
+      "reference": "Hebreeën 13:15–16",
+      "text": "Laat ons dan door Hem altijd Gode opofferen een offerande des lofs, dat is, de vrucht der lippen, die Zijn Naam belijden. En vergeet de weldadigheid en de mededeelzaamheid niet; want aan zodanige offeranden heeft God een welbehagen.",
+      "source": "https://ebible.org/nld/HEB13.htm#V15"
+    },
+    {
+      "id": "jas-5-13",
+      "theme": "faith",
+      "reference": "Jakobus 5:13",
+      "text": "Is iemand onder u in lijden? Dat hij bidde. Is iemand goedsmoeds? Dat hij psalmzinge.",
+      "source": "https://ebible.org/nld/JAS05.htm#V13"
+    },
+    {
+      "id": "1pe-4-8",
+      "theme": "family",
+      "reference": "1 Petrus 4:8",
+      "text": "Maar vooral hebt vurige liefde tot elkander; want de liefde zal menigte van zonden bedekken.",
+      "source": "https://ebible.org/nld/1PE04.htm#V8"
+    },
+    {
+      "id": "rom-12-15-16",
+      "theme": "relationships",
+      "reference": "Romeinen 12:15–16",
+      "text": "Verblijdt u met de blijden; en weent met de wenenden. Weest eensgezind onder elkander. Tracht niet naar de hoge dingen, maar voegt u tot de nederige. Zijt niet wijs bij uzelven.",
+      "source": "https://ebible.org/nld/ROM12.htm#V15"
+    },
+    {
+      "id": "ecc-3-12-13",
+      "theme": "work",
+      "reference": "Prediker 3:12–13",
+      "text": "Ik heb gemerkt, dat er niets beters voor henlieden is, dan zich te verblijden, en goed te doen in zijn leven. Ja ook, dat ieder mens ete en drinke, en het goede geniete van al zijn arbeid, Dit is een gave Gods.",
+      "source": "https://ebible.org/nld/ECC03.htm#V12"
+    },
+    {
+      "id": "pro-15-16-17",
+      "theme": "money",
+      "reference": "Spreuken 15:16–17",
+      "text": "Beter is weinig met de vreze des HEEREN, dan een grote schat, en onrust daarbij. Beter is een gerecht van groen moes, waar ook liefde is, dan een gemeste os, en haat daarbij.",
+      "source": "https://ebible.org/nld/PRO15.htm#V16"
+    },
+    {
+      "id": "rom-12-1-2",
+      "theme": "decisions",
+      "reference": "Romeinen 12:1–2",
+      "text": "Ik bid u dan, broeders, door de ontfermingen Gods, dat gij uw lichamen stelt tot een levende, heilige en Gode welbehagelijke offerande, welke is uw redelijke godsdienst. En wordt dezer wereld niet gelijkvormig; maar wordt veranderd door de vernieuwing uws gemoeds, opdat gij moogt beproeven, welke de goede, en welbehagelijke en volmaakte wil van God zij.",
+      "source": "https://ebible.org/nld/ROM12.htm#V1"
+    },
+    {
+      "id": "1pe-5-6-7",
+      "theme": "rest",
+      "reference": "1 Petrus 5:6–7",
+      "text": "Vernedert u dan onder de krachtige hand Gods, opdat Hij u verhoge te Zijner tijd. Werpt al uw bekommernis op Hem, want Hij zorgt voor u.",
+      "source": "https://ebible.org/nld/1PE05.htm#V6"
+    },
+    {
+      "id": "mat-5-4",
+      "theme": "hardship",
+      "reference": "Mattheüs 5:4",
+      "text": "Zalig zijn die treuren; want zij zullen vertroost worden.",
+      "source": "https://ebible.org/nld/MAT05.htm#V4"
+    },
+    {
+      "id": "jas-1-16-17",
+      "theme": "gratitude",
+      "reference": "Jakobus 1:16–17",
+      "text": "Dwaalt niet, mijn geliefde broeders! Alle goede gave, en alle volmaakte gifte is van boven, van den Vader der lichten afkomende, bij Welken geen verandering is, of schaduw van omkering.",
+      "source": "https://ebible.org/nld/JAS01.htm#V16"
+    },
+    {
+      "id": "heb-11-1",
+      "theme": "faith",
+      "reference": "Hebreeën 11:1",
+      "text": "Het geloof nu is een vaste grond der dingen, die men hoopt, en een bewijs der zaken, die men niet ziet.",
+      "source": "https://ebible.org/nld/HEB11.htm#V1"
+    },
+    {
+      "id": "1co-16-14",
+      "theme": "family",
+      "reference": "1 Corinthiërs 16:14",
+      "text": "Dat al uw dingen in de liefde geschieden.",
+      "source": "https://ebible.org/nld/1CO16.htm#V14"
+    },
+    {
+      "id": "1jn-3-16-18",
+      "theme": "relationships",
+      "reference": "1 Johannes 3:16–18",
+      "text": "Hieraan hebben wij de liefde gekend, dat Hij Zijn leven voor ons gesteld heeft; en wij zijn schuldig voor de broeders het leven te stellen. Zo wie nu het goed der wereld heeft, en ziet zijn broeder gebrek hebben, en sluit zijn hart toe voor hem, hoe blijft de liefde Gods in hem? Mijn kinderkens, laat ons niet liefhebben met den woorde, noch met de tong, maar met de daad en waarheid.",
+      "source": "https://ebible.org/nld/1JN03.htm#V16"
+    },
+    {
+      "id": "1co-15-58",
+      "theme": "work",
+      "reference": "1 Corinthiërs 15:58",
+      "text": "Zo dan, mijn geliefde broeders! Zijt standvastig, onbewegelijk, altijd overvloedig zijnde in het werk des Heeren, als die weet, dat uw arbeid niet ijdel is in den Heere.",
+      "source": "https://ebible.org/nld/1CO15.htm#V58"
+    },
+    {
+      "id": "pro-22-1-2",
+      "theme": "money",
+      "reference": "Spreuken 22:1–2",
+      "text": "De naam is uitgelezener dan grote rijkdom, de goede gunst dan zilver en dan goud. Rijken en armen ontmoeten elkander; de HEERE heeft hen allen gemaakt.",
+      "source": "https://ebible.org/nld/PRO22.htm#V1"
+    },
+    {
+      "id": "eph-5-15-17",
+      "theme": "decisions",
+      "reference": "Efeziërs 5:15–17",
+      "text": "Ziet dan, hoe gij voorzichtiglijk wandelt, niet als onwijzen, maar als wijzen. Den tijd uitkopende, dewijl de dagen boos zijn. Daarom zijt niet onverstandig, maar verstaat, welke de wil des Heeren zij.",
+      "source": "https://ebible.org/nld/EPH05.htm#V15"
+    },
+    {
+      "id": "2th-3-16",
+      "theme": "rest",
+      "reference": "2 Thessalonicenzen 3:16",
+      "text": "De Heere nu des vredes Zelf geve u vrede te allen tijd, in allerlei wijze. De Heere zij met u allen.",
+      "source": "https://ebible.org/nld/2TH03.htm#V16"
+    },
+    {
+      "id": "psa-94-17-19",
+      "theme": "hardship",
+      "reference": "Psalm 94:17–19",
+      "text": "Ten ware dat de HEERE mij een Hulp geweest ware, mijn ziel had bijna in de stilte gewoond. Als ik zeide: Mijn voet wankelt; Uw goedertierenheid, o HEERE! ondersteunde mij. Als mijn gedachten binnen in mij vermenigvuldigd werden, hebben Uw vertroostingen mijn ziel verkwikt.",
+      "source": "https://ebible.org/nld/PSA094.htm#V17"
+    },
+    {
+      "id": "psa-145-8-10",
+      "theme": "gratitude",
+      "reference": "Psalm 145:8–10",
+      "text": "Genadig en barmhartig is de HEERE, lankmoedig en groot van goedertierenheid. De HEERE is aan allen goed, en Zijn barmhartigheden zijn over al Zijn werken. Al Uw werken, HEERE, zullen U loven, en Uw gunstgenoten zullen U zegenen.",
+      "source": "https://ebible.org/nld/PSA145.htm#V8"
+    },
+    {
+      "id": "1jn-5-14-15",
+      "theme": "faith",
+      "reference": "1 Johannes 5:14–15",
+      "text": "En dit is de vrijmoedigheid, die wij tot Hem hebben, dat zo wij iets bidden naar Zijn wil, Hij ons verhoort. En indien wij weten, dat Hij ons verhoort, wat wij ook bidden, zo weten wij, dat wij de beden verkrijgen, die wij van Hem gebeden hebben.",
+      "source": "https://ebible.org/nld/1JN05.htm#V14"
+    },
+    {
+      "id": "rut-1-16-17",
+      "theme": "family",
+      "reference": "Ruth 1:16–17",
+      "text": "Maar Ruth zeide: Val mij niet tegen, dat ik u zou verlaten, om van achter u weder te keren; want waar gij zult heengaan, zal ik ook heengaan, en waar gij zult vernachten, zal ik vernachten; uw volk is mijn volk, en uw God mijn God. Waar gij zult sterven, zal ik sterven, en aldaar zal ik begraven worden; alzo doe mij de HEERE en alzo doe Hij daartoe, zo niet de dood alleen zal scheiding maken tussen mij en tussen u!",
+      "source": "https://ebible.org/nld/RUT01.htm#V16"
+    },
+    {
+      "id": "mat-5-44-45",
+      "theme": "relationships",
+      "reference": "Mattheüs 5:44–45",
+      "text": "Maar Ik zeg u: Hebt uw vijanden lief; zegent ze, die u vervloeken; doet wel dengenen, die u haten; en bidt voor degenen, die u geweld doen, en die u vervolgen; Opdat gij moogt kinderen zijn uws Vaders, Die in de hemelen is; want Hij doet Zijn zon opgaan over bozen en goeden, en regent over rechtvaardigen en onrechtvaardigen.",
+      "source": "https://ebible.org/nld/MAT05.htm#V44"
+    },
+    {
+      "id": "heb-6-10",
+      "theme": "work",
+      "reference": "Hebreeën 6:10",
+      "text": "Want God is niet onrechtvaardig dat Hij uw werk zou vergeten, en den arbeid der liefde, die gij aan Zijn Naam bewezen hebt, als die de heiligen gediend hebt en nog dient.",
+      "source": "https://ebible.org/nld/HEB06.htm#V10"
+    },
+    {
+      "id": "pro-22-9",
+      "theme": "money",
+      "reference": "Spreuken 22:9",
+      "text": "Die goed van oog is, die zal gezegend worden; want hij heeft van zijn brood den armen gegeven.",
+      "source": "https://ebible.org/nld/PRO22.htm#V9"
+    },
+    {
+      "id": "pro-16-9",
+      "theme": "decisions",
+      "reference": "Spreuken 16:9",
+      "text": "Het hart des mensen overdenkt zijn weg; maar de HEERE stiert zijn gang.",
+      "source": "https://ebible.org/nld/PRO16.htm#V9"
+    },
+    {
+      "id": "psa-55-22",
+      "theme": "rest",
+      "reference": "Psalm 55:22",
+      "text": "Werp uw zorg op den HEERE, en Hij zal u onderhouden; Hij zal in eeuwigheid niet toelaten, dat de rechtvaardige wankele.",
+      "source": "https://ebible.org/nld/PSA055.htm#V22"
+    },
+    {
+      "id": "2co-1-3-4",
+      "theme": "hardship",
+      "reference": "2 Corinthiërs 1:3–4",
+      "text": "Geloofd zij de God en Vader van onzen Heere Jezus Christus, de Vader der barmhartigheden, en de God aller vertroosting; Die ons vertroost in al onze verdrukking, opdat wij zouden kunnen vertroosten degenen, die in allerlei verdrukking zijn, door de vertroosting, met welke wij zelven van God vertroost worden.",
+      "source": "https://ebible.org/nld/2CO01.htm#V3"
+    },
+    {
+      "id": "col-3-15",
+      "theme": "gratitude",
+      "reference": "Colossenzen 3:15",
+      "text": "En de vrede Gods heerse in uw harten, tot welken gij ook geroepen zijt in een lichaam; en weest dankbaar.",
+      "source": "https://ebible.org/nld/COL03.htm#V15"
+    },
+    {
+      "id": "psa-5-3",
+      "theme": "faith",
+      "reference": "Psalm 5:3",
+      "text": "Des morgens, HEERE, zult Gij mijn stem horen; des morgens zal ik mij tot U schikken, en wacht houden.",
+      "source": "https://ebible.org/nld/PSA005.htm#V3"
+    },
+    {
+      "id": "psa-127-3",
+      "theme": "family",
+      "reference": "Psalm 127:3",
+      "text": "Ziet, de kinderen zijn een erfdeel des HEEREN; des buiks vrucht is een beloning.",
+      "source": "https://ebible.org/nld/PSA127.htm#V3"
+    },
+    {
+      "id": "eph-4-1-3",
+      "theme": "relationships",
+      "reference": "Efeziërs 4:1–3",
+      "text": "Zo bid ik u dan, ik, de gevangene in den Heere, dat gij wandelt waardiglijk der roeping, met welke gij geroepen zijt; Met alle ootmoedigheid en zachtmoedigheid, met lankmoedigheid, verdragende elkander in liefde; U benaarstigende te behouden de enigheid des Geestes door den band des vredes.",
+      "source": "https://ebible.org/nld/EPH04.htm#V1"
+    },
+    {
+      "id": "mat-5-16",
+      "theme": "work",
+      "reference": "Mattheüs 5:16",
+      "text": "Laat uw licht alzo schijnen voor de mensen, dat zij uw goede werken mogen zien, en uw Vader, Die in de hemelen is, verheerlijken.",
+      "source": "https://ebible.org/nld/MAT05.htm#V16"
+    },
+    {
+      "id": "pro-19-17",
+      "theme": "money",
+      "reference": "Spreuken 19:17",
+      "text": "Die zich des armen ontfermt, leent den HEERE, en Hij zal hem zijn weldaad vergelden.",
+      "source": "https://ebible.org/nld/PRO19.htm#V17"
+    },
+    {
+      "id": "jas-3-17-18",
+      "theme": "decisions",
+      "reference": "Jakobus 3:17–18",
+      "text": "Maar de wijsheid, die van boven is, die is ten eerste zuiver, daarna vreedzaam, bescheiden, gezeggelijk, vol van barmhartigheid en van goede vruchten, niet partijdig oordelende, en ongeveinsd. En de vrucht der rechtvaardigheid wordt in vrede gezaaid voor degenen, die vrede maken.",
+      "source": "https://ebible.org/nld/JAS03.htm#V17"
+    },
+    {
+      "id": "pro-12-25",
+      "theme": "rest",
+      "reference": "Spreuken 12:25",
+      "text": "Bekommernis in het hart des mensen buigt het neder; maar een goed woord verblijdt het.",
+      "source": "https://ebible.org/nld/PRO12.htm#V25"
+    },
+    {
+      "id": "psa-73-25-26",
+      "theme": "hardship",
+      "reference": "Psalm 73:25–26",
+      "text": "Wien heb ik nevens U in den hemel? Nevens U lust mij ook niets op de aarde! Bezwijkt mijn vlees en mijn hart, zo is God de Rotssteen mijns harten, en mijn Deel in eeuwigheid.",
+      "source": "https://ebible.org/nld/PSA073.htm#V25"
+    },
+    {
+      "id": "col-2-6-7",
+      "theme": "gratitude",
+      "reference": "Colossenzen 2:6–7",
+      "text": "Gelijk gij dan Christus Jezus, den Heere, hebt aangenomen, wandelt alzo in Hem; Geworteld en opgebouwd in Hem, en bevestigd in het geloof, gelijkerwijs gij geleerd zijt, overvloedig zijnde in hetzelve, met dankzegging.",
+      "source": "https://ebible.org/nld/COL02.htm#V6"
+    },
+    {
+      "id": "rom-8-26-27",
+      "theme": "faith",
+      "reference": "Romeinen 8:26–27",
+      "text": "En desgelijks komt ook de Geest onze zwakheden mede te hulp; want wij weten niet, wat wij bidden zullen, gelijk het behoort, maar de Geest Zelf bidt voor ons met onuitsprekelijke zuchtingen. En Die de harten doorzoekt, weet, welke de mening des Geestes zij, dewijl Hij naar God voor de heiligen bidt.",
+      "source": "https://ebible.org/nld/ROM08.htm#V26"
+    },
+    {
+      "id": "pro-14-26",
+      "theme": "family",
+      "reference": "Spreuken 14:26",
+      "text": "In de vreze des HEEREN is een sterk vertrouwen, en Hij zal Zijn kinderen een Toevlucht wezen.",
+      "source": "https://ebible.org/nld/PRO14.htm#V26"
+    },
+    {
+      "id": "jas-1-19-20",
+      "theme": "relationships",
+      "reference": "Jakobus 1:19–20",
+      "text": "Zo dan, mijn geliefde broeders, een iegelijk mens zij ras om te horen, traag om te spreken, traag tot toorn; Want de toorn des mans werkt Gods gerechtigheid niet.",
+      "source": "https://ebible.org/nld/JAS01.htm#V19"
+    },
+    {
+      "id": "gal-6-9-10",
+      "theme": "work",
+      "reference": "Galaten 6:9–10",
+      "text": "Doch laat ons, goed doende, niet vertragen; want te zijner tijd zullen wij maaien, zo wij niet verslappen. Zo dan, terwijl wij tijd hebben, laat ons goed doen aan allen, maar meest aan de huisgenoten des geloofs.",
+      "source": "https://ebible.org/nld/GAL06.htm#V9"
+    },
+    {
+      "id": "2co-9-6-7",
+      "theme": "money",
+      "reference": "2 Corinthiërs 9:6–7",
+      "text": "En dit zeg ik: Die spaarzamelijk zaait, zal ook spaarzamelijk maaien; en die in zegeningen zaait, zal ook in zegeningen maaien. Een iegelijk doe, gelijk hij in zijn hart, voorneemt; niet uit droefheid, of uit nooddwang; want God heeft een blijmoedigen gever lief.",
+      "source": "https://ebible.org/nld/2CO09.htm#V6"
+    },
+    {
+      "id": "col-4-5-6",
+      "theme": "decisions",
+      "reference": "Colossenzen 4:5–6",
+      "text": "Wandelt met wijsheid bij degenen, die buiten zijn, den bekwamen tijd uitkopende. Uw woord zij te allen tijde in aangenaamheid, met zout besprengd, opdat gij moogt weten, hoe gij een iegelijk moet antwoorden.",
+      "source": "https://ebible.org/nld/COL04.htm#V5"
+    },
+    {
+      "id": "mat-6-33-34",
+      "theme": "rest",
+      "reference": "Mattheüs 6:33–34",
+      "text": "Maar zoekt eerst het Koninkrijk Gods en Zijn gerechtigheid, en al deze dingen zullen u toegeworpen worden. Zijt dan niet bezorgd tegen den morgen; want de morgen zal voor het zijne zorgen; elke dag heeft genoeg aan zijn zelfs kwaad.",
+      "source": "https://ebible.org/nld/MAT06.htm#V33"
+    },
+    {
+      "id": "isa-41-10",
+      "theme": "hardship",
+      "reference": "Jesaja 41:10",
+      "text": "Vrees niet, want Ik ben met u; zijt niet verbaasd, want Ik ben uw God; Ik sterk u, ook help Ik u, ook ondersteun Ik u met de rechterhand Mijner gerechtigheid.",
+      "source": "https://ebible.org/nld/ISA41.htm#V10"
+    },
+    {
+      "id": "psa-100-4-5",
+      "theme": "gratitude",
+      "reference": "Psalm 100:4–5",
+      "text": "Gaat in tot Zijn poorten met lof, in Zijn voorhoven met lofgezang; looft Hem, prijst Zijn Naam. Want de HEERE is goed; Zijn goedertierenheid is in der eeuwigheid, en Zijn getrouwheid van geslacht tot geslacht.",
+      "source": "https://ebible.org/nld/PSA100.htm#V4"
+    },
+    {
+      "id": "psa-139-23-24",
+      "theme": "faith",
+      "reference": "Psalm 139:23–24",
+      "text": "Doorgrond mij, o God! en ken mijn hart; beproef mij, en ken mijn gedachten. En zie, of bij mij een schadelijke weg zij; en leid mij op den eeuwigen weg.",
+      "source": "https://ebible.org/nld/PSA139.htm#V23"
+    },
+    {
+      "id": "pro-23-22",
+      "theme": "family",
+      "reference": "Spreuken 23:22",
+      "text": "Hoor naar uw vader, die u gewonnen heeft; en veracht uw moeder niet, als zij oud geworden is.",
+      "source": "https://ebible.org/nld/PRO23.htm#V22"
+    },
+    {
+      "id": "pro-15-1",
+      "theme": "relationships",
+      "reference": "Spreuken 15:1",
+      "text": "Een zacht antwoord keert de grimmigheid af; maar een smartend woord doet den toorn oprijzen.",
+      "source": "https://ebible.org/nld/PRO15.htm#V1"
+    },
+    {
+      "id": "eph-4-28",
+      "theme": "work",
+      "reference": "Efeziërs 4:28",
+      "text": "Die gestolen heeft, stele niet meer, maar arbeide liever, werkende dat goed is met de handen, opdat hij hebbe mede te delen dengene, die nood heeft.",
+      "source": "https://ebible.org/nld/EPH04.htm#V28"
+    },
+    {
+      "id": "pro-23-4-5",
+      "theme": "money",
+      "reference": "Spreuken 23:4–5",
+      "text": "Vermoei u niet om rijk te worden; sta af van uw vernuft. Zult gij uw ogen laten vliegen op hetgeen niets is? Want het zal zich gewisselijk vleugelen maken gelijk een arend, die naar den hemel vliegt.",
+      "source": "https://ebible.org/nld/PRO23.htm#V4"
+    },
+    {
+      "id": "psa-90-12",
+      "theme": "decisions",
+      "reference": "Psalm 90:12",
+      "text": "Leer ons alzo onze dagen tellen, dat wij een wijs hart bekomen.",
+      "source": "https://ebible.org/nld/PSA090.htm#V12"
+    },
+    {
+      "id": "psa-56-3-4",
+      "theme": "rest",
+      "reference": "Psalm 56:3–4",
+      "text": "Ten dage, als ik zal vrezen, zal ik op U vertrouwen. In God zal ik Zijn woord prijzen; ik vertrouw op God, ik zal niet vrezen; wat zoude mij vlees doen?",
+      "source": "https://ebible.org/nld/PSA056.htm#V3"
+    },
+    {
+      "id": "rom-8-38-39",
+      "theme": "hardship",
+      "reference": "Romeinen 8:38–39",
+      "text": "Want ik ben verzekerd, dat noch dood, noch leven, noch engelen, noch overheden, noch machten, noch tegenwoordige, noch toekomende dingen, Noch hoogte, noch diepte, noch enig ander schepsel ons zal kunnen scheiden van de liefde Gods, welke is in Christus Jezus, onzen Heere.",
+      "source": "https://ebible.org/nld/ROM08.htm#V38"
+    },
+    {
+      "id": "psa-95-1-2",
+      "theme": "gratitude",
+      "reference": "Psalm 95:1–2",
+      "text": "Komt, laat ons den HEERE vrolijk zingen; laat ons juichen den Rotssteen onzes heils. Laat ons Zijn aangezicht tegemoet gaan met lof; laat ons Hem juichen met psalmen.",
+      "source": "https://ebible.org/nld/PSA095.htm#V1"
+    },
+    {
+      "id": "jhn-15-4-5",
+      "theme": "faith",
+      "reference": "Johannes 15:4–5",
+      "text": "Blijft in Mij, en Ik in u. Gelijkerwijs de rank geen vrucht kan dragen van zichzelve, zo zij niet in den wijnstok blijft; alzo ook gij niet, zo gij in Mij niet blijft. Ik ben de Wijnstok, en gij de ranken; die in Mij blijft, en Ik in hem, die draagt veel vrucht; want zonder Mij kunt gij niets doen.",
+      "source": "https://ebible.org/nld/JHN15.htm#V4"
+    },
+    {
+      "id": "pro-24-3-4",
+      "theme": "family",
+      "reference": "Spreuken 24:3–4",
+      "text": "Door wijsheid wordt een huis gebouwd, en door verstandigheid bevestigd; En door wetenschap worden de binnenkameren vervuld met alle kostelijk en liefelijk goed.",
+      "source": "https://ebible.org/nld/PRO24.htm#V3"
+    },
+    {
+      "id": "ecc-4-9-10",
+      "theme": "relationships",
+      "reference": "Prediker 4:9–10",
+      "text": "Twee zijn beter dan een; want zij hebben een goede beloning van hun arbeid; Want indien zij vallen, de een richt zijn metgezel op; maar wee den ene, die gevallen is, want er is geen tweede om hem op te helpen.",
+      "source": "https://ebible.org/nld/ECC04.htm#V9"
+    },
+    {
+      "id": "1pe-4-10-11",
+      "theme": "work",
+      "reference": "1 Petrus 4:10–11",
+      "text": "Een iegelijk, gelijk hij gave ontvangen heeft, alzo bediene hij dezelve aan de anderen, als goede uitdelers der menigerlei genade Gods. Indien iemand spreekt, die spreke als de woorden Gods; indien iemand dient, die diene als uit kracht, die God verleent; opdat God in allen geprezen worde door Jezus Christus, Welken toekomt de heerlijkheid en de kracht, in alle eeuwigheid. Amen.",
+      "source": "https://ebible.org/nld/1PE04.htm#V10"
+    },
+    {
+      "id": "luk-12-15",
+      "theme": "money",
+      "reference": "Lukas 12:15",
+      "text": "En Hij zeide tot hen: Ziet toe en wacht u van de gierigheid; want het is niet in den overvloed gelegen, dat iemand leeft uit zijn goederen.",
+      "source": "https://ebible.org/nld/LUK12.htm#V15"
+    },
+    {
+      "id": "pro-15-22",
+      "theme": "decisions",
+      "reference": "Spreuken 15:22",
+      "text": "De gedachten worden vernietigd, als er geen raad is; maar door veelheid der raadslieden zal elkeen bestaan.",
+      "source": "https://ebible.org/nld/PRO15.htm#V22"
+    },
+    {
+      "id": "psa-62-5-6",
+      "theme": "rest",
+      "reference": "Psalm 62:5–6",
+      "text": "Doch gij, o mijn ziel! zwijg Gode; want van Hem is mijn verwachting. Hij is immers mijn Rotssteen en mijn Heil, mijn Hoog Vertrek; ik zal niet wankelen.",
+      "source": "https://ebible.org/nld/PSA062.htm#V5"
+    },
+    {
+      "id": "rev-21-3-4",
+      "theme": "hardship",
+      "reference": "Openbaring 21:3–4",
+      "text": "En ik hoorde een grote stem uit den hemel, zeggende: Ziet, de tabernakel Gods is bij de mensen, en Hij zal bij hen wonen, en zij zullen Zijn volk zijn, en God Zelf zal bij hen en hun God zijn. En God zal alle tranen van hun ogen afwissen; en de dood zal niet meer zijn; noch rouw, noch gekrijt, noch moeite zal meer zijn; want de eerste dingen zijn weggegaan.",
+      "source": "https://ebible.org/nld/REV21.htm#V3"
+    },
+    {
+      "id": "php-4-4-5",
+      "theme": "gratitude",
+      "reference": "Filippenzen 4:4–5",
+      "text": "Verblijdt u in den Heere te allen tijd; wederom zeg ik: Verblijdt u. Uw bescheidenheid zij allen mensen bekend. De Heere is nabij.",
+      "source": "https://ebible.org/nld/PHP04.htm#V4"
+    },
+    {
+      "id": "rom-15-13",
+      "theme": "faith",
+      "reference": "Romeinen 15:13",
+      "text": "De God nu der hoop vervulle ulieden met alle blijdschap en vrede in het geloven, opdat gij overvloedig moogt zijn in de hoop, door de kracht des Heiligen Geestes.",
+      "source": "https://ebible.org/nld/ROM15.htm#V13"
+    }
+  ]
+}

@@ -25,20 +25,20 @@ so use an existing preview server instead of starting another on port 4567.
 
 Previews capture as they enter the page, with four browser workers. **Check entire
 suite** captures all cases. Optional sample links jump down the page; scrolling
-shows everything without switching settings. Every case starts expanded. Search is optional and matches languages,
+shows everything without switching settings. Every case starts expanded. Search is optional and matches translations,
 themes, and references. Open **Checks** under a thumbnail for measurements,
 errors, a native render, the screenshot, and any baseline/difference image.
 
-Length sampling sorts the 324 complete passages by Unicode character count, with
+Length sampling sorts the 1,080 complete passages by Unicode character count, with
 a stable reference ID tie-break. The middle example is the upper middle passage
-(rank 163); it is reproducible across runs. Samples are recomputed from current
-content. The current examples are 1 Corinthians 16:14 (English, 36 characters),
-Salmos 145:18–19 (Spanish, 172), and Hébreux 4:14–16 (French, 473).
+(rank 541); it is reproducible across runs. Samples are recomputed from current
+content. The current examples are 1 Corinthians 16:14 (BSB, 22 characters),
+Provérbios 3:5–6 (Bíblia Livre, 168), and Römer 13,8–10 (Lutherbibel 1912, 505).
 
-Choose **Curated regression suite** for broader coverage: 54 cases and 1,296
-captures, including each language's median and longest, defaults, shortest
+Choose **Curated regression suite** for broader coverage: 180 cases and 4,320
+captures, including each translation's median and longest, defaults, shortest
 passages, longest passages in every theme, multiple-theme selections, QR disabled,
-longest references in light and dark, and missing-content recovery, in all three languages.
+longest references in light and dark, and missing-content recovery, in all ten translations.
 Rotation intervals and timezone boundaries remain covered by behavioral tests.
 
 Cases use the actual collections and filtering transform. A fixed timestamp and
@@ -160,8 +160,8 @@ pnpm review:exhaustive
 pnpm review:exhaustive --shard 1/8 --limit 240
 ```
 
-This covers all 108 passages in each language, both QR states, and every screen:
-648 cases and 15,552 captures. Use sharding and limits to divide large reviews.
+This covers all 108 passages in each translation, both QR states, and every screen:
+2,160 cases and 51,840 captures. Use sharding and limits to divide large reviews.
 
 Full settings coverage is a separate explicit option:
 

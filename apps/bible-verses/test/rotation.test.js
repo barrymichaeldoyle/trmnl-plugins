@@ -104,8 +104,8 @@ test('unknown settings use the mixed daily defaults; missing data gives a useful
   const options = { timestamp: epoch('2026-10-01T10:00:00Z'), utcOffset: 0 };
   assert.equal(id(await render(options)), id(await render({ ...options, fields: { theme: 'old-theme', rotation: 'hourly' } })));
   for (const view of views) {
-    const html = await renderView(plugin, view, { data: { verses: [] } });
-    assert.match(html, /[Rr]eimport/);
+    const html = await renderView(plugin, view, { data: { ...plugin.data, verses: [] } });
+    assert.match(html, /try again at the next refresh/);
     assert.equal(id(html), undefined);
   }
 });

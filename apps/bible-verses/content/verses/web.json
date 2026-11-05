@@ -1,15 +1,17 @@
 {
   "translation": {
+    "id": "web",
+    "language": "en",
     "name": "World English Bible",
     "abbreviation": "WEB",
-    "language": "en",
     "edition": "Updated, LORD (engwebp)",
     "license": "Public domain",
     "source": "https://ebible.org/engwebp/"
   },
   "provenance": {
-    "imported_on": "2026-10-02",
-    "archive_sha256": "6111813850dd11f6e847ce560541accb27743b694c35f0db154ea1fc60470975"
+    "imported_on": "2026-11-04",
+    "archive": "https://ebible.org/Scriptures/engwebp_html.zip",
+    "archive_sha256": "b5d5c2091317049f9f5fd61a092f8a97da8b6a118dc32ac7da745f08e536a81b"
   },
   "themes": [
     {
@@ -49,6 +51,9 @@
       "name": "Faith & prayer"
     }
   ],
+  "labels": {
+    "context": "Read in context"
+  },
   "verses": [
     {
       "id": "pro-1-8-9",

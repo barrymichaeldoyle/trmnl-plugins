@@ -19,12 +19,13 @@ export function reviewScreens() {
   }));
 }
 
-export function recoveryData(plugin) {
-  return { ...plugin.data, verses: [], translations: Object.fromEntries(Object.entries(plugin.data.translations ?? {}).map(([key, value]) => [key, { ...value, verses: [] }])) };
+// A collection that loaded without passages, as after a damaged publish.
+export function recoveryData(collection) {
+  return { ...collection, verses: [] };
 }
 
 export function reviewOptions(plugin, scenario, screen) {
-  const data = scenario.fixture ? { data: plugin.fixtures[scenario.fixture] } : scenario.recovery ? { data: recoveryData(plugin) } : {};
+  const data = scenario.fixture ? { data: plugin.fixtures[scenario.fixture] } : scenario.recovery ? { data: recoveryData(plugin.collections[scenario.collection]) } : {};
   return { ...scenario.options, model: screen.model, portrait: screen.portrait, ...data };
 }
 
@@ -75,30 +76,35 @@ export function passageSchedule(plugin, fields, targetId, data = plugin.data, re
 export function reviewScenarios(plugin, mode = 'curated') {
   if (!['responsive', 'curated', 'passages', 'settings'].includes(mode)) throw new Error('Unknown review suite.');
   if (plugin.config.review?.cases) return caseScenarios(plugin, mode);
-  const collections = [plugin.data, ...Object.values(plugin.data.translations ?? {})];
-  if (collections.some(collection => !collection.translation || !collection.verses?.length || !collection.themes?.length)) throw new Error('Review suites require Scripture collections with translation, verses, and themes.');
+  const collections = Object.values(plugin.collections ?? {});
+  if (!collections.length || collections.some(collection => !collection.translation || !collection.verses?.length || !collection.themes?.length)) throw new Error('Review suites require Scripture collections with translation, verses, and themes.');
   const cases = [];
   const seen = new Map();
   const add = (collection, name, key, fields = {}, target, recovery = false, sample, refreshMinutes) => {
-    fields = { ...plugin.defaults, language: collection.translation.language, theme: 'all', show_context_qr: true, ...fields };
-    const { options, expected } = passageSchedule(plugin, fields, target?.id, recovery ? recoveryData(plugin) : plugin.data, refreshMinutes);
+    const id = collection.translation.id;
+    fields = { ...plugin.defaults, language: id, theme: 'all', show_context_qr: true, ...fields };
+    const { options, expected } = passageSchedule(plugin, fields, target?.id, recovery ? recoveryData(collection) : collection, refreshMinutes);
     const signature = JSON.stringify([options, recovery, sample?.kind]);
     if (seen.has(signature)) { seen.get(signature).coverage.push(name); return; }
     const scenario = {
-      id: `${collection.translation.language}-${key}`, name, coverage: [name], options, recovery,
-      language: collection.translation.language, translation: collection.translation.name,
+      id: `${id}-${key}`, name, coverage: [name], options, recovery, collection: id,
+      language: id, translation: collection.translation.name,
       themes: (Array.isArray(fields.theme) ? fields.theme : [fields.theme]).map(id => collection.themes.find(theme => theme.id === id)?.name ?? 'All themes').join(', '),
-      expected, sample, missingTitle: collection.labels?.missing_title ?? 'Your Scripture collection is missing',
-      missingText: collection.labels?.missing_text ?? 'Reimport Daily Bread to restore the Scripture collection.',
+      expected, sample,
     };
+    if (recovery) {
+      // The transform supplies the recovery message in the translation's language.
+      const { labels } = runTransform(plugin, contextFor(plugin, { fields, data: recoveryData(collection) }));
+      Object.assign(scenario, { missingTitle: labels.missing_title, missingText: labels.missing_text });
+    }
     seen.set(signature, scenario); cases.push(scenario);
   };
   const longest = verses => verses.reduce((a, b) => a.text.length >= b.text.length ? a : b);
   if (mode === 'responsive') {
-    const pool = collections.flatMap(collection => collection.verses.map(verse => ({ ...verse, sampleLanguage: collection.translation.language })));
+    const pool = collections.flatMap(collection => collection.verses.map(verse => ({ ...verse, sampleCollection: collection.translation.id })));
     const samples = passageSamples(pool);
     for (const qr of [true, false]) for (const { verse, sample } of samples) {
-      const collection = collections.find(c => c.translation.language === verse.sampleLanguage);
+      const collection = plugin.collections[verse.sampleCollection];
       add(collection, `${sample.kind[0].toUpperCase()}${sample.kind.slice(1)} passage`, `sample-${sample.kind}-qr-${qr}`, { show_context_qr: qr }, verse, false, sample);
     }
     return cases;
@@ -125,13 +131,13 @@ export function reviewScenarios(plugin, mode = 'curated') {
       add(collection, 'Missing collection recovery', 'recovery', {}, undefined, true);
     }
   }
-  // Put the three language defaults together before the stress cases.
+  // Put each translation's default together before the stress cases.
   return cases.sort((a, b) => Number(b.coverage.includes('Mixed daily default')) - Number(a.coverage.includes('Mixed daily default')));
 }
 
 export async function reviewManifest(plugin, mode = 'curated') {
   const tooling = await Promise.all(['plugin.js', 'review.js', 'review-metrics.js', 'review-capture.js'].map(name => readFile(new URL(name, import.meta.url), 'utf8')));
-  const sourceHash = createHash('sha256').update(JSON.stringify({ config: plugin.config, settings: plugin.settings, templates: plugin.templates, data: plugin.data, fixtures: plugin.fixtures, transform: plugin.transform, tooling })).digest('hex');
+  const sourceHash = createHash('sha256').update(JSON.stringify({ config: plugin.config, settings: plugin.settings, templates: plugin.templates, data: plugin.data, collections: plugin.collections, fixtures: plugin.fixtures, transform: plugin.transform, tooling })).digest('hex');
   const scenarios = reviewScenarios(plugin, mode);
   const screens = reviewScreens();
   return { name: plugin.settings.name, framework: plugin.settings.framework_version, mode, sourceHash, scenarios, screens, total: scenarios.length * screens.length };

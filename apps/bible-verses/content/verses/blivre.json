@@ -1,0 +1,816 @@
+{
+  "translation": {
+    "id": "blivre",
+    "language": "pt",
+    "name": "Bíblia Livre",
+    "abbreviation": "BLIVRE",
+    "edition": "2018 (porbr2018)",
+    "license": "CC BY 4.0",
+    "source": "https://ebible.org/porbr2018/",
+    "attribution": "Bíblia Livre (BLIVRE), Copyright © Diego Santos, Mario Sérgio e Marco Teles. Licença Creative Commons Atribuição 4.0 Brasil."
+  },
+  "provenance": {
+    "imported_on": "2026-11-04",
+    "archive": "https://ebible.org/Scriptures/porbr2018_html.zip",
+    "archive_sha256": "4ec4ec843cecf4734b47cd01176e9e9ad1e2898273aa71a51a98ac5089ad8c46"
+  },
+  "themes": [
+    {
+      "id": "family",
+      "name": "Família e lar"
+    },
+    {
+      "id": "relationships",
+      "name": "Relacionamentos"
+    },
+    {
+      "id": "work",
+      "name": "Trabalho e propósito"
+    },
+    {
+      "id": "money",
+      "name": "Dinheiro e generosidade"
+    },
+    {
+      "id": "decisions",
+      "name": "Decisões e direção"
+    },
+    {
+      "id": "rest",
+      "name": "Preocupação e descanso"
+    },
+    {
+      "id": "hardship",
+      "name": "Tempos difíceis e luto"
+    },
+    {
+      "id": "gratitude",
+      "name": "Alegria e gratidão"
+    },
+    {
+      "id": "faith",
+      "name": "Fé e oração"
+    }
+  ],
+  "labels": {
+    "context": "Ler o capítulo"
+  },
+  "verses": [
+    {
+      "id": "pro-1-8-9",
+      "theme": "family",
+      "reference": "Provérbios 1:8–9",
+      "text": "Filho meu, ouve a instrução de teu pai; e não abandones a doutrina de tua mãe. Porque serão um ornamento gracioso para tua cabeça; e colares para teu pescoço.",
+      "source": "https://ebible.org/porbr2018/PRO01.htm#V8"
+    },
+    {
+      "id": "rom-13-8-10",
+      "theme": "relationships",
+      "reference": "Romanos 13:8–10",
+      "text": "A ninguém devais coisa alguma, a não ser o amor uns aos outros, pois quem ama o outro tem cumprido a Lei. Porque estes mandamentos : não adulterarás, não matarás, não roubarás, não dirás falso testemunho, não cobiçarás; e qualquer outro mandamento que há, nesta frase se resumem: “Amarás ao teu próximo como a ti mesmo”. O amor não faz mal ao próximo. Assim, o cumprimento da Lei é o amor.",
+      "source": "https://ebible.org/porbr2018/ROM13.htm#V8"
+    },
+    {
+      "id": "pro-16-3",
+      "theme": "work",
+      "reference": "Provérbios 16:3",
+      "text": "Confia tuas obras ao SENHOR, e teus pensamentos serão firmados.",
+      "source": "https://ebible.org/porbr2018/PRO16.htm#V3"
+    },
+    {
+      "id": "heb-13-5-6",
+      "theme": "money",
+      "reference": "Hebreus 13:5–6",
+      "text": "A vossa maneira de viver seja sem ganância, contentando-vos com as coisas que tendes. Pois ele disse: Não te deixarei, nem te desampararei. De maneira que devemos ter a confiança de dizer: O Senhor é meu ajudador; não temerei o que o ser humano poderá fazer a mim.",
+      "source": "https://ebible.org/porbr2018/HEB13.htm#V5"
+    },
+    {
+      "id": "jas-1-5",
+      "theme": "decisions",
+      "reference": "Tiago 1:5",
+      "text": "Se algum de vós tem falta de sabedoria, peça a Deus, que concede generosamente a todos sem repreender, e lhe será dada.",
+      "source": "https://ebible.org/porbr2018/JAS01.htm#V5"
+    },
+    {
+      "id": "jhn-14-27",
+      "theme": "rest",
+      "reference": "João 14:27",
+      "text": "A paz vos deixo, minha paz vos dou; vou dá- la a vós, não como o mundo a dá. Não se perturbe vosso coração, nem se atemorize.",
+      "source": "https://ebible.org/porbr2018/JHN14.htm#V27"
+    },
+    {
+      "id": "psa-34-17-18",
+      "theme": "hardship",
+      "reference": "Salmos 34:17–18",
+      "text": "Os justos clamam, e o SENHOR os ouve. Ele os livra de todas as suas angústias. O SENHOR está perto daqueles que estão com o coração partido, e sava os aflitos de espírito.",
+      "source": "https://ebible.org/porbr2018/PSA034.htm#V17"
+    },
+    {
+      "id": "1th-5-16-18",
+      "theme": "gratitude",
+      "reference": "1 Tessalonicenses 5:16–18",
+      "text": "Alegrai-vos sempre. Orai sem cessar. Agradecei em tudo, pois essa é a vontade de Deus em Cristo Jesus para vós mesmos.",
+      "source": "https://ebible.org/porbr2018/1TH05.htm#V16"
+    },
+    {
+      "id": "heb-4-14-16",
+      "theme": "faith",
+      "reference": "Hebreus 4:14–16",
+      "text": "Visto que temos um grande Sumo Sacerdote, Jesus, o Filho de Deus, que penetrou nos céus, mantenhamos firme a nossa declaração de fé. Pois não temos um Sumo Sacerdote que não possa se compadecer das nossas fraquezas; mas, sim, um que foi provado em tudo, conforme a nossa semelhança, porém sem pecado. Portanto, acheguemo-nos com confiança ao trono da graça, para que possamos receber misericórdia e encontrar graça para sermos socorridos no tempo adequado.",
+      "source": "https://ebible.org/porbr2018/HEB04.htm#V14"
+    },
+    {
+      "id": "eph-6-1-3",
+      "theme": "family",
+      "reference": "Efésios 6:1–3",
+      "text": "Filhos, sede obedientes aos vossos pais no Senhor, porque isso é justo. Honra teu pai, e tua mãe (que é o primeiro mandamento com promessa); para que te vá bem, e vivas muito tempo sobre a terra.",
+      "source": "https://ebible.org/porbr2018/EPH06.htm#V1"
+    },
+    {
+      "id": "1co-13-4-7",
+      "theme": "relationships",
+      "reference": "1 Coríntios 13:4–7",
+      "text": "O amor é paciente, é bondoso; o amor não é invejoso; o amor não é orgulhoso, não é arrogante. O amor não trata mal; não busca os próprios interesses , não se ira, não é rancoroso. Não se alegra com a injustiça, mas se alegra com a verdade. Tudo aguenta, tudo crê, tudo espera, tudo suporta.",
+      "source": "https://ebible.org/porbr2018/1CO13.htm#V4"
+    },
+    {
+      "id": "pro-14-23",
+      "theme": "work",
+      "reference": "Provérbios 14:23",
+      "text": "Em todo trabalho cansativo há proveito, mas o falar dos lábios só leva à pobreza.",
+      "source": "https://ebible.org/porbr2018/PRO14.htm#V23"
+    },
+    {
+      "id": "1ti-6-6-8",
+      "theme": "money",
+      "reference": "1 Timóteo 6:6–8",
+      "text": "Mas grande lucro é a devoção divina acompanhada de contentamento. Pois nada trouxemos ao mundo, e é evidente que nada podemos levar dele. Mas se tivermos alimento e algo com que nos cobrirmos, estejamos contentes com isso.",
+      "source": "https://ebible.org/porbr2018/1TI06.htm#V6"
+    },
+    {
+      "id": "psa-119-130",
+      "theme": "decisions",
+      "reference": "Salmos 119:130",
+      "text": "A entrada de tuas palavras dá luz, dando entendimento aos simples.",
+      "source": "https://ebible.org/porbr2018/PSA119.htm#V130"
+    },
+    {
+      "id": "php-4-6-7",
+      "theme": "rest",
+      "reference": "Filipenses 4:6–7",
+      "text": "Não estejais ansiosos por coisa alguma; mas em tudo, por meio de orações e súplicas com ações de gratidão, sejam os vossos pedidos conhecidos por Deus; e a paz de Deus, que excede todo entendimento, guardará os vossos corações e as vossas mentes em Cristo Jesus.",
+      "source": "https://ebible.org/porbr2018/PHP04.htm#V6"
+    },
+    {
+      "id": "lam-3-22-24",
+      "theme": "hardship",
+      "reference": "Lamentações 3:22–24",
+      "text": "É pelas bondades do SENHOR que não somos consumidos, porque suas misericórdias não têm fim. Elas são novas a cada manhã; grande é a tua fidelidade. O SENHOR é minha porção, diz a minha alma; portanto nele esperarei.",
+      "source": "https://ebible.org/porbr2018/LAM03.htm#V22"
+    },
+    {
+      "id": "psa-107-1",
+      "theme": "gratitude",
+      "reference": "Salmos 107:1",
+      "text": "Agradecei ao SENHOR, porque ele é bom; porque sua bondade dura para sempre.",
+      "source": "https://ebible.org/porbr2018/PSA107.htm#V1"
+    },
+    {
+      "id": "psa-145-18-19",
+      "theme": "faith",
+      "reference": "Salmos 145:18–19",
+      "text": "O SENHOR está perto de todos os que o chamam; de todos os que clamam a ele sinceramente. Ele faz a vontade dos que o temem; e ouve o clamor deles, e os salva.",
+      "source": "https://ebible.org/porbr2018/PSA145.htm#V18"
+    },
+    {
+      "id": "eph-6-4",
+      "theme": "family",
+      "reference": "Efésios 6:4",
+      "text": "Pais, não provoqueis à ira os vossos filhos, mas criai-os na disciplina e correção do Senhor.",
+      "source": "https://ebible.org/porbr2018/EPH06.htm#V4"
+    },
+    {
+      "id": "eph-4-32",
+      "theme": "relationships",
+      "reference": "Efésios 4:32",
+      "text": "Em vez disso, sede benignos uns com os outros, misericordiosos, perdoando-vos uns aos outros, como também Deus vos perdoou em Cristo.",
+      "source": "https://ebible.org/porbr2018/EPH04.htm#V32"
+    },
+    {
+      "id": "col-3-23-24",
+      "theme": "work",
+      "reference": "Colossenses 3:23–24",
+      "text": "E tudo quanto fizerdes, fazei de coração, como para o Senhor, e não para as pessoas. Pois sabeis que recebereis do Senhor a recompensa da herança, porque servis ao Senhor Cristo.",
+      "source": "https://ebible.org/porbr2018/COL03.htm#V23"
+    },
+    {
+      "id": "1ti-6-9-10",
+      "theme": "money",
+      "reference": "1 Timóteo 6:9–10",
+      "text": "Mas os que querem ser ricos caem em tentação, armadilha, e em muitos desejos insensatos e nocivos, que afundam as pessoas na destruição e perdição. Pois o amor ao dinheiro é raiz de todos os tipos de males. Alguns o cobiçam, e então se desviaram da fé, e perfuraram a si mesmos com muitas dores.",
+      "source": "https://ebible.org/porbr2018/1TI06.htm#V9"
+    },
+    {
+      "id": "pro-3-5-6",
+      "theme": "decisions",
+      "reference": "Provérbios 3:5–6",
+      "text": "Confia no SENHOR com todo o teu coração; e não te apoies em teu próprio entendimento. Dá reconhecimento a ele em todas os teus caminhos; e ele endireitará tuas veredas.",
+      "source": "https://ebible.org/porbr2018/PRO03.htm#V5"
+    },
+    {
+      "id": "isa-26-3-4",
+      "theme": "rest",
+      "reference": "Isaías 26:3–4",
+      "text": "Tu guardarás em completa paz aquele que tem firme entendimento, pois ele confia em ti. Confiai no SENHOR para sempre, pois no SENHOR DEUS está a rocha eterna.",
+      "source": "https://ebible.org/porbr2018/ISA26.htm#V3"
+    },
+    {
+      "id": "psa-42-11",
+      "theme": "hardship",
+      "reference": "Salmos 42:11",
+      "text": "Por que estás abatida, minha alma? E por que te inquietas em mim? Espera em Deus; porque eu ainda o louvarei; ele é a minha salvação e o meu Deus.",
+      "source": "https://ebible.org/porbr2018/PSA042.htm#V11"
+    },
+    {
+      "id": "col-3-17",
+      "theme": "gratitude",
+      "reference": "Colossenses 3:17",
+      "text": "E tudo quanto fizerdes, por palavras ou por obras, fazei tudo no nome do Senhor Jesus, dando por meio dele graças ao Deus e Pai.",
+      "source": "https://ebible.org/porbr2018/COL03.htm#V17"
+    },
+    {
+      "id": "eph-2-8-10",
+      "theme": "faith",
+      "reference": "Efésios 2:8–10",
+      "text": "Porque pela graça sois salvos, por meio da fé; e isto não vem de vós; é dom de Deus; não por obras, para que ninguém tenha orgulho de si mesmo. Pois nós fomos feitos por ele, criados em Cristo Jesus para as boas obras, que Deus preparou para que nelas andássemos.",
+      "source": "https://ebible.org/porbr2018/EPH02.htm#V8"
+    },
+    {
+      "id": "gal-6-2",
+      "theme": "family",
+      "reference": "Gálatas 6:2",
+      "text": "Levai as cargas uns dos outros, e assim cumprireis a lei de Cristo.",
+      "source": "https://ebible.org/porbr2018/GAL06.htm#V2"
+    },
+    {
+      "id": "col-3-12-14",
+      "theme": "relationships",
+      "reference": "Colossenses 3:12–14",
+      "text": "Por isso, como escolhidos de Deus, santos e amados, revesti-vos de sentimentos de misericórdia, bondade, humildade, mansidão, e paciência. Suportai-vos uns aos outros, e perdoai-vos uns aos outros, se alguém tiver queixa contra outro. Como Cristo vos perdoou, assim também fazei . E acima de tudo isto, revesti-vos do amor, que é o vínculo da perfeição.",
+      "source": "https://ebible.org/porbr2018/COL03.htm#V12"
+    },
+    {
+      "id": "pro-12-11",
+      "theme": "work",
+      "reference": "Provérbios 12:11",
+      "text": "Aquele que lavra sua terra se saciará de pão; mas o que segue coisas inúteis tem falta de juízo.",
+      "source": "https://ebible.org/porbr2018/PRO12.htm#V11"
+    },
+    {
+      "id": "1ti-6-17-19",
+      "theme": "money",
+      "reference": "1 Timóteo 6:17–19",
+      "text": "Manda aos ricos desta era que não sejam soberbos, nem ponham a esperança na incerteza das riquezas, mas sim no Deus vivo, que nos dá abundantemente todas as coisas que são para alegria; que façam o bem, sejam ricos em boas obras, dispostos a compartilhar, e generosos. que acumulem para si mesmos um bom fundamento para o futuro, para que obtenham a vida eterna.",
+      "source": "https://ebible.org/porbr2018/1TI06.htm#V17"
+    },
+    {
+      "id": "pro-4-23",
+      "theme": "decisions",
+      "reference": "Provérbios 4:23",
+      "text": "Acima de tudo o que se deve guardar, guarda o teu coração; porque dele procedem as saídas da vida.",
+      "source": "https://ebible.org/porbr2018/PRO04.htm#V23"
+    },
+    {
+      "id": "mat-11-28-30",
+      "theme": "rest",
+      "reference": "Mateus 11:28–30",
+      "text": "Vinde a mim todos vós que estais cansados e sobrecarregados, e eu vos farei descansar. Tomai sobre vós o meu jugo e aprendei de mim, porque sou manso e humilde de coração; e encontrareis descanso para as vossas almas. Pois o meu jugo é suave, e minha carga é leve.",
+      "source": "https://ebible.org/porbr2018/MAT11.htm#V28"
+    },
+    {
+      "id": "rom-5-3-5",
+      "theme": "hardship",
+      "reference": "Romanos 5:3–5",
+      "text": "E não somente isso , mas também nos alegramos nas tribulações, sabendo que a tribulação produz paciência; a paciência produz experiência, e a experiência produz esperança. E a esperança não frustra, porque o amor de Deus está derramado em nossos corações pelo Espírito Santo que nos foi dado.",
+      "source": "https://ebible.org/porbr2018/ROM05.htm#V3"
+    },
+    {
+      "id": "psa-118-24",
+      "theme": "gratitude",
+      "reference": "Salmos 118:24",
+      "text": "Este é o dia em que o SENHOR agiu; alegremos e enchamos de alegria nele.",
+      "source": "https://ebible.org/porbr2018/PSA118.htm#V24"
+    },
+    {
+      "id": "col-4-2-4",
+      "theme": "faith",
+      "reference": "Colossenses 4:2–4",
+      "text": "Perseverai na oração, vigiando nela com gratidão. Orai também ao mesmo tempo por nós, para que Deus nos abra uma porta para a palavra, para que falemos do mistério de Cristo, mistério pelo qual estou preso. Para que eu o anuncie claramente, como devo falar.",
+      "source": "https://ebible.org/porbr2018/COL04.htm#V2"
+    },
+    {
+      "id": "deu-6-4-7",
+      "theme": "family",
+      "reference": "Deuteronômio 6:4–7",
+      "text": "Ouve, Israel: o SENHOR nosso Deus, o SENHOR um é: E Amarás ao SENHOR teu Deus de todo teu coração, e de toda tua alma, e com todo tua poder. E estas palavras que eu te mando hoje, estarão sobre teu coração: E as repetirás a teus filhos, e falarás delas estando em tua casa, e andando pelo caminho, e ao deitar-te, e quando te levantes:",
+      "source": "https://ebible.org/porbr2018/DEU06.htm#V4"
+    },
+    {
+      "id": "rom-12-9-13",
+      "theme": "relationships",
+      "reference": "Romanos 12:9–13",
+      "text": "O amor seja sem hipocrisia. Odiai o mal, e apegai-vos ao bem. Amai-vos cordialmente uns aos outros com amor de irmãos, preferindo honrar uns aos outros. Não sejais vagarosos em mostrardes empenho. Sede fervorosos de espírito. Servi ao Senhor. Alegrai-vos na esperança. Sede pacientes na aflição. Perseverai na oração. Compartilhai com os santos em suas necessidades. Buscai ser hospitaleiros.",
+      "source": "https://ebible.org/porbr2018/ROM12.htm#V9"
+    },
+    {
+      "id": "psa-90-16-17",
+      "theme": "work",
+      "reference": "Salmos 90:16–17",
+      "text": "Que tua obra apareça aos teus servos, e tua glória sobre seus filhos. E que o agrado do SENHOR nosso Deus seja sobre nós; e confirma as obras de nossas mãos sobre nós; sim, a obra de nossas mãos, confirma!",
+      "source": "https://ebible.org/porbr2018/PSA090.htm#V16"
+    },
+    {
+      "id": "php-4-11-13",
+      "theme": "money",
+      "reference": "Filipenses 4:11–13",
+      "text": "Não digo isso por causa de alguma necessidade, pois já aprendi a contentar-me com o que tenho. Sei estar humilhado, e sei ter em abundância; em toda maneira e em todas as coisas estou instruído, tanto a estar farto, como a ter fome; tanto a ter em abundância, como a sofrer necessidade. Posso todas as coisas em Cristo que me fortalece.",
+      "source": "https://ebible.org/porbr2018/PHP04.htm#V11"
+    },
+    {
+      "id": "mic-6-8",
+      "theme": "decisions",
+      "reference": "Miqueias 6:8",
+      "text": "Ele já declarou a ti, ó ser humano, o que é bom; e que mais o SENHOR pede de ti, a não ser fazer o que é justo, amar a bondade, e andar humildemente com teu Deus?",
+      "source": "https://ebible.org/porbr2018/MIC06.htm#V8"
+    },
+    {
+      "id": "psa-4-8",
+      "theme": "rest",
+      "reference": "Salmos 4:8",
+      "text": "Eu deitarei, e dormirei em paz; porque só tu, SENHOR, me fazes descansar seguro.",
+      "source": "https://ebible.org/porbr2018/PSA004.htm#V8"
+    },
+    {
+      "id": "2co-4-16-18",
+      "theme": "hardship",
+      "reference": "2 Coríntios 4:16–18",
+      "text": "Por isso não desfalecemos; mas ainda que nosso ser exterior se destrua, todavia o interior se renova a cada dia. Porque nossa leve e momentânea aflição nos produz um peso eterno de excelentíssima glória. Por isso nós não prestamos atenção para as coisas visíveis, mas sim para as invisíveis; porque as coisas visíveis são temporárias, mas as invisíveis são eternas.",
+      "source": "https://ebible.org/porbr2018/2CO04.htm#V16"
+    },
+    {
+      "id": "heb-13-15-16",
+      "theme": "gratitude",
+      "reference": "Hebreus 13:15–16",
+      "text": "Portanto, por meio dele, ofereçamos continuamente sacrifício de louvor a Deus, isto é, o fruto dos lábios que declaram honra ao seu nome. E não vos esqueçais de fazer o bem e de compartilhar, pois Deus se agrada com tais sacrifícios.",
+      "source": "https://ebible.org/porbr2018/HEB13.htm#V15"
+    },
+    {
+      "id": "jas-5-13",
+      "theme": "faith",
+      "reference": "Tiago 5:13",
+      "text": "Alguém entre vós está aflito? Ore. Alguém está contente? Cante louvores.",
+      "source": "https://ebible.org/porbr2018/JAS05.htm#V13"
+    },
+    {
+      "id": "1pe-4-8",
+      "theme": "family",
+      "reference": "1 Pedro 4:8",
+      "text": "Mas, acima de tudo, tende fervoroso amor uns para com os outros; porque o amor cobrirá uma multidão de pecados.",
+      "source": "https://ebible.org/porbr2018/1PE04.htm#V8"
+    },
+    {
+      "id": "rom-12-15-16",
+      "theme": "relationships",
+      "reference": "Romanos 12:15–16",
+      "text": "Alegrai-vos com os que se alegram, e chorai com os que choram. Estimai-vos uns aos outros como semelhantes. Não fiqueis pensando com soberba; em vez disso, acompanhai-vos dos humildes. Não sejais sábios em vós mesmos.",
+      "source": "https://ebible.org/porbr2018/ROM12.htm#V15"
+    },
+    {
+      "id": "ecc-3-12-13",
+      "theme": "work",
+      "reference": "Eclesiastes 3:12–13",
+      "text": "Tenho percebido que não há coisa melhor para eles do que se alegrarem e fazerem o bem em suas vidas; E também que todo homem coma, beba e fique contente com todo o seu trabalho; isto é um presente de Deus.",
+      "source": "https://ebible.org/porbr2018/ECC03.htm#V12"
+    },
+    {
+      "id": "pro-15-16-17",
+      "theme": "money",
+      "reference": "Provérbios 15:16–17",
+      "text": "Melhor é o pouco tendo o temor ao SENHOR, do que um grande tesouro tendo em si inquietação. Melhor é a comida de hortaliças tendo amor, do que a de boi cevado tendo em si ódio.",
+      "source": "https://ebible.org/porbr2018/PRO15.htm#V16"
+    },
+    {
+      "id": "rom-12-1-2",
+      "theme": "decisions",
+      "reference": "Romanos 12:1–2",
+      "text": "Rogo-vos, pois, irmãos, pelas misericórdias de Deus, que apresenteis os vossos corpos como sacrifício vivo, santo e agradável a Deus, que é o vosso culto racional. E não vos conformeis com a presente era; mas transformai-vos pela renovação da vossa mentalidade, para que experimenteis qual seja a boa, agradável, e perfeita vontade de Deus.",
+      "source": "https://ebible.org/porbr2018/ROM12.htm#V1"
+    },
+    {
+      "id": "1pe-5-6-7",
+      "theme": "rest",
+      "reference": "1 Pedro 5:6–7",
+      "text": "Humilhai-vos, pois, debaixo da poderosa mão de Deus, para que ele vos exalte no tempo adequado, lançando sobre ele toda a vossa ansiedade; porque ele tem cuidado de vós.",
+      "source": "https://ebible.org/porbr2018/1PE05.htm#V6"
+    },
+    {
+      "id": "mat-5-4",
+      "theme": "hardship",
+      "reference": "Mateus 5:4",
+      "text": "Benditos são os que choram, porque eles serão consolados.",
+      "source": "https://ebible.org/porbr2018/MAT05.htm#V4"
+    },
+    {
+      "id": "jas-1-16-17",
+      "theme": "gratitude",
+      "reference": "Tiago 1:16–17",
+      "text": "Não vos enganeis, meus amados irmãos. Toda boa dádiva e todo dom perfeito vem do alto, e desce do Pai das luzes, em quem não há mudança nem sombra de variação.",
+      "source": "https://ebible.org/porbr2018/JAS01.htm#V16"
+    },
+    {
+      "id": "heb-11-1",
+      "theme": "faith",
+      "reference": "Hebreus 11:1",
+      "text": "Ora, a fé é a certeza das coisas que se esperam, e a prova das coisas que não se veem.",
+      "source": "https://ebible.org/porbr2018/HEB11.htm#V1"
+    },
+    {
+      "id": "1co-16-14",
+      "theme": "family",
+      "reference": "1 Coríntios 16:14",
+      "text": "Todas as vossas coisas sejam feitas em amor.",
+      "source": "https://ebible.org/porbr2018/1CO16.htm#V14"
+    },
+    {
+      "id": "1jn-3-16-18",
+      "theme": "relationships",
+      "reference": "1 João 3:16–18",
+      "text": "Nisto conhecemos o amor: ele deu a sua vida por nós. E nós devemos dar as nossas vidas pelos irmãos. Se alguém tiver bens do mundo, e vir o seu irmão em necessidade, e não se compadecer dele, como pode o amor de Deus estar nele? Meus filhinhos, amemos não de palavra, nem de língua, mas sim com ação e verdade.",
+      "source": "https://ebible.org/porbr2018/1JN03.htm#V16"
+    },
+    {
+      "id": "1co-15-58",
+      "theme": "work",
+      "reference": "1 Coríntios 15:58",
+      "text": "Portanto, meus amados irmãos, sede firmes, imóveis e sempre abundantes na obra do Senhor, sabendo que o vosso trabalho não é vão no Senhor.",
+      "source": "https://ebible.org/porbr2018/1CO15.htm#V58"
+    },
+    {
+      "id": "pro-22-1-2",
+      "theme": "money",
+      "reference": "Provérbios 22:1–2",
+      "text": "É preferível ter um bom nome do que muitas riquezas; e ser favorecido é melhor que a prata e o o ouro. O rico e o pobre se encontram; todos eles foram feitos pelo SENHOR.",
+      "source": "https://ebible.org/porbr2018/PRO22.htm#V1"
+    },
+    {
+      "id": "eph-5-15-17",
+      "theme": "decisions",
+      "reference": "Efésios 5:15–17",
+      "text": "Portanto vede cuidadosamente como vos conduzis, não como tolos, mas sim como sábios; aproveitai o tempo, porque os dias são maus. Por isso, não sejais imprudentes, mas entendei qual é a vontade do Senhor.",
+      "source": "https://ebible.org/porbr2018/EPH05.htm#V15"
+    },
+    {
+      "id": "2th-3-16",
+      "theme": "rest",
+      "reference": "2 Tessalonicenses 3:16",
+      "text": "E o mesmo Senhor da paz vos dê sempre paz em toda maneira. O Senhor seja com todos vós.",
+      "source": "https://ebible.org/porbr2018/2TH03.htm#V16"
+    },
+    {
+      "id": "psa-94-17-19",
+      "theme": "hardship",
+      "reference": "Salmos 94:17–19",
+      "text": "Se o SENHOR não tivesse sido meu socorro, minha alma logo teria vindo a morar no silêncio da morte . Quando eu dizia: Meu pé está escorregando;Tua bondade, ó SENHOR, me sustentava. Quando minhas preocupações se multiplicavam dentro de mim, teus consolos confortaram a minha alma.",
+      "source": "https://ebible.org/porbr2018/PSA094.htm#V17"
+    },
+    {
+      "id": "psa-145-8-10",
+      "theme": "gratitude",
+      "reference": "Salmos 145:8–10",
+      "text": "Piedoso e misericordioso é o SENHOR; ele demora para se irar, e tem grande bondade. O SENHOR é bom para com todos; e suas misericórdias estão sobre todas as obras que ele fez. Todas as tuas obras louvarão a ti, SENHOR; e teus santos te bendirão.",
+      "source": "https://ebible.org/porbr2018/PSA145.htm#V8"
+    },
+    {
+      "id": "1jn-5-14-15",
+      "theme": "faith",
+      "reference": "1 João 5:14–15",
+      "text": "E esta é a confiança que diante dele: que se pedirmos alguma coisa conforme a sua vontade, ele nos ouve. E se sabemos que nos ouve em tudo o que pedimos, sabemos que alcançamos as coisas que lhe pedimos.",
+      "source": "https://ebible.org/porbr2018/1JN05.htm#V14"
+    },
+    {
+      "id": "rut-1-16-17",
+      "theme": "family",
+      "reference": "Rute 1:16–17",
+      "text": "E Rute respondeu: Não me rogues que te deixe, e que me aparte de ti: porque de onde quer que tu fores, irei eu; e de onde quer que viveres, viverei. Teu povo será meu povo, e teu Deus meu Deus. Onde tu morreres, morrerei eu, e ali serei sepultada: assim me faça o SENHOR, e assim me dê, que somente a morte fará separação entre mim e ti.",
+      "source": "https://ebible.org/porbr2018/RUT01.htm#V16"
+    },
+    {
+      "id": "mat-5-44-45",
+      "theme": "relationships",
+      "reference": "Mateus 5:44–45",
+      "text": "Porém eu vos digo: amai vossos inimigos, bendizei os que vos maldizem, fazei bem aos que vos odeiam, e orai pelos que vos maltratam e vos perseguem, Para que sejais filhos de vosso Pai que está nos céus; porque ele faz seu sol sair sobre maus e bons, e chover sobre justos e injustos.",
+      "source": "https://ebible.org/porbr2018/MAT05.htm#V44"
+    },
+    {
+      "id": "heb-6-10",
+      "theme": "work",
+      "reference": "Hebreus 6:10",
+      "text": "Pois Deus não é injusto para se esquecer da vossa obra, e do trabalho do amor que mostrastes para com o nome dele, quando servistes aos santos, e continuais a servir.",
+      "source": "https://ebible.org/porbr2018/HEB06.htm#V10"
+    },
+    {
+      "id": "pro-22-9",
+      "theme": "money",
+      "reference": "Provérbios 22:9",
+      "text": "Quem tem olhos bondosos será abençoado, porque deu de seu pão ao pobre.",
+      "source": "https://ebible.org/porbr2018/PRO22.htm#V9"
+    },
+    {
+      "id": "pro-16-9",
+      "theme": "decisions",
+      "reference": "Provérbios 16:9",
+      "text": "O coração do homem planeja seu caminho, mas é o SENHOR que dirige seus passos.",
+      "source": "https://ebible.org/porbr2018/PRO16.htm#V9"
+    },
+    {
+      "id": "psa-55-22",
+      "theme": "rest",
+      "reference": "Salmos 55:22",
+      "text": "Entrega tuas preocupações ao SENHOR, e ele te sustentará; ele não permitirá que o justo fique caído para sempre.",
+      "source": "https://ebible.org/porbr2018/PSA055.htm#V22"
+    },
+    {
+      "id": "2co-1-3-4",
+      "theme": "hardship",
+      "reference": "2 Coríntios 1:3–4",
+      "text": "Bendito seja o Deus e Pai de nosso Senhor Jesus Cristo, o Pai das misericórdias, e o Deus de toda consolação, Que nos consola em toda aflição nossa, para que também possamos consolar aos que estiverem em alguma aflição, com a consolação com que nós mesmos por Deus somos consolados.",
+      "source": "https://ebible.org/porbr2018/2CO01.htm#V3"
+    },
+    {
+      "id": "col-3-15",
+      "theme": "gratitude",
+      "reference": "Colossenses 3:15",
+      "text": "E a paz de Deus, para a qual também fostes chamados em um só corpo, governe em vossos corações, e sede gratos.",
+      "source": "https://ebible.org/porbr2018/COL03.htm#V15"
+    },
+    {
+      "id": "psa-5-3",
+      "theme": "faith",
+      "reference": "Salmos 5:3",
+      "text": "SENHOR, pela manhã ouvirás minha voz; pela manhã apresentarei meu clamor a ti, e ficarei esperando.",
+      "source": "https://ebible.org/porbr2018/PSA005.htm#V3"
+    },
+    {
+      "id": "psa-127-3",
+      "theme": "family",
+      "reference": "Salmos 127:3",
+      "text": "Eis que os filhos são um presente do SENHOR; o fruto do ventre é uma recompensa.",
+      "source": "https://ebible.org/porbr2018/PSA127.htm#V3"
+    },
+    {
+      "id": "eph-4-1-3",
+      "theme": "relationships",
+      "reference": "Efésios 4:1–3",
+      "text": "Portanto, eu, o prisioneiro no Senhor, rogo-vos que andeis como é digno do chamado com que fostes chamados, com toda humildade e mansidão; com paciência, tolerando uns aos outros em amor. Procurai guardar a unidade do Espírito pelo vínculo da paz.",
+      "source": "https://ebible.org/porbr2018/EPH04.htm#V1"
+    },
+    {
+      "id": "mat-5-16",
+      "theme": "work",
+      "reference": "Mateus 5:16",
+      "text": "Assim brilhe vossa luz diante das pessoas, para que vejam vossas boas obras, e glorifiquem ao vosso Pai, que está nos céus.",
+      "source": "https://ebible.org/porbr2018/MAT05.htm#V16"
+    },
+    {
+      "id": "pro-19-17",
+      "theme": "money",
+      "reference": "Provérbios 19:17",
+      "text": "Quem faz misericórdia ao pobre empresta ao SENHOR; e ele lhe pagará sua recompensa.",
+      "source": "https://ebible.org/porbr2018/PRO19.htm#V17"
+    },
+    {
+      "id": "jas-3-17-18",
+      "theme": "decisions",
+      "reference": "Tiago 3:17–18",
+      "text": "Mas a sabedoria do alto é primeiramente pura, depois pacífica, moderada, tratável, cheia de misericórdia e de bons frutos, imparcial e sem hipocrisia. E o fruto da justiça é semeado na paz para os que praticam a paz.",
+      "source": "https://ebible.org/porbr2018/JAS03.htm#V17"
+    },
+    {
+      "id": "pro-12-25",
+      "theme": "rest",
+      "reference": "Provérbios 12:25",
+      "text": "A ansiedade no coração do homem o abate; mas uma boa palavra o alegra.",
+      "source": "https://ebible.org/porbr2018/PRO12.htm#V25"
+    },
+    {
+      "id": "psa-73-25-26",
+      "theme": "hardship",
+      "reference": "Salmos 73:25–26",
+      "text": "A quem tenho no céu além de ti ? E quando estou contigo, nada há na terra que eu deseje. Minha carne e meu coração desfalecem; porém Deus será a rocha do meu coração e minha porção para sempre.",
+      "source": "https://ebible.org/porbr2018/PSA073.htm#V25"
+    },
+    {
+      "id": "col-2-6-7",
+      "theme": "gratitude",
+      "reference": "Colossenses 2:6–7",
+      "text": "Portanto, assim como recebestes Cristo Jesus, o Senhor, assim também andai nele; com raízes firmes e edificados nele, e confirmados na fé, como fostes ensinados, abundando nela com gratidão.",
+      "source": "https://ebible.org/porbr2018/COL02.htm#V6"
+    },
+    {
+      "id": "rom-8-26-27",
+      "theme": "faith",
+      "reference": "Romanos 8:26–27",
+      "text": "E da mesma maneira também o Espírito ajuda em nossas fraquezas. Pois não sabemos orar como se deve, mas o próprio Espírito intercede por nós com gemidos inexprimíveis. E aquele que examina os corações sabe qual é a intenção do Espírito, pois ele intercede pelos santos, segundo a vontade de Deus.",
+      "source": "https://ebible.org/porbr2018/ROM08.htm#V26"
+    },
+    {
+      "id": "pro-14-26",
+      "theme": "family",
+      "reference": "Provérbios 14:26",
+      "text": "No temor ao SENHOR há forte confiança; e será refúgio para seus filhos.",
+      "source": "https://ebible.org/porbr2018/PRO14.htm#V26"
+    },
+    {
+      "id": "jas-1-19-20",
+      "theme": "relationships",
+      "reference": "Tiago 1:19–20",
+      "text": "Portanto, meus amados irmãos, toda pessoa seja pronta para ouvir, tardia para falar, tardia para se irar; porque a ira humana não cumpre a justiça de Deus.",
+      "source": "https://ebible.org/porbr2018/JAS01.htm#V19"
+    },
+    {
+      "id": "gal-6-9-10",
+      "theme": "work",
+      "reference": "Gálatas 6:9–10",
+      "text": "Porém não cansemos de fazer o bem, pois no tempo devido colheremos, se não desistirmos. Portanto, enquanto temos oportunidade, façamos o bem a todos; mas principalmente aos familiares da fé.",
+      "source": "https://ebible.org/porbr2018/GAL06.htm#V9"
+    },
+    {
+      "id": "2co-9-6-7",
+      "theme": "money",
+      "reference": "2 Coríntios 9:6–7",
+      "text": "Digo , porém isto, que o que semeia pouco, também pouco colherá; e o que semeia generosamente, também generosamente colherá. Cada qual faça como propõe em seu coração, não com tristeza, ou por obrigação; porque Deus ama ao que dá com alegria.",
+      "source": "https://ebible.org/porbr2018/2CO09.htm#V6"
+    },
+    {
+      "id": "col-4-5-6",
+      "theme": "decisions",
+      "reference": "Colossenses 4:5–6",
+      "text": "Convivei com sabedoria com os que estão de fora, aproveitando o tempo oportuno. A vossa palavra seja sempre com graça, temperada com sal, para que saibais como deveis responder a cada um.",
+      "source": "https://ebible.org/porbr2018/COL04.htm#V5"
+    },
+    {
+      "id": "mat-6-33-34",
+      "theme": "rest",
+      "reference": "Mateus 6:33–34",
+      "text": "Mas buscai primeiramente o Reino de Deus e a sua justiça, e todas estas coisas vos serão acrescentadas. Não andeis, pois, ansiosos pelo dia de amanhã, porque o amanhã cuidará de si mesmo. Basta a cada dia o seu mal.",
+      "source": "https://ebible.org/porbr2018/MAT06.htm#V33"
+    },
+    {
+      "id": "isa-41-10",
+      "theme": "hardship",
+      "reference": "Isaías 41:10",
+      "text": "Não temas, porque eu estou contigo; não te assombres, porque eu sou teu Deus. Eu te fortaleço, te ajudo, e te sustento com a minha mão direita de justiça.",
+      "source": "https://ebible.org/porbr2018/ISA41.htm#V10"
+    },
+    {
+      "id": "psa-100-4-5",
+      "theme": "gratitude",
+      "reference": "Salmos 100:4–5",
+      "text": "Entrai pelas portas dele com agradecimento, por seus pátios com canto de louvor; agradecei a ele, e bendizei o seu nome. Porque o SENHOR é bom, sua bondade dura para sempre; e a fidelidade dele continua de geração após geração.",
+      "source": "https://ebible.org/porbr2018/PSA100.htm#V4"
+    },
+    {
+      "id": "psa-139-23-24",
+      "theme": "faith",
+      "reference": "Salmos 139:23–24",
+      "text": "Examina-me, Deus, e conhece meu coração; prova-me, e conhece meus pensamentos. E vê se em mim há algum mau caminho; e guia-me pelo caminho eterno.",
+      "source": "https://ebible.org/porbr2018/PSA139.htm#V23"
+    },
+    {
+      "id": "pro-23-22",
+      "theme": "family",
+      "reference": "Provérbios 23:22",
+      "text": "Ouve a teu pai, que te gerou; e não desprezes a tua mãe, quando ela envelhecer.",
+      "source": "https://ebible.org/porbr2018/PRO23.htm#V22"
+    },
+    {
+      "id": "pro-15-1",
+      "theme": "relationships",
+      "reference": "Provérbios 15:1",
+      "text": "A resposta suave desvia o furor, mas a palavra pesada faz a ira aumentar.",
+      "source": "https://ebible.org/porbr2018/PRO15.htm#V1"
+    },
+    {
+      "id": "eph-4-28",
+      "theme": "work",
+      "reference": "Efésios 4:28",
+      "text": "O que furtava, não furte mais; em vez disso, trabalhe, operando com as mãos o bem, para que tenha o que repartir com o que tiver necessidade.",
+      "source": "https://ebible.org/porbr2018/EPH04.htm#V28"
+    },
+    {
+      "id": "pro-23-4-5",
+      "theme": "money",
+      "reference": "Provérbios 23:4–5",
+      "text": "Não trabalhes exaustivamente para ser rico; modera-te por meio de tua prudência. Porás teus olhos fixos sobre aquilo que é nada? Porque certamente se fará asas, e voará ao céu como uma águia.",
+      "source": "https://ebible.org/porbr2018/PRO23.htm#V4"
+    },
+    {
+      "id": "psa-90-12",
+      "theme": "decisions",
+      "reference": "Salmos 90:12",
+      "text": "Ensina -nos a contar nossos dias de tal maneira que alcancemos um coração sábio.",
+      "source": "https://ebible.org/porbr2018/PSA090.htm#V12"
+    },
+    {
+      "id": "psa-56-3-4",
+      "theme": "rest",
+      "reference": "Salmos 56:3–4",
+      "text": "No dia em que eu tiver medo, eu confiarei em ti. Por causa de Deus eu louvarei sua palavra; confio em Deus, não temerei; o que pode a mera carne fazer contra mim?",
+      "source": "https://ebible.org/porbr2018/PSA056.htm#V3"
+    },
+    {
+      "id": "rom-8-38-39",
+      "theme": "hardship",
+      "reference": "Romanos 8:38–39",
+      "text": "Pois tenho certeza que nem a morte, nem a vida, nem anjos, nem principados, nem poderes, nem o presente, nem o futuro, nem altura, nem profundeza, nem qualquer outra criatura poderá nos separar do amor de Deus, que está em Cristo Jesus, nosso Senhor.",
+      "source": "https://ebible.org/porbr2018/ROM08.htm#V38"
+    },
+    {
+      "id": "psa-95-1-2",
+      "theme": "gratitude",
+      "reference": "Salmos 95:1–2",
+      "text": "Vinde, cantemos alegres ao SENHOR; gritemos de alegria à rocha de nossa salvação. Cheguemos adiante de sua presença com agradecimentos; cantemos salmos a ele.",
+      "source": "https://ebible.org/porbr2018/PSA095.htm#V1"
+    },
+    {
+      "id": "jhn-15-4-5",
+      "theme": "faith",
+      "reference": "João 15:4–5",
+      "text": "Estai em mim, e eu em vós; como o ramo de si mesmo não pode dar fruto, se não estiver na videira, assim vós também não, se não estiverdes em mim. Eu sou a videira, vós sois os ramos; quem está em mim, e eu nele, esse dá muito fruto; porque sem mim nada podeis fazer.",
+      "source": "https://ebible.org/porbr2018/JHN15.htm#V4"
+    },
+    {
+      "id": "pro-24-3-4",
+      "theme": "family",
+      "reference": "Provérbios 24:3–4",
+      "text": "Pela sabedoria a casa é edificada, e pelo entendimento ela fica firme; E pelo conhecimento os cômodos se encherão de riquezas preciosas e agradáveis.",
+      "source": "https://ebible.org/porbr2018/PRO24.htm#V3"
+    },
+    {
+      "id": "ecc-4-9-10",
+      "theme": "relationships",
+      "reference": "Eclesiastes 4:9–10",
+      "text": "Dois são melhores do que um, porque eles têm melhor recompensa por seu trabalho. Porque se vierem a cair, um levanta ao seu companheiro; mas ai daquele que está só, pois caso caia, não há outro que o levante.",
+      "source": "https://ebible.org/porbr2018/ECC04.htm#V9"
+    },
+    {
+      "id": "1pe-4-10-11",
+      "theme": "work",
+      "reference": "1 Pedro 4:10–11",
+      "text": "Cada um sirva aos outros segundo o dom que recebeu, como bons administradores da variada graça de Deus. Se alguém fala, que seja como as palavras de Deus; se alguém serve, que sirva segundo a força que Deus dá; a fim de que em tudo Deus seja glorificado por meio de Jesus Cristo. E a ele pertencem a glória e o poder para todo o sempre, Amém!",
+      "source": "https://ebible.org/porbr2018/1PE04.htm#V10"
+    },
+    {
+      "id": "luk-12-15",
+      "theme": "money",
+      "reference": "Lucas 12:15",
+      "text": "E disse-lhes: Olhai, e tomai cuidado com a ganância; porque a vida de alguém não consiste na abundância dos bens que possui.",
+      "source": "https://ebible.org/porbr2018/LUK12.htm#V15"
+    },
+    {
+      "id": "pro-15-22",
+      "theme": "decisions",
+      "reference": "Provérbios 15:22",
+      "text": "Os planos fracassam quando não há bom conselho; mas com abundância de conselheiros eles se confirmam.",
+      "source": "https://ebible.org/porbr2018/PRO15.htm#V22"
+    },
+    {
+      "id": "psa-62-5-6",
+      "theme": "rest",
+      "reference": "Salmos 62:5–6",
+      "text": "Tu, porém, ó minha alma, aquieta-te em Deus; porque ele é minha esperança. Certamente ele é minha rocha, minha salvação e meu refúgio; não me abalarei.",
+      "source": "https://ebible.org/porbr2018/PSA062.htm#V5"
+    },
+    {
+      "id": "rev-21-3-4",
+      "theme": "hardship",
+      "reference": "Apocalipse 21:3–4",
+      "text": "E eu ouvi uma grande voz do céu, dizendo: “Eis que o tabernáculo de Deus está com os seres humanos; e com eles habitará, e eles serão seu povo, e o próprio Deus estará com eles, e será seu Deus. E Deus limpará toda lágrima dos olhos deles; e não haverá mais morte, nem pranto, nem clamor, nem mais haverá dor; porque as primeiras coisas já passaram.”",
+      "source": "https://ebible.org/porbr2018/REV21.htm#V3"
+    },
+    {
+      "id": "php-4-4-5",
+      "theme": "gratitude",
+      "reference": "Filipenses 4:4–5",
+      "text": "Alegrai-vos sempre no Senhor. Volto a dizer: alegrai-vos. A vossa bondade seja conhecida por todas as pessoas. Perto está o Senhor.",
+      "source": "https://ebible.org/porbr2018/PHP04.htm#V4"
+    },
+    {
+      "id": "rom-15-13",
+      "theme": "faith",
+      "reference": "Romanos 15:13",
+      "text": "O Deus da esperança vos encha de toda alegria e paz na fé, para que abundeis em esperança no poder do Espírito Santo.",
+      "source": "https://ebible.org/porbr2018/ROM15.htm#V13"
+    }
+  ]
+}

@@ -1,0 +1,815 @@
+{
+  "translation": {
+    "id": "luther1912",
+    "language": "de",
+    "name": "Lutherbibel 1912",
+    "abbreviation": "LUT1912",
+    "edition": "1912 (deu1912)",
+    "license": "Public domain",
+    "source": "https://ebible.org/deu1912/"
+  },
+  "provenance": {
+    "imported_on": "2026-11-04",
+    "archive": "https://ebible.org/Scriptures/deu1912_html.zip",
+    "archive_sha256": "9805d8dc7e0c0cd9e3f1263886f99c2fbdc3c36ed747fe59a547c61d434948aa"
+  },
+  "themes": [
+    {
+      "id": "family",
+      "name": "Familie und Zuhause"
+    },
+    {
+      "id": "relationships",
+      "name": "Beziehungen"
+    },
+    {
+      "id": "work",
+      "name": "Arbeit und Berufung"
+    },
+    {
+      "id": "money",
+      "name": "Geld und Großzügigkeit"
+    },
+    {
+      "id": "decisions",
+      "name": "Entscheidungen und Wegweisung"
+    },
+    {
+      "id": "rest",
+      "name": "Sorgen und Ruhe"
+    },
+    {
+      "id": "hardship",
+      "name": "Schwere Zeiten und Trauer"
+    },
+    {
+      "id": "gratitude",
+      "name": "Freude und Dankbarkeit"
+    },
+    {
+      "id": "faith",
+      "name": "Glaube und Gebet"
+    }
+  ],
+  "labels": {
+    "context": "Kapitel lesen"
+  },
+  "verses": [
+    {
+      "id": "pro-1-8-9",
+      "theme": "family",
+      "reference": "Sprüche 1,8–9",
+      "text": "Mein Kind, gehorche der Zucht deines Vaters und verlaß nicht das Gebot deiner Mutter. Denn solches ist ein schöner Schmuck deinem Haupt und eine Kette an deinem Hals.",
+      "source": "https://ebible.org/deu1912/PRO01.htm#V8"
+    },
+    {
+      "id": "rom-13-8-10",
+      "theme": "relationships",
+      "reference": "Römer 13,8–10",
+      "text": "Seid niemand nichts schuldig, als daß ihr euch untereinander liebt; denn wer den andern liebt, der hat das Gesetz erfüllt. Denn was da gesagt ist: “Du sollst nicht ehebrechen; du sollst nicht töten; du sollst nicht stehlen; du sollst nicht falsch Zeugnis geben; dich soll nichts gelüsten”, und so ein anderes Gebot mehr ist, das wird in diesen Worten zusammengefaßt: “Du sollst deinen Nächsten lieben wie dich selbst.” Denn Liebe tut dem Nächsten nichts Böses. So ist nun die Liebe des Gesetzes Erfüllung.",
+      "source": "https://ebible.org/deu1912/ROM13.htm#V8"
+    },
+    {
+      "id": "pro-16-3",
+      "theme": "work",
+      "reference": "Sprüche 16,3",
+      "text": "Befiehl dem HERRN deine Werke, so werden deine Anschläge fortgehen.",
+      "source": "https://ebible.org/deu1912/PRO16.htm#V3"
+    },
+    {
+      "id": "heb-13-5-6",
+      "theme": "money",
+      "reference": "Hebräer 13,5–6",
+      "text": "Der Wandel sei ohne Geiz; und laßt euch genügen an dem, was da ist. Denn er hat gesagt: “Ich will dich nicht verlassen noch versäumen”; also daß wir dürfen sagen: “Der HERR ist mein Helfer, ich will mich nicht fürchten; was sollte mir ein Mensch tun?”",
+      "source": "https://ebible.org/deu1912/HEB13.htm#V5"
+    },
+    {
+      "id": "jas-1-5",
+      "theme": "decisions",
+      "reference": "Jakobus 1,5",
+      "text": "So aber jemand unter euch Weisheit mangelt, der bitte Gott, der da gibt einfältig jedermann und rücket's niemand auf, so wird sie ihm gegeben werden.",
+      "source": "https://ebible.org/deu1912/JAS01.htm#V5"
+    },
+    {
+      "id": "jhn-14-27",
+      "theme": "rest",
+      "reference": "Johannes 14,27",
+      "text": "Den Frieden lasse ich euch, meinen Frieden gebe ich euch. Nicht gebe ich euch, wie die Welt gibt. Euer Herz erschrecke nicht und fürchte sich nicht.",
+      "source": "https://ebible.org/deu1912/JHN14.htm#V27"
+    },
+    {
+      "id": "psa-34-17-18",
+      "theme": "hardship",
+      "reference": "Psalm 34,17–18",
+      "text": "Wenn die Gerechten schreien, so hört der HERR und errettet sie aus all ihrer Not. Der HERR ist nahe bei denen, die zerbrochnes Herzens sind, und hilft denen, die ein zerschlagen Gemüt haben.",
+      "source": "https://ebible.org/deu1912/PSA034.htm#V17"
+    },
+    {
+      "id": "1th-5-16-18",
+      "theme": "gratitude",
+      "reference": "1. Thessalonicher 5,16–18",
+      "text": "Seid allezeit fröhlich, betet ohne Unterlaß, seid dankbar in allen Dingen; denn das ist der Wille Gottes in Christo Jesu an euch.",
+      "source": "https://ebible.org/deu1912/1TH05.htm#V16"
+    },
+    {
+      "id": "heb-4-14-16",
+      "theme": "faith",
+      "reference": "Hebräer 4,14–16",
+      "text": "Dieweil wir denn einen großen Hohenpriester haben, Jesum, den Sohn Gottes, der gen Himmel gefahren ist, so lasset uns halten an dem Bekenntnis. Denn wir haben nicht einen Hohenpriester, der nicht könnte Mitleiden haben mit unsern Schwachheiten, sondern der versucht ist allenthalben gleichwie wir, doch ohne Sünde. Darum laßt uns hinzutreten mit Freudigkeit zu dem Gnadenstuhl, auf daß wir Barmherzigkeit empfangen und Gnade finden auf die Zeit, wenn uns Hilfe not sein wird.",
+      "source": "https://ebible.org/deu1912/HEB04.htm#V14"
+    },
+    {
+      "id": "eph-6-1-3",
+      "theme": "family",
+      "reference": "Epheser 6,1–3",
+      "text": "Ihr Kinder, seid gehorsam euren Eltern in dem HERRN, denn das ist billig. “Ehre Vater und Mutter,” das ist das erste Gebot, das Verheißung hat: “auf daß dir's wohl gehe und du lange lebest auf Erden.”",
+      "source": "https://ebible.org/deu1912/EPH06.htm#V1"
+    },
+    {
+      "id": "1co-13-4-7",
+      "theme": "relationships",
+      "reference": "1. Korinther 13,4–7",
+      "text": "Die Liebe ist langmütig und freundlich, die Liebe eifert nicht, die Liebe treibt nicht Mutwillen, sie blähet sich nicht, sie stellet sich nicht ungebärdig, sie suchet nicht das Ihre, sie läßt sich nicht erbittern, sie rechnet das Böse nicht zu, sie freut sich nicht der Ungerechtigkeit, sie freut sich aber der Wahrheit; sie verträgt alles, sie glaubet alles, sie hoffet alles, sie duldet alles.",
+      "source": "https://ebible.org/deu1912/1CO13.htm#V4"
+    },
+    {
+      "id": "pro-14-23",
+      "theme": "work",
+      "reference": "Sprüche 14,23",
+      "text": "Wo man arbeitet, da ist genug; wo man aber mit Worten umgeht, da ist Mangel.",
+      "source": "https://ebible.org/deu1912/PRO14.htm#V23"
+    },
+    {
+      "id": "1ti-6-6-8",
+      "theme": "money",
+      "reference": "1. Timotheus 6,6–8",
+      "text": "Es ist aber ein großer Gewinn, wer gottselig ist und lässet sich genügen. Denn wir haben nichts in die Welt gebracht; darum offenbar ist, wir werden auch nichts hinausbringen. Wenn wir aber Nahrung und Kleider haben, so lasset uns genügen.",
+      "source": "https://ebible.org/deu1912/1TI06.htm#V6"
+    },
+    {
+      "id": "psa-119-130",
+      "theme": "decisions",
+      "reference": "Psalm 119,130",
+      "text": "Wenn dein Wort offenbar wird, so erfreut es und macht klug die Einfältigen.",
+      "source": "https://ebible.org/deu1912/PSA119.htm#V130"
+    },
+    {
+      "id": "php-4-6-7",
+      "theme": "rest",
+      "reference": "Philipper 4,6–7",
+      "text": "Sorget nichts! sondern in allen Dingen lasset eure Bitten im Gebet und Flehen mit Danksagung vor Gott kund werden. Und der Friede Gottes, welcher höher ist denn alle Vernunft, bewahre eure Herzen und Sinne in Christo Jesu!",
+      "source": "https://ebible.org/deu1912/PHP04.htm#V6"
+    },
+    {
+      "id": "lam-3-22-24",
+      "theme": "hardship",
+      "reference": "Klagelieder 3,22–24",
+      "text": "Die Güte des HERRN ist's, daß wir nicht gar aus sind; seine Barmherzigkeit hat noch kein Ende, sondern sie ist alle Morgen neu, und deine Treue ist groß. Der HERR ist mein Teil, spricht meine Seele; darum will ich auf ihn hoffen.",
+      "source": "https://ebible.org/deu1912/LAM03.htm#V22"
+    },
+    {
+      "id": "psa-107-1",
+      "theme": "gratitude",
+      "reference": "Psalm 107,1",
+      "text": "Danket dem HERRN; denn er ist freundlich, und seine Güte währet ewiglich.",
+      "source": "https://ebible.org/deu1912/PSA107.htm#V1"
+    },
+    {
+      "id": "psa-145-18-19",
+      "theme": "faith",
+      "reference": "Psalm 145,18–19",
+      "text": "Der HERR ist nahe allen, die ihn anrufen, allen, die ihn mit Ernst anrufen. Er tut, was die Gottesfürchtigen begehren, und hört ihr Schreien und hilft ihnen.",
+      "source": "https://ebible.org/deu1912/PSA145.htm#V18"
+    },
+    {
+      "id": "eph-6-4",
+      "theme": "family",
+      "reference": "Epheser 6,4",
+      "text": "Und ihr Väter, reizet eure Kinder nicht zum Zorn, sondern zieht sie auf in der Vermahnung zum HERRN.",
+      "source": "https://ebible.org/deu1912/EPH06.htm#V4"
+    },
+    {
+      "id": "eph-4-32",
+      "theme": "relationships",
+      "reference": "Epheser 4,32",
+      "text": "Seid aber untereinander freundlich, herzlich und vergebet einer dem andern, gleichwie Gott euch auch vergeben hat in Christo.",
+      "source": "https://ebible.org/deu1912/EPH04.htm#V32"
+    },
+    {
+      "id": "col-3-23-24",
+      "theme": "work",
+      "reference": "Kolosser 3,23–24",
+      "text": "Alles, was ihr tut, das tut von Herzen als dem HERRN und nicht den Menschen, und wisset, daß ihr von dem HERRN empfangen werdet die Vergeltung des Erbes; denn ihr dienet dem HERRN Christus.",
+      "source": "https://ebible.org/deu1912/COL03.htm#V23"
+    },
+    {
+      "id": "1ti-6-9-10",
+      "theme": "money",
+      "reference": "1. Timotheus 6,9–10",
+      "text": "Denn die da reich werden wollen, die fallen in Versuchung und Stricke und viel törichte und schädliche Lüste, welche versenken die Menschen ins Verderben und Verdammnis. Denn Geiz ist eine Wurzel alles Übels; das hat etliche gelüstet und sind vom Glauben irregegangen und machen sich selbst viel Schmerzen.",
+      "source": "https://ebible.org/deu1912/1TI06.htm#V9"
+    },
+    {
+      "id": "pro-3-5-6",
+      "theme": "decisions",
+      "reference": "Sprüche 3,5–6",
+      "text": "Verlaß dich auf den HERRN von ganzem Herzen und verlaß dich nicht auf deinen Verstand; sondern gedenke an ihn in allen deinen Wegen, so wird er dich recht führen.",
+      "source": "https://ebible.org/deu1912/PRO03.htm#V5"
+    },
+    {
+      "id": "isa-26-3-4",
+      "theme": "rest",
+      "reference": "Jesaja 26,3–4",
+      "text": "Du erhältst stets Frieden nach gewisser Zusage; denn man verläßt sich auf dich. Verlasset euch auf den HERRN ewiglich; denn Gott der HERR ist ein Fels ewiglich.",
+      "source": "https://ebible.org/deu1912/ISA26.htm#V3"
+    },
+    {
+      "id": "psa-42-11",
+      "theme": "hardship",
+      "reference": "Psalm 42,11",
+      "text": "Was betrübst du dich, meine Seele, und bist so unruhig in mir? Harre auf Gott! denn ich werde ihm noch danken, daß er meines Angesichts Hilfe und mein Gott ist.",
+      "source": "https://ebible.org/deu1912/PSA042.htm#V11"
+    },
+    {
+      "id": "col-3-17",
+      "theme": "gratitude",
+      "reference": "Kolosser 3,17",
+      "text": "Und alles, was ihr tut mit Worten oder mit Werken, das tut alles in dem Namen des HERRN Jesu, und danket Gott und dem Vater durch ihn.",
+      "source": "https://ebible.org/deu1912/COL03.htm#V17"
+    },
+    {
+      "id": "eph-2-8-10",
+      "theme": "faith",
+      "reference": "Epheser 2,8–10",
+      "text": "Denn aus Gnade seid ihr selig geworden durch den Glauben, und das nicht aus euch: Gottes Gabe ist es, nicht aus den Werken, auf daß sich nicht jemand rühme. Denn wir sind sein Werk, geschaffen in Christo Jesu zu guten Werken, zu welchen Gott uns zuvor bereitet hat, daß wir darin wandeln sollen.",
+      "source": "https://ebible.org/deu1912/EPH02.htm#V8"
+    },
+    {
+      "id": "gal-6-2",
+      "theme": "family",
+      "reference": "Galater 6,2",
+      "text": "Einer trage des andern Last, so werdet ihr das Gesetz Christi erfüllen.",
+      "source": "https://ebible.org/deu1912/GAL06.htm#V2"
+    },
+    {
+      "id": "col-3-12-14",
+      "theme": "relationships",
+      "reference": "Kolosser 3,12–14",
+      "text": "So ziehet nun an, als die Auserwählten Gottes, Heiligen und Geliebten, herzliches Erbarmen, Freundlichkeit, Demut, Sanftmut, Geduld; und vertrage einer den andern und vergebet euch untereinander, so jemand Klage hat wider den andern; gleichwie Christus euch vergeben hat, also auch ihr. Über alles aber ziehet an die Liebe, die da ist das Band der Vollkommenheit.",
+      "source": "https://ebible.org/deu1912/COL03.htm#V12"
+    },
+    {
+      "id": "pro-12-11",
+      "theme": "work",
+      "reference": "Sprüche 12,11",
+      "text": "Wer seinen Acker baut, der wird Brot die Fülle haben; wer aber unnötigen Sachen nachgeht, der ist ein Narr.",
+      "source": "https://ebible.org/deu1912/PRO12.htm#V11"
+    },
+    {
+      "id": "1ti-6-17-19",
+      "theme": "money",
+      "reference": "1. Timotheus 6,17–19",
+      "text": "Den Reichen von dieser Welt gebiete, daß sie nicht stolz seien, auch nicht hoffen auf den ungewissen Reichtum, sondern auf den lebendigen Gott, der uns dargibt reichlich, allerlei zu genießen; daß sie Gutes tun, reich werden an guten Werken, gern geben, behilflich seien, Schätze sammeln, sich selbst einen guten Grund aufs Zukünftige, daß sie ergreifen das wahre Leben.",
+      "source": "https://ebible.org/deu1912/1TI06.htm#V17"
+    },
+    {
+      "id": "pro-4-23",
+      "theme": "decisions",
+      "reference": "Sprüche 4,23",
+      "text": "Behüte dein Herz mit allem Fleiß; denn daraus geht das Leben.",
+      "source": "https://ebible.org/deu1912/PRO04.htm#V23"
+    },
+    {
+      "id": "mat-11-28-30",
+      "theme": "rest",
+      "reference": "Matthäus 11,28–30",
+      "text": "Kommet her zu mir alle, die ihr mühselig und beladen seid; ich will euch erquicken. Nehmet auf euch mein Joch und lernet von mir; denn ich bin sanftmütig und von Herzen demütig; so werdet ihr Ruhe finden für eure Seelen. Denn mein Joch ist sanft, und meine Last ist leicht.",
+      "source": "https://ebible.org/deu1912/MAT11.htm#V28"
+    },
+    {
+      "id": "rom-5-3-5",
+      "theme": "hardship",
+      "reference": "Römer 5,3–5",
+      "text": "Nicht allein aber das, sondern wir rühmen uns auch der Trübsale, dieweil wir wissen, daß Trübsal Geduld bringt; Geduld aber bringt Erfahrung; Erfahrung aber bringt Hoffnung; Hoffnung aber läßt nicht zu Schanden werden. Denn die Liebe Gottes ist ausgegossen in unser Herz durch den heiligen Geist, welcher uns gegeben ist.",
+      "source": "https://ebible.org/deu1912/ROM05.htm#V3"
+    },
+    {
+      "id": "psa-118-24",
+      "theme": "gratitude",
+      "reference": "Psalm 118,24",
+      "text": "Dies ist der Tag, den der HERR macht; lasset uns freuen und fröhlich darinnen sein.",
+      "source": "https://ebible.org/deu1912/PSA118.htm#V24"
+    },
+    {
+      "id": "col-4-2-4",
+      "theme": "faith",
+      "reference": "Kolosser 4,2–4",
+      "text": "Haltet an am Gebet und wachet in demselben mit Danksagung; und betet zugleich auch für uns, auf daß Gott uns eine Tür des Wortes auftue, zu reden das Geheimnis Christi, darum ich auch gebunden bin, auf daß ich es offenbare, wie ich soll reden.",
+      "source": "https://ebible.org/deu1912/COL04.htm#V2"
+    },
+    {
+      "id": "deu-6-4-7",
+      "theme": "family",
+      "reference": "5. Mose 6,4–7",
+      "text": "Höre, Israel, der HERR, unser Gott, ist ein einiger HERR. Und du sollst den HERRN, deinen Gott, liebhaben von ganzem Herzen, von ganzer Seele, von allem Vermögen. Und diese Worte, die ich dir heute gebiete, sollst du zu Herzen nehmen und sollst sie deinen Kindern einschärfen und davon reden, wenn du in deinem Hause sitzest oder auf dem Wege gehst, wenn du dich niederlegst oder aufstehst,",
+      "source": "https://ebible.org/deu1912/DEU06.htm#V4"
+    },
+    {
+      "id": "rom-12-9-13",
+      "theme": "relationships",
+      "reference": "Römer 12,9–13",
+      "text": "Die Liebe sei nicht falsch. Hasset das Arge, hanget dem Guten an. Die brüderliche Liebe untereinander sei herzlich. Einer komme dem andern mit Ehrerbietung zuvor. Seid nicht träge in dem, was ihr tun sollt. Seid brünstig im Geiste. Schicket euch in die Zeit. Seid fröhlich in Hoffnung, geduldig in Trübsal, haltet an am Gebet. Nehmet euch der Notdurft der Heiligen an. Herberget gern.",
+      "source": "https://ebible.org/deu1912/ROM12.htm#V9"
+    },
+    {
+      "id": "psa-90-16-17",
+      "theme": "work",
+      "reference": "Psalm 90,16–17",
+      "text": "Zeige deinen Knechten deine Werke und deine Ehre ihren Kindern. Und der HERR, unser Gott, sei uns freundlich und fördere das Werk unsrer Hände bei uns; ja, das Werk unsrer Hände wolle er fördern!",
+      "source": "https://ebible.org/deu1912/PSA090.htm#V16"
+    },
+    {
+      "id": "php-4-11-13",
+      "theme": "money",
+      "reference": "Philipper 4,11–13",
+      "text": "Nicht sage ich das des Mangels halben; denn ich habe gelernt, worin ich bin, mir genügen zu lassen. Ich kann niedrig sein und kann hoch sein; ich bin in allen Dingen und bei allen geschickt, beides, satt sein und hungern, beides, übrighaben und Mangel leiden. Ich vermag alles durch den, der mich mächtig macht, Christus.",
+      "source": "https://ebible.org/deu1912/PHP04.htm#V11"
+    },
+    {
+      "id": "mic-6-8",
+      "theme": "decisions",
+      "reference": "Micha 6,8",
+      "text": "Es ist dir gesagt, Mensch, was gut ist und was der HERR von dir fordert, nämlich Gottes Wort halten und Liebe üben und demütig sein vor deinem Gott.",
+      "source": "https://ebible.org/deu1912/MIC06.htm#V8"
+    },
+    {
+      "id": "psa-4-8",
+      "theme": "rest",
+      "reference": "Psalm 4,8",
+      "text": "Ich liege und schlafe ganz mit Frieden; denn allein du, HERR, hilfst mir, daß ich sicher wohne.",
+      "source": "https://ebible.org/deu1912/PSA004.htm#V8"
+    },
+    {
+      "id": "2co-4-16-18",
+      "theme": "hardship",
+      "reference": "2. Korinther 4,16–18",
+      "text": "Darum werden wir nicht müde; sondern, ob unser äußerlicher Mensch verdirbt, so wird doch der innerliche von Tag zu Tag erneuert. Denn unsre Trübsal, die zeitlich und leicht ist, schafft eine ewige und über alle Maßen wichtige Herrlichkeit uns, die wir nicht sehen auf das Sichtbare, sondern auf das Unsichtbare. Denn was sichtbar ist, das ist zeitlich; was aber unsichtbar ist, das ist ewig.",
+      "source": "https://ebible.org/deu1912/2CO04.htm#V16"
+    },
+    {
+      "id": "heb-13-15-16",
+      "theme": "gratitude",
+      "reference": "Hebräer 13,15–16",
+      "text": "So lasset uns nun opfern durch ihn das Lobopfer Gott allezeit, das ist die Frucht der Lippen, die seinen Namen bekennen. Wohlzutun und mitzuteilen vergesset nicht; denn solche Opfer gefallen Gott wohl.",
+      "source": "https://ebible.org/deu1912/HEB13.htm#V15"
+    },
+    {
+      "id": "jas-5-13",
+      "theme": "faith",
+      "reference": "Jakobus 5,13",
+      "text": "Leidet jemand unter euch, der bete; ist jemand gutes Muts, der singe Psalmen.",
+      "source": "https://ebible.org/deu1912/JAS05.htm#V13"
+    },
+    {
+      "id": "1pe-4-8",
+      "theme": "family",
+      "reference": "1. Petrus 4,8",
+      "text": "So seid nun mäßig und nüchtern zum Gebet. Vor allen Dingen aber habt untereinander eine inbrünstige Liebe; denn die Liebe deckt auch der Sünden Menge.",
+      "source": "https://ebible.org/deu1912/1PE04.htm#V8"
+    },
+    {
+      "id": "rom-12-15-16",
+      "theme": "relationships",
+      "reference": "Römer 12,15–16",
+      "text": "Freut euch mit den Fröhlichen und weint mit den Weinenden. Habt einerlei Sinn untereinander. Trachtet nicht nach hohen Dingen, sondern haltet euch herunter zu den Niedrigen.",
+      "source": "https://ebible.org/deu1912/ROM12.htm#V15"
+    },
+    {
+      "id": "ecc-3-12-13",
+      "theme": "work",
+      "reference": "Prediger 3,12–13",
+      "text": "Darum merkte ich, daß nichts Besseres darin ist denn fröhlich sein und sich gütlich tun in seinem Leben. Denn ein jeglicher Mensch, der da ißt und trinkt und hat guten Mut in aller seiner Arbeit, das ist eine Gabe Gottes.",
+      "source": "https://ebible.org/deu1912/ECC03.htm#V12"
+    },
+    {
+      "id": "pro-15-16-17",
+      "theme": "money",
+      "reference": "Sprüche 15,16–17",
+      "text": "Es ist besser ein wenig mit der Furcht des HERRN denn großer Schatz, darin Unruhe ist. Es ist besser ein Gericht Kraut mit Liebe, denn ein gemästeter Ochse mit Haß.",
+      "source": "https://ebible.org/deu1912/PRO15.htm#V16"
+    },
+    {
+      "id": "rom-12-1-2",
+      "theme": "decisions",
+      "reference": "Römer 12,1–2",
+      "text": "Ich ermahne euch nun, liebe Brüder, durch die Barmherzigkeit Gottes, daß ihr eure Leiber begebet zum Opfer, das da lebendig, heilig und Gott wohlgefällig sei, welches sei euer vernünftiger Gottesdienst. Und stellet euch nicht dieser Welt gleich, sondern verändert euch durch die Erneuerung eures Sinnes, auf daß ihr prüfen möget, welches da sei der gute, wohlgefällige und vollkommene Gotteswille.",
+      "source": "https://ebible.org/deu1912/ROM12.htm#V1"
+    },
+    {
+      "id": "1pe-5-6-7",
+      "theme": "rest",
+      "reference": "1. Petrus 5,6–7",
+      "text": "So demütiget euch nun unter die gewaltige Hand Gottes, daß er euch erhöhe zu seiner Zeit. Alle Sorge werfet auf ihn; denn er sorgt für euch.",
+      "source": "https://ebible.org/deu1912/1PE05.htm#V6"
+    },
+    {
+      "id": "mat-5-4",
+      "theme": "hardship",
+      "reference": "Matthäus 5,4",
+      "text": "Selig sind, die da Leid tragen; denn sie sollen getröstet werden.",
+      "source": "https://ebible.org/deu1912/MAT05.htm#V4"
+    },
+    {
+      "id": "jas-1-16-17",
+      "theme": "gratitude",
+      "reference": "Jakobus 1,16–17",
+      "text": "Irret nicht, liebe Brüder. Alle gute Gabe und alle vollkommene Gabe kommt von obenherab, von dem Vater des Lichts, bei welchem ist keine Veränderung noch Wechsel des Lichtes und der Finsternis.",
+      "source": "https://ebible.org/deu1912/JAS01.htm#V16"
+    },
+    {
+      "id": "heb-11-1",
+      "theme": "faith",
+      "reference": "Hebräer 11,1",
+      "text": "Es ist aber der Glaube eine gewisse Zuversicht des, das man hofft, und ein Nichtzweifeln an dem, das man nicht sieht.",
+      "source": "https://ebible.org/deu1912/HEB11.htm#V1"
+    },
+    {
+      "id": "1co-16-14",
+      "theme": "family",
+      "reference": "1. Korinther 16,14",
+      "text": "Alle eure Dinge lasset in der Liebe geschehen!",
+      "source": "https://ebible.org/deu1912/1CO16.htm#V14"
+    },
+    {
+      "id": "1jn-3-16-18",
+      "theme": "relationships",
+      "reference": "1. Johannes 3,16–18",
+      "text": "Daran haben wir erkannt die Liebe, daß er sein Leben für uns gelassen hat; und wir sollen auch das Leben für die Brüder lassen. Wenn aber jemand dieser Welt Güter hat und sieht seinen Bruder darben und schließt sein Herz vor ihm zu, wie bleibt die Liebe Gottes bei ihm? Meine Kindlein, laßt uns nicht lieben mit Worten noch mit der Zunge, sondern mit der Tat und mit der Wahrheit.",
+      "source": "https://ebible.org/deu1912/1JN03.htm#V16"
+    },
+    {
+      "id": "1co-15-58",
+      "theme": "work",
+      "reference": "1. Korinther 15,58",
+      "text": "Darum, meine lieben Brüder, seid fest, unbeweglich, und nehmet immer zu in dem Werk des HERRN, sintemal ihr wisset, daß eure Arbeit nicht vergeblich ist in dem HERRN.",
+      "source": "https://ebible.org/deu1912/1CO15.htm#V58"
+    },
+    {
+      "id": "pro-22-1-2",
+      "theme": "money",
+      "reference": "Sprüche 22,1–2",
+      "text": "Ein guter Ruf ist köstlicher denn großer Reichtum, und Gunst besser denn Silber und Gold. Reiche und Arme müssen untereinander sein; der HERR hat sie alle gemacht.",
+      "source": "https://ebible.org/deu1912/PRO22.htm#V1"
+    },
+    {
+      "id": "eph-5-15-17",
+      "theme": "decisions",
+      "reference": "Epheser 5,15–17",
+      "text": "So sehet nun zu, wie ihr vorsichtig wandelt, nicht als die Unweisen, sondern als die Weisen, und kaufet die Zeit aus; denn es ist böse Zeit. Darum werdet nicht unverständig, sondern verständig, was da sei des HERRN Wille.",
+      "source": "https://ebible.org/deu1912/EPH05.htm#V15"
+    },
+    {
+      "id": "2th-3-16",
+      "theme": "rest",
+      "reference": "2. Thessalonicher 3,16",
+      "text": "Er aber, der HERR des Friedens, gebe euch Frieden allenthalben und auf allerlei Weise. Der HERR sei mit euch allen!",
+      "source": "https://ebible.org/deu1912/2TH03.htm#V16"
+    },
+    {
+      "id": "psa-94-17-19",
+      "theme": "hardship",
+      "reference": "Psalm 94,17–19",
+      "text": "Wo der HERR nicht hülfe, so läge meine Seele schier in der Stille. Ich sprach: Mein Fuß hat gestrauchelt; aber deine Gnade, HERR, hielt mich. Ich hatte viel Bekümmernisse in meinem Herzen; aber deine Tröstungen ergötzten meine Seele.",
+      "source": "https://ebible.org/deu1912/PSA094.htm#V17"
+    },
+    {
+      "id": "psa-145-8-10",
+      "theme": "gratitude",
+      "reference": "Psalm 145,8–10",
+      "text": "Gnädig und barmherzig ist der HERR, geduldig und von großer Güte. Der HERR ist allen gütig und erbarmt sich aller seiner Werke. Es sollen dir danken, HERR, alle deine Werke und deine Heiligen dich loben",
+      "source": "https://ebible.org/deu1912/PSA145.htm#V8"
+    },
+    {
+      "id": "1jn-5-14-15",
+      "theme": "faith",
+      "reference": "1. Johannes 5,14–15",
+      "text": "Und das ist die Freudigkeit, die wir haben zu ihm, daß, so wir etwas bitten nach seinem Willen, so hört er uns. Und so wir wissen, daß er uns hört, was wir bitten, so wissen wir, daß wir die Bitte haben, die wir von ihm gebeten haben.",
+      "source": "https://ebible.org/deu1912/1JN05.htm#V14"
+    },
+    {
+      "id": "rut-1-16-17",
+      "theme": "family",
+      "reference": "Ruth 1,16–17",
+      "text": "Ruth antwortete: Rede mir nicht ein, daß ich dich verlassen sollte und von dir umkehren. Wo du hin gehst, da will ich auch hin gehen; wo du bleibst, da bleibe ich auch. Dein Volk ist mein Volk, und dein Gott ist mein Gott. Wo du stirbst, da sterbe ich auch, da will ich auch begraben werden. Der HERR tue mir dies und das, der Tod muß mich und dich scheiden.",
+      "source": "https://ebible.org/deu1912/RUT01.htm#V16"
+    },
+    {
+      "id": "mat-5-44-45",
+      "theme": "relationships",
+      "reference": "Matthäus 5,44–45",
+      "text": "Ich aber sage euch: Liebet eure Feinde; segnet, die euch fluchen; tut wohl denen, die euch hassen; bittet für die, so euch beleidigen und verfolgen, auf daß ihr Kinder seid eures Vater im Himmel; denn er läßt seine Sonne aufgehen über die Bösen und über die Guten und läßt regnen über Gerechte und Ungerechte.",
+      "source": "https://ebible.org/deu1912/MAT05.htm#V44"
+    },
+    {
+      "id": "heb-6-10",
+      "theme": "work",
+      "reference": "Hebräer 6,10",
+      "text": "Denn Gott ist nicht ungerecht, daß er vergesse eures Werks und der Arbeit der Liebe, die ihr erzeigt habt an seinem Namen, da ihr den Heiligen dientet und noch dienet.",
+      "source": "https://ebible.org/deu1912/HEB06.htm#V10"
+    },
+    {
+      "id": "pro-22-9",
+      "theme": "money",
+      "reference": "Sprüche 22,9",
+      "text": "Ein gütiges Auge wird gesegnet; denn er gibt von seinem Brot den Armen.",
+      "source": "https://ebible.org/deu1912/PRO22.htm#V9"
+    },
+    {
+      "id": "pro-16-9",
+      "theme": "decisions",
+      "reference": "Sprüche 16,9",
+      "text": "Des Menschen Herz erdenkt sich seinen Weg; aber der HERR allein gibt, daß er fortgehe.",
+      "source": "https://ebible.org/deu1912/PRO16.htm#V9"
+    },
+    {
+      "id": "psa-55-22",
+      "theme": "rest",
+      "reference": "Psalm 55,22",
+      "text": "Wirf dein Anliegen auf den HERRN; der wird dich versorgen und wird den Gerechten nicht ewiglich in Unruhe lassen.",
+      "source": "https://ebible.org/deu1912/PSA055.htm#V22"
+    },
+    {
+      "id": "2co-1-3-4",
+      "theme": "hardship",
+      "reference": "2. Korinther 1,3–4",
+      "text": "Gelobet sei Gott und der Vater unsers HERRN Jesu Christi, der Vater der Barmherzigkeit und Gott alles Trostes, der uns tröstet in aller unsrer Trübsal, daß auch wir trösten können, die da sind in allerlei Trübsal, mit dem Trost, damit wir getröstet werden von Gott.",
+      "source": "https://ebible.org/deu1912/2CO01.htm#V3"
+    },
+    {
+      "id": "col-3-15",
+      "theme": "gratitude",
+      "reference": "Kolosser 3,15",
+      "text": "Und der Friede Gottes regiere in euren Herzen, zu welchem ihr auch berufen seid in einem Leibe; und seid dankbar!",
+      "source": "https://ebible.org/deu1912/COL03.htm#V15"
+    },
+    {
+      "id": "psa-5-3",
+      "theme": "faith",
+      "reference": "Psalm 5,3",
+      "text": "HERR, frühe wollest du meine Stimme hören; frühe will ich mich zu dir schicken und aufmerken.",
+      "source": "https://ebible.org/deu1912/PSA005.htm#V3"
+    },
+    {
+      "id": "psa-127-3",
+      "theme": "family",
+      "reference": "Psalm 127,3",
+      "text": "Siehe, Kinder sind eine Gabe des HERRN, und Leibesfrucht ist ein Geschenk.",
+      "source": "https://ebible.org/deu1912/PSA127.htm#V3"
+    },
+    {
+      "id": "eph-4-1-3",
+      "theme": "relationships",
+      "reference": "Epheser 4,1–3",
+      "text": "So ermahne nun euch ich Gefangener in dem HERRN, daß ihr wandelt, wie sich's gebührt eurer Berufung, mit der ihr berufen seid, mit aller Demut und Sanftmut, mit Geduld, und vertraget einer den andern in der Liebe und seid fleißig, zu halten die Einigkeit im Geist durch das Band des Friedens:",
+      "source": "https://ebible.org/deu1912/EPH04.htm#V1"
+    },
+    {
+      "id": "mat-5-16",
+      "theme": "work",
+      "reference": "Matthäus 5,16",
+      "text": "Also laßt euer Licht leuchten vor den Leuten, daß sie eure guten Werke sehen und euren Vater im Himmel preisen.",
+      "source": "https://ebible.org/deu1912/MAT05.htm#V16"
+    },
+    {
+      "id": "pro-19-17",
+      "theme": "money",
+      "reference": "Sprüche 19,17",
+      "text": "Wer sich des Armen erbarmt, der leihet dem HERRN; der wird ihm wieder Gutes vergelten.",
+      "source": "https://ebible.org/deu1912/PRO19.htm#V17"
+    },
+    {
+      "id": "jas-3-17-18",
+      "theme": "decisions",
+      "reference": "Jakobus 3,17–18",
+      "text": "Die Weisheit von obenher ist auf's erste keusch, darnach friedsam, gelinde, läßt sich sagen, voll Barmherzigkeit und guter Früchte, unparteiisch, ohne Heuchelei. Die Frucht aber der Gerechtigkeit wird gesät im Frieden denen, die den Frieden halten.",
+      "source": "https://ebible.org/deu1912/JAS03.htm#V17"
+    },
+    {
+      "id": "pro-12-25",
+      "theme": "rest",
+      "reference": "Sprüche 12,25",
+      "text": "Sorge im Herzen kränkt, aber ein freundliches Wort erfreut.",
+      "source": "https://ebible.org/deu1912/PRO12.htm#V25"
+    },
+    {
+      "id": "psa-73-25-26",
+      "theme": "hardship",
+      "reference": "Psalm 73,25–26",
+      "text": "Wenn ich nur dich habe, so frage ich nichts nach Himmel und Erde. Wenn mir gleich Leib und Seele verschmachtet, so bist du doch, Gott, allezeit meines Herzens Trost und mein Teil.",
+      "source": "https://ebible.org/deu1912/PSA073.htm#V25"
+    },
+    {
+      "id": "col-2-6-7",
+      "theme": "gratitude",
+      "reference": "Kolosser 2,6–7",
+      "text": "Wie ihr nun angenommen habt den HERRN Christus Jesus, so wandelt in ihm und seid gewurzelt und erbaut in ihm und fest im Glauben, wie ihr gelehrt seid, und seid in demselben reichlich dankbar.",
+      "source": "https://ebible.org/deu1912/COL02.htm#V6"
+    },
+    {
+      "id": "rom-8-26-27",
+      "theme": "faith",
+      "reference": "Römer 8,26–27",
+      "text": "Desgleichen auch der Geist hilft unsrer Schwachheit auf. Denn wir wissen nicht, was wir beten sollen, wie sich's gebührt; sondern der Geist selbst vertritt uns aufs beste mit unaussprechlichem Seufzen. Der aber die Herzen erforscht, der weiß, was des Geistes Sinn sei; denn er vertritt die Heiligen nach dem, das Gott gefällt.",
+      "source": "https://ebible.org/deu1912/ROM08.htm#V26"
+    },
+    {
+      "id": "pro-14-26",
+      "theme": "family",
+      "reference": "Sprüche 14,26",
+      "text": "Wer den HERRN fürchtet, der hat eine sichere Festung, und seine Kinder werden auch beschirmt.",
+      "source": "https://ebible.org/deu1912/PRO14.htm#V26"
+    },
+    {
+      "id": "jas-1-19-20",
+      "theme": "relationships",
+      "reference": "Jakobus 1,19–20",
+      "text": "Darum, liebe Brüder, ein jeglicher Mensch sei schnell, zu hören, langsam aber, zu reden, und langsam zum Zorn. Denn des Menschen Zorn tut nicht, was vor Gott recht ist.",
+      "source": "https://ebible.org/deu1912/JAS01.htm#V19"
+    },
+    {
+      "id": "gal-6-9-10",
+      "theme": "work",
+      "reference": "Galater 6,9–10",
+      "text": "Lasset uns aber Gutes tun und nicht müde werden; denn zu seiner Zeit werden wir auch ernten ohne Aufhören. Als wir denn nun Zeit haben, so lasset uns Gutes tun an jedermann, allermeist aber an des Glaubens Genossen.",
+      "source": "https://ebible.org/deu1912/GAL06.htm#V9"
+    },
+    {
+      "id": "2co-9-6-7",
+      "theme": "money",
+      "reference": "2. Korinther 9,6–7",
+      "text": "Ich meine aber das: Wer da kärglich sät, der wird auch kärglich ernten; und wer da sät im Segen, der wird auch ernten im Segen. Ein jeglicher nach seiner Willkür, nicht mit Unwillen oder aus Zwang; denn einen fröhlichen Geber hat Gott lieb.",
+      "source": "https://ebible.org/deu1912/2CO09.htm#V6"
+    },
+    {
+      "id": "col-4-5-6",
+      "theme": "decisions",
+      "reference": "Kolosser 4,5–6",
+      "text": "Wandelt weise gegen die, die draußen sind, und kauft die Zeit aus. Eure Rede sei allezeit lieblich und mit Salz gewürzt, daß ihr wißt, wie ihr einem jeglichen antworten sollt.",
+      "source": "https://ebible.org/deu1912/COL04.htm#V5"
+    },
+    {
+      "id": "mat-6-33-34",
+      "theme": "rest",
+      "reference": "Matthäus 6,33–34",
+      "text": "Trachtet am ersten nach dem Reich Gottes und nach seiner Gerechtigkeit, so wird euch solches alles zufallen. Darum sorgt nicht für den andern Morgen; denn der morgende Tag wird für das Seine sorgen. Es ist genug, daß ein jeglicher Tag seine eigene Plage habe.",
+      "source": "https://ebible.org/deu1912/MAT06.htm#V33"
+    },
+    {
+      "id": "isa-41-10",
+      "theme": "hardship",
+      "reference": "Jesaja 41,10",
+      "text": "fürchte dich nicht, ich bin mit dir; weiche nicht, denn ich bin dein Gott; ich stärke dich, ich helfe dir auch, ich erhalte dich durch die rechte Hand meiner Gerechtigkeit.",
+      "source": "https://ebible.org/deu1912/ISA41.htm#V10"
+    },
+    {
+      "id": "psa-100-4-5",
+      "theme": "gratitude",
+      "reference": "Psalm 100,4–5",
+      "text": "Geht zu seinen Toren ein mit Danken, zu seinen Vorhöfen mit Loben; danket ihm, lobet seinen Namen! Denn der HERR ist freundlich, und seine Gnade währet ewig und seine Wahrheit für und für.",
+      "source": "https://ebible.org/deu1912/PSA100.htm#V4"
+    },
+    {
+      "id": "psa-139-23-24",
+      "theme": "faith",
+      "reference": "Psalm 139,23–24",
+      "text": "Erforsche mich, Gott, und erfahre mein Herz; prüfe mich und erfahre, wie ich's meine. Und siehe, ob ich auf bösem Wege bin, und leite mich auf ewigem Wege.",
+      "source": "https://ebible.org/deu1912/PSA139.htm#V23"
+    },
+    {
+      "id": "pro-23-22",
+      "theme": "family",
+      "reference": "Sprüche 23,22",
+      "text": "Gehorche deinem Vater, der dich gezeugt hat, und verachte deine Mutter nicht, wenn sie alt wird.",
+      "source": "https://ebible.org/deu1912/PRO23.htm#V22"
+    },
+    {
+      "id": "pro-15-1",
+      "theme": "relationships",
+      "reference": "Sprüche 15,1",
+      "text": "Eine linde Antwort stillt den Zorn; aber ein hartes Wort richtet Grimm an.",
+      "source": "https://ebible.org/deu1912/PRO15.htm#V1"
+    },
+    {
+      "id": "eph-4-28",
+      "theme": "work",
+      "reference": "Epheser 4,28",
+      "text": "Wer gestohlen hat der stehle nicht mehr, sondern arbeite und schaffe mit den Händen etwas Gutes, auf daß er habe, zu geben dem Dürftigen.",
+      "source": "https://ebible.org/deu1912/EPH04.htm#V28"
+    },
+    {
+      "id": "pro-23-4-5",
+      "theme": "money",
+      "reference": "Sprüche 23,4–5",
+      "text": "Bemühe dich nicht reich zu werden und laß ab von deinen Fündlein. Laß dein Augen nicht fliegen nach dem, was du nicht haben kannst; denn dasselbe macht sich Flügel wie ein Adler und fliegt gen Himmel.",
+      "source": "https://ebible.org/deu1912/PRO23.htm#V4"
+    },
+    {
+      "id": "psa-90-12",
+      "theme": "decisions",
+      "reference": "Psalm 90,12",
+      "text": "Lehre uns bedenken, daß wir sterben müssen, auf daß wir klug werden.",
+      "source": "https://ebible.org/deu1912/PSA090.htm#V12"
+    },
+    {
+      "id": "psa-56-3-4",
+      "theme": "rest",
+      "reference": "Psalm 56,3–4",
+      "text": "Wenn ich mich fürchte, so hoffe ich auf dich. Ich will Gottes Namen rühmen; auf Gott will ich hoffen und mich nicht fürchten; was sollte mir Fleisch tun?",
+      "source": "https://ebible.org/deu1912/PSA056.htm#V3"
+    },
+    {
+      "id": "rom-8-38-39",
+      "theme": "hardship",
+      "reference": "Römer 8,38–39",
+      "text": "Denn ich bin gewiß, daß weder Tod noch Leben, weder Engel noch Fürstentümer noch Gewalten, weder Gegenwärtiges noch Zukünftiges, weder Hohes noch Tiefes noch keine andere Kreatur mag uns scheiden von der Liebe Gottes, die in Christo Jesu ist, unserm HERRN.",
+      "source": "https://ebible.org/deu1912/ROM08.htm#V38"
+    },
+    {
+      "id": "psa-95-1-2",
+      "theme": "gratitude",
+      "reference": "Psalm 95,1–2",
+      "text": "Kommt herzu, laßt uns dem HERRN frohlocken und jauchzen dem Hort unsers Heils! Lasset uns mit Danken vor sein Angesicht kommen und mit Psalmen ihm jauchzen!",
+      "source": "https://ebible.org/deu1912/PSA095.htm#V1"
+    },
+    {
+      "id": "jhn-15-4-5",
+      "theme": "faith",
+      "reference": "Johannes 15,4–5",
+      "text": "Bleibet in mir und ich in euch. Gleichwie die Rebe kann keine Frucht bringen von ihr selber, sie bleibe denn am Weinstock, also auch ihr nicht, ihr bleibet denn in mir. Ich bin der Weinstock, ihr seid die Reben. Wer in mir bleibt und ich in ihm, der bringt viele Frucht, denn ohne mich könnt ihr nichts tun.",
+      "source": "https://ebible.org/deu1912/JHN15.htm#V4"
+    },
+    {
+      "id": "pro-24-3-4",
+      "theme": "family",
+      "reference": "Sprüche 24,3–4",
+      "text": "Durch Weisheit wird ein Haus gebaut und durch Verstand erhalten. Durch ordentliches Haushalten werden die Kammern voll aller köstlichen, lieblichen Reichtümer.",
+      "source": "https://ebible.org/deu1912/PRO24.htm#V3"
+    },
+    {
+      "id": "ecc-4-9-10",
+      "theme": "relationships",
+      "reference": "Prediger 4,9–10",
+      "text": "So ist's ja besser zwei als eins; denn sie genießen doch ihrer Arbeit wohl. Fällt ihrer einer so hilft ihm sein Gesell auf. Weh dem, der allein ist! Wenn er fällt, so ist keiner da, der ihm aufhelfe.",
+      "source": "https://ebible.org/deu1912/ECC04.htm#V9"
+    },
+    {
+      "id": "1pe-4-10-11",
+      "theme": "work",
+      "reference": "1. Petrus 4,10–11",
+      "text": "Und dienet einander, ein jeglicher mit der Gabe, die er empfangen hat, als die guten Haushalter der mancherlei Gnade Gottes: so jemand redet, daß er's rede als Gottes Wort; so jemand ein Amt hat, daß er's tue als aus dem Vermögen, das Gott darreicht, auf daß in allen Dingen Gott gepriesen werde durch Jesum Christum, welchem sei Ehre und Gewalt von Ewigkeit zu Ewigkeit! Amen.",
+      "source": "https://ebible.org/deu1912/1PE04.htm#V10"
+    },
+    {
+      "id": "luk-12-15",
+      "theme": "money",
+      "reference": "Lukas 12,15",
+      "text": "Und er sprach zu ihnen: Sehet zu und hütet euch vor dem Geiz; denn niemand lebt davon, daß er viele Güter hat.",
+      "source": "https://ebible.org/deu1912/LUK12.htm#V15"
+    },
+    {
+      "id": "pro-15-22",
+      "theme": "decisions",
+      "reference": "Sprüche 15,22",
+      "text": "Die Anschläge werden zunichte, wo nicht Rat ist; wo aber viel Ratgeber sind, bestehen sie.",
+      "source": "https://ebible.org/deu1912/PRO15.htm#V22"
+    },
+    {
+      "id": "psa-62-5-6",
+      "theme": "rest",
+      "reference": "Psalm 62,5–6",
+      "text": "Aber sei nur stille zu Gott, meine Seele; denn er ist meine Hoffnung. Er ist mein Hort, meine Hilfe und mein Schutz, daß ich nicht fallen werde.",
+      "source": "https://ebible.org/deu1912/PSA062.htm#V5"
+    },
+    {
+      "id": "rev-21-3-4",
+      "theme": "hardship",
+      "reference": "Offenbarung 21,3–4",
+      "text": "Und ich hörte eine große Stimme von dem Stuhl, die sprach: Siehe da, die Hütte Gottes bei den Menschen! und er wird bei ihnen wohnen, und sie werden sein Volk sein, und er selbst, Gott mit ihnen, wird ihr Gott sein; und Gott wird abwischen alle Tränen von ihren Augen, und der Tod wird nicht mehr sein, noch Leid noch Geschrei noch Schmerz wird mehr sein; denn das Erste ist vergangen.",
+      "source": "https://ebible.org/deu1912/REV21.htm#V3"
+    },
+    {
+      "id": "php-4-4-5",
+      "theme": "gratitude",
+      "reference": "Philipper 4,4–5",
+      "text": "Freuet euch in dem HERRN allewege! Und abermals sage ich: Freuet euch! Eure Lindigkeit lasset kund sein allen Menschen! der HERR ist nahe!",
+      "source": "https://ebible.org/deu1912/PHP04.htm#V4"
+    },
+    {
+      "id": "rom-15-13",
+      "theme": "faith",
+      "reference": "Römer 15,13",
+      "text": "Der Gott aber der Hoffnung erfülle euch mit aller Freude und Frieden im Glauben, daß ihr völlige Hoffnung habet durch die Kraft des heiligen Geistes.",
+      "source": "https://ebible.org/deu1912/ROM15.htm#V13"
+    }
+  ]
+}

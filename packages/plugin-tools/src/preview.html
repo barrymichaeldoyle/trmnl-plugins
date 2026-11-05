@@ -29,7 +29,7 @@
   <header><div><h1>Daily Bread</h1><p>Daily Bible verses. One passage to carry into your day.</p></div><a href="/review">Review all screens</a><a href="/download">Download TRMNL recipe</a></header>
   <main>
     <aside aria-label="Preview settings">
-      <div><label for="language">Language</label><select id="language"></select></div>
+      <div><label for="language">Bible translation</label><select id="language"></select></div>
       <div><label id="theme-label">Themes</label><details class="theme-picker"><summary id="theme-summary" aria-labelledby="theme-label theme-summary">All themes</summary><fieldset id="theme"><legend>Leave empty for every theme</legend></fieldset></details></div>
       <div><label for="refresh">Refresh rate</label><select id="refresh"><option value="1440">Daily</option><option value="720">Every 12 hours</option><option value="360">Every 6 hours</option><option value="240">Every 4 hours</option><option value="120">Every 2 hours</option><option value="60">Hourly</option></select></div>
       <div><label for="context-qr">Chapter QR code</label><select id="context-qr"><option value="true">Show</option><option value="false">Hide</option></select></div>
@@ -97,7 +97,7 @@
         fitPreview();
         byId('screen').src = '/render?' + query + '&view=' + view;
         const chosen = selectedThemes();
-        const collection = plugin.data.translations?.[byId('language').value] ?? plugin.data;
+        const collection = plugin.collections?.[byId('language').value] ?? plugin.data;
         const pool = chosen.length ? collection.verses.filter(v => chosen.includes(v.theme)) : collection.verses;
         const slot = Math.floor((Number(query.get('timestamp')) + Number(query.get('offset'))) / interval());
         const verse = pool[((slot % pool.length) + pool.length) % pool.length];
@@ -106,12 +106,12 @@
         byId('reference').append(source);
         byId('text').textContent = verse.text;
         byId('current').textContent = collection.themes.find(t => t.id === verse.theme).name + ' · ' + byId('time').value.replace('T',' ');
-        byId('translation').textContent = collection.translation.name + ' · ' + ({en:'English',fr:'Français',es:'Español'}[collection.translation.language] ?? collection.translation.language);
-        const language = byId('language').value;
-        const allLabel = {en:'All themes',fr:'Tous les thèmes',es:'Todos los temas'}[language] ?? 'All themes';
-        byId('theme-summary').textContent = chosen.length === 0 || chosen.length === collection.themes.length ? allLabel : chosen.length === 1 ? collection.themes.find(t => t.id === chosen[0]).name : `${chosen.length} ${{en:'themes',fr:'thèmes',es:'temas'}[language] ?? 'themes'}`;
-        byId('theme-label').textContent = {en:'Themes',fr:'Thèmes',es:'Temas'}[language] ?? 'Themes';
-        byId('theme').querySelector('legend').textContent = {en:'Leave empty for every theme',fr:'Laissez vide pour tous les thèmes',es:'Déjalo vacío para todos los temas'}[language] ?? 'Leave empty for every theme';
+        byId('translation').textContent = collection.translation.name + ' (' + collection.translation.abbreviation + ')';
+        const language = collection.translation.language;
+        const allLabel = {en:'All themes',de:'Alle Themen',es:'Todos los temas',fr:'Tous les thèmes',it:'Tutti i temi',nl:'Alle thema’s',pt:'Todos os temas'}[language] ?? 'All themes';
+        byId('theme-summary').textContent = chosen.length === 0 || chosen.length === collection.themes.length ? allLabel : chosen.length === 1 ? collection.themes.find(t => t.id === chosen[0]).name : `${chosen.length} ${{en:'themes',de:'Themen',es:'temas',fr:'thèmes',it:'temi',nl:'thema’s',pt:'temas'}[language] ?? 'themes'}`;
+        byId('theme-label').textContent = {en:'Themes',de:'Themen',es:'Temas',fr:'Thèmes',it:'Temi',nl:'Thema’s',pt:'Temas'}[language] ?? 'Themes';
+        byId('theme').querySelector('legend').textContent = {en:'Leave empty for every theme',de:'Leer lassen für alle Themen',es:'Déjalo vacío para todos los temas',fr:'Laissez vide pour tous les thèmes',it:'Lascia vuoto per tutti i temi',nl:'Laat leeg voor alle thema’s',pt:'Deixe vazio para todos os temas'}[language] ?? 'Leave empty for every theme';
         byId('summary').textContent = pool.length + ' curated passages in this rotation. Every passage appears once before the cycle repeats.';
         byId('links').replaceChildren(...Object.keys(fractions).map(v => { const a = document.createElement('a'); a.href='/render?'+query+'&view='+v; a.textContent=v.replaceAll('_',' '); a.target='_blank'; return a; }));
         byId('error').hidden = true;

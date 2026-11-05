@@ -1,15 +1,17 @@
 {
   "translation": {
+    "id": "rv1909",
+    "language": "es",
     "name": "Reina Valera 1909",
     "abbreviation": "RV1909",
-    "language": "es",
     "edition": "1909 (spaRV1909)",
     "license": "Public domain",
     "source": "https://ebible.org/spaRV1909/"
   },
   "provenance": {
-    "imported_on": "2026-10-02",
-    "archive_sha256": "517aef6652cc9b34ddd8b77c49cd1e56ea6af101622bdce182da9f03e3820283"
+    "imported_on": "2026-11-04",
+    "archive": "https://ebible.org/Scriptures/spaRV1909_html.zip",
+    "archive_sha256": "b0dca326dfffa44e6fbaf1e0ed4be22c19508a7f427450abe0081a77eeeb281f"
   },
   "themes": [
     {
@@ -49,6 +51,9 @@
       "name": "Fe y oración"
     }
   ],
+  "labels": {
+    "context": "Leer el capítulo"
+  },
   "verses": [
     {
       "id": "pro-1-8-9",
@@ -806,9 +811,5 @@
       "text": "Y el Dios de esperanza os llene de todo gozo y paz creyendo, para que abundéis en esperanza por la virtud del Espíritu Santo.",
       "source": "https://ebible.org/spaRV1909/ROM15.htm#V13"
     }
-  ],
-  "labels": {
-    "missing_title": "Falta la colección de las Escrituras",
-    "missing_text": "Vuelve a importar el ZIP de Daily Bread para restaurar los pasajes bíblicos."
-  }
+  ]
 }

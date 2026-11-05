@@ -1,5 +1,26 @@
 # Collection and language review
 
+## Translation expansion, 4 November 2026
+
+Seven translations joined the original three: the Berean Standard Bible, King James Version, Lutherbibel 1912, Nueva Traducción BibliaTodo, Riveduta 1927, De Heilige Schrift 1917 and Bíblia Livre. Each file in `content/verses/` comes from an explicit import of the archive named in `content/translations.json`. Each archive was downloaded into its own empty directory, and its SHA-256 is recorded in the file. The NTBT also records its dated edition (`NTBT-2026-11-04`). BibliaTodo regenerates that archive, so a reimport may bring a newer edition, and its text must be reviewed again.
+
+The WEB, Louis Segond and Reina Valera were reimported from freshly downloaded eBible archives with the new importer. All 324 passage records (text, reference and chapter link) are byte-identical to the 2 October collection. The archive hashes changed because eBible rebuilt the archives.
+
+Checks on the new translations:
+
+- **Versification.** Every Psalm selection was compared across all ten translations. Only Louis Segond numbers Psalms differently. eBible's Luther, Riveduta and Dutch archives fold superscriptions into verse 1, and the NTBT and Bíblia Livre set them apart, so the English numbering applies to all of them.
+- **Removed non-Scripture text.** Headings, footnotes and USFM titles (`\s`, `\d`, `\r`, `\qa`, notes) are dropped, as before. Bíblia Livre's inline quotation sources (class `rq`, for example "Salmos 118:6" after Hebrews 13:6) are now dropped like other references. Three layout marks set as plain text are removed only where a catalogue entry names them: the KJV's `¶`, the Dutch edition's `(34:18)` original-numbering markers, and the Dutch Hebrew acrostic letters "Tsade.", "Koph." and "Cheth.". No wording is changed.
+- **Scans.** No collection contains footnote signs, angle brackets, pilcrows, numbering markers or copyright text. Passage lengths stay between 0.6 and 1.7 times the WEB's. The two outliers (KJV Proverbs 19:17 and Luther Hebrews 11:1) are naturally wordier phrasing.
+- **Published as is.** Bíblia Livre's spacing in "Ensina -nos" (Psalm 90:12) and "além de ti ?" (Psalm 73:25) is kept. As with Reina Valera's Deuteronomy 6:4–7, some older editions end a selection on a comma, colon or semicolon: Luther (Deuteronomy 6:4–7, Ephesians 4:1–3), the KJV (Isaiah 26:3–4), Riveduta (Psalm 5:3) and Bíblia Livre (Deuteronomy 6:4–7). Luther's Psalm 145:8–10 ends without punctuation because verse 11 continues the sentence. These are the publishers' verse boundaries. Changing them means changing the shared editorial list.
+- **References.** Book names come from each publisher's chapter titles. German uses a comma between chapter and verse, and German, Italian and Dutch name a single psalm ("Psalm", "Salmo"). The Dutch archive titles 2 Corinthians "2 Corinthiër"; the locale uses "2 Corinthiërs".
+- **Links.** Each eBible chapter link was checked. NTBT links open BibliaTodo's online reader (`/la-biblia/nueva-traduccion-bibliatodo/<book>-<chapter>`). In a browser, all 26 selected books were checked; numbered books join the digit, as in `1pedro-5`. The site sits behind a browser challenge, so scripted checks receive 403.
+
+The German, Italian, Dutch and Portuguese theme names, QR labels and recovery messages are new interface copy. They are not publisher text, and native-speaker review is welcome.
+
+The responsive browser review (`pnpm review:responsive`, 144 captures) passed with no warnings. The longest passage is now Luther's Romans 13:8–10 at 505 characters: 12px in the OG quadrant and 18px or more in the other OG views. Long translation names clipped in the narrow title bars, so the half vertical and quadrant views now show the abbreviation (for example "NTBT").
+
+## 2 October 2026 review
+
 Reviewed on 2 October 2026. The release collection contains 108 unique passages in each of English, French and Spanish, with twelve entries in each of nine themes. The mixed daily default, user timezone, optional chapter QR code and complete Scripture text are preserved.
 
 ## Source fidelity

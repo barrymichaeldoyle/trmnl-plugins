@@ -1,11 +1,12 @@
 {
-  "data": "content/verses.json",
-  "translations": {
-    "fr": "content/verses.fr.json",
-    "es": "content/verses.es.json"
-  },
   "slug": "daily-bread",
-  "bundle_data_in_transform": true,
+  "collections": {
+    "catalogue": "content/translations.json",
+    "directory": "content/verses"
+  },
+  "polling_files": {
+    "https://cdn.jsdelivr.net/gh/barrymichaeldoyle/trmnl-plugins@main/apps/bible-verses/": "."
+  },
   "preview": {
     "utc_offset": 7200
   },

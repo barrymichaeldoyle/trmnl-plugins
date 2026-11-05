@@ -2,10 +2,11 @@ import { copyFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createPreviewServer } from './server.js';
 import { passageSchedule, reviewManifest, reviewScreens } from './review.js';
+import { pollFiles } from './plugin.js';
 
 // Documentation and listing images are declared in docs/screenshots.json, so
 // a layout change is followed by one regeneration rather than manual captures:
-// [{ "file": "full.png", "passage": "mat-11-28-30", "language": "en",
+// [{ "file": "full.png", "passage": "mat-11-28-30", "language": "web",
 //    "screen": "og-landscape-full", "qr": true, "fields": { "appearance": "dark" } }]
 // Optional fields set any other plugin setting for that capture. Apps with
 // declared review cases name one instead of a passage:
@@ -34,7 +35,7 @@ export async function writeScreenshots(plugin) {
         return;
       }
       const fields = { ...plugin.defaults, language: entry.language, theme: 'all', show_context_qr: entry.qr ?? true, ...entry.fields };
-      const { options, expected } = passageSchedule(plugin, fields, entry.passage, plugin.data);
+      const { options, expected } = passageSchedule(plugin, fields, entry.passage, await pollFiles(plugin, fields));
       if (expected?.id !== entry.passage) throw new Error(`${entry.file}: passage ${entry.passage} is not in the ${entry.language} collection.`);
       const scenario = { id: `screenshot-${entry.file.replace(/\W+/g, '-')}`, options, expected, recovery: false };
       const result = await app.capture.render(plugin, { sourceHash }, { scenario, screen, id: `${scenario.id}--${screen.id}` }, origin, true);

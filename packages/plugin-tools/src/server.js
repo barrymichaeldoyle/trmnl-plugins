@@ -56,7 +56,7 @@ export function createPreviewServer(directory, { reviewByDefault = false, worker
       }
       const plugin = await loadPlugin(root);
       if (url.pathname === '/plugin') {
-        json({ name: plugin.settings.name, fields: plugin.settings.custom_fields, defaults: { ...plugin.defaults, ...plugin.config.preview?.fields }, data: plugin.config.data ? plugin.data : undefined, devices, offset: plugin.config.preview?.utc_offset ?? 0, refresh: plugin.settings.refresh_interval,
+        json({ name: plugin.settings.name, fields: plugin.settings.custom_fields, defaults: { ...plugin.defaults, ...plugin.config.preview?.fields }, data: plugin.config.data ? plugin.data : undefined, collections: plugin.collections, devices, offset: plugin.config.preview?.utc_offset ?? 0, refresh: plugin.settings.refresh_interval,
           fixtures: Object.fromEntries(Object.keys(plugin.fixtures ?? {}).map(name => [name, plugin.config.fixtures[name].time ?? null])), fixture: plugin.config.preview?.fixture });
       } else if (['/review/manifest', '/review/render', '/review/capture', '/review/results', '/review/summary'].includes(url.pathname)) {
         const mode = url.searchParams.get('mode') ?? 'curated';

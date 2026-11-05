@@ -1,8 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
-import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
+import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import YAML from 'yaml';
 import { strToU8, strFromU8, zipSync, unzipSync } from 'fflate';
@@ -10,38 +9,22 @@ import { loadPlugin, exportFiles, renderView, checkPlugin, views, screenHtml, pr
 
 const plugin = await loadPlugin(fileURLToPath(new URL('../../../apps/bible-verses', import.meta.url)));
 
-test('TRMNL ZIP is flat, self-contained, and renders identically after an import round trip', async () => {
+test('TRMNL ZIP is flat, polls the published collection, and renders identically after an import round trip', async () => {
   const files = exportFiles(plugin);
   const archive = zipSync(Object.fromEntries(Object.entries(files).map(([name, text]) => [name, strToU8(text)])));
   const imported = Object.fromEntries(Object.entries(unzipSync(archive)).map(([name, bytes]) => [name, strFromU8(bytes)]));
   assert.deepEqual(Object.keys(imported).sort(), ['settings.yml', 'transform.js', ...views.map(v => `${v}.liquid`)].sort());
   const settings = YAML.parse(imported['settings.yml']);
-  assert.equal(settings.strategy, 'static');
-  // TRMNL rejects large files, so translations that do not fit travel in the transform.
+  assert.equal(settings.strategy, 'polling');
+  assert.equal(settings.static_data, '');
   for (const name of ['settings.yml', 'transform.js']) assert.ok(Buffer.byteLength(imported[name]) <= settingsLimit, name);
-  const staticData = JSON.parse(settings.static_data);
-  assert.deepEqual(staticData.verses, plugin.data.verses);
-  for (const [language, collection] of Object.entries(plugin.data.translations)) {
-    const inStatic = Boolean(staticData.translations[language]);
-    assert.equal(imported['transform.js'].includes(JSON.stringify(collection.verses[0].text)), !inStatic, language);
-  }
-  const reloaded = { ...plugin, settings, data: JSON.parse(settings.static_data), transform: imported['transform.js'], templates: Object.fromEntries(views.map(v => [v, imported[`${v}.liquid`]])) };
-  for (const language of ['en', ...Object.keys(plugin.data.translations ?? {})]) {
+  // Scripture is fetched, not shipped: no passage text travels in the recipe.
+  for (const name of Object.keys(imported)) assert.ok(!imported[name].includes(plugin.collections.web.verses[0].text), name);
+  const reloaded = { ...plugin, settings, transform: imported['transform.js'], templates: Object.fromEntries(views.map(v => [v, imported[`${v}.liquid`]])) };
+  for (const language of Object.keys(plugin.collections)) {
     const options = { timestamp: 1790848800, refreshMinutes: 60, fields: { language, theme: ['family', 'work'] } };
     for (const view of views) assert.equal(await renderView(reloaded, view, options), await renderView(plugin, view, options));
   }
-});
-
-test('a transform synced back from TRMNL exports its Scripture bundle only once', async () => {
-  const root = await mkdtemp(join(tmpdir(), 'synced-'));
-  try {
-    const app = fileURLToPath(new URL('../../../apps/bible-verses', import.meta.url));
-    for (const entry of ['plugin.config.json', 'src', 'content']) await cp(join(app, entry), join(root, entry), { recursive: true });
-    await writeFile(join(root, 'src/transform.js'), exportFiles(plugin)['transform.js']);
-    const synced = await loadPlugin(root);
-    assert.equal(synced.transform, plugin.transform);
-    assert.equal(exportFiles(synced)['transform.js'].match(/const SCRIPTURE = /g).length, 1);
-  } finally { await rm(root, { recursive: true, force: true }); }
 });
 
 test('Daily Bread source matches its export, so TRMNL\'s Import from GitHub is safe', async () => {
@@ -54,7 +37,8 @@ test('Daily Bread source matches its export, so TRMNL\'s Import from GitHub is s
 });
 
 test('exports fail before upload when settings.yml would exceed TRMNL\'s limit', () => {
-  assert.throws(() => exportFiles({ ...plugin, config: { ...plugin.config, bundle_data_in_transform: false } }), /bundle_data_in_transform/);
+  const data = { verses: Array.from({ length: 400 }, (_, index) => ({ id: `v${index}`, text: 'x'.repeat(300) })) };
+  assert.throws(() => exportFiles({ ...plugin, settings: { ...plugin.settings, strategy: 'static' }, data }), /settings\.yml is \d+ KB; TRMNL rejects files over 100 KB/);
 });
 
 test('checks reject custom markup styles and invalid views', async () => {

@@ -1,0 +1,815 @@
+{
+  "translation": {
+    "id": "riveduta1927",
+    "language": "it",
+    "name": "Riveduta 1927",
+    "abbreviation": "RIV",
+    "edition": "1927 (ita1927)",
+    "license": "Public domain",
+    "source": "https://ebible.org/ita1927/"
+  },
+  "provenance": {
+    "imported_on": "2026-11-04",
+    "archive": "https://ebible.org/Scriptures/ita1927_html.zip",
+    "archive_sha256": "471447f3c9025b321cfc173c6cbd3e42b086c7a5e53d69a956588507ee64bc2a"
+  },
+  "themes": [
+    {
+      "id": "family",
+      "name": "Famiglia e casa"
+    },
+    {
+      "id": "relationships",
+      "name": "Relazioni"
+    },
+    {
+      "id": "work",
+      "name": "Lavoro e vocazione"
+    },
+    {
+      "id": "money",
+      "name": "Denaro e generosità"
+    },
+    {
+      "id": "decisions",
+      "name": "Scelte e direzione"
+    },
+    {
+      "id": "rest",
+      "name": "Preoccupazioni e riposo"
+    },
+    {
+      "id": "hardship",
+      "name": "Prove e lutto"
+    },
+    {
+      "id": "gratitude",
+      "name": "Gioia e gratitudine"
+    },
+    {
+      "id": "faith",
+      "name": "Fede e preghiera"
+    }
+  ],
+  "labels": {
+    "context": "Leggi il capitolo"
+  },
+  "verses": [
+    {
+      "id": "pro-1-8-9",
+      "theme": "family",
+      "reference": "Proverbi 1:8–9",
+      "text": "Ascolta, figliuol mio, l’istruzione di tuo padre e non ricusare l’insegnamento di tua madre; poiché saranno una corona di grazia sul tuo capo, e monili al tuo collo.",
+      "source": "https://ebible.org/ita1927/PRO01.htm#V8"
+    },
+    {
+      "id": "rom-13-8-10",
+      "theme": "relationships",
+      "reference": "Romani 13:8–10",
+      "text": "Non abbiate altro debito con alcuno se non d’amarvi gli uni gli altri; perché chi ama il prossimo ha adempiuto la legge. Infatti il non commettere adulterio, non uccidere, non rubare, non concupire e qualsiasi altro comandamento si riassumono in questa parola: Ama il prossimo tuo come te stesso. L’amore non fa male alcuno al prossimo; l’amore, quindi, è l’adempimento della legge.",
+      "source": "https://ebible.org/ita1927/ROM13.htm#V8"
+    },
+    {
+      "id": "pro-16-3",
+      "theme": "work",
+      "reference": "Proverbi 16:3",
+      "text": "Rimetti le cose tue nell’Eterno, e i tuoi disegni avran buona riuscita.",
+      "source": "https://ebible.org/ita1927/PRO16.htm#V3"
+    },
+    {
+      "id": "heb-13-5-6",
+      "theme": "money",
+      "reference": "Ebrei 13:5–6",
+      "text": "Non siate amanti del danaro, siate contenti delle cose che avete; poiché Egli stesso ha detto: Io non ti lascerò, e non ti abbandonerò. Talché possiam dire con piena fiducia: Il Signore è il mio aiuto; non temerò. Che mi potrà far l’uomo?",
+      "source": "https://ebible.org/ita1927/HEB13.htm#V5"
+    },
+    {
+      "id": "jas-1-5",
+      "theme": "decisions",
+      "reference": "Giacomo 1:5",
+      "text": "Che se alcuno di voi manca di sapienza, la chiegga a Dio che dona a tutti liberalmente senza rinfacciare, e gli sarà donata.",
+      "source": "https://ebible.org/ita1927/JAS01.htm#V5"
+    },
+    {
+      "id": "jhn-14-27",
+      "theme": "rest",
+      "reference": "Giovanni 14:27",
+      "text": "Io vi lascio pace; vi do la mia pace. Io non vi do come il mondo dà. Il vostro cuore non sia turbato e non si sgomenti.",
+      "source": "https://ebible.org/ita1927/JHN14.htm#V27"
+    },
+    {
+      "id": "psa-34-17-18",
+      "theme": "hardship",
+      "reference": "Salmo 34:17–18",
+      "text": "I giusti gridano e l’Eterno li esaudisce e li libera da tutte le loro distrette. L’Eterno e vicino a quelli che hanno il cuor rotto, e salva quelli che hanno lo spirito contrito.",
+      "source": "https://ebible.org/ita1927/PSA034.htm#V17"
+    },
+    {
+      "id": "1th-5-16-18",
+      "theme": "gratitude",
+      "reference": "1 Tessalonicesi 5:16–18",
+      "text": "Siate sempre allegri; non cessate mai di pregare; in ogni cosa rendete grazie, poiché tale è la volontà di Dio in Cristo Gesù verso di voi.",
+      "source": "https://ebible.org/ita1927/1TH05.htm#V16"
+    },
+    {
+      "id": "heb-4-14-16",
+      "theme": "faith",
+      "reference": "Ebrei 4:14–16",
+      "text": "Avendo noi dunque un gran Sommo Sacerdote che è passato attraverso i cieli, Gesù, il Figliuol di Dio, riteniamo fermamente la professione della nostra fede. Perché non abbiamo un Sommo Sacerdote che non possa simpatizzare con noi nelle nostre infermità; ma ne abbiamo uno che in ogni cosa è stato tentato come noi, però senza peccare. Accostiamoci dunque con piena fiducia al trono della grazia, affinché otteniamo misericordia e troviamo grazia per esser soccorsi al momento opportuno.",
+      "source": "https://ebible.org/ita1927/HEB04.htm#V14"
+    },
+    {
+      "id": "eph-6-1-3",
+      "theme": "family",
+      "reference": "Efesini 6:1–3",
+      "text": "Figliuoli, ubbidite nel Signore ai vostri genitori, poiché ciò è giusto. Onora tuo padre e tua madre (è questo il primo comandamento con promessa) affinché ti sia bene e tu abbia lunga vita sulla terra.",
+      "source": "https://ebible.org/ita1927/EPH06.htm#V1"
+    },
+    {
+      "id": "1co-13-4-7",
+      "theme": "relationships",
+      "reference": "1 Corinzi 13:4–7",
+      "text": "La carità è paziente, è benigna; la carità non invidia; la carità non si vanta, non si gonfia, non si comporta in modo sconveniente, non cerca il proprio interesse, non s’inasprisce, non sospetta il male, non gode dell’ingiustizia, ma gioisce con la verità; soffre ogni cosa, crede ogni cosa, spera ogni cosa, sopporta ogni cosa.",
+      "source": "https://ebible.org/ita1927/1CO13.htm#V4"
+    },
+    {
+      "id": "pro-14-23",
+      "theme": "work",
+      "reference": "Proverbi 14:23",
+      "text": "In ogni fatica v’è profitto, ma il chiacchierare mena all’indigenza.",
+      "source": "https://ebible.org/ita1927/PRO14.htm#V23"
+    },
+    {
+      "id": "1ti-6-6-8",
+      "theme": "money",
+      "reference": "1 Timoteo 6:6–8",
+      "text": "Or la pietà con animo contento del proprio stato, è un grande guadagno; poiché non abbiam portato nulla nel mondo, perché non ne possiamo neanche portar via nulla; ma avendo di che nutrirci e di che coprirci, saremo di questo contenti.",
+      "source": "https://ebible.org/ita1927/1TI06.htm#V6"
+    },
+    {
+      "id": "psa-119-130",
+      "theme": "decisions",
+      "reference": "Salmo 119:130",
+      "text": "La dichiarazione delle tue parole illumina; dà intelletto ai semplici.",
+      "source": "https://ebible.org/ita1927/PSA119.htm#V130"
+    },
+    {
+      "id": "php-4-6-7",
+      "theme": "rest",
+      "reference": "Filippesi 4:6–7",
+      "text": "Il Signore è vicino. Non siate con ansietà solleciti di cosa alcuna; ma in ogni cosa siano le vostre richieste rese note a Dio in preghiera e supplicazione con azioni di grazie. E la pace di Dio che sopravanza ogni intelligenza, guarderà i vostri cuori e i vostri pensieri in Cristo Gesù.",
+      "source": "https://ebible.org/ita1927/PHP04.htm#V6"
+    },
+    {
+      "id": "lam-3-22-24",
+      "theme": "hardship",
+      "reference": "Lamentazioni 3:22–24",
+      "text": "E’ una grazia dell’Eterno che non siamo stati interamente distrutti; poiché le sue compassioni non sono esaurite; si rinnovano ogni mattina. Grande è la tua fedeltà! “L’Eterno è la mia parte”, dice l’anima mia, “perciò spererò in lui”.",
+      "source": "https://ebible.org/ita1927/LAM03.htm#V22"
+    },
+    {
+      "id": "psa-107-1",
+      "theme": "gratitude",
+      "reference": "Salmo 107:1",
+      "text": "Celebrate l’Eterno, perch’egli è buono, perché la sua benignità dura in eterno!",
+      "source": "https://ebible.org/ita1927/PSA107.htm#V1"
+    },
+    {
+      "id": "psa-145-18-19",
+      "theme": "faith",
+      "reference": "Salmo 145:18–19",
+      "text": "L’Eterno è presso a tutti quelli che lo invocano, a tutti quelli che lo invocano in verità. Egli adempie il desiderio di quelli che lo temono, ode il loro grido, e li salva.",
+      "source": "https://ebible.org/ita1927/PSA145.htm#V18"
+    },
+    {
+      "id": "eph-6-4",
+      "theme": "family",
+      "reference": "Efesini 6:4",
+      "text": "E voi, padri, non provocate ad ira i vostri figliuoli, ma allevateli in disciplina e in ammonizione del Signore.",
+      "source": "https://ebible.org/ita1927/EPH06.htm#V4"
+    },
+    {
+      "id": "eph-4-32",
+      "theme": "relationships",
+      "reference": "Efesini 4:32",
+      "text": "Siate invece gli uni verso gli altri benigni, misericordiosi, perdonandovi a vicenda, come anche Dio vi ha perdonati in Cristo.",
+      "source": "https://ebible.org/ita1927/EPH04.htm#V32"
+    },
+    {
+      "id": "col-3-23-24",
+      "theme": "work",
+      "reference": "Colossesi 3:23–24",
+      "text": "Qualunque cosa facciate, operate di buon animo, come per il Signore e non per gli uomini; sapendo che dal Signore riceverete per ricompensa l’eredità.",
+      "source": "https://ebible.org/ita1927/COL03.htm#V23"
+    },
+    {
+      "id": "1ti-6-9-10",
+      "theme": "money",
+      "reference": "1 Timoteo 6:9–10",
+      "text": "Ma quelli che vogliono arricchire cadono in tentazione, in laccio, e in molte insensate e funeste concupiscenze, che affondano gli uomini nella distruzione e nella perdizione. Poiché l’amor del danaro è radice d’ogni sorta di mali; e alcuni che vi si sono dati, si sono sviati dalla fede e si son trafitti di molti dolori.",
+      "source": "https://ebible.org/ita1927/1TI06.htm#V9"
+    },
+    {
+      "id": "pro-3-5-6",
+      "theme": "decisions",
+      "reference": "Proverbi 3:5–6",
+      "text": "Confidati nell’Eterno con tutto il cuore, e non t’appoggiare sul tuo discernimento. Riconoscilo in tutte le tue vie, ed egli appianerà i tuoi sentieri.",
+      "source": "https://ebible.org/ita1927/PRO03.htm#V5"
+    },
+    {
+      "id": "isa-26-3-4",
+      "theme": "rest",
+      "reference": "Isaia 26:3–4",
+      "text": "A colui ch’è fermo nei suoi sentimenti tu conservi la pace, la pace, perché in te confida. Confidate in perpetuo nell’Eterno, poiché l’Eterno, sì l’Eterno, è la roccia dei secoli.",
+      "source": "https://ebible.org/ita1927/ISA26.htm#V3"
+    },
+    {
+      "id": "psa-42-11",
+      "theme": "hardship",
+      "reference": "Salmo 42:11",
+      "text": "Perché t’abbatti anima mia? perché ti commuovi in me? Spera in Dio, perché lo celebrerò ancora; egli è la mia salvezza e il mio Dio.",
+      "source": "https://ebible.org/ita1927/PSA042.htm#V11"
+    },
+    {
+      "id": "col-3-17",
+      "theme": "gratitude",
+      "reference": "Colossesi 3:17",
+      "text": "E qualunque cosa facciate, in parola o in opera, fate ogni cosa nel nome del Signor Gesù, rendendo grazie a Dio Padre per mezzo di lui.",
+      "source": "https://ebible.org/ita1927/COL03.htm#V17"
+    },
+    {
+      "id": "eph-2-8-10",
+      "theme": "faith",
+      "reference": "Efesini 2:8–10",
+      "text": "Poiché gli è per grazia che voi siete stati salvati, mediante la fede; e ciò non vien da voi; è il dono di Dio. Non è in virtù d’opere, affinché niuno si glori; perché noi siamo fattura di lui, essendo stati creati in Cristo Gesù per le buone opere, le quali Iddio ha innanzi preparate affinché le pratichiamo.",
+      "source": "https://ebible.org/ita1927/EPH02.htm#V8"
+    },
+    {
+      "id": "gal-6-2",
+      "theme": "family",
+      "reference": "Galati 6:2",
+      "text": "Portate i pesi gli uni degli altri, e così adempirete la legge di Cristo.",
+      "source": "https://ebible.org/ita1927/GAL06.htm#V2"
+    },
+    {
+      "id": "col-3-12-14",
+      "theme": "relationships",
+      "reference": "Colossesi 3:12–14",
+      "text": "Vestitevi dunque, come eletti di Dio, santi ed amati, di tenera compassione, di benignità, di umiltà, di dolcezza, di longanimità; sopportandovi gli uni gli altri e perdonandovi a vicenda, se uno ha di che dolersi d’un altro. Come il Signore vi ha perdonati, così fate anche voi. E sopra tutte queste cose vestitevi della carità che è il vincolo della perfezione.",
+      "source": "https://ebible.org/ita1927/COL03.htm#V12"
+    },
+    {
+      "id": "pro-12-11",
+      "theme": "work",
+      "reference": "Proverbi 12:11",
+      "text": "Chi coltiva la sua terra avrà pane da saziarsi, ma chi va dietro ai fannulloni e privo di senno.",
+      "source": "https://ebible.org/ita1927/PRO12.htm#V11"
+    },
+    {
+      "id": "1ti-6-17-19",
+      "theme": "money",
+      "reference": "1 Timoteo 6:17–19",
+      "text": "A quelli che son ricchi in questo mondo ordina che non siano d’animo altero, che non ripongano la loro speranza nell’incertezza delle ricchezze, ma in Dio, il quale ci somministra copiosamente ogni cosa perché ne godiamo; che facciano del bene, che siano ricchi in buone opere, pronti a dare, a far parte dei loro averi, in modo da farsi un tesoro ben fondato per l’avvenire, a fin di conseguire la vera vita.",
+      "source": "https://ebible.org/ita1927/1TI06.htm#V17"
+    },
+    {
+      "id": "pro-4-23",
+      "theme": "decisions",
+      "reference": "Proverbi 4:23",
+      "text": "Custodisci il tuo cuore più d’ogni altra cosa, poiché da esso procedono le sorgenti della vita.",
+      "source": "https://ebible.org/ita1927/PRO04.htm#V23"
+    },
+    {
+      "id": "mat-11-28-30",
+      "theme": "rest",
+      "reference": "Matteo 11:28–30",
+      "text": "Venite a me, voi tutti che siete travagliati ed aggravati, e io vi darò riposo. Prendete su voi il mio giogo ed imparate da me, perch’io son mansueto ed umile di cuore; e voi troverete riposo alle anime vostre; poiché il mio giogo è dolce e il mio carico è leggero.",
+      "source": "https://ebible.org/ita1927/MAT11.htm#V28"
+    },
+    {
+      "id": "rom-5-3-5",
+      "theme": "hardship",
+      "reference": "Romani 5:3–5",
+      "text": "e non soltanto questo, ma ci gloriamo anche nelle afflizioni, sapendo che l’afflizione produce pazienza, la pazienza esperienza, e la esperienza speranza. Or la speranza non rende confusi, perché l’amor di Dio è stato sparso nei nostri cuori per lo Spirito Santo che ci è stato dato.",
+      "source": "https://ebible.org/ita1927/ROM05.htm#V3"
+    },
+    {
+      "id": "psa-118-24",
+      "theme": "gratitude",
+      "reference": "Salmo 118:24",
+      "text": "Questo è il giorno che l’Eterno ha fatto; festeggiamo e rallegriamoci in esso.",
+      "source": "https://ebible.org/ita1927/PSA118.htm#V24"
+    },
+    {
+      "id": "col-4-2-4",
+      "theme": "faith",
+      "reference": "Colossesi 4:2–4",
+      "text": "Perseverate nella preghiera, vegliando in essa con rendimento di grazie; pregando in pari tempo anche per noi, affinché Iddio ci apra una porta per la Parola onde possiamo annunziare il mistero di Cristo, a cagion del quale io mi trovo anche prigione; e che io lo faccia conoscere, parlandone come debbo.",
+      "source": "https://ebible.org/ita1927/COL04.htm#V2"
+    },
+    {
+      "id": "deu-6-4-7",
+      "theme": "family",
+      "reference": "Deuteronomio 6:4–7",
+      "text": "Ascolta, Israele: l’Eterno, l’Iddio nostro, è l’unico Eterno. Tu amerai dunque l’Eterno, il tuo Dio, con tutto il cuore, con tutta l’anima tua e con tutte le tue forze. E questi comandamenti che oggi ti do ti staranno nel cuore; li inculcherai ai tuoi figliuoli, ne parlerai quando te ne starai seduto in casa tua, quando sarai per via, quando ti coricherai e quando ti alzerai.",
+      "source": "https://ebible.org/ita1927/DEU06.htm#V4"
+    },
+    {
+      "id": "rom-12-9-13",
+      "theme": "relationships",
+      "reference": "Romani 12:9–13",
+      "text": "L’amore sia senza ipocrisia. Aborrite il male, e attenetevi fermamente al bene. Quanto all’amor fraterno, siate pieni d’affezione gli uni per gli altri; quanto all’onore, prevenitevi gli uni gli altri; quanto allo zelo, non siate pigri; siate ferventi nello spirito, servite il Signore; siate allegri nella speranza, pazienti nell’afflizione, perseveranti nella preghiera; provvedete alle necessità dei santi, esercitate con premura l’ospitalità.",
+      "source": "https://ebible.org/ita1927/ROM12.htm#V9"
+    },
+    {
+      "id": "psa-90-16-17",
+      "theme": "work",
+      "reference": "Salmo 90:16–17",
+      "text": "Apparisca l’opera tua a pro de’ tuo servitori, e la tua gloria sui loro figliuoli. La grazia del Signore Iddio nostro sia sopra noi, e rendi stabile l’opera delle nostre mani; sì, l’opera delle nostre mani rendila stabile.",
+      "source": "https://ebible.org/ita1927/PSA090.htm#V16"
+    },
+    {
+      "id": "php-4-11-13",
+      "theme": "money",
+      "reference": "Filippesi 4:11–13",
+      "text": "Non lo dico perché io mi trovi in bisogno; giacché ho imparato ad esser contento nello stato in cui mi trovo. Io so essere abbassato e so anche abbondare; in tutto e per tutto sono stato ammaestrato ad esser saziato e ad aver fame; ad esser nell’abbondanza e ad esser nella penuria. Io posso ogni cosa in Colui che mi fortifica.",
+      "source": "https://ebible.org/ita1927/PHP04.htm#V11"
+    },
+    {
+      "id": "mic-6-8",
+      "theme": "decisions",
+      "reference": "Michea 6:8",
+      "text": "O uomo, egli t’ha fatto conoscere ciò ch’è bene; e che altro richiede da te l’Eterno, se non che tu pratichi ciò ch’è giusto, che tu ami la misericordia, e cammini umilmente col tuo Dio?",
+      "source": "https://ebible.org/ita1927/MIC06.htm#V8"
+    },
+    {
+      "id": "psa-4-8",
+      "theme": "rest",
+      "reference": "Salmo 4:8",
+      "text": "In pace io mi coricherò e in pace dormirò, perché tu solo, o Eterno, mi fai abitare in sicurtà.",
+      "source": "https://ebible.org/ita1927/PSA004.htm#V8"
+    },
+    {
+      "id": "2co-4-16-18",
+      "theme": "hardship",
+      "reference": "2 Corinzi 4:16–18",
+      "text": "Perciò noi non veniamo meno nell’animo; ma quantunque il nostro uomo esterno si disfaccia, pure il nostro uomo interno si rinnova di giorno in giorno. Perché la nostra momentanea, leggera afflizione ci produce un sempre più grande, smisurato peso eterno di gloria, mentre abbiamo lo sguardo intento non alle cose che si vedono, ma a quelle che non si vedono; poiché le cose che si vedono son solo per un tempo, ma quelle che non si vedono sono eterne.",
+      "source": "https://ebible.org/ita1927/2CO04.htm#V16"
+    },
+    {
+      "id": "heb-13-15-16",
+      "theme": "gratitude",
+      "reference": "Ebrei 13:15–16",
+      "text": "Per mezzo di lui, dunque, offriam del continuo a Dio un sacrificio di lode: cioè, il frutto di labbra confessanti il suo nome! E non dimenticate di esercitar la beneficenza e di far parte agli altri de’ vostri beni; perché è di tali sacrifici che Dio si compiace.",
+      "source": "https://ebible.org/ita1927/HEB13.htm#V15"
+    },
+    {
+      "id": "jas-5-13",
+      "theme": "faith",
+      "reference": "Giacomo 5:13",
+      "text": "C’è fra voi qualcuno che soffre? Preghi. C’è qualcuno d’animo lieto? Salmeggi.",
+      "source": "https://ebible.org/ita1927/JAS05.htm#V13"
+    },
+    {
+      "id": "1pe-4-8",
+      "theme": "family",
+      "reference": "1 Pietro 4:8",
+      "text": "Soprattutto, abbiate amore intenso gli uni per gli altri, perché l’amore copre moltitudine di peccati.",
+      "source": "https://ebible.org/ita1927/1PE04.htm#V8"
+    },
+    {
+      "id": "rom-12-15-16",
+      "theme": "relationships",
+      "reference": "Romani 12:15–16",
+      "text": "Rallegratevi con quelli che sono allegri; piangete con quelli che piangono. Abbiate fra voi un medesimo sentimento; non abbiate l’animo alle cose alte, ma lasciatevi attirare dalle umili. Non vi stimate savi da voi stessi.",
+      "source": "https://ebible.org/ita1927/ROM12.htm#V15"
+    },
+    {
+      "id": "ecc-3-12-13",
+      "theme": "work",
+      "reference": "Ecclesiaste 3:12–13",
+      "text": "Io ho riconosciuto che non v’è nulla di meglio per loro del rallegrarsi e del procurarsi del benessere durante la loro vita, ma che se uno mangia, beve e gode del benessere in mezzo a tutto il suo lavoro, è un dono di Dio.",
+      "source": "https://ebible.org/ita1927/ECC03.htm#V12"
+    },
+    {
+      "id": "pro-15-16-17",
+      "theme": "money",
+      "reference": "Proverbi 15:16–17",
+      "text": "Meglio poco col timor dell’Eterno, che gran tesoro con turbolenza. Meglio un piatto d’erbe, dov’è l’amore, che un bove ingrassato, dov’è l’odio.",
+      "source": "https://ebible.org/ita1927/PRO15.htm#V16"
+    },
+    {
+      "id": "rom-12-1-2",
+      "theme": "decisions",
+      "reference": "Romani 12:1–2",
+      "text": "Io vi esorto dunque, fratelli, per le compassioni di Dio, a presentare i vostri corpi in sacrificio vivente, santo, accettevole a Dio; il che è il vostro culto spirituale. E non vi conformate a questo secolo, ma siate trasformati mediante il rinnovamento della vostra mente, affinché conosciate per esperienza qual sia la volontà di Dio, la buona, accettevole e perfetta volontà.",
+      "source": "https://ebible.org/ita1927/ROM12.htm#V1"
+    },
+    {
+      "id": "1pe-5-6-7",
+      "theme": "rest",
+      "reference": "1 Pietro 5:6–7",
+      "text": "Umiliatevi dunque sotto la potente mano di Dio, affinché Egli v’innalzi a suo tempo, gettando su lui ogni vostra sollecitudine, perch’Egli ha cura di voi.",
+      "source": "https://ebible.org/ita1927/1PE05.htm#V6"
+    },
+    {
+      "id": "mat-5-4",
+      "theme": "hardship",
+      "reference": "Matteo 5:4",
+      "text": "Beati quelli che fanno cordoglio, perché essi saranno consolati.",
+      "source": "https://ebible.org/ita1927/MAT05.htm#V4"
+    },
+    {
+      "id": "jas-1-16-17",
+      "theme": "gratitude",
+      "reference": "Giacomo 1:16–17",
+      "text": "Non errate, fratelli miei diletti; ogni donazione buona e ogni dono perfetto vengono dall’alto, discendendo dal Padre degli astri luminosi presso il quale non c’è variazione né ombra prodotta da rivolgimento.",
+      "source": "https://ebible.org/ita1927/JAS01.htm#V16"
+    },
+    {
+      "id": "heb-11-1",
+      "theme": "faith",
+      "reference": "Ebrei 11:1",
+      "text": "Or la fede è certezza di cose che si sperano, dimostrazione di cose che non si vedono.",
+      "source": "https://ebible.org/ita1927/HEB11.htm#V1"
+    },
+    {
+      "id": "1co-16-14",
+      "theme": "family",
+      "reference": "1 Corinzi 16:14",
+      "text": "Tutte le cose vostre sian fatte con carità.",
+      "source": "https://ebible.org/ita1927/1CO16.htm#V14"
+    },
+    {
+      "id": "1jn-3-16-18",
+      "theme": "relationships",
+      "reference": "1 Giovanni 3:16–18",
+      "text": "Noi abbiamo conosciuto l’amore da questo: che Egli ha data la sua vita per noi; noi pure dobbiam dare la nostra vita per i fratelli. Ma se uno ha dei beni di questo mondo, e vede il suo fratello nel bisogno, e gli chiude le proprie viscere, come dimora l’amor di Dio in lui? Figliuoletti, non amiamo a parole e con la lingua, ma a fatti e in verità.",
+      "source": "https://ebible.org/ita1927/1JN03.htm#V16"
+    },
+    {
+      "id": "1co-15-58",
+      "theme": "work",
+      "reference": "1 Corinzi 15:58",
+      "text": "Perciò, fratelli miei diletti, state saldi, incrollabili, abbondanti sempre nell’opera del Signore, sapendo che la vostra fatica non è vana nel Signore.",
+      "source": "https://ebible.org/ita1927/1CO15.htm#V58"
+    },
+    {
+      "id": "pro-22-1-2",
+      "theme": "money",
+      "reference": "Proverbi 22:1–2",
+      "text": "La buona riputazione è da preferirsi alle molte ricchezze; e la stima, all’argento e all’oro. Il ricco e il povero s’incontrano; l’Eterno li ha fatti tutti e due.",
+      "source": "https://ebible.org/ita1927/PRO22.htm#V1"
+    },
+    {
+      "id": "eph-5-15-17",
+      "theme": "decisions",
+      "reference": "Efesini 5:15–17",
+      "text": "Guardate dunque con diligenza come vi conducete; non da stolti, ma da savi; approfittando delle occasioni, perché i giorni sono malvagi. Perciò non siate disavveduti, ma intendete bene quale sia la volontà del Signore.",
+      "source": "https://ebible.org/ita1927/EPH05.htm#V15"
+    },
+    {
+      "id": "2th-3-16",
+      "theme": "rest",
+      "reference": "2 Tessalonicesi 3:16",
+      "text": "Or il Signore della pace vi dia egli stesso del continuo la pace in ogni maniera. Il Signore sia con tutti voi.",
+      "source": "https://ebible.org/ita1927/2TH03.htm#V16"
+    },
+    {
+      "id": "psa-94-17-19",
+      "theme": "hardship",
+      "reference": "Salmo 94:17–19",
+      "text": "Se l’Eterno non fosse stato il mio aiuto, a quest’ora l’anima mia abiterebbe il luogo del silenzio. Quand’ho detto: Il mio piè vacilla, la tua benignità, o Eterno, m’ha sostenuto. Quando sono stato in grandi pensieri dentro di me, le tue consolazioni han rallegrato l’anima mia.",
+      "source": "https://ebible.org/ita1927/PSA094.htm#V17"
+    },
+    {
+      "id": "psa-145-8-10",
+      "theme": "gratitude",
+      "reference": "Salmo 145:8–10",
+      "text": "L’Eterno è misericordioso e pieno di compassione, lento all’ira e di gran benignità. L’Eterno è buono verso tutti, e le sue compassioni s’estendono a tutte le sue opere. Tutte le tue opere ti celebreranno, o Eterno, e i tuoi fedeli ti benediranno.",
+      "source": "https://ebible.org/ita1927/PSA145.htm#V8"
+    },
+    {
+      "id": "1jn-5-14-15",
+      "theme": "faith",
+      "reference": "1 Giovanni 5:14–15",
+      "text": "E questa è la confidanza che abbiamo in lui: che se domandiamo qualcosa secondo la sua volontà, Egli ci esaudisce; e se sappiamo ch’Egli ci esaudisce in quel che gli chiediamo, noi sappiamo di aver le cose che gli abbiamo domandate.",
+      "source": "https://ebible.org/ita1927/1JN05.htm#V14"
+    },
+    {
+      "id": "rut-1-16-17",
+      "theme": "family",
+      "reference": "Rut 1:16–17",
+      "text": "Ma Ruth rispose: “Non insistere perch’io ti lasci, e me ne torni lungi da te; perché dove andrai tu, andrò anch’io; e dove starai tu, io pure starò; il tuo popolo sarà il mio popolo, e il tuo Dio sarà il mio Dio; dove morrai tu morrò anch’io, e quivi sarò sepolta. L’Eterno mi tratti col massimo rigore se altra cosa che la morte mi separerà da te!”",
+      "source": "https://ebible.org/ita1927/RUT01.htm#V16"
+    },
+    {
+      "id": "mat-5-44-45",
+      "theme": "relationships",
+      "reference": "Matteo 5:44–45",
+      "text": "Ma io vi dico: Amate i vostri nemici e pregate per quelli che vi perseguitano, affinché siate figliuoli del Padre vostro che è nei cieli; poiché Egli fa levare il suo sole sopra i malvagi e sopra i buoni, e fa piovere sui giusti e sugli ingiusti.",
+      "source": "https://ebible.org/ita1927/MAT05.htm#V44"
+    },
+    {
+      "id": "heb-6-10",
+      "theme": "work",
+      "reference": "Ebrei 6:10",
+      "text": "poiché Dio non è ingiusto da dimenticare l’opera vostra e l’amore che avete mostrato verso il suo nome coi servizi che avete reso e che rendete tuttora ai santi.",
+      "source": "https://ebible.org/ita1927/HEB06.htm#V10"
+    },
+    {
+      "id": "pro-22-9",
+      "theme": "money",
+      "reference": "Proverbi 22:9",
+      "text": "L’uomo dallo sguardo benevolo sarà benedetto, perché dà del suo pane al povero.",
+      "source": "https://ebible.org/ita1927/PRO22.htm#V9"
+    },
+    {
+      "id": "pro-16-9",
+      "theme": "decisions",
+      "reference": "Proverbi 16:9",
+      "text": "Il cuor dell’uomo medita la sua via, ma l’Eterno dirige i suoi passi.",
+      "source": "https://ebible.org/ita1927/PRO16.htm#V9"
+    },
+    {
+      "id": "psa-55-22",
+      "theme": "rest",
+      "reference": "Salmo 55:22",
+      "text": "Getta sull’Eterno il tuo peso, ed egli ti sosterrà; egli non permetterà mai che il giusto sia smosso.",
+      "source": "https://ebible.org/ita1927/PSA055.htm#V22"
+    },
+    {
+      "id": "2co-1-3-4",
+      "theme": "hardship",
+      "reference": "2 Corinzi 1:3–4",
+      "text": "Benedetto sia Iddio, il Padre del nostro Signore Gesù Cristo, il Padre delle misericordie e l’Iddio d’ogni consolazione, il quale ci consola in ogni nostra afflizione, affinché, mediante la consolazione onde noi stessi siam da Dio consolati, possiam consolare quelli che si trovano in qualunque afflizione.",
+      "source": "https://ebible.org/ita1927/2CO01.htm#V3"
+    },
+    {
+      "id": "col-3-15",
+      "theme": "gratitude",
+      "reference": "Colossesi 3:15",
+      "text": "E la pace di Cristo, alla quale siete stati chiamati per essere un sol corpo, regni nei vostri cuori; e siate riconoscenti.",
+      "source": "https://ebible.org/ita1927/COL03.htm#V15"
+    },
+    {
+      "id": "psa-5-3",
+      "theme": "faith",
+      "reference": "Salmo 5:3",
+      "text": "O Eterno, al mattino tu ascolterai la mia voce; al mattino ti offrirò la mia preghiera e aspetterò;",
+      "source": "https://ebible.org/ita1927/PSA005.htm#V3"
+    },
+    {
+      "id": "psa-127-3",
+      "theme": "family",
+      "reference": "Salmo 127:3",
+      "text": "Ecco, i figliuoli sono un’eredità che viene dall’Eterno; il frutto del seno materno è un premio.",
+      "source": "https://ebible.org/ita1927/PSA127.htm#V3"
+    },
+    {
+      "id": "eph-4-1-3",
+      "theme": "relationships",
+      "reference": "Efesini 4:1–3",
+      "text": "Io dunque, il carcerato nel Signore, vi esorto a condurvi in modo degno della vocazione che vi è stata rivolta, con ogni umiltà e mansuetudine, con longanimità, sopportandovi gli uni gli altri con amore, studiandovi di conservare l’unità dello Spirito col vincolo della pace.",
+      "source": "https://ebible.org/ita1927/EPH04.htm#V1"
+    },
+    {
+      "id": "mat-5-16",
+      "theme": "work",
+      "reference": "Matteo 5:16",
+      "text": "Così risplenda la vostra luce nel cospetto degli uomini, affinché veggano le vostre buone opere e glorifichino il Padre vostro che è ne’ cieli.",
+      "source": "https://ebible.org/ita1927/MAT05.htm#V16"
+    },
+    {
+      "id": "pro-19-17",
+      "theme": "money",
+      "reference": "Proverbi 19:17",
+      "text": "Chi ha pietà del povero presta all’Eterno, che gli contraccambierà l’opera buona.",
+      "source": "https://ebible.org/ita1927/PRO19.htm#V17"
+    },
+    {
+      "id": "jas-3-17-18",
+      "theme": "decisions",
+      "reference": "Giacomo 3:17–18",
+      "text": "Ma la sapienza che è da alto, prima è pura; poi pacifica, mite, arrendevole, piena di misericordia e di buoni frutti, senza parzialità senza ipocrisia. Or il frutto della giustizia si semina nella pace per quelli che s’adoprano alla pace.",
+      "source": "https://ebible.org/ita1927/JAS03.htm#V17"
+    },
+    {
+      "id": "pro-12-25",
+      "theme": "rest",
+      "reference": "Proverbi 12:25",
+      "text": "Il cordoglio ch’è nel cuore dell’uomo l’abbatte, ma la parola buona lo rallegra.",
+      "source": "https://ebible.org/ita1927/PRO12.htm#V25"
+    },
+    {
+      "id": "psa-73-25-26",
+      "theme": "hardship",
+      "reference": "Salmo 73:25–26",
+      "text": "Chi ho io in cielo fuori di te? E sulla terra non desidero che te. La mia carne e il mio cuore posson venir meno, ma Dio è la ròcca del mio cuore e la mia parte in eterno.",
+      "source": "https://ebible.org/ita1927/PSA073.htm#V25"
+    },
+    {
+      "id": "col-2-6-7",
+      "theme": "gratitude",
+      "reference": "Colossesi 2:6–7",
+      "text": "Come dunque avete ricevuto Cristo Gesù il Signore, così camminate uniti a lui, essendo radicati ed edificati in lui e confermati nella fede, come v’è stato insegnato, e abbondando in azioni di grazie.",
+      "source": "https://ebible.org/ita1927/COL02.htm#V6"
+    },
+    {
+      "id": "rom-8-26-27",
+      "theme": "faith",
+      "reference": "Romani 8:26–27",
+      "text": "Parimente ancora, lo Spirito sovviene alla nostra debolezza; perché noi non sappiamo pregare come si conviene; ma lo Spirito intercede egli stesso per noi con sospiri ineffabili; e Colui che investiga i cuori conosce qual sia il sentimento dello Spirito, perché esso intercede per i santi secondo Iddio.",
+      "source": "https://ebible.org/ita1927/ROM08.htm#V26"
+    },
+    {
+      "id": "pro-14-26",
+      "theme": "family",
+      "reference": "Proverbi 14:26",
+      "text": "V’è una gran sicurezza nel timor dell’Eterno; Egli sarà un rifugio per i figli di chi lo teme.",
+      "source": "https://ebible.org/ita1927/PRO14.htm#V26"
+    },
+    {
+      "id": "jas-1-19-20",
+      "theme": "relationships",
+      "reference": "Giacomo 1:19–20",
+      "text": "Questo lo sapete, fratelli miei diletti; ma sia ogni uomo pronto ad ascoltare, tardo al parlare, lento all’ira; perché l’ira dell’uomo non mette in opra la giustizia di Dio.",
+      "source": "https://ebible.org/ita1927/JAS01.htm#V19"
+    },
+    {
+      "id": "gal-6-9-10",
+      "theme": "work",
+      "reference": "Galati 6:9–10",
+      "text": "E non ci scoraggiamo nel far il bene; perché, se non ci stanchiamo, mieteremo a suo tempo. Così dunque, secondo che ne abbiamo l’opportunità, facciam del bene a tutti; ma specialmente a quei della famiglia dei credenti.",
+      "source": "https://ebible.org/ita1927/GAL06.htm#V9"
+    },
+    {
+      "id": "2co-9-6-7",
+      "theme": "money",
+      "reference": "2 Corinzi 9:6–7",
+      "text": "Or questo io dico: chi semina scarsamente mieterà altresì scarsamente; e chi semina liberalmente mieterà altresì liberalmente. Dia ciascuno secondo che ha deliberato in cuor suo; non di mala voglia, né per forza perché Iddio ama un donatore allegro.",
+      "source": "https://ebible.org/ita1927/2CO09.htm#V6"
+    },
+    {
+      "id": "col-4-5-6",
+      "theme": "decisions",
+      "reference": "Colossesi 4:5–6",
+      "text": "Conducetevi con saviezza verso quelli di fuori, approfittando delle opportunità. Il vostro parlare sia sempre con grazia, condito con sale, per sapere come dovete rispondere a ciascuno.",
+      "source": "https://ebible.org/ita1927/COL04.htm#V5"
+    },
+    {
+      "id": "mat-6-33-34",
+      "theme": "rest",
+      "reference": "Matteo 6:33–34",
+      "text": "Ma cercate prima il regno e la giustizia di Dio, e tutte queste cose vi saranno sopraggiunte. Non siate dunque con ansietà solleciti del domani; perché il domani sarà sollecito di se stesso. Basta a ciascun giorno il suo affanno.",
+      "source": "https://ebible.org/ita1927/MAT06.htm#V33"
+    },
+    {
+      "id": "isa-41-10",
+      "theme": "hardship",
+      "reference": "Isaia 41:10",
+      "text": "tu, non temere, perché io son teco; non ti smarrire, perché io sono il tuo Dio; io ti fortifico, io ti soccorro, io ti sostengo con la destra della mia giustizia.",
+      "source": "https://ebible.org/ita1927/ISA41.htm#V10"
+    },
+    {
+      "id": "psa-100-4-5",
+      "theme": "gratitude",
+      "reference": "Salmo 100:4–5",
+      "text": "Entrate nelle sue porte con ringraziamento, e nei suoi cortili con lode; celebratelo, benedite il suo nome. Poiché l’Eterno è buono; la sua benignità dura in perpetuo, e la sua fedeltà per ogni età.",
+      "source": "https://ebible.org/ita1927/PSA100.htm#V4"
+    },
+    {
+      "id": "psa-139-23-24",
+      "theme": "faith",
+      "reference": "Salmo 139:23–24",
+      "text": "Investigami, o Dio, e conosci il mio cuore. Provami, e conosci i miei pensieri. E vedi se v’è in me qualche via iniqua, e guidami per la via eterna.",
+      "source": "https://ebible.org/ita1927/PSA139.htm#V23"
+    },
+    {
+      "id": "pro-23-22",
+      "theme": "family",
+      "reference": "Proverbi 23:22",
+      "text": "Da’ retta a tuo padre che t’ha generato, e non disprezzar tua madre quando sarà vecchia.",
+      "source": "https://ebible.org/ita1927/PRO23.htm#V22"
+    },
+    {
+      "id": "pro-15-1",
+      "theme": "relationships",
+      "reference": "Proverbi 15:1",
+      "text": "La risposta dolce calma il furore, ma la parola dura eccita l’ira.",
+      "source": "https://ebible.org/ita1927/PRO15.htm#V1"
+    },
+    {
+      "id": "eph-4-28",
+      "theme": "work",
+      "reference": "Efesini 4:28",
+      "text": "Chi rubava non rubi più, ma s’affatichi piuttosto a lavorare onestamente con le proprie mani, onde abbia di che far parte a colui che ha bisogno.",
+      "source": "https://ebible.org/ita1927/EPH04.htm#V28"
+    },
+    {
+      "id": "pro-23-4-5",
+      "theme": "money",
+      "reference": "Proverbi 23:4–5",
+      "text": "Non t’affannare per diventar ricco, smetti dall’applicarvi la tua intelligenza. Vuoi tu fissar lo sguardo su ciò che scompare? Giacché la ricchezza si fa dell’ali, come l’aquila che vola verso il cielo.",
+      "source": "https://ebible.org/ita1927/PRO23.htm#V4"
+    },
+    {
+      "id": "psa-90-12",
+      "theme": "decisions",
+      "reference": "Salmo 90:12",
+      "text": "Insegnaci dunque a così contare nostri giorni, che acquistiamo un cuor savio.",
+      "source": "https://ebible.org/ita1927/PSA090.htm#V12"
+    },
+    {
+      "id": "psa-56-3-4",
+      "theme": "rest",
+      "reference": "Salmo 56:3–4",
+      "text": "Nel giorno in cui temerò, io confiderò in te. Coll’aiuto di Dio celebrerò la sua parola; in Dio confido, e non temerò; che mi può fare il mortale?",
+      "source": "https://ebible.org/ita1927/PSA056.htm#V3"
+    },
+    {
+      "id": "rom-8-38-39",
+      "theme": "hardship",
+      "reference": "Romani 8:38–39",
+      "text": "Poiché io son persuaso che né morte, né vita, né angeli, né principati, né cose presenti, né cose future, né potestà, né altezza, né profondità, né alcun’altra creatura potranno separarci dall’amore di Dio, che è in Cristo Gesù, nostro Signore.",
+      "source": "https://ebible.org/ita1927/ROM08.htm#V38"
+    },
+    {
+      "id": "psa-95-1-2",
+      "theme": "gratitude",
+      "reference": "Salmo 95:1–2",
+      "text": "Venite, cantiamo con giubilo all’Eterno, mandiamo grida di gioia alla ròcca della nostra salvezza! Presentiamoci a lui con lodi, celebriamolo con salmi!",
+      "source": "https://ebible.org/ita1927/PSA095.htm#V1"
+    },
+    {
+      "id": "jhn-15-4-5",
+      "theme": "faith",
+      "reference": "Giovanni 15:4–5",
+      "text": "Dimorate in me, e io dimorerò in voi. Come il tralcio non può da sé dar frutto se non rimane nella vite, così neppur voi, se non dimorate in me. Io son la vite, voi siete i tralci. Colui che dimora in me e nel quale io dimoro, porta molto frutto; perché senza di me non potete far nulla.",
+      "source": "https://ebible.org/ita1927/JHN15.htm#V4"
+    },
+    {
+      "id": "pro-24-3-4",
+      "theme": "family",
+      "reference": "Proverbi 24:3–4",
+      "text": "La casa si edifica con la sapienza, e si rende stabile con la prudenza; mediante la scienza, se ne riempiono le stanze d’ogni specie di beni preziosi e gradevoli.",
+      "source": "https://ebible.org/ita1927/PRO24.htm#V3"
+    },
+    {
+      "id": "ecc-4-9-10",
+      "theme": "relationships",
+      "reference": "Ecclesiaste 4:9–10",
+      "text": "Due valgon meglio d’un solo, perché sono ben ricompensati della loro fatica. Poiché, se l’uno cade, l’altro rialza il suo compagno; ma guai a colui ch’è solo, e cade senz’avere un altro che lo rialzi!",
+      "source": "https://ebible.org/ita1927/ECC04.htm#V9"
+    },
+    {
+      "id": "1pe-4-10-11",
+      "theme": "work",
+      "reference": "1 Pietro 4:10–11",
+      "text": "Come buoni amministratori della svariata grazia di Dio, ciascuno, secondo il dono che ha ricevuto, lo faccia valere al servizio degli altri. Se uno parla, lo faccia come annunziando oracoli di Dio; se uno esercita un ministerio, lo faccia come con la forza che Dio fornisce, onde in ogni cosa sia glorificato Iddio per mezzo di Gesù Cristo, al quale appartengono la gloria e l’imperio nei secoli de’ secoli. Amen.",
+      "source": "https://ebible.org/ita1927/1PE04.htm#V10"
+    },
+    {
+      "id": "luk-12-15",
+      "theme": "money",
+      "reference": "Luca 12:15",
+      "text": "Badate e guardatevi da ogni avarizia; perché non è dall’abbondanza de’ beni che uno possiede, ch’egli ha la sua vita.",
+      "source": "https://ebible.org/ita1927/LUK12.htm#V15"
+    },
+    {
+      "id": "pro-15-22",
+      "theme": "decisions",
+      "reference": "Proverbi 15:22",
+      "text": "I disegni falliscono, dove mancano i consigli; ma riescono, dove son molti i consiglieri.",
+      "source": "https://ebible.org/ita1927/PRO15.htm#V22"
+    },
+    {
+      "id": "psa-62-5-6",
+      "theme": "rest",
+      "reference": "Salmo 62:5–6",
+      "text": "Anima mia, acquetati in Dio solo, poiché da lui viene la mia speranza. Egli solo è la mia ròcca e la mia salvezza; egli è il mio alto ricetto; io non sarò smosso.",
+      "source": "https://ebible.org/ita1927/PSA062.htm#V5"
+    },
+    {
+      "id": "rev-21-3-4",
+      "theme": "hardship",
+      "reference": "Apocalisse 21:3–4",
+      "text": "E udii una gran voce dal trono, che diceva: Ecco il tabernacolo di Dio con gli uomini; ed Egli abiterà con loro, ed essi saranno suoi popoli, e Dio stesso sarà con loro e sarà loro Dio; e asciugherà ogni lagrima dagli occhi loro e la morte non sarà più; né ci saran più cordoglio, né grido, né dolore, poiché le cose di prima sono passate.",
+      "source": "https://ebible.org/ita1927/REV21.htm#V3"
+    },
+    {
+      "id": "php-4-4-5",
+      "theme": "gratitude",
+      "reference": "Filippesi 4:4–5",
+      "text": "Rallegratevi del continuo nel Signore. Da capo dico: Rallegratevi. La vostra mansuetudine sia nota a tutti gli uomini.",
+      "source": "https://ebible.org/ita1927/PHP04.htm#V4"
+    },
+    {
+      "id": "rom-15-13",
+      "theme": "faith",
+      "reference": "Romani 15:13",
+      "text": "Or l’Iddio della speranza vi riempia d’ogni allegrezza e d’ogni pace nel vostro credere, onde abbondiate nella speranza, mediante la potenza dello Spirito Santo.",
+      "source": "https://ebible.org/ita1927/ROM15.htm#V13"
+    }
+  ]
+}

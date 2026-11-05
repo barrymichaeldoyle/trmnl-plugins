@@ -42,24 +42,44 @@ export async function loadPlugin(directory) {
     [name, polledData(await Promise.all([entry.files ?? entry.file ?? entry].flat().map(async path => JSON.parse(await readFile(join(root, path), 'utf8')))))])));
   const defaultFixture = config.preview?.fixture ?? Object.keys(fixtures)[0];
   if (defaultFixture !== undefined && !fixtures[defaultFixture]) throw new Error(`Unknown preview fixture: ${defaultFixture}`);
-  const data = config.data ? JSON.parse(await readFile(join(root, config.data), 'utf8')) : structuredClone(fixtures[defaultFixture] ?? {});
-  if (config.translations) {
-    data.translations = Object.fromEntries(await Promise.all(Object.entries(config.translations).map(async ([language, path]) => {
-      const collection = JSON.parse(await readFile(join(root, path), 'utf8'));
-      if (collection.translation?.language !== language || !Array.isArray(collection.verses) || !collection.verses.length) throw new Error(`Invalid ${language} Scripture collection.`);
-      return [language, collection];
+  // Scripture apps list one collection per translation in a catalogue; TRMNL
+  // polls the selected one. polling_files maps published URLs to local files,
+  // so previews and tests fetch through the same polling URL as production:
+  // "collections": { "catalogue": "content/translations.json", "directory": "content/verses" },
+  // "polling_files": { "https://cdn.example/app/": "." }
+  let collections;
+  if (config.collections) {
+    const catalogue = JSON.parse(await readFile(join(root, config.collections.catalogue), 'utf8'));
+    collections = Object.fromEntries(await Promise.all(catalogue.map(async entry => {
+      const collection = JSON.parse(await readFile(join(root, config.collections.directory, `${entry.id}.json`), 'utf8'));
+      if (collection.translation?.id !== entry.id || collection.translation.language !== entry.language || !Array.isArray(collection.verses) || !collection.verses.length) throw new Error(`Invalid ${entry.id} Scripture collection.`);
+      return [entry.id, collection];
     })));
   }
+  let data = config.data ? JSON.parse(await readFile(join(root, config.data), 'utf8')) : structuredClone(fixtures[defaultFixture] ?? {});
   let transform;
   try { transform = await readFile(join(root, 'src/transform.js'), 'utf8'); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
-  // GitHub Sync writes the exported transform back, bundle included; the
-  // collection files are the source, and the export bundles them again.
-  if (transform) transform = transform.replace(/^const SCRIPTURE = .*\n/, '');
   const shared = await readFile(join(root, 'src/shared.liquid'), 'utf8');
   const templates = Object.fromEntries(await Promise.all(views.map(async view => [view, shared + '\n' + await readFile(join(root, `src/${view}.liquid`), 'utf8')])));
   const defaults = Object.fromEntries((settings.custom_fields ?? []).filter(field => field.default !== undefined).map(field => [field.keyname, field.default]));
-  return { root, config, settings, data, fixtures, transform, templates, defaults };
+  const plugin = { root, config, settings, data, fixtures, collections, transform, templates, defaults };
+  if (config.polling_files && !config.data && defaultFixture === undefined) plugin.data = await pollFiles(plugin);
+  return plugin;
+}
+
+// Local stand-in for TRMNL's poll: render the polling URL with these settings
+// and read the published file it names from the workspace.
+export async function pollFiles(plugin, fields = {}) {
+  const { urls } = await renderPolling(plugin, { fields: { ...plugin.config.preview?.fields, ...fields } });
+  return polledData(await Promise.all(urls.map(async url => {
+    const prefix = Object.keys(plugin.config.polling_files ?? {}).find(prefix => url.startsWith(prefix));
+    if (!prefix) throw new Error(`No local file is mapped for polling URL ${url}`);
+    const path = resolve(plugin.root, plugin.config.polling_files[prefix], url.slice(prefix.length).split(/[?#]/)[0]);
+    if (!path.startsWith(plugin.root + '/')) throw new Error(`Polling URL ${url} maps outside the plugin.`);
+    try { return JSON.parse(await readFile(path, 'utf8')); }
+    catch (error) { throw new Error(`Polling URL ${url} has no published file: ${error.message}`); }
+  })));
 }
 
 // TRMNL exposes one response at the root, wrapping a JSON array as data, and
@@ -117,6 +137,7 @@ export function contextFor(plugin, { fields = {}, timestamp = Date.now() / 1000,
 
 export async function renderView(plugin, view, options = {}) {
   if (!views.includes(view)) throw new Error(`Unknown view: ${view}`);
+  if (options.data === undefined && plugin.config.polling_files) options = { ...options, data: await pollFiles(plugin, options.fields) };
   const context = contextFor(plugin, options);
   const data = runTransform(plugin, context);
   return engine.parseAndRender(plugin.templates[view], { ...data, trmnl: context.trmnl });
@@ -178,11 +199,8 @@ export async function checkPlugin(plugin) {
   return true;
 }
 
-// TRMNL rejects settings.yml and transform.js files over about 100 KB. With
-// bundle_data_in_transform, translations that do not fit in static data are
-// bundled in the transform as SCRIPTURE.translations, which it merges back.
+// TRMNL rejects settings.yml and transform.js files over about 100 KB.
 export const settingsLimit = 100 * 1000;
-const packingBudget = 90 * 1000;
 
 // TRMNL stores these switches as 'yes'/'no' strings and GitHub Sync writes them
 // back that way. Emit the same form, quoted as YAML 1.1 requires (TRMNL parses
@@ -192,28 +210,13 @@ const settingsYaml = settings => YAML.stringify(Object.fromEntries(Object.entrie
   [key, yesNoSettings.includes(key) && typeof value === 'boolean' ? (value ? 'yes' : 'no') : value])), { version: '1.1' });
 
 export function exportFiles(plugin) {
-  const { translations = {}, ...primary } = plugin.data;
-  const staticTranslations = {};
-  const bundled = {};
-  if (plugin.settings.strategy !== 'static') {
-    const files = { 'settings.yml': settingsYaml(plugin.settings), ...Object.fromEntries(views.map(view => [`${view}.liquid`, plugin.templates[view]])), ...(plugin.transform ? { 'transform.js': plugin.transform } : {}) };
-    for (const name of ['settings.yml', 'transform.js']) if (files[name] && Buffer.byteLength(files[name]) > settingsLimit) throw new Error(`${name} exceeds TRMNL's ${settingsLimit / 1000} KB limit.`);
-    return files;
-  }
-  const settingsFor = data => settingsYaml({ ...plugin.settings, static_data: JSON.stringify(data) });
-  for (const [language, collection] of Object.entries(translations)) {
-    const candidate = { ...primary, translations: { ...staticTranslations, [language]: collection } };
-    if (!plugin.config.bundle_data_in_transform || Buffer.byteLength(settingsFor(candidate)) <= packingBudget) staticTranslations[language] = collection;
-    else bundled[language] = collection;
-  }
-  const staticData = Object.keys(translations).length ? { ...primary, translations: staticTranslations } : primary;
-  const transform = plugin.transform && Object.keys(bundled).length ? `const SCRIPTURE = ${JSON.stringify({ translations: bundled })};\n${plugin.transform}` : plugin.transform;
+  const settings = plugin.settings.strategy === 'static' ? { ...plugin.settings, static_data: JSON.stringify(plugin.data) } : plugin.settings;
   // Inline shared code into each view: compatible with TRMNL's flat ZIP format,
   // including importers that do not understand a separate shared.liquid file.
-  const files = { 'settings.yml': settingsFor(staticData), ...Object.fromEntries(views.map(view => [`${view}.liquid`, plugin.templates[view]])), ...(transform ? { 'transform.js': transform } : {}) };
+  const files = { 'settings.yml': settingsYaml(settings), ...Object.fromEntries(views.map(view => [`${view}.liquid`, plugin.templates[view]])), ...(plugin.transform ? { 'transform.js': plugin.transform } : {}) };
   for (const name of ['settings.yml', 'transform.js']) {
     const size = files[name] ? Buffer.byteLength(files[name]) : 0;
-    if (size > settingsLimit) throw new Error(`${name} is ${Math.round(size / 1000)} KB; TRMNL rejects files over ${settingsLimit / 1000} KB.${name === 'settings.yml' ? ' Set bundle_data_in_transform in plugin.config.json.' : ''}`);
+    if (size > settingsLimit) throw new Error(`${name} is ${Math.round(size / 1000)} KB; TRMNL rejects files over ${settingsLimit / 1000} KB.`);
   }
   return files;
 }
