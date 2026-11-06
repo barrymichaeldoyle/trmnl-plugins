@@ -1,16 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title"><title id="title">AdMob Earnings</title>
-<defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10B981"/><stop offset="1" stop-color="#0369A1"/></linearGradient>
-<linearGradient id="coin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FEF08A"/><stop offset="1" stop-color="#F59E0B"/></linearGradient>
-</defs>
-<rect width="512" height="512" fill="url(#bg)"/>
-<g fill="#FFFFFF">
-<rect x="80" y="320" width="88" height="112" rx="16"/>
-<rect x="212" y="256" width="88" height="176" rx="16"/>
-<rect x="344" y="184" width="88" height="248" rx="16"/>
-</g>
-<path d="M92 272 L238 194 L384 116" fill="none" stroke="#FEF08A" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M352 92 L436 82 L410 162 Z" fill="#FEF08A" stroke="#FEF08A" stroke-width="8" stroke-linejoin="round"/>
-<circle cx="136" cy="132" r="62" fill="url(#coin)" stroke="#B45309" stroke-width="10"/>
-<circle cx="136" cy="132" r="36" fill="none" stroke="#B45309" stroke-width="9" opacity="0.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">AdMob Earnings — mobile earnings</title>
+  <rect width="512" height="512" rx="112" fill="#152c40"/>
+  <rect x="128" y="48" width="232" height="408" rx="44" fill="#f9f6eb"/>
+  <rect x="148" y="72" width="192" height="324" rx="24" fill="#152c40"/>
+  <rect x="208" y="64" width="72" height="24" rx="12" fill="#f9f6eb"/>
+  <path d="M220 424h48" fill="none" stroke="#152c40" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#79c7b2">
+    <rect x="176" y="280" width="32" height="80" rx="6"/>
+    <rect x="228" y="224" width="32" height="136" rx="6"/>
+    <rect x="280" y="164" width="32" height="196" rx="6"/>
+  </g>
+  <circle cx="356" cy="360" r="76" fill="#edbd65" stroke="#152c40" stroke-width="12"/>
+  <path d="M377 335c-8-10-34-12-42 2-13 23 43 19 41 42-2 18-31 21-43 7m23-64v76" fill="none" stroke="#152c40" stroke-width="10" stroke-linecap="round"/>
 </svg>
