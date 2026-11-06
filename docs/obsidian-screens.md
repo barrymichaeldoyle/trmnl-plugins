@@ -2,6 +2,8 @@
 
 ## Status
 
+16 October 2026, icon refinement: a folded-note display replaces the page-only icon, with matching 512px and 128px marketplace PNGs and a simplified e-ink title-bar symbol. Prepared locally; icon upload is pending approval.
+
 16 October 2026: Mario's recipe review feedback is addressed: responsive title and label modifiers now use explicit `--base` sizes, full and half-vertical group headers scale on X, and half-vertical due tasks use responsive line limits and an eight-row cap to avoid clipping. The daily-task summary now reads “5 left” in compact views, with a separate completion count and a thin progress bar in all four views. The bar includes tasks omitted from the visible list, handles zero and complete states, and uses only framework classes. Lint, all 99 tests, and the build pass. All 456 curated captures pass layout checks with no warnings; the contact sheets were inspected and the visual baselines refreshed. Uploaded to recipe master 500911 on 16 October, verified all four views and Shared against the downloaded live archive, and pulled the GitHub Sync save. Another review is pending; Mario has not been messaged.
 
 9 October 2026: **running end to end with the demo vault.** Obsidian pushes all six screens to six installs on the device; mobile and publishing remain. [`apps/obsidian`](../apps/obsidian/README.md) holds both halves: the TRMNL Screens Obsidian plugin and the Obsidian Screens webhook recipe, with a demo vault that doubles as test data. `pnpm check`, `pnpm test` and `pnpm build` cover it. The responsive and curated review suites pass on all 24 screens (456 captures, with expected text per view), and the contact sheets have been inspected; no visual baselines are recorded yet.
@@ -44,4 +46,4 @@ The shared review tools gained two things for this recipe: `review.allow_line_cl
 ## Open questions
 
 - Whether TRMNL counts a request that it rejects (4xx) against the hourly budget. The plugin counts every request it sends.
-- The listing icon and title-bar icon are a note page with a tick, not the gem used during development, so nothing resembles Obsidian's logo.
+- The listing icon and title-bar icon depict a folded note on a display, with a tick; they remain distinct from Obsidian's gem logo.
